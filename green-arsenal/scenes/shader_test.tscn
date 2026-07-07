@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://83pj3gfonoio"]
+
+[ext_resource type="Material" uid="uid://ct0tpf1wcbdkn" path="res://materials/cel_test_mat.tres" id="1_im7wb"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_h45xw"]
+
+[sub_resource type="Environment" id="Environment_h45xw"]
+ambient_light_source = 1
+
+[node name="ShaderTest" type="Node3D" unique_id=222377480]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=843916994]
+mesh = SubResource("SphereMesh_h45xw")
+surface_material_override/0 = ExtResource("1_im7wb")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D" unique_id=1659273495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30576557, 0.56449056, -0.83522123)
+omni_range = 0.5242393
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2141745509]
+transform = Transform3D(1, 0, 0, 0, 0.8640026, 0.50348735, 0, -0.50348735, 0.8640026, 0, 0, 1.1788528)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1653276934]
+environment = SubResource("Environment_h45xw")

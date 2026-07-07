@@ -1,26 +1,7 @@
 [gd_scene format=3 uid="uid://fxu24q0thxdc"]
 
-[ext_resource type="Material" uid="uid://ct0tpf1wcbdkn" path="res://materials/cel_test_mat.tres" id="1_ig7tw"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_h45xw"]
-
-[sub_resource type="Environment" id="Environment_h45xw"]
-ambient_light_source = 1
+[ext_resource type="PackedScene" uid="uid://83pj3gfonoio" path="res://scenes/shader_test.tscn" id="1_ig7tw"]
 
 [node name="Main" type="Node" unique_id=383612433]
 
-[node name="ShaderTest" type="Node3D" parent="." unique_id=2110488348]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ShaderTest" unique_id=1674558388]
-mesh = SubResource("SphereMesh_h45xw")
-surface_material_override/0 = ExtResource("1_ig7tw")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="ShaderTest/MeshInstance3D" unique_id=1639996181]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30576557, 0.69572335, -0.15951005)
-omni_range = 0.56914634
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="ShaderTest" unique_id=63594636]
-transform = Transform3D(1, 0, 0, 0, 0.8640026, 0.50348735, 0, -0.50348735, 0.8640026, 0, 0, 1.1788528)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="ShaderTest" unique_id=897574732]
-environment = SubResource("Environment_h45xw")
+[node name="ShaderTest" parent="." unique_id=222377480 instance=ExtResource("1_ig7tw")]
