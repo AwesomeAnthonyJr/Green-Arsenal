@@ -10,15 +10,37 @@ ambient_light_source = 1
 [node name="ShaderTest" type="Node3D" unique_id=222377480]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=843916994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09038001, -0.54086864, -0.45522088)
 mesh = SubResource("SphereMesh_h45xw")
 surface_material_override/0 = ExtResource("1_im7wb")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D" unique_id=1659273495]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30576557, 0.56449056, -0.83522123)
-omni_range = 0.5242393
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=201481588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5170331, 0.0777725, 2.3484879)
+mesh = SubResource("SphereMesh_h45xw")
+surface_material_override/0 = ExtResource("1_im7wb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2141745509]
 transform = Transform3D(1, 0, 0, 0, 0.8640026, 0.50348735, 0, -0.50348735, 0.8640026, 0, 0, 1.1788528)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1659273495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81345576, -0.43382502, 0.88739294)
+omni_range = 1.0381542
+omni_shadow_mode = 0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1705199099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81345576, -0.43382502, -0.9121302)
+omni_range = 1.0381542
+omni_shadow_mode = 0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=829180421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0179312, -0.4338255, -1.0927479)
+omni_range = 1.0381542
+omni_shadow_mode = 0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=2094644372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5306735, 0.8977306, 2.4491398)
+omni_range = 1.0381542
+omni_shadow_mode = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1653276934]
 environment = SubResource("Environment_h45xw")
