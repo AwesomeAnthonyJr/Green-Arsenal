@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ct0tpf1wcbdkn"]
+
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="1_joni6"]
+[ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="2_sx5xy"]
+[ext_resource type="Texture2D" uid="uid://bu3wr4034lcts" path="res://textures/test_checker2.png" id="3_nwoab"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_joni6")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_sx5xy")
+shader_parameter/albedo_in_shadow = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("3_nwoab")
+shader_parameter/shadow_threshold = 0.50000002375
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)
