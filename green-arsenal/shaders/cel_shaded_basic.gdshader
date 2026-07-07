@@ -20,9 +20,12 @@ uniform vec2 uv1_offset;
 varying vec3 lit_color;
 varying vec3 shadow_color;
 varying vec3 light_result;
+varying vec3 world_pos;
+varying bool do_spec;
 
 void vertex() {
 	UV = UV * uv1_scale + uv1_offset;
+	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
 }
 
 
@@ -32,8 +35,41 @@ float fresnel(float amount, vec3 normal, vec3 view){
 }
 
 void fragment() {
-	lit_color = texture(texture_albedo, UV).rgb * albedo.rgb;
-	shadow_color = texture(texture_albedo_in_shadow, UV).rgb * albedo_in_shadow.rgb;
+	if (FRONT_FACING){
+		lit_color = texture(texture_albedo, UV).rgb * albedo.rgb;
+		shadow_color = texture(texture_albedo_in_shadow, UV).rgb * albedo_in_shadow.rgb;
+		do_spec = true;
+		
+		ALPHA = 1.0;
+		ALBEDO = vec3(1.0);
+	} else {
+		//for back faces (clipping through map)
+		//cant quite get it to feel right, so just ignore for now
+		vec2 screen_pixel_size = VIEWPORT_SIZE;
+		float aspect = screen_pixel_size.x / screen_pixel_size.y;
+		vec2 uv2 = SCREEN_UV;
+		
+		float vignette = 0.0;
+		
+		if (uv2.y < 0.05 || uv2.y > 0.95) {
+			if (uv2.y < 0.05) {
+				vignette = uv2.y / 0.05;
+			} else {
+				
+			}
+		}
+		if (uv2.x < 0.05 || uv2.x > 0.95) {
+			vignette = 1.0;
+		}
+		
+		vignette = clamp(vignette, 0.0, 1.0);
+		ALPHA = clamp((vignette) - 0.3, 0.0, 1.0);
+		ALPHA = smoothstep(0.1, 0.7, ALPHA);
+		ALBEDO = vec3(ALPHA) * 0.01;
+		lit_color = texture(texture_albedo, UV).rgb * albedo.rgb * (ALPHA);
+		shadow_color = texture(texture_albedo_in_shadow, UV).rgb * albedo_in_shadow.rgb * (ALPHA);
+		do_spec = false;
+	}
 }
 
 vec3 diffuse_calc(vec3 color, vec3 fresnel) {
@@ -57,12 +93,14 @@ void light() {
 		DIFFUSE_LIGHT = diffuse_calc(lit_color, fres2);
 	}
 	//specular
-	vec3 H = normalize(LIGHT + VIEW);
-	float spec = pow(max(dot(NORMAL, H), 0.0), 8.0);
-	spec = step(specular_threshold, spec);
-	if (DIFFUSE_LIGHT == diffuse_calc(lit_color, fres2)){
-		if (SPECULAR_LIGHT == vec3(0.0, 0.0, 0.0)){ 
-			SPECULAR_LIGHT = spec * lit_color * specular_strength;
+	if (do_spec){
+		vec3 H = normalize(LIGHT + VIEW);
+		float spec = pow(max(dot(NORMAL, H), 0.0), 8.0);
+		spec = step(specular_threshold, spec);
+		if (DIFFUSE_LIGHT == diffuse_calc(lit_color, fres2)){
+			if (SPECULAR_LIGHT == vec3(0.0, 0.0, 0.0)){ 
+				SPECULAR_LIGHT = spec * lit_color * specular_strength;
+			}
 		}
 	}
 }

@@ -15,7 +15,7 @@ mesh = SubResource("SphereMesh_h45xw")
 surface_material_override/0 = ExtResource("1_im7wb")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=201481588]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5170331, 0.0777725, 2.3484879)
+transform = Transform3D(5.51, 0, 0, 0, 5.51, 0, 0, 0, 5.51, 1.5170331, 0.0777725, 2.3484879)
 mesh = SubResource("SphereMesh_h45xw")
 surface_material_override/0 = ExtResource("1_im7wb")
 
@@ -33,7 +33,7 @@ omni_range = 1.0381542
 omni_shadow_mode = 0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=829180421]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0179312, -0.4338255, -1.0927479)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2392423, -0.4338255, -1.0927479)
 omni_range = 1.0381542
 omni_shadow_mode = 0
 
