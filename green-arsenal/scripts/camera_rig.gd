@@ -13,7 +13,7 @@ extends Node3D
 #maybe update to shapecast if theres clipping problems
 @onready var raycast = $TwistPivot/PitchPivot/RayCast3D
 
-const MAX_DIST = 5.0
+const MAX_DIST = 3.0
 
 func connect_inputs():
 	var manager = find_main(self).input_manager

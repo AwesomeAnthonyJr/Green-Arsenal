@@ -18,8 +18,8 @@ mirror = NodePath("../Player")
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=1881616207]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.09999999, 4.999999)
 
 [node name="RayCast3D" type="RayCast3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=949016877]
-target_position = Vector3(0, 0, 5)
+target_position = Vector3(0, 0, 3)
 collision_mask = 2
