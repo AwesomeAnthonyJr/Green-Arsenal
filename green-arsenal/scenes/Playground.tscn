@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhaffqlwgnwei"]
 
-[ext_resource type="PackedScene" uid="uid://dmvvi6bp6n0yo" path="res://player.tscn" id="1_80c3a"]
+[ext_resource type="PackedScene" uid="uid://dmvvi6bp6n0yo" path="res://scenes/player.tscn" id="1_80c3a"]
+[ext_resource type="Material" uid="uid://c8i4sbymv8db4" path="res://materials/placeholder_soil.tres" id="1_d17em"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3invt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -12,6 +13,7 @@ sky_material = SubResource("ProceduralSkyMaterial_3invt")
 [sub_resource type="Environment" id="Environment_d17em"]
 background_mode = 2
 sky = SubResource("Sky_80c3a")
+ambient_light_source = 1
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g36yv"]
@@ -20,7 +22,7 @@ size = Vector2(10, 10)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1cwr0"]
 data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
 
-[node name="Node3D" type="Node3D" unique_id=798919202]
+[node name="Playground" type="Node3D" unique_id=798919202]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1573310155]
 environment = SubResource("Environment_d17em")
@@ -32,6 +34,7 @@ shadow_enabled = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1616923273]
 transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_g36yv")
+surface_material_override/0 = ExtResource("1_d17em")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1719110738]
 
@@ -39,5 +42,4 @@ mesh = SubResource("PlaneMesh_g36yv")
 shape = SubResource("ConcavePolygonShape3D_1cwr0")
 
 [node name="Player" parent="." unique_id=278666006 instance=ExtResource("1_80c3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5117428, -2.0347502)
-linear_damp = 3.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1375847, 0)

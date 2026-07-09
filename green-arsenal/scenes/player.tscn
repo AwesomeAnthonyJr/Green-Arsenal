@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmvvi6bp6n0yo"]
 
-[ext_resource type="Script" uid="uid://b2qckescse7h1" path="res://PlayerMovement.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://b2qckescse7h1" path="res://scripts/PlayerMovement.gd" id="1_g2els"]
+[ext_resource type="Material" uid="uid://ct0tpf1wcbdkn" path="res://materials/cel_test_mat.tres" id="2_qhqgy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g36yv"]
 
@@ -9,10 +10,11 @@ points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4
 
 [node name="Player" type="RigidBody3D" unique_id=278666006]
 lock_rotation = true
-script = ExtResource("1_4flbx")
+script = ExtResource("1_g2els")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1178222609]
 mesh = SubResource("CapsuleMesh_g36yv")
+surface_material_override/0 = ExtResource("2_qhqgy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1143345378]
 shape = SubResource("ConvexPolygonShape3D_onrkg")

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://83pj3gfonoio"]
 
+[ext_resource type="Material" uid="uid://c8i4sbymv8db4" path="res://materials/placeholder_soil.tres" id="1_3x27y"]
 [ext_resource type="Material" uid="uid://ct0tpf1wcbdkn" path="res://materials/cel_test_mat.tres" id="1_im7wb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_h45xw"]
@@ -12,7 +13,7 @@ ambient_light_source = 1
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=843916994]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09038001, -0.54086864, -0.45522088)
 mesh = SubResource("SphereMesh_h45xw")
-surface_material_override/0 = ExtResource("1_im7wb")
+surface_material_override/0 = ExtResource("1_3x27y")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=201481588]
 transform = Transform3D(5.51, 0, 0, 0, 5.51, 0, 0, 0, 5.51, 1.5170331, 0.0777725, 2.3484879)
@@ -28,7 +29,7 @@ omni_range = 1.0381542
 omni_shadow_mode = 0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1705199099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81345576, -0.43382502, -0.9121302)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11224592, -0.09501019, -0.9121302)
 omni_range = 1.0381542
 omni_shadow_mode = 0
 
