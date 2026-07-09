@@ -14,6 +14,7 @@ var currentSpeed = walkSpeed;
 var move_dir = Vector2.ZERO
 var is_sprinting = false
 var is_jump_drifting = false
+var is_grounded = false
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -62,8 +63,10 @@ func find_main(x) -> Main:
 
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
+	is_grounded = groundCast.is_colliding()
+	
 	physics_movement(delta)
-	if !groundCast.is_colliding():
+	if !is_grounded:
 		apply_air_drift()
 	else:
 		#not entirely sure if this matters but might as well
@@ -74,12 +77,16 @@ func physics_movement(delta:float) -> void:
 	var input := Vector3.ZERO;
 	input.x = move_dir.y;
 	input.z = move_dir.x;
+	var ground_mult = 1.0
+	if !is_grounded:
+		#less control over in-air movement
+		ground_mult = 0.3
 	if is_sprinting:
 		currentSpeed = sprintSpeed;
 	else:
 		currentSpeed = walkSpeed;
 		#Sprint mechanic 
-	apply_central_force(look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed);
+	apply_central_force(look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult);
 	#Moves the player
 
 #handles the "air drift" for a better jump
@@ -93,7 +100,7 @@ func apply_air_drift() -> void:
 
 #jump has been improved a bit
 func playerJump() -> void:
-	if groundCast.is_colliding():
+	if is_grounded:
 		apply_central_impulse(Vector3.UP * jumpForce);
 		is_jump_drifting = true
 	#Applies jump force 
