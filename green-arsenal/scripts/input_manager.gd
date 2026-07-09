@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 
 func move_input():
 	if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
-		var z_axis = Input.get_axis("move_back", "move_forward")
+		var z_axis = Input.get_axis("move_forward", "move_back")
 		var x_axis = Input.get_axis("move_left", "move_right")
 		move_dir.emit(z_axis, x_axis)
 	else:
