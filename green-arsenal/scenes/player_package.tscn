@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bes4hymed4oow"]
+
+[ext_resource type="PackedScene" uid="uid://dmvvi6bp6n0yo" path="res://scenes/player.tscn" id="1_aaihd"]
+[ext_resource type="Script" uid="uid://ctioco30i1jxg" path="res://scripts/camera_rig.gd" id="2_221em"]
+
+[node name="PlayerPackage" type="Node3D" unique_id=1280539618]
+
+[node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot") instance=ExtResource("1_aaihd")]
+look_pivot = NodePath("../CameraRig/TwistPivot")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=233280687 node_paths=PackedStringArray("mirror")]
+script = ExtResource("2_221em")
+mirror = NodePath("../Player")
+
+[node name="TwistPivot" type="Node3D" parent="CameraRig" unique_id=568910354]
+
+[node name="PitchPivot" type="Node3D" parent="CameraRig/TwistPivot" unique_id=675522541]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=1881616207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 5)
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=949016877]
+target_position = Vector3(0, 0, 5)
+collision_mask = 2

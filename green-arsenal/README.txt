@@ -24,6 +24,8 @@ Basically throw whatever you want under testing, remove whatever you want
 under testing and it should be all fine for the merge.
 
 ***MISC OTHER STUFF***:
+	- The camera detects collisions only from colliders on collision
+	  layer 2; when adding like level geometry make sure has that layer.
 	- When using the cel shader, make sure you have a world environment
 	  node with ambient lighting set to "disabled", or colors will be
 	  sort of washed out. Also make sure you have a directional light

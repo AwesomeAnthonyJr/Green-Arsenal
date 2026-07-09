@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhaffqlwgnwei"]
 
-[ext_resource type="PackedScene" uid="uid://dmvvi6bp6n0yo" path="res://scenes/player.tscn" id="1_80c3a"]
 [ext_resource type="Material" uid="uid://c8i4sbymv8db4" path="res://materials/placeholder_soil.tres" id="1_d17em"]
+[ext_resource type="PackedScene" uid="uid://bes4hymed4oow" path="res://scenes/player_package.tscn" id="2_i20g8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3invt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -37,9 +37,10 @@ mesh = SubResource("PlaneMesh_g36yv")
 surface_material_override/0 = ExtResource("1_d17em")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1719110738]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1616778173]
 shape = SubResource("ConcavePolygonShape3D_1cwr0")
 
-[node name="Player" parent="." unique_id=278666006 instance=ExtResource("1_80c3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1375847, 0)
+[node name="PlayerPackage" parent="." unique_id=1280539618 instance=ExtResource("2_i20g8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2447414, 0)

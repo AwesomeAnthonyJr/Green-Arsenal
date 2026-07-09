@@ -9,6 +9,7 @@ signal move_dir(z, x)
 signal move_stop
 signal sprint(b)
 signal jump
+signal end_jump
 signal pause
 signal shoot
 signal reload
@@ -41,6 +42,8 @@ func sprint_input():
 func jump_input():
 	if Input.is_action_just_pressed("jump"):
 		jump.emit()
+	elif Input.is_action_just_released("jump"):
+		end_jump.emit()
 
 func pause_input():
 	if Input.is_action_just_pressed("pause"):
