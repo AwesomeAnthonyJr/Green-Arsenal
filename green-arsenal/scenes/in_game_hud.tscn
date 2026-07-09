@@ -185,6 +185,9 @@ _data = {
 &"on_bullet_6": SubResource("Animation_m5iab")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m5iab"]
+animation = &"RESET"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ey1u3"]
 animation = &"on_bullet_1"
 
@@ -202,9 +205,6 @@ animation = &"on_bullet_5"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_22r63"]
 animation = &"on_bullet_6"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m5iab"]
-xfade_time = 0.05
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ey1u3"]
 xfade_time = 0.05
@@ -242,7 +242,14 @@ xfade_time = 0.05
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4f0tj"]
 xfade_time = 0.05
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hxefo"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t611j"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h45xw"]
+states/RESET/node = SubResource("AnimationNodeAnimation_m5iab")
+states/RESET/position = Vector2(313.6, -94.4)
 states/Start/position = Vector2(119.20001, -26.719994)
 states/on_bullet_1/node = SubResource("AnimationNodeAnimation_ey1u3")
 states/on_bullet_1/position = Vector2(556.4, -27.400002)
@@ -256,8 +263,8 @@ states/on_bullet_5/node = SubResource("AnimationNodeAnimation_3s1eg")
 states/on_bullet_5/position = Vector2(420.15994, 100.7456)
 states/on_bullet_6/node = SubResource("AnimationNodeAnimation_22r63")
 states/on_bullet_6/position = Vector2(419.68796, 29.912003)
-transitions = ["Start", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_m5iab"), "on_bullet_1", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_ey1u3"), "on_bullet_2", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_26122"), "on_bullet_3", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_bfp8s"), "on_bullet_4", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_dl01e"), "on_bullet_5", "on_bullet_6", SubResource("AnimationNodeStateMachineTransition_3s1eg"), "on_bullet_6", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_22r63"), "on_bullet_1", "on_bullet_6", SubResource("AnimationNodeStateMachineTransition_p1t08"), "on_bullet_6", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_3dbat"), "on_bullet_5", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_ve54s"), "on_bullet_4", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_40yl3"), "on_bullet_3", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_ywslq"), "on_bullet_2", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_4f0tj")]
-graph_offset = Vector2(175, -68)
+transitions = ["on_bullet_1", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_ey1u3"), "on_bullet_2", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_26122"), "on_bullet_3", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_bfp8s"), "on_bullet_4", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_dl01e"), "on_bullet_5", "on_bullet_6", SubResource("AnimationNodeStateMachineTransition_3s1eg"), "on_bullet_6", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_22r63"), "on_bullet_1", "on_bullet_6", SubResource("AnimationNodeStateMachineTransition_p1t08"), "on_bullet_6", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_3dbat"), "on_bullet_5", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_ve54s"), "on_bullet_4", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_40yl3"), "on_bullet_3", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_ywslq"), "on_bullet_2", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_4f0tj"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_hxefo"), "RESET", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_t611j")]
+graph_offset = Vector2(-22, -137)
 
 [node name="InGameHUD" type="CanvasLayer" unique_id=521452179]
 

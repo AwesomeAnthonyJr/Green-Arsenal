@@ -7,10 +7,14 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i20g8"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h45xw"]
+height = 0.2
+
 [node name="Player" type="RigidBody3D" unique_id=278666006]
 lock_rotation = true
 script = ExtResource("1_g2els")
 jumpForce = 6.0
+heavy_grav = 1.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1178222609]
 mesh = SubResource("CapsuleMesh_g36yv")
@@ -19,6 +23,6 @@ surface_material_override/0 = ExtResource("2_qhqgy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1143345378]
 shape = SubResource("CapsuleShape3D_i20g8")
 
-[node name="GroundCast" type="RayCast3D" parent="." unique_id=654174016]
-transform = Transform3D(1, 0, 0, 0, 1, 1.4901161e-08, 0, -1.4901161e-08, 1, 0, -0.9, 0)
-target_position = Vector3(0, -0.2, 0)
+[node name="GroundCast" type="ShapeCast3D" parent="." unique_id=1999465458]
+shape = SubResource("CylinderShape3D_h45xw")
+target_position = Vector3(0, -0.95, 0)

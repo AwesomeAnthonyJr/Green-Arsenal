@@ -4,7 +4,8 @@ extends RigidBody3D
 #guys feel free to tweak these this is just some random guesses
 @export var light_grav: float = 0.7
 @export var heavy_grav: float = 1.5
-@onready var groundCast: RayCast3D = $GroundCast;
+#switched raycast to shapecast for more coverage
+@onready var groundCast: ShapeCast3D = $GroundCast;
 
 const walkSpeed = 1.5;
 const sprintSpeed = 2.5;
@@ -63,7 +64,10 @@ func find_main(x) -> Main:
 
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
-	is_grounded = groundCast.is_colliding()
+	if groundCast.get_collision_count() > 0:
+		is_grounded = true
+	else:
+		is_grounded = false
 	
 	physics_movement(delta)
 	if !is_grounded:

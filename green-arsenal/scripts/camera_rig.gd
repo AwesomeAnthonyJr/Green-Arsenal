@@ -14,6 +14,7 @@ extends Node3D
 @onready var raycast = $TwistPivot/PitchPivot/RayCast3D
 
 const MAX_DIST = 3.0
+const PITCH_OFFSET = Vector3(0, 0.6, 0)
 
 func connect_inputs():
 	var manager = find_main(self).input_manager
@@ -24,8 +25,8 @@ func read_look(y, x):
 	pitch_pivot.rotate_x(x);
 	pitch_pivot.rotation.x = clamp(
 		pitch_pivot.rotation.x,
-		deg_to_rad(-30),
-		deg_to_rad(30)
+		deg_to_rad(-60),
+		deg_to_rad(45)
 	)
 	#Locks the camera so it doesn't go beyond boundaries
 	
@@ -49,4 +50,4 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
-	global_position = global_position.lerp(mirror.global_position, 0.5)
+	global_position = global_position.lerp(mirror.global_position + PITCH_OFFSET, 0.5)

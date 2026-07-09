@@ -32,12 +32,13 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reload"):
 		var num_to_use = 0
 		for i in 7:
-			var temp = current_bullet - i
-			if temp < 0:
-				temp += 7
+			var temp = i
 			if petal_empty(temp) and num_to_use == 0:
 				num_to_use = temp
 		reload_petal(num_to_use)
+		current_bullet = 1
+		animation_tree["parameters/playback"].travel("RESET")
+
 
 func _ready() -> void:
 	update_petals()
