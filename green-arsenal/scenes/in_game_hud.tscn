@@ -1,0 +1,371 @@
+[gd_scene format=3 uid="uid://b1te36p3nyvr4"]
+
+[ext_resource type="Shader" uid="uid://dxlvv1no611k1" path="res://shaders/color_invert.gdshader" id="1_eyt8w"]
+[ext_resource type="Texture2D" uid="uid://dkrcdj2qvhr0p" path="res://ui/green_arsenal_ui_crosshair.png" id="1_twk1s"]
+[ext_resource type="Script" uid="uid://d0lvaijyy5nsx" path="res://scripts/crosshair_boss.gd" id="2_ey1u3"]
+[ext_resource type="Texture2D" uid="uid://defcpqgo04smo" path="res://ui/petals-Sheet.png" id="3_hbevh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+shader = ExtResource("1_eyt8w")
+
+[sub_resource type="Animation" id="Animation_p1t08"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3dbat"]
+resource_name = "fly_away"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(5.8563437, 4.000002),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ve54s"]
+_data = {
+&"RESET": SubResource("Animation_p1t08"),
+&"fly_away": SubResource("Animation_3dbat")
+}
+
+[sub_resource type="Animation" id="Animation_ey1u3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_26122"]
+resource_name = "on_bullet_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bfp8s"]
+resource_name = "on_bullet_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0471975511965976]
+}
+
+[sub_resource type="Animation" id="Animation_dl01e"]
+resource_name = "on_bullet_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.0943951023931953]
+}
+
+[sub_resource type="Animation" id="Animation_3s1eg"]
+resource_name = "on_bullet_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.141592653589793]
+}
+
+[sub_resource type="Animation" id="Animation_22r63"]
+resource_name = "on_bullet_5"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-4.1887902047863905]
+}
+
+[sub_resource type="Animation" id="Animation_m5iab"]
+resource_name = "on_bullet_6"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.235987755982989]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dl01e"]
+_data = {
+&"RESET": SubResource("Animation_ey1u3"),
+&"on_bullet_1": SubResource("Animation_26122"),
+&"on_bullet_2": SubResource("Animation_bfp8s"),
+&"on_bullet_3": SubResource("Animation_dl01e"),
+&"on_bullet_4": SubResource("Animation_3s1eg"),
+&"on_bullet_5": SubResource("Animation_22r63"),
+&"on_bullet_6": SubResource("Animation_m5iab")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ey1u3"]
+animation = &"on_bullet_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_26122"]
+animation = &"on_bullet_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bfp8s"]
+animation = &"on_bullet_3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dl01e"]
+animation = &"on_bullet_4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3s1eg"]
+animation = &"on_bullet_5"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_22r63"]
+animation = &"on_bullet_6"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m5iab"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ey1u3"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_26122"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bfp8s"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dl01e"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3s1eg"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_22r63"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p1t08"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3dbat"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ve54s"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_40yl3"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ywslq"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4f0tj"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h45xw"]
+states/Start/position = Vector2(119.20001, -26.719994)
+states/on_bullet_1/node = SubResource("AnimationNodeAnimation_ey1u3")
+states/on_bullet_1/position = Vector2(556.4, -27.400002)
+states/on_bullet_2/node = SubResource("AnimationNodeAnimation_26122")
+states/on_bullet_2/position = Vector2(704.92163, 30.640003)
+states/on_bullet_3/node = SubResource("AnimationNodeAnimation_bfp8s")
+states/on_bullet_3/position = Vector2(704.992, 99.87648)
+states/on_bullet_4/node = SubResource("AnimationNodeAnimation_dl01e")
+states/on_bullet_4/position = Vector2(556.80005, 162.16)
+states/on_bullet_5/node = SubResource("AnimationNodeAnimation_3s1eg")
+states/on_bullet_5/position = Vector2(420.15994, 100.7456)
+states/on_bullet_6/node = SubResource("AnimationNodeAnimation_22r63")
+states/on_bullet_6/position = Vector2(419.68796, 29.912003)
+transitions = ["Start", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_m5iab"), "on_bullet_1", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_ey1u3"), "on_bullet_2", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_26122"), "on_bullet_3", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_bfp8s"), "on_bullet_4", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_dl01e"), "on_bullet_5", "on_bullet_6", SubResource("AnimationNodeStateMachineTransition_3s1eg"), "on_bullet_6", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_22r63"), "on_bullet_1", "on_bullet_6", SubResource("AnimationNodeStateMachineTransition_p1t08"), "on_bullet_6", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_3dbat"), "on_bullet_5", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_ve54s"), "on_bullet_4", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_40yl3"), "on_bullet_3", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_ywslq"), "on_bullet_2", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_4f0tj")]
+graph_offset = Vector2(175, -68)
+
+[node name="InGameHUD" type="CanvasLayer" unique_id=521452179]
+
+[node name="Crosshair" type="Control" parent="." unique_id=1978330618]
+material = SubResource("ShaderMaterial_7mycd")
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_ey1u3")
+petal_1_id = 1
+petal_2_id = 2
+petal_3_id = 3
+petal_4_id = 4
+petal_5_id = 5
+petal_6_id = 6
+
+[node name="CenterDot" type="Sprite2D" parent="Crosshair" unique_id=379345989]
+use_parent_material = true
+texture = ExtResource("1_twk1s")
+
+[node name="Rotate0" type="Node2D" parent="Crosshair" unique_id=1710186853]
+use_parent_material = true
+
+[node name="Petal1" type="Sprite2D" parent="Crosshair/Rotate0" unique_id=745273315]
+use_parent_material = true
+texture = ExtResource("3_hbevh")
+hframes = 10
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Crosshair/Rotate0/Petal1" unique_id=1046341147]
+libraries/ = SubResource("AnimationLibrary_ve54s")
+
+[node name="Rotate60" type="Node2D" parent="Crosshair" unique_id=600976581]
+use_parent_material = true
+rotation = 1.0471976
+
+[node name="Petal2" type="Sprite2D" parent="Crosshair/Rotate60" unique_id=1826355506]
+use_parent_material = true
+texture = ExtResource("3_hbevh")
+hframes = 10
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Crosshair/Rotate60/Petal2" unique_id=1901464234]
+libraries/ = SubResource("AnimationLibrary_ve54s")
+
+[node name="Rotate120" type="Node2D" parent="Crosshair" unique_id=884906073]
+use_parent_material = true
+rotation = 2.0943952
+
+[node name="Petal3" type="Sprite2D" parent="Crosshair/Rotate120" unique_id=368976080]
+use_parent_material = true
+texture = ExtResource("3_hbevh")
+hframes = 10
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Crosshair/Rotate120/Petal3" unique_id=1713375586]
+libraries/ = SubResource("AnimationLibrary_ve54s")
+
+[node name="Rotate180" type="Node2D" parent="Crosshair" unique_id=759676690]
+use_parent_material = true
+rotation = 3.1415927
+
+[node name="Petal4" type="Sprite2D" parent="Crosshair/Rotate180" unique_id=1664358026]
+use_parent_material = true
+texture = ExtResource("3_hbevh")
+hframes = 10
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Crosshair/Rotate180/Petal4" unique_id=1358274263]
+libraries/ = SubResource("AnimationLibrary_ve54s")
+
+[node name="Rotate240" type="Node2D" parent="Crosshair" unique_id=656105705]
+use_parent_material = true
+rotation = 4.1887903
+
+[node name="Petal5" type="Sprite2D" parent="Crosshair/Rotate240" unique_id=1664505338]
+use_parent_material = true
+texture = ExtResource("3_hbevh")
+hframes = 10
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Crosshair/Rotate240/Petal5" unique_id=574246824]
+libraries/ = SubResource("AnimationLibrary_ve54s")
+
+[node name="Rotate300" type="Node2D" parent="Crosshair" unique_id=1332297016]
+use_parent_material = true
+rotation = 5.2359877
+
+[node name="Petal6" type="Sprite2D" parent="Crosshair/Rotate300" unique_id=379535310]
+use_parent_material = true
+texture = ExtResource("3_hbevh")
+hframes = 10
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Crosshair/Rotate300/Petal6" unique_id=1601349223]
+libraries/ = SubResource("AnimationLibrary_ve54s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Crosshair" unique_id=1930102697]
+libraries/ = SubResource("AnimationLibrary_dl01e")
+
+[node name="AnimationTree" type="AnimationTree" parent="Crosshair" unique_id=1336472976]
+tree_root = SubResource("AnimationNodeStateMachine_h45xw")
+anim_player = NodePath("../AnimationPlayer")
