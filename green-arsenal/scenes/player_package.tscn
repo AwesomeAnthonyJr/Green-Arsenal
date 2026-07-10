@@ -6,6 +6,7 @@
 [node name="PlayerPackage" type="Node3D" unique_id=1280539618]
 
 [node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot") instance=ExtResource("1_aaihd")]
+linear_damp = 3.0
 look_pivot = NodePath("../CameraRig/TwistPivot")
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=233280687 node_paths=PackedStringArray("mirror")]
