@@ -16,6 +16,14 @@ var move_dir = Vector2.ZERO
 var is_sprinting = false
 var is_jump_drifting = false
 var is_grounded = false
+
+@onready var cameraRig = $"../CameraRig/TwistPivot/PitchPivot/Camera3D"
+@onready var aimRayCast = $"../CameraRig/TwistPivot/PitchPivot/AimRayCast"
+@onready var gun = $Gun
+
+const bulletScene = preload("res://scenes/Bullet.tscn")
+
+
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -108,3 +116,19 @@ func playerJump() -> void:
 		apply_central_impulse(Vector3.UP * jumpForce);
 		is_jump_drifting = true
 	#Applies jump force 
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("shoot"):
+		shoot()
+func shoot():
+	var targetPoint = Vector3()
+	if aimRayCast.is_colliding():
+		targetPoint = aimRayCast.get_collision_point()
+	else:
+		targetPoint = aimRayCast.global_position - (aimRayCast.global_transform.basis.z * 100)
+	
+	var bullet = bulletScene.instantiate()
+	get_parent().add_child(bullet)
+	
+	bullet.global_position = gun.global_position
+	bullet.look_at(targetPoint, Vector3.UP)

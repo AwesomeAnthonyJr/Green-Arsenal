@@ -1,7 +1,6 @@
-#extends Node
 extends RigidBody3D
-@export var speed: float = 30.0
-
+@export var speed: float = 50.0
+#Bullet Speed
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,3 +13,8 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	global_transform.origin -= global_transform.basis.z * speed * delta
 	
+
+
+func _on_timer_timeout() -> void:
+	queue_free() 
+	pass # Replace with function body.
