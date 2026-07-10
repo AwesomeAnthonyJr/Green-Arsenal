@@ -13,6 +13,8 @@ extends Node3D
 #maybe update to shapecast if theres clipping problems
 @onready var raycast = $TwistPivot/PitchPivot/RayCast3D
 
+@onready var aimRayCast = $TwistPivot/PitchPivot/AimRayCast
+
 const MAX_DIST = 3.0
 const PITCH_OFFSET = Vector3(0, 0.6, 0)
 

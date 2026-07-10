@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b2odn8ye3pg8i"]
+
+[ext_resource type="Script" uid="uid://c2nui37gbn2cw" path="res://scripts/bullet.gd" id="1_hf8mt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_htlxk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_adyyn"]
+
+[node name="Bullet" type="Node" unique_id=1986131823]
+script = ExtResource("1_hf8mt")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=901181455]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1053490136]
+shape = SubResource("SphereShape3D_htlxk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=278020171]
+mesh = SubResource("SphereMesh_adyyn")
