@@ -6,14 +6,17 @@ class_name Bullet
 #Bullet Speed
 
 #raycast to detect soil / puzzle stuff
-@onready var puzzle_cast = $RayCast3D
+@onready var puzzle_cast: RayCast3D = $RayCast3D
 #shapecast to give a slight margin in favor of the player for enemies; enemy colliders on layer 3
-@onready var enemy_cast = $ShapeCast3D
+@onready var enemy_cast: ShapeCast3D = $ShapeCast3D
 
 
 
 func _physics_process(delta: float) -> void:
 	global_transform.origin -= global_transform.basis.z * speed * delta
+	
+	if enemy_cast.is_colliding():
+		hit_enemy(enemy_cast.get_collider(0))
 	
 	if puzzle_cast.is_colliding():
 		if puzzle_cast.get_collider().is_in_group("soil"):
@@ -21,10 +24,18 @@ func _physics_process(delta: float) -> void:
 			destroy_bullet()
 		else:
 			destroy_bullet()
+	
+	
 
 #will be inherited by subclasses
 func plant_seed():
 	print("PLANTING A SEED!")
+
+#will be inherited by subclasses
+func hit_enemy(obj):
+	print("HIT ", obj.name)
+	destroy_bullet()
+
 
 func _on_timer_timeout() -> void:
 	destroy_bullet()

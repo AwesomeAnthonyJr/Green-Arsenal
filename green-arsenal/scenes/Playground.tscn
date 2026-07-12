@@ -17,6 +17,10 @@ sky = SubResource("Sky_80c3a")
 ambient_light_source = 1
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_h45xw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h45xw"]
+
 [node name="Playground" type="Node3D" unique_id=798919202]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1573310155]
@@ -48,3 +52,13 @@ collision_layer = 3
 [node name="CSGBox3D" type="CSGBox3D" parent="NonSoil" unique_id=1501977630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -9.5)
 size = Vector3(11, 2, 8)
+
+[node name="TestEnemy(NotReally)" type="StaticBody3D" parent="." unique_id=1195126949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2999077, 1.2016754, -8.460548)
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestEnemy(NotReally)" unique_id=257780812]
+shape = SubResource("BoxShape3D_h45xw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestEnemy(NotReally)" unique_id=164917765]
+mesh = SubResource("BoxMesh_h45xw")
