@@ -24,6 +24,9 @@ Basically throw whatever you want under testing, remove whatever you want
 under testing and it should be all fine for the merge.
 
 ***MISC OTHER STUFF***:
+	- The script "preloads.gd" is an autoload script, meaning it is globally loaded.
+	  in the script it just has a bunch of preloaded stuff, if you are loading
+	  something that needs to be loaded and unloaded alot, consider putting it there.
 	- The camera detects collisions only from colliders on collision
 	  layer 2; when adding like level geometry make sure has that layer.
 	- When using the cel shader, make sure you have a world environment

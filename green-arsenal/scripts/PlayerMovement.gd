@@ -141,7 +141,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func shoot():
 	
-	
+	#using the global "Preloads" script means it just preloads it once i think (less expensive?)
 	var bullet = Preloads.bullet_seed.instantiate()
 	get_parent().add_child(bullet)
 	
