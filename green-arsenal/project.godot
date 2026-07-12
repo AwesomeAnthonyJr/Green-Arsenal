@@ -15,6 +15,14 @@ run/main_scene="uid://fxu24q0thxdc"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Preloads="*uid://c5n6qt55bpyrn"
+
+[global_group]
+
+soil="for planting seeds in"
+
 [input]
 
 move_forward={

@@ -19,10 +19,10 @@ var is_grounded = false
 
 @onready var cameraRig = $"../CameraRig/TwistPivot/PitchPivot/Camera3D"
 @onready var aimRayCast = $"../CameraRig/TwistPivot/PitchPivot/AimRayCast"
-@onready var gun = $Gun
+@onready var gun = $Pivot/Pivot2/Gun
 
-const bulletScene = preload("res://scenes/Bullet.tscn")
-
+@onready var pivot = $Pivot
+@onready var pivot_2 = $Pivot/Pivot2
 
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
@@ -78,11 +78,29 @@ func _physics_process(delta: float) -> void:
 		is_grounded = false
 	
 	physics_movement(delta)
+	physics_looking()
+	gun_rotation()
 	if !is_grounded:
 		apply_air_drift()
 	else:
 		#not entirely sure if this matters but might as well
 		gravity_scale = 1.0
+
+func gun_rotation():
+	var targetPoint = Vector3()
+	if aimRayCast.is_colliding():
+		targetPoint = aimRayCast.get_collision_point()
+	else:
+		targetPoint = aimRayCast.global_position - (aimRayCast.global_transform.basis.z * 100)
+	gun.look_at(targetPoint, Vector3.UP)
+
+func physics_looking() -> void:
+	pivot.rotation.y = lerp_angle(pivot.rotation.y, look_pivot.rotation.y, 0.5)
+	###extra stuff for more of a 3d platformer vibe, could be good to use later!
+	#if move_dir != Vector2.ZERO:
+	#	var temp = Vector2(-move_dir.y, -move_dir.x)
+	#	pivot_2.rotation.y = lerp_angle(pivot_2.rotation.y, temp.angle(), 0.1)
+	#pass
 
 #putting the movement aside here 
 func physics_movement(delta:float) -> void:
@@ -120,15 +138,12 @@ func playerJump() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot"):
 		shoot()
+
 func shoot():
-	var targetPoint = Vector3()
-	if aimRayCast.is_colliding():
-		targetPoint = aimRayCast.get_collision_point()
-	else:
-		targetPoint = aimRayCast.global_position - (aimRayCast.global_transform.basis.z * 100)
 	
-	var bullet = bulletScene.instantiate()
+	
+	var bullet = Preloads.bullet_seed.instantiate()
 	get_parent().add_child(bullet)
 	
 	bullet.global_position = gun.global_position
-	bullet.look_at(targetPoint, Vector3.UP)
+	bullet.global_rotation = gun.global_rotation

@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://5n6ng444mg3t"]
+
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="1_74oih"]
+[ext_resource type="Texture2D" uid="uid://bdq5e48ahq0cf" path="res://textures/test_notsoil.png" id="2_74oih"]
+[ext_resource type="Texture2D" uid="uid://iss7wppsijsp" path="res://textures/test_notsoil_dark.png" id="3_p3kno"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_74oih")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_74oih")
+shader_parameter/albedo_in_shadow = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("3_p3kno")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.96999997831856
+shader_parameter/specular_strength = 0.70000001043084
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.0499999988824
+shader_parameter/uv1_scale = Vector2(10, 10)
+shader_parameter/uv1_offset = Vector2(0, 0)
