@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://c8i4sbymv8db4" path="res://materials/placeholder_soil.tres" id="1_d17em"]
 [ext_resource type="PackedScene" uid="uid://bes4hymed4oow" path="res://scenes/player_package.tscn" id="2_i20g8"]
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="3_8tsvv"]
+[ext_resource type="PackedScene" uid="uid://d2b7pimm2lunt" path="res://scenes/enemy.tscn" id="4_t01tg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3invt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -62,3 +63,9 @@ shape = SubResource("BoxShape3D_h45xw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TestEnemy(NotReally)" unique_id=164917765]
 mesh = SubResource("BoxMesh_h45xw")
+
+[node name="Enemy" parent="." unique_id=1493099871 node_paths=PackedStringArray("player") instance=ExtResource("4_t01tg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
+player = NodePath("../PlayerPackage/Player")
+
+[editable path="PlayerPackage"]

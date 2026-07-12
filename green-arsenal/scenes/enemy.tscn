@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d2b7pimm2lunt"]
+
+[ext_resource type="Script" uid="uid://cw82473gdcmih" path="res://enemy.gd" id="1_7p1mj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g36yv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g36yv"]
+
+[node name="Enemy" type="CharacterBody3D" unique_id=553297755]
+collision_layer = 4
+script = ExtResource("1_7p1mj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1900204776]
+mesh = SubResource("BoxMesh_g36yv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=429253756]
+shape = SubResource("BoxShape3D_g36yv")

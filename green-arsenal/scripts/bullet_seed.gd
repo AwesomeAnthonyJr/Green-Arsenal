@@ -7,4 +7,5 @@ func plant_seed():
 
 func hit_enemy(obj):
 	print("HIT ", obj.name, " WITH A BULLET SEED!")
+	super(obj)
 	destroy_bullet()

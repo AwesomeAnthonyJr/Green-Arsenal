@@ -15,15 +15,17 @@ class_name Bullet
 func _physics_process(delta: float) -> void:
 	global_transform.origin -= global_transform.basis.z * speed * delta
 	
+	enemy_cast.force_shapecast_update()
+	puzzle_cast.force_raycast_update()
+	
 	if enemy_cast.is_colliding():
 		hit_enemy(enemy_cast.get_collider(0))
-	
+		return
 	if puzzle_cast.is_colliding():
 		if puzzle_cast.get_collider().is_in_group("soil"):
 			plant_seed()
-			destroy_bullet()
-		else:
-			destroy_bullet()
+		destroy_bullet()
+			
 	
 	
 
@@ -34,6 +36,11 @@ func plant_seed():
 #will be inherited by subclasses
 func hit_enemy(obj):
 	print("HIT ", obj.name)
+	if obj.has_method("take_damage"):
+		print("Taking damage")
+		obj.take_damage(2)
+	else:
+		print("FAIL: obj does not have take_damageFunction")
 	destroy_bullet()
 
 
