@@ -12,7 +12,7 @@ heavy_grav = 1.5
 look_pivot = NodePath("../CameraRig/TwistPivot")
 
 [node name="Gun" type="Node3D" parent="Player" unique_id=1247229638]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5119957, 0.27955627, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57016766, 0.27955627, 0)
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=233280687 node_paths=PackedStringArray("mirror")]
 script = ExtResource("2_221em")
