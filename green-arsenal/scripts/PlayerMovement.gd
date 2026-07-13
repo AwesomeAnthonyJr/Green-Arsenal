@@ -213,7 +213,7 @@ func shoot():
 	match loaded_in_gun[current_bullet]:
 		4:
 			bullet = Preloads.life_seed.instantiate()
-	get_parent().add_child(bullet)
+	get_parent().get_parent().add_child(bullet)
 	
 	bullet.global_position = shooter.global_position
 	bullet.global_rotation = shooter.global_rotation

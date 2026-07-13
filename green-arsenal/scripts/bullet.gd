@@ -10,7 +10,12 @@ class_name Bullet
 #shapecast to give a slight margin in favor of the player for enemies; enemy colliders on layer 3
 @onready var enemy_cast: ShapeCast3D = $ShapeCast3D
 
-
+func align_collision_rotation(norm, obj):
+	#print(norm)
+	var new_y = norm
+	var new_x = new_y.cross(obj.global_transform.basis.z).normalized()
+	var new_z = new_x.cross(new_y).normalized()
+	obj.global_transform.basis = Basis(new_x, new_y, new_z)
 
 func _physics_process(delta: float) -> void:
 	global_transform.origin -= global_transform.basis.z * speed * delta
@@ -23,14 +28,13 @@ func _physics_process(delta: float) -> void:
 		return
 	if puzzle_cast.is_colliding():
 		if puzzle_cast.get_collider().is_in_group("soil"):
-			plant_seed()
+			plant_seed(puzzle_cast.get_collision_point(), puzzle_cast.get_collision_normal())
 		destroy_bullet()
-			
 	
 	
 
 #will be inherited by subclasses
-func plant_seed():
+func plant_seed(point, norm):
 	print("PLANTING A SEED!")
 
 #will be inherited by subclasses

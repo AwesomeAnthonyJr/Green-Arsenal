@@ -2,7 +2,7 @@ extends Bullet
 #is a subclass of bullet
 #as such, requires a timer, a racyast, and a shapecast as a child
 
-func plant_seed():
+func plant_seed(point, norm):
 	print("PLANTING A LIFE SEED!")
 
 func hit_enemy(obj):
