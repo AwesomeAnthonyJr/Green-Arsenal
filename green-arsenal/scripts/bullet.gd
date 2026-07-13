@@ -2,6 +2,8 @@ extends Node3D
 class_name Bullet
 #class name so special seeds can just extend the behavior
 
+var player: Player
+
 @export var speed: float = 50.0
 #Bullet Speed
 

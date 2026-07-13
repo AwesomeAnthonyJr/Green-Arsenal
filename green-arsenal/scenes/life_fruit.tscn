@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://by7qpr87u2351"]
 
 [ext_resource type="Material" uid="uid://oo177hw72h6" path="res://materials/player_skin.tres" id="1_bp8o5"]
+[ext_resource type="Script" uid="uid://bxvfy4ekd7ld2" path="res://scripts/life_fruit.gd" id="1_hvcur"]
 [ext_resource type="Texture2D" uid="uid://c0pj7rftjng4h" path="res://ui/life_ui_1.png" id="2_bp8o5"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_h45xw"]
@@ -13,7 +14,11 @@ top_radius = 0.01
 bottom_radius = 0.06
 height = 0.5
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_h45xw"]
+radius = 0.25276148
+
 [node name="LifeFruit" type="Node3D" unique_id=1252632312]
+script = ExtResource("1_hvcur")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=48345425]
 mesh = SubResource("CylinderMesh_h45xw")
@@ -44,6 +49,18 @@ transform = Transform3D(0.5, 0, 0, 0, -0.41348332, -0.08773688, 0, 0.073698975, 
 mesh = SubResource("CylinderMesh_bp8o5")
 surface_material_override/0 = ExtResource("1_bp8o5")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1032126713]
-transform = Transform3D(0.5, 0, 0, 0, 0.49995723, -0.006540357, 0, 0.006540357, 0.49995723, 0, 0.82675385, 0.31064087)
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1379381275]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0, 0.82675385, 0.31064087)
 texture = ExtResource("2_bp8o5")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1032126713]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.82675385, 0.31064087)
+texture = ExtResource("2_bp8o5")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1712709113]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=126242552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77507716, 0.2133123)
+shape = SubResource("SphereShape3D_h45xw")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

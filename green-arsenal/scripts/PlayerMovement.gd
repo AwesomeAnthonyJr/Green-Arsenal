@@ -32,6 +32,11 @@ var supress_movement = false
 var is_reloading = false
 var current_bullet = 0
 var loaded_in_gun = [0, 0, 0, 0, 0, 0]
+var max_health = 3
+var current_health = 1
+
+var plant_max = 3
+var active_plants = []
 
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
@@ -77,7 +82,7 @@ func read_pause():
 	#Unlocks the curser on esc press
 func read_shoot():
 	is_reloading = false
-	print(current_bullet)
+	#print(current_bullet)
 	if current_bullet < 7:
 		var new_curr = 5
 		for i in loaded_in_gun.size():
@@ -210,6 +215,7 @@ func playerJump() -> void:
 func shoot():
 	#using the global "Preloads" script means it just preloads it once i think (less expensive?)
 	var bullet = Preloads.bullet_seed.instantiate()
+	var is_special = false
 	match loaded_in_gun[current_bullet]:
 		4:
 			bullet = Preloads.life_seed.instantiate()
@@ -217,3 +223,19 @@ func shoot():
 	
 	bullet.global_position = shooter.global_position
 	bullet.global_rotation = shooter.global_rotation
+	bullet.player = self
+	
+	var temp_plants = []
+	for p in active_plants:
+		if is_instance_valid(p):
+			temp_plants.append(p)
+	active_plants = temp_plants
+
+func check_special_plants():
+	if active_plants.size() > plant_max:
+		active_plants[0].wither_self()
+
+func heal_1():
+	current_health += 1
+	if current_health > max_health:
+		current_health = max_health

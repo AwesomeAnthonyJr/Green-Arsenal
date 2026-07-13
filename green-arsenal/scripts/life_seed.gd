@@ -8,6 +8,9 @@ func plant_seed(point, norm):
 	get_parent().add_child(inst)
 	inst.global_position = point
 	align_collision_rotation(norm, inst)
+	
+	player.active_plants.append(inst)
+	player.check_special_plants()
 
 func hit_enemy(obj):
 	print("HIT ", obj.name, " WITH A LIFE SEED!")
