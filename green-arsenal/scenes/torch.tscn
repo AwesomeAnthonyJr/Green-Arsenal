@@ -7,9 +7,8 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r3k50"]
 height = 1.0
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_o2tjn"]
-height = 1.5
-radius = 1.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_o2tjn"]
+radius = 1.2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ndh0a"]
 height = 1.5
@@ -42,7 +41,7 @@ collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=762661927]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5870671, 0)
-shape = SubResource("CylinderShape3D_o2tjn")
+shape = SubResource("SphereShape3D_o2tjn")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=66837617]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1068844, 0)

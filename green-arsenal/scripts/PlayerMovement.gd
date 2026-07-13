@@ -147,6 +147,7 @@ func _process(delta: float) -> void:
 
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
+	#print(gravity_scale)
 	#print(is_grounded, ", ", gravity_scale)
 	if groundCast.get_collision_count() > 0:
 		if !is_grounded:
@@ -162,10 +163,10 @@ func _physics_process(delta: float) -> void:
 		gun_rotation()
 	if !is_grounded:
 		apply_air_drift(delta)
+		#apply_central_force(Vector3.DOWN * 10 * gravity_scale)
+		#print(gravity_scale)
 	else:
-		#weirdly the player just kinda doesnt fall without this??? (when removing lilypad platforms)
-		apply_central_force(Vector3.DOWN)
-		gravity_scale = 1.0
+		pass
 func gun_rotation():
 	var targetPoint = Vector3()
 	if aimRayCast.is_colliding():
@@ -228,6 +229,8 @@ func shoot():
 	match loaded_in_gun[current_bullet]:
 		2:
 			bullet = Preloads.blaze_seed.instantiate()
+		3:
+			bullet = Preloads.bounce_seed.instantiate()
 		4:
 			bullet = Preloads.life_seed.instantiate()
 		5:

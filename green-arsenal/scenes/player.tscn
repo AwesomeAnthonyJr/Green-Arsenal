@@ -157,6 +157,7 @@ height = 0.2
 radius = 0.18
 
 [node name="Player" type="RigidBody3D" unique_id=278666006 groups=["player"]]
+can_sleep = false
 lock_rotation = true
 script = ExtResource("1_g2els")
 
