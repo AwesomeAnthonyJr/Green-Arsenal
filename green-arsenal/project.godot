@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Preloads="*uid://c5n6qt55bpyrn"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [global_group]
 
 soil="for planting seeds in"

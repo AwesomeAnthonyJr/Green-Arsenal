@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://b2chw2o1ec7ob" path="res://scripts/revolver.gd" id="6_bfp8s"]
 [ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="7_dl01e"]
 [ext_resource type="Texture2D" uid="uid://5171spr7g6r5" path="res://ui/seeds1-Sheet.png" id="8_3s1eg"]
+[ext_resource type="Texture2D" uid="uid://ddtrcn1oee5uc" path="res://ui/seeds2-Sheet.png" id="8_m5iab"]
+[ext_resource type="Texture2D" uid="uid://cltppkvwd4dkn" path="res://ui/revolver_ui.png" id="9_22r63"]
+[ext_resource type="Script" uid="uid://dfwso1byupjuc" path="res://scripts/loaded_sprite.gd" id="9_p1t08"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_eyt8w")
@@ -270,6 +273,332 @@ states/on_bullet_6/position = Vector2(419.68796, 29.912003)
 transitions = ["on_bullet_1", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_ey1u3"), "on_bullet_2", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_26122"), "on_bullet_3", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_bfp8s"), "on_bullet_4", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_dl01e"), "on_bullet_5", "on_bullet_6", SubResource("AnimationNodeStateMachineTransition_3s1eg"), "on_bullet_6", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_22r63"), "on_bullet_1", "on_bullet_6", SubResource("AnimationNodeStateMachineTransition_p1t08"), "on_bullet_6", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_3dbat"), "on_bullet_5", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_ve54s"), "on_bullet_4", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_40yl3"), "on_bullet_3", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_ywslq"), "on_bullet_2", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_4f0tj"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_hxefo"), "RESET", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_t611j")]
 graph_offset = Vector2(-22, -137)
 
+[sub_resource type="Animation" id="Animation_ve54s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 785)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InteractMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_40yl3"]
+resource_name = "on_bullet_0"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ywslq"]
+resource_name = "on_bullet_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0471975511965976]
+}
+
+[sub_resource type="Animation" id="Animation_4f0tj"]
+resource_name = "on_bullet_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.0943951023931953]
+}
+
+[sub_resource type="Animation" id="Animation_hxefo"]
+resource_name = "on_bullet_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.141592653589793]
+}
+
+[sub_resource type="Animation" id="Animation_t611j"]
+resource_name = "on_bullet_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-4.1887902047863905]
+}
+
+[sub_resource type="Animation" id="Animation_sbl5u"]
+resource_name = "on_bullet_5"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.235987755982989]
+}
+
+[sub_resource type="Animation" id="Animation_edenc"]
+resource_name = "reloading"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(90, 535)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InteractMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4f0tj"]
+_data = {
+&"RESET": SubResource("Animation_ve54s"),
+&"on_bullet_0": SubResource("Animation_40yl3"),
+&"on_bullet_1": SubResource("Animation_ywslq"),
+&"on_bullet_2": SubResource("Animation_4f0tj"),
+&"on_bullet_3": SubResource("Animation_hxefo"),
+&"on_bullet_4": SubResource("Animation_t611j"),
+&"on_bullet_5": SubResource("Animation_sbl5u"),
+&"reloading": SubResource("Animation_edenc")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p1t08"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3dbat"]
+animation = &"on_bullet_0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ve54s"]
+animation = &"on_bullet_0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_40yl3"]
+animation = &"on_bullet_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ywslq"]
+animation = &"on_bullet_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4f0tj"]
+animation = &"on_bullet_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hxefo"]
+animation = &"on_bullet_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t611j"]
+animation = &"on_bullet_3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sbl5u"]
+animation = &"on_bullet_3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_edenc"]
+animation = &"on_bullet_4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_156o1"]
+animation = &"on_bullet_4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wkm38"]
+animation = &"on_bullet_5"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2k0n8"]
+animation = &"on_bullet_5"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cawb2"]
+animation = &"reloading"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qnwhp"]
+animation = &"reloading"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qnwhp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cawb2"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3lubi"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hpryw"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_by6v6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rcaw0"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yhpat"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rk5t0"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2urha"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3xuwr"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xof42"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8jm0m"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oll3d"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wgbt3"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_umgpx"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_10wg2"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8x3mc"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sbl5u"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_edenc"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_156o1"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wkm38"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2k0n8"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0o143"]
+states/RESET/node = SubResource("AnimationNodeAnimation_p1t08")
+states/RESET/position = Vector2(295, -90)
+states/on_bullet_0/node = SubResource("AnimationNodeAnimation_ve54s")
+states/on_bullet_0/position = Vector2(536, -15)
+"states/on_bullet_0 2/node" = SubResource("AnimationNodeAnimation_3dbat")
+"states/on_bullet_0 2/position" = Vector2(462, -113)
+states/on_bullet_1/node = SubResource("AnimationNodeAnimation_ywslq")
+states/on_bullet_1/position = Vector2(677, 32)
+"states/on_bullet_1 2/node" = SubResource("AnimationNodeAnimation_40yl3")
+"states/on_bullet_1 2/position" = Vector2(786, -20)
+states/on_bullet_2/node = SubResource("AnimationNodeAnimation_hxefo")
+states/on_bullet_2/position = Vector2(677, 133)
+"states/on_bullet_2 2/node" = SubResource("AnimationNodeAnimation_4f0tj")
+"states/on_bullet_2 2/position" = Vector2(786, 199)
+states/on_bullet_3/node = SubResource("AnimationNodeAnimation_sbl5u")
+states/on_bullet_3/position = Vector2(536, 176)
+"states/on_bullet_3 2/node" = SubResource("AnimationNodeAnimation_t611j")
+"states/on_bullet_3 2/position" = Vector2(536, 262)
+states/on_bullet_4/node = SubResource("AnimationNodeAnimation_156o1")
+states/on_bullet_4/position = Vector2(409, 133)
+"states/on_bullet_4 2/node" = SubResource("AnimationNodeAnimation_edenc")
+"states/on_bullet_4 2/position" = Vector2(295, 199)
+states/on_bullet_5/node = SubResource("AnimationNodeAnimation_2k0n8")
+states/on_bullet_5/position = Vector2(409, 32)
+"states/on_bullet_5 2/node" = SubResource("AnimationNodeAnimation_wkm38")
+"states/on_bullet_5 2/position" = Vector2(295, -20)
+states/reloading/node = SubResource("AnimationNodeAnimation_qnwhp")
+states/reloading/position = Vector2(536, 73)
+"states/reloading 2/node" = SubResource("AnimationNodeAnimation_cawb2")
+"states/reloading 2/position" = Vector2(760, -198)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_qnwhp"), "RESET", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_cawb2"), "on_bullet_5", "on_bullet_5 2", SubResource("AnimationNodeStateMachineTransition_3lubi"), "on_bullet_0", "on_bullet_0 2", SubResource("AnimationNodeStateMachineTransition_hpryw"), "on_bullet_1", "on_bullet_1 2", SubResource("AnimationNodeStateMachineTransition_by6v6"), "on_bullet_2", "on_bullet_2 2", SubResource("AnimationNodeStateMachineTransition_rcaw0"), "on_bullet_3", "on_bullet_3 2", SubResource("AnimationNodeStateMachineTransition_yhpat"), "on_bullet_4", "on_bullet_4 2", SubResource("AnimationNodeStateMachineTransition_rk5t0"), "on_bullet_0 2", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_2urha"), "on_bullet_1 2", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_3xuwr"), "on_bullet_2 2", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_xof42"), "on_bullet_3 2", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_8jm0m"), "on_bullet_4 2", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_oll3d"), "on_bullet_5 2", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_wgbt3"), "on_bullet_0", "reloading", SubResource("AnimationNodeStateMachineTransition_umgpx"), "reloading", "reloading 2", SubResource("AnimationNodeStateMachineTransition_10wg2"), "reloading 2", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_8x3mc"), "on_bullet_1", "reloading", SubResource("AnimationNodeStateMachineTransition_sbl5u"), "on_bullet_2", "reloading", SubResource("AnimationNodeStateMachineTransition_edenc"), "on_bullet_3", "reloading", SubResource("AnimationNodeStateMachineTransition_156o1"), "on_bullet_4", "reloading", SubResource("AnimationNodeStateMachineTransition_wkm38"), "on_bullet_5", "reloading", SubResource("AnimationNodeStateMachineTransition_2k0n8")]
+graph_offset = Vector2(26, -248)
+
 [node name="InGameHUD" type="CanvasLayer" unique_id=521452179]
 script = ExtResource("1_26122")
 
@@ -384,24 +713,72 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="Revolver" type="Control" parent="." unique_id=966974849]
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
+anchor_left = -0.08680555
+anchor_top = 1.2114197
+anchor_right = -0.08680555
+anchor_bottom = 1.2114197
+offset_top = 6.1035156e-05
+offset_bottom = 6.1035156e-05
 grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
 script = ExtResource("6_bfp8s")
+metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Revolver" unique_id=1814974604]
-layout_mode = 0
-offset_top = -300.0
-offset_right = 300.0
+[node name="Sprite2D" type="Sprite2D" parent="Revolver" unique_id=932416080]
+position = Vector2(150, -150)
+texture = ExtResource("9_22r63")
+
+[node name="Control" type="Control" parent="Revolver/Sprite2D" unique_id=1605490030]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Loaded0" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=1821509222]
+position = Vector2(0, -95)
+texture = ExtResource("8_m5iab")
+hframes = 7
+script = ExtResource("9_p1t08")
+
+[node name="Loaded1" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=2053767526]
+position = Vector2(82.272, -47.5)
+texture = ExtResource("8_m5iab")
+hframes = 7
+script = ExtResource("9_p1t08")
+
+[node name="Loaded2" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=1008185018]
+position = Vector2(82.2724, 47.5)
+texture = ExtResource("8_m5iab")
+hframes = 7
+script = ExtResource("9_p1t08")
+
+[node name="Loaded3" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=1846676551]
+position = Vector2(0, 95)
+texture = ExtResource("8_m5iab")
+hframes = 7
+script = ExtResource("9_p1t08")
+
+[node name="Loaded4" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=524432886]
+position = Vector2(-82.272, 47.5)
+texture = ExtResource("8_m5iab")
+hframes = 7
+script = ExtResource("9_p1t08")
+
+[node name="Loaded5" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=2099358432]
+position = Vector2(-82.2724, -47.5)
+texture = ExtResource("8_m5iab")
+hframes = 7
+script = ExtResource("9_p1t08")
 
 [node name="InteractMenu" type="Control" parent="Revolver" unique_id=1050791154]
+visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 150.0
+offset_top = -150.0
+offset_right = 190.0
+offset_bottom = -110.0
 
 [node name="SeedCircle" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=570937159]
-position = Vector2(374, -182)
+position = Vector2(180, 0)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_dl01e")
 
@@ -410,22 +787,39 @@ texture = ExtResource("8_3s1eg")
 hframes = 7
 frame = 2
 
+[node name="SeedCircle2" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=780994671]
+position = Vector2(-180, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_dl01e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircle2" unique_id=253623783]
+texture = ExtResource("8_3s1eg")
+hframes = 7
+frame = 1
+
 [node name="SeedCircleS" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=1173893162]
-position = Vector2(342, -99.00006)
+position = Vector2(165, 85)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_dl01e")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircleS" unique_id=709967447]
 texture = ExtResource("8_3s1eg")
 hframes = 7
-frame = 2
+frame = 3
 
 [node name="SeedCircleW" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=1339314390]
-position = Vector2(321, -260.00003)
+position = Vector2(165, -85)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_dl01e")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircleW" unique_id=1664948421]
 texture = ExtResource("8_3s1eg")
 hframes = 7
-frame = 2
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Revolver" unique_id=2035205259]
+libraries/ = SubResource("AnimationLibrary_4f0tj")
+
+[node name="AnimationTree" type="AnimationTree" parent="Revolver" unique_id=1748112738]
+tree_root = SubResource("AnimationNodeStateMachine_0o143")
+anim_player = NodePath("../AnimationPlayer")

@@ -6,7 +6,7 @@ extends Node3D
 
 var bone = null
 
-#this isnt working so i guess we'll just ignore it
+#this isnt working so i guess we'll just forget about it
 
 func _ready() -> void:
 	bone = skeleton.find_bone(bone_name)

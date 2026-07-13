@@ -37,6 +37,8 @@ func read_back():
 func read_accept():
 	if player.is_reloading:
 		load_special_seed.emit(revolver.get_selection())
+		#await get_tree().process_frame
+		update_revolver(player.loaded_in_gun)
 		#print(revolver.get_selection())
 
 func find_main(x) -> Main:
@@ -47,14 +49,17 @@ func find_main(x) -> Main:
 		return find_main(p)
 
 func update_petals(arr):
-	crosshair.petal_1_id = arr[0]
-	crosshair.petal_2_id = arr[1]
-	crosshair.petal_3_id = arr[2]
-	crosshair.petal_4_id = arr[3]
-	crosshair.petal_5_id = arr[4]
-	crosshair.petal_6_id = arr[5]
+	crosshair.petal_1_id = min(arr[0], 1)
+	crosshair.petal_2_id = min(arr[1], 1)
+	crosshair.petal_3_id = min(arr[2], 1)
+	crosshair.petal_4_id = min(arr[3], 1)
+	crosshair.petal_5_id = min(arr[4], 1)
+	crosshair.petal_6_id = min(arr[5], 1)
 	
 	crosshair.update_petals()
+
+func update_revolver(arr):
+	revolver.update_loaded_sprites(arr)
 
 func shoot_petal(curr_bull):
 	crosshair.current_bullet = curr_bull + 1
@@ -64,7 +69,9 @@ func shoot_petal(curr_bull):
 	if crosshair.current_bullet > 6:
 		crosshair.current_bullet = 1
 	crosshair.update_rotation()
+	revolver.spin_to_bullet(player.current_bullet)
 
 func reset_rot():
 	crosshair.animation_tree["parameters/playback"].travel("RESET")
 	crosshair.reset_petal_animations()
+	revolver.reloading_anim()

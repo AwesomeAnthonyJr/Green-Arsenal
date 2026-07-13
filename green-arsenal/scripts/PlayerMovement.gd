@@ -89,10 +89,12 @@ func read_shoot():
 			loaded_in_gun[current_bullet] = 0
 			hud.shoot_petal(current_bullet)
 			current_bullet += 1
+			hud.update_revolver(loaded_in_gun)
 func read_reload():
 	if is_reloading:
 		hud.reset_rot()
 		reload_bullet_seed()
+		hud.update_revolver(loaded_in_gun)
 	else:
 		is_reloading = true
 		hud.update_petals(loaded_in_gun)
@@ -112,6 +114,7 @@ func reload_special_seed(n):
 	if current_bullet > 5:
 			is_reloading = false
 			current_bullet = 0
+			hud.revolver.spin_to_bullet(current_bullet)
 	hud.update_petals(loaded_in_gun)
 
 func reload_bullet_seed():
@@ -121,6 +124,7 @@ func reload_bullet_seed():
 	if current_bullet > 5:
 			is_reloading = false
 			current_bullet = 0
+			hud.revolver.spin_to_bullet(current_bullet)
 	hud.update_petals(loaded_in_gun)
 
 # simple recursive solution to find the main node.
