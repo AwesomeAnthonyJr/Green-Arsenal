@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://by7qpr87u2351"]
+
+[ext_resource type="Material" uid="uid://oo177hw72h6" path="res://materials/player_skin.tres" id="1_bp8o5"]
+[ext_resource type="Texture2D" uid="uid://c0pj7rftjng4h" path="res://ui/life_ui_1.png" id="2_bp8o5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h45xw"]
+top_radius = 0.1
+bottom_radius = 0.06
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bp8o5"]
+top_radius = 0.01
+bottom_radius = 0.06
+height = 0.5
+
+[node name="LifeFruit" type="Node3D" unique_id=1252632312]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=48345425]
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("1_bp8o5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1577020395]
+transform = Transform3D(1, 0, 0, 0, 0.9735329, 0.22854692, 0, -0.22854692, 0.9735329, 0, 0.44784608, -0.06507142)
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("1_bp8o5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=2086207869]
+transform = Transform3D(1, 0, 0, 0, 0.94032514, -0.3402772, 0, 0.3402772, 0.94032514, 0, 0.8679213, -0.054541364)
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("1_bp8o5")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=298169316]
+transform = Transform3D(0.9, 0, 0, 0, 0.073699, -0.8860356, 0, 0.4134833, 0.15792643, 0, 1.0931332, 0.06835081)
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("1_bp8o5")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=217705544]
+transform = Transform3D(0.7, 0, 0, 0, -0.14291646, -0.65822756, 0, 0.39493656, -0.2381941, 0, 1.1093981, 0.19789135)
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("1_bp8o5")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=78453139]
+transform = Transform3D(0.5, 0, 0, 0, -0.41348332, -0.08773688, 0, 0.073698975, -0.49224207, -5.9604645e-08, 1.0210457, 0.29276764)
+mesh = SubResource("CylinderMesh_bp8o5")
+surface_material_override/0 = ExtResource("1_bp8o5")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1032126713]
+transform = Transform3D(0.5, 0, 0, 0, 0.49995723, -0.006540357, 0, 0.006540357, 0.49995723, 0, 0.82675385, 0.31064087)
+texture = ExtResource("2_bp8o5")

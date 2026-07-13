@@ -4,6 +4,10 @@ extends Bullet
 
 func plant_seed(point, norm):
 	print("PLANTING A LIFE SEED!")
+	var inst = Preloads.life_fruit.instantiate()
+	get_parent().add_child(inst)
+	inst.global_position = point
+	align_collision_rotation(norm, inst)
 
 func hit_enemy(obj):
 	print("HIT ", obj.name, " WITH A LIFE SEED!")

@@ -12,6 +12,7 @@ class_name Bullet
 
 func align_collision_rotation(norm, obj):
 	#print(norm)
+	obj.global_rotation = global_rotation
 	var new_y = norm
 	var new_x = new_y.cross(obj.global_transform.basis.z).normalized()
 	var new_z = new_x.cross(new_y).normalized()
