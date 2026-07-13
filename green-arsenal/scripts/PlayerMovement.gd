@@ -147,6 +147,7 @@ func _process(delta: float) -> void:
 
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
+	print(is_grounded, ", ", gravity_scale)
 	if groundCast.get_collision_count() > 0:
 		is_grounded = true
 	else:
@@ -159,6 +160,7 @@ func _physics_process(delta: float) -> void:
 		apply_air_drift()
 	else:
 		#not entirely sure if this matters but might as well
+		apply_central_force(Vector3.DOWN)
 		gravity_scale = 1.0
 
 func gun_rotation():
@@ -219,6 +221,8 @@ func shoot():
 	match loaded_in_gun[current_bullet]:
 		4:
 			bullet = Preloads.life_seed.instantiate()
+		5:
+			bullet = Preloads.platform_seed.instantiate()
 	get_parent().get_parent().add_child(bullet)
 	
 	bullet.global_position = shooter.global_position
