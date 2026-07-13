@@ -10,3 +10,5 @@ const bullet_sprout = preload("res://scenes/bullet_sprout.tscn")
 const blaze_flower = preload("res://scenes/blaze_flower.tscn")
 const life_fruit = preload("res://scenes/life_fruit.tscn")
 const platform_lilypad = preload("res://scenes/platform_lilypad.tscn")
+
+const fireball = preload("res://scenes/fireball.tscn")
