@@ -226,6 +226,8 @@ func shoot():
 	var bullet = Preloads.bullet_seed.instantiate()
 	var is_special = false
 	match loaded_in_gun[current_bullet]:
+		2:
+			bullet = Preloads.blaze_seed.instantiate()
 		4:
 			bullet = Preloads.life_seed.instantiate()
 		5:
