@@ -2,6 +2,8 @@ extends Node3D
 class_name Bullet
 #class name so special seeds can just extend the behavior
 
+var player: Player
+
 @export var speed: float = 50.0
 #Bullet Speed
 
@@ -12,6 +14,7 @@ class_name Bullet
 
 func align_collision_rotation(norm, obj):
 	#print(norm)
+	obj.global_rotation = global_rotation
 	var new_y = norm
 	var new_x = new_y.cross(obj.global_transform.basis.z).normalized()
 	var new_z = new_x.cross(new_y).normalized()

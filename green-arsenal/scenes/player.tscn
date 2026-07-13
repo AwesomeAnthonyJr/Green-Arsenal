@@ -156,7 +156,7 @@ radius = 0.2
 height = 0.2
 radius = 0.2
 
-[node name="Player" type="RigidBody3D" unique_id=278666006]
+[node name="Player" type="RigidBody3D" unique_id=278666006 groups=["player"]]
 lock_rotation = true
 script = ExtResource("1_g2els")
 jumpForce = 6.0

@@ -26,6 +26,7 @@ window/stretch/mode="viewport"
 [global_group]
 
 soil="for planting seeds in"
+player="for the player"
 
 [input]
 

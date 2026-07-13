@@ -3,18 +3,17 @@ extends Bullet
 #as such, requires a timer, a racyast, and a shapecast as a child
 
 func plant_seed(point, norm):
-	print("PLANTING A LIFE SEED!")
-	var inst = Preloads.life_fruit.instantiate()
+	print("PLANTING A PLATFORM SEED!")
+	var inst = Preloads.platform_lilypad.instantiate()
 	get_parent().add_child(inst)
 	inst.global_position = point
-	align_collision_rotation(norm, inst)
+	#align_collision_rotation(norm, inst)
 	
 	player.active_plants.append(inst)
 	player.check_special_plants()
 
 func hit_enemy(obj):
-	print("HIT ", obj.name, " WITH A LIFE SEED!")
-	if obj.has_method("take_damage"):
-		print("Healing damage")
-		obj.take_damage(-1)
+	print("HIT ", obj.name, " WITH A PLATFORM SEED!")
+	if obj.has_method("wear_shield"):
+		obj.wear_shield()
 	destroy_bullet()

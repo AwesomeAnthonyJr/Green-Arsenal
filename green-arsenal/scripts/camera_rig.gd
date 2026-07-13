@@ -30,7 +30,7 @@ func read_look(y, x):
 		pitch_pivot.rotate_x(x);
 		pitch_pivot.rotation.x = clamp(
 			pitch_pivot.rotation.x,
-			deg_to_rad(-60),
+			deg_to_rad(-75),
 			deg_to_rad(45)
 		)
 	#Locks the camera so it doesn't go beyond boundaries
