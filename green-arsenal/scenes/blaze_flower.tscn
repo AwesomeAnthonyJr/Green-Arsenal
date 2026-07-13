@@ -16,6 +16,10 @@ size = Vector3(0.6, 1, 0.01)
 bottom_radius = 0.06
 height = 0.25
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_gcikg"]
+bottom_radius = 0.4
+height = 0.1
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_h45xw"]
 radius = 0.6371839
 
@@ -26,8 +30,13 @@ script = ExtResource("1_gg8c8")
 mesh = SubResource("CylinderMesh_h45xw")
 surface_material_override/0 = ExtResource("2_04t4d")
 
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1011431441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4576534, 0)
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("2_04t4d")
+
 [node name="Node3D" type="Node3D" parent="." unique_id=437523559]
-transform = Transform3D(2, 0, 0, 0, 1.0000001, 1.7320508, 0, -1.7320508, 1.0000001, 0, 0.35, 0)
+transform = Transform3D(2, 0, 0, 0, 1.0000001, 1.7320508, 0, -1.7320508, 1.0000001, 0, 0.91304505, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D" unique_id=1548463745]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
@@ -35,7 +44,7 @@ mesh = SubResource("PrismMesh_h45xw")
 surface_material_override/0 = ExtResource("3_gg8c8")
 
 [node name="Node3D9" type="Node3D" parent="." unique_id=294821790]
-transform = Transform3D(2, 0, 0, 0, 2, -5.960465e-08, 0, 5.960465e-08, 2, 0, 0.35, 0)
+transform = Transform3D(2, 0, 0, 0, 2, -5.960465e-08, 0, 5.960465e-08, 2, 0, 0.91304505, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D9" unique_id=494265217]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
@@ -43,7 +52,7 @@ mesh = SubResource("PrismMesh_h45xw")
 surface_material_override/0 = ExtResource("3_gg8c8")
 
 [node name="Node3D10" type="Node3D" parent="." unique_id=110192833]
-transform = Transform3D(-8.742278e-08, -5.960465e-08, -2, 0, 2, -5.960465e-08, 2, -2.605402e-15, -8.742278e-08, 0, 0.35, 0)
+transform = Transform3D(-8.742278e-08, -5.960465e-08, -2, 0, 2, -5.960465e-08, 2, -2.605402e-15, -8.742278e-08, 0, 0.91304505, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D10" unique_id=1856530496]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
@@ -51,7 +60,7 @@ mesh = SubResource("PrismMesh_h45xw")
 surface_material_override/0 = ExtResource("3_gg8c8")
 
 [node name="Node3D2" type="Node3D" parent="." unique_id=1313609177]
-transform = Transform3D(1.4142135, -1.2247448, 0.7071068, 0, 1.0000001, 1.7320508, -1.4142135, -1.2247448, 0.7071068, 0, 0.35, 0)
+transform = Transform3D(1.4142135, -1.2247448, 0.7071068, 0, 1.0000001, 1.7320508, -1.4142135, -1.2247448, 0.7071068, 0, 0.91304505, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D2" unique_id=964680219]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
@@ -59,7 +68,7 @@ mesh = SubResource("PrismMesh_h45xw")
 surface_material_override/0 = ExtResource("3_gg8c8")
 
 [node name="Node3D3" type="Node3D" parent="." unique_id=1774025607]
-transform = Transform3D(-8.742278e-08, -1.7320508, 1.0000001, 0, 1.0000001, 1.7320508, -2, 7.5710346e-08, -4.3711392e-08, 0, 0.35, 0)
+transform = Transform3D(-8.742278e-08, -1.7320508, 1.0000001, 0, 1.0000001, 1.7320508, -2, 7.5710346e-08, -4.3711392e-08, 0, 0.91304505, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D3" unique_id=562437770]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
@@ -67,7 +76,7 @@ mesh = SubResource("PrismMesh_h45xw")
 surface_material_override/0 = ExtResource("3_gg8c8")
 
 [node name="Node3D4" type="Node3D" parent="." unique_id=442782362]
-transform = Transform3D(-1.4142135, -1.2247448, 0.7071068, 0, 1.0000001, 1.7320508, -1.4142135, 1.2247448, -0.7071068, 0, 0.35, 0)
+transform = Transform3D(-1.4142135, -1.2247448, 0.7071068, 0, 1.0000001, 1.7320508, -1.4142135, 1.2247448, -0.7071068, 0, 0.91304505, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D4" unique_id=697311996]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
@@ -75,7 +84,7 @@ mesh = SubResource("PrismMesh_h45xw")
 surface_material_override/0 = ExtResource("3_gg8c8")
 
 [node name="Node3D5" type="Node3D" parent="." unique_id=1687954477]
-transform = Transform3D(-2, 1.5142069e-07, -8.7422784e-08, 0, 1.0000001, 1.7320508, 1.7484555e-07, 1.7320508, -1.0000001, 0, 0.35, 0)
+transform = Transform3D(-2, 1.5142069e-07, -8.7422784e-08, 0, 1.0000001, 1.7320508, 1.7484555e-07, 1.7320508, -1.0000001, 0, 0.91304505, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D5" unique_id=2111051825]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
@@ -83,7 +92,7 @@ mesh = SubResource("PrismMesh_h45xw")
 surface_material_override/0 = ExtResource("3_gg8c8")
 
 [node name="Node3D6" type="Node3D" parent="." unique_id=46697779]
-transform = Transform3D(-1.4142135, 1.2247449, -0.7071067, 0, 0.99999994, 1.7320509, 1.4142135, 1.2247449, -0.7071067, 0, 0.35, 0)
+transform = Transform3D(-1.4142135, 1.2247449, -0.7071067, 0, 0.99999994, 1.7320509, 1.4142135, 1.2247449, -0.7071067, 0, 0.91304505, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D6" unique_id=791420975]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
@@ -91,7 +100,7 @@ mesh = SubResource("PrismMesh_h45xw")
 surface_material_override/0 = ExtResource("3_gg8c8")
 
 [node name="Node3D7" type="Node3D" parent="." unique_id=1067782026]
-transform = Transform3D(-8.742278e-08, 1.7320509, -0.99999994, 0, 0.99999994, 1.7320509, 2, 7.5710346e-08, -4.3711385e-08, 0, 0.35, 0)
+transform = Transform3D(-8.742278e-08, 1.7320509, -0.99999994, 0, 0.99999994, 1.7320509, 2, 7.5710346e-08, -4.3711385e-08, 0, 0.91304505, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D7" unique_id=818032901]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
@@ -99,7 +108,7 @@ mesh = SubResource("PrismMesh_h45xw")
 surface_material_override/0 = ExtResource("3_gg8c8")
 
 [node name="Node3D8" type="Node3D" parent="." unique_id=1481189099]
-transform = Transform3D(1.4142135, 1.2247449, -0.7071067, 1.776357e-15, 0.99999994, 1.7320509, 1.4142135, -1.2247449, 0.7071067, 0, 0.35, 0)
+transform = Transform3D(1.4142135, 1.2247449, -0.7071067, 1.776357e-15, 0.99999994, 1.7320509, 1.4142135, -1.2247449, 0.7071067, 0, 0.91304505, 0)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D8" unique_id=1260804956]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
@@ -107,18 +116,24 @@ mesh = SubResource("PrismMesh_h45xw")
 surface_material_override/0 = ExtResource("3_gg8c8")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=471780768]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23500001, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7164322, 0)
 mesh = SubResource("CylinderMesh_gg8c8")
 surface_material_override/0 = ExtResource("2_04t4d")
 
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=767942786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8683615, 0)
+mesh = SubResource("CylinderMesh_gcikg")
+surface_material_override/0 = ExtResource("2_04t4d")
+
 [node name="Area3D" type="Area3D" parent="." unique_id=1712709113 groups=["blaze_flower"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4814322, 0)
 collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=126242552]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8400351, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93886507, 0)
 shape = SubResource("SphereShape3D_h45xw")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=182943981]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6795557, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1609879, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

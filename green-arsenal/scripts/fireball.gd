@@ -16,23 +16,26 @@ func _physics_process(delta: float) -> void:
 	puzzle_cast.force_raycast_update()
 	
 	if enemy_cast.is_colliding():
-		if enemy_cast.get_collider(0).is_in_group("blaze_flower"):
+		if enemy_cast.get_collider(0).is_in_group("torch"):
+			enemy_cast.get_collider(0).get_parent().light_torch()
+			destroy_bullet()
+		elif enemy_cast.get_collider(0).is_in_group("blaze_flower"):
 			pass
 		else:
+			#print("HIT ENEMY?")
 			hit_enemy(enemy_cast.get_collider(0))
-			return
 	if puzzle_cast.is_colliding():
+		#print("HIT FLOOR?")
 		destroy_bullet()
 	
 	
 #will be inherited by subclasses
 func hit_enemy(obj):
-	print("HIT ", obj.name)
 	if obj.has_method("take_damage"):
-		print("Taking damage")
-		obj.take_damage(3)
+		print("Taking damage from a fireball")
+		obj.take_damage(10)
 	else:
-		print("FAIL: obj does not have take_damage Function")
+		print(obj.name)
 	destroy_bullet()
 
 

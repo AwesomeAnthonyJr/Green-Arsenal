@@ -17,6 +17,7 @@ func become_a_fireball():
 	get_parent().add_child(inst)
 	inst.global_position = global_position
 	inst.global_rotation = global_rotation
+	inst.speed = speed / 2.0
 	destroy_bullet()
 
 func align_collision_rotation(norm, obj):
