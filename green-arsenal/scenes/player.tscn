@@ -154,13 +154,11 @@ radius = 0.2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h45xw"]
 height = 0.2
-radius = 0.2
+radius = 0.18
 
 [node name="Player" type="RigidBody3D" unique_id=278666006 groups=["player"]]
 lock_rotation = true
 script = ExtResource("1_g2els")
-jumpForce = 6.0
-heavy_grav = 1.2
 
 [node name="Pivot" type="Node3D" parent="." unique_id=185476992]
 

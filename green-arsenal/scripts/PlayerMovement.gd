@@ -147,9 +147,13 @@ func _process(delta: float) -> void:
 
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
-	print(is_grounded, ", ", gravity_scale)
+	#print(is_grounded, ", ", gravity_scale)
 	if groundCast.get_collision_count() > 0:
-		is_grounded = true
+		if !is_grounded:
+			for i in groundCast.get_collision_count():
+				var how_groundy = Vector3.UP.dot(groundCast.get_collision_normal(i))
+				if how_groundy > 0.5:
+					is_grounded = true
 	else:
 		is_grounded = false
 	if !supress_movement:
@@ -157,12 +161,11 @@ func _physics_process(delta: float) -> void:
 		physics_looking()
 		gun_rotation()
 	if !is_grounded:
-		apply_air_drift()
+		apply_air_drift(delta)
 	else:
-		#not entirely sure if this matters but might as well
+		#weirdly the player just kinda doesnt fall without this??? (when removing lilypad platforms)
 		apply_central_force(Vector3.DOWN)
 		gravity_scale = 1.0
-
 func gun_rotation():
 	var targetPoint = Vector3()
 	if aimRayCast.is_colliding():
@@ -199,11 +202,13 @@ func physics_movement(delta:float) -> void:
 	#Moves the player
 
 #handles the "air drift" for a better jump
-func apply_air_drift() -> void:
+func apply_air_drift(delta) -> void:
+	print(is_jump_drifting)
 	if is_jump_drifting:
 		if linear_velocity.y < 0:
 			is_jump_drifting = false
 		gravity_scale = light_grav
+		#apply_central_force(delta * Vector3.UP * jumpForce * 30.0)
 	else:
 		gravity_scale = heavy_grav
 
