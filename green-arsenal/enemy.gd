@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var maxHealth = 10
 @export var player: Node3D
 
-@onready var currHealth: float = maxHealth
+@onready var currHealth: int = maxHealth
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		velocity.z = 0
 	move_and_slide()
-func take_damage(amount: float) -> void:
+func take_damage(amount: int) -> void:
 	currHealth -= amount
 	print("Remaining health: ", currHealth)
 	if currHealth <= 0:

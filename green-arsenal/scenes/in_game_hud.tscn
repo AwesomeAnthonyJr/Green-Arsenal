@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://b1te36p3nyvr4"]
 
-[ext_resource type="Shader" uid="uid://dxlvv1no611k1" path="res://shaders/color_invert.gdshader" id="1_eyt8w"]
+[ext_resource type="Script" uid="uid://b6jy5bjq72d40" path="res://scripts/hud.gd" id="1_26122"]
+[ext_resource type="Shader" uid="uid://ci7n4r15ymo5h" path="res://shaders/color_invert.gdshader" id="1_eyt8w"]
 [ext_resource type="Texture2D" uid="uid://dkrcdj2qvhr0p" path="res://ui/green_arsenal_ui_crosshair.png" id="1_twk1s"]
 [ext_resource type="Script" uid="uid://d0lvaijyy5nsx" path="res://scripts/crosshair_boss.gd" id="2_ey1u3"]
 [ext_resource type="Texture2D" uid="uid://defcpqgo04smo" path="res://ui/petals-Sheet.png" id="3_hbevh"]
+[ext_resource type="Script" uid="uid://b2chw2o1ec7ob" path="res://scripts/revolver.gd" id="6_bfp8s"]
+[ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="7_dl01e"]
+[ext_resource type="Texture2D" uid="uid://5171spr7g6r5" path="res://ui/seeds1-Sheet.png" id="8_3s1eg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_eyt8w")
@@ -267,6 +271,7 @@ transitions = ["on_bullet_1", "on_bullet_2", SubResource("AnimationNodeStateMach
 graph_offset = Vector2(-22, -137)
 
 [node name="InGameHUD" type="CanvasLayer" unique_id=521452179]
+script = ExtResource("1_26122")
 
 [node name="Crosshair" type="Control" parent="." unique_id=1978330618]
 material = SubResource("ShaderMaterial_7mycd")
@@ -376,3 +381,51 @@ libraries/ = SubResource("AnimationLibrary_dl01e")
 [node name="AnimationTree" type="AnimationTree" parent="Crosshair" unique_id=1336472976]
 tree_root = SubResource("AnimationNodeStateMachine_h45xw")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Revolver" type="Control" parent="." unique_id=966974849]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+script = ExtResource("6_bfp8s")
+
+[node name="ColorRect" type="ColorRect" parent="Revolver" unique_id=1814974604]
+layout_mode = 0
+offset_top = -300.0
+offset_right = 300.0
+
+[node name="InteractMenu" type="Control" parent="Revolver" unique_id=1050791154]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SeedCircle" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=570937159]
+position = Vector2(374, -182)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_dl01e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircle" unique_id=2088746165]
+texture = ExtResource("8_3s1eg")
+hframes = 7
+frame = 2
+
+[node name="SeedCircleS" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=1173893162]
+position = Vector2(342, -99.00006)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_dl01e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircleS" unique_id=709967447]
+texture = ExtResource("8_3s1eg")
+hframes = 7
+frame = 2
+
+[node name="SeedCircleW" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=1339314390]
+position = Vector2(321, -260.00003)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_dl01e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircleW" unique_id=1664948421]
+texture = ExtResource("8_3s1eg")
+hframes = 7
+frame = 2

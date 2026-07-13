@@ -2,14 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://dmvvi6bp6n0yo" path="res://scenes/player.tscn" id="1_aaihd"]
 [ext_resource type="Script" uid="uid://ctioco30i1jxg" path="res://scripts/camera_rig.gd" id="2_221em"]
+[ext_resource type="PackedScene" uid="uid://b1te36p3nyvr4" path="res://scenes/in_game_hud.tscn" id="3_q2s2p"]
 
 [node name="PlayerPackage" type="Node3D" unique_id=1280539618]
 
-[node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot") instance=ExtResource("1_aaihd")]
+[node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot", "hud") instance=ExtResource("1_aaihd")]
 linear_damp = 3.0
-jumpForce = 10.0
-heavy_grav = 1.5
+jumpForce = null
+heavy_grav = null
+light_grav = null
 look_pivot = NodePath("../CameraRig/TwistPivot")
+hud = NodePath("../InGameHUD")
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=233280687 node_paths=PackedStringArray("mirror")]
 script = ExtResource("2_221em")
@@ -32,3 +35,6 @@ debug_shape_custom_color = Color(1, 1, 0, 1)
 [node name="AimRayCast" type="RayCast3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=69101290]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.8, 0.1, 3)
 target_position = Vector3(0, 0, -50)
+
+[node name="InGameHUD" parent="." unique_id=521452179 node_paths=PackedStringArray("player") instance=ExtResource("3_q2s2p")]
+player = NodePath("../Player")

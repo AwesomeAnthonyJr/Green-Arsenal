@@ -1,4 +1,5 @@
 extends RigidBody3D
+class_name Player
 
 @export var jumpForce: float = 10.0;
 #guys feel free to tweak these this is just some random guesses
@@ -12,10 +13,12 @@ const sprintSpeed = 2.5;
 var currentSpeed = walkSpeed;
 
 @export var look_pivot: Node3D
+@export var hud: HUD
 var move_dir = Vector2.ZERO
 var is_sprinting = false
 var is_jump_drifting = false
 var is_grounded = false
+var supress_movement = false
 
 @onready var cameraRig = $"../CameraRig/TwistPivot/PitchPivot/Camera3D"
 @onready var aimRayCast = $"../CameraRig/TwistPivot/PitchPivot/AimRayCast"
@@ -24,11 +27,22 @@ var is_grounded = false
 @onready var pivot = $Pivot
 @onready var pivot_2 = $Pivot/Pivot2
 
+var is_reloading = false
+var current_bullet = 0
+var loaded_in_gun = [0, 0, 0, 0, 0, 0]
+
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	connect_inputs()
+	await get_tree().process_frame
+	if HUD != null:
+		hud.update_petals(loaded_in_gun)
+		connect_hud()
+
+func connect_hud():
+	hud.load_special_seed.connect(reload_special_seed)
 
 func connect_inputs():
 	var manager = find_main(self).input_manager
@@ -38,13 +52,10 @@ func connect_inputs():
 	manager.jump.connect(read_jump)
 	manager.end_jump.connect(read_end_jump)
 	manager.pause.connect(read_pause)
-	# if this script is just for the movement of the player these
-	# should probably be handled elswhere
-	"""
-	manager.pause.connect(read_shoot)
+	manager.shoot.connect(read_shoot)
 	manager.reload.connect(read_reload)
 	manager.interact.connect(read_interact)
-	"""
+	
 func read_move_direction(z, x):
 	move_dir.x = z
 	move_dir.y = x
@@ -61,6 +72,49 @@ func read_end_jump():
 func read_pause():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 	#Unlocks the curser on esc press
+func read_shoot():
+	is_reloading = false
+	if current_bullet < 6:
+		var new_curr = 5
+		for i in loaded_in_gun.size():
+			if loaded_in_gun[i] != 0:
+				new_curr = min(new_curr, i)
+		current_bullet = new_curr
+		if loaded_in_gun[current_bullet] != 0:
+			shoot()
+			loaded_in_gun[current_bullet] = 0
+			hud.shoot_petal(current_bullet)
+			current_bullet += 1
+func read_reload():
+	if is_reloading:
+		hud.reset_rot()
+		reload_bullet_seed()
+		if current_bullet > 5:
+			is_reloading = false
+			current_bullet = 0
+	else:
+		is_reloading = true
+		hud.update_petals(loaded_in_gun)
+		hud.reset_rot()
+		if current_bullet > 5:
+			current_bullet = 0
+func read_interact():
+	if is_reloading:
+		pass
+	else:
+		pass
+
+func reload_special_seed(n):
+	if loaded_in_gun[current_bullet] == 0:
+		loaded_in_gun[current_bullet] = n
+	current_bullet += 1
+	hud.update_petals(loaded_in_gun)
+
+func reload_bullet_seed():
+	if loaded_in_gun[current_bullet] == 0:
+		loaded_in_gun[current_bullet] = 1
+	current_bullet += 1
+	hud.update_petals(loaded_in_gun)
 
 # simple recursive solution to find the main node.
 func find_main(x) -> Main:
@@ -70,16 +124,21 @@ func find_main(x) -> Main:
 	else:
 		return find_main(p)
 
+# going to just handle some flags here
+func _process(delta: float) -> void:
+	supress_movement = is_reloading
+	cameraRig.get_parent().get_parent().get_parent().supress_looking = is_reloading
+
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
 	if groundCast.get_collision_count() > 0:
 		is_grounded = true
 	else:
 		is_grounded = false
-	
-	physics_movement(delta)
-	physics_looking()
-	gun_rotation()
+	if !supress_movement:
+		physics_movement(delta)
+		physics_looking()
+		gun_rotation()
 	if !is_grounded:
 		apply_air_drift()
 	else:
@@ -130,19 +189,17 @@ func apply_air_drift() -> void:
 
 #jump has been improved a bit
 func playerJump() -> void:
-	if is_grounded:
+	if is_grounded and !supress_movement:
 		apply_central_impulse(Vector3.UP * jumpForce);
 		is_jump_drifting = true
 	#Applies jump force 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shoot"):
-		shoot()
-
 func shoot():
-	
 	#using the global "Preloads" script means it just preloads it once i think (less expensive?)
 	var bullet = Preloads.bullet_seed.instantiate()
+	match loaded_in_gun[current_bullet]:
+		4:
+			bullet = Preloads.life_seed.instantiate()
 	get_parent().add_child(bullet)
 	
 	bullet.global_position = gun.global_position

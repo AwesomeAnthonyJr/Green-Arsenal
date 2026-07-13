@@ -18,6 +18,7 @@ extends Control
 @onready var animation_tree = $AnimationTree
 
 #DELETE ALL OF THIS LATER PROCESS!!!
+"""
 func _process(delta: float) -> void:
 	update_petals()
 	
@@ -38,7 +39,7 @@ func _process(delta: float) -> void:
 		reload_petal(num_to_use)
 		current_bullet = 1
 		animation_tree["parameters/playback"].travel("RESET")
-
+"""
 
 func _ready() -> void:
 	update_petals()
@@ -51,6 +52,14 @@ func update_petals():
 	petal_4.frame = petal_4_id
 	petal_5.frame = petal_5_id
 	petal_6.frame = petal_6_id
+
+func reset_petal_animations():
+	petal_1.get_child(0).play("RESET")
+	petal_2.get_child(0).play("RESET")
+	petal_3.get_child(0).play("RESET")
+	petal_4.get_child(0).play("RESET")
+	petal_5.get_child(0).play("RESET")
+	petal_6.get_child(0).play("RESET")
 
 func reload_petal(num):
 	match num:

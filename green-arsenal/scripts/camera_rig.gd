@@ -18,18 +18,21 @@ extends Node3D
 const MAX_DIST = 3.0
 const PITCH_OFFSET = Vector3(0, 0.6, 0)
 
+var supress_looking = false
+
 func connect_inputs():
 	var manager = find_main(self).input_manager
 	manager.look.connect(read_look)
 
 func read_look(y, x):
-	twist_pivot.rotate_y(y);
-	pitch_pivot.rotate_x(x);
-	pitch_pivot.rotation.x = clamp(
-		pitch_pivot.rotation.x,
-		deg_to_rad(-60),
-		deg_to_rad(45)
-	)
+	if !supress_looking:
+		twist_pivot.rotate_y(y);
+		pitch_pivot.rotate_x(x);
+		pitch_pivot.rotation.x = clamp(
+			pitch_pivot.rotation.x,
+			deg_to_rad(-60),
+			deg_to_rad(45)
+		)
 	#Locks the camera so it doesn't go beyond boundaries
 	
 # simple recursive solution to find the main node.

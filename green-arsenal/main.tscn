@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bqsx2hglgfolr" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bhaffqlwgnwei" path="res://scenes/Playground.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://i5pjehi8mq60" path="res://scripts/input_manager.gd" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://b1te36p3nyvr4" path="res://scenes/in_game_hud.tscn" id="3_1bvp3"]
 
 [node name="Main" type="Node" unique_id=383612433 node_paths=PackedStringArray("input_manager")]
 script = ExtResource("1_h2yge")
@@ -12,8 +11,6 @@ input_manager = NodePath("InputManager")
 [node name="Testing" type="Node" parent="." unique_id=798207614]
 
 [node name="Playground" parent="Testing" unique_id=798919202 instance=ExtResource("1_ig7tw")]
-
-[node name="InGameHUD" parent="Testing" unique_id=521452179 instance=ExtResource("3_1bvp3")]
 
 [node name="InputManager" type="Node" parent="." unique_id=106243138]
 script = ExtResource("2_0xm2m")

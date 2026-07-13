@@ -15,6 +15,8 @@ signal shoot
 signal reload
 signal interact
 signal look(x, y)
+signal up
+signal down
 
 var mouse_sensitivity = 0.001
 
@@ -27,6 +29,8 @@ func _process(delta: float) -> void:
 	shoot_input()
 	reload_input()
 	interact_input()
+	up_input()
+	down_input()
 
 func move_input():
 	if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
@@ -60,6 +64,14 @@ func reload_input():
 func interact_input():
 	if Input.is_action_just_pressed("interact"):
 		interact.emit()
+
+func up_input():
+	if Input.is_action_just_pressed("move_forward"):
+		up.emit()
+
+func down_input():
+	if Input.is_action_just_pressed("move_back"):
+		down.emit()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
