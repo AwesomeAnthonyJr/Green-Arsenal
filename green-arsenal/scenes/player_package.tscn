@@ -8,8 +8,6 @@
 
 [node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot", "hud", "aiming_target") instance=ExtResource("1_aaihd")]
 linear_damp = 3.0
-jumpForce = 15.0
-light_grav = 0.5
 heavy_grav = 2.0
 look_pivot = NodePath("../CameraRig/TwistPivot")
 hud = NodePath("../InGameHUD")
