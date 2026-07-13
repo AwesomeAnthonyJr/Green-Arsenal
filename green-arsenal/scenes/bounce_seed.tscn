@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dpgh50jm5a81t"]
+[gd_scene format=3 uid="uid://dujks8d1rnb6t"]
 
-[ext_resource type="Script" uid="uid://dtcvcy36bjiw3" path="res://scripts/life_seed.gd" id="1_c4ym0"]
+[ext_resource type="Script" uid="uid://c8tr1dghup75a" path="res://scripts/bounce_seed.gd" id="1_2urgt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h45xw"]
 radius = 0.1
@@ -14,9 +14,9 @@ height = 5.0
 shading_mode = 0
 albedo_color = Color(0.39215687, 0.8156863, 0.09803922, 1)
 
-[node name="LifeSeed" type="Node3D" unique_id=828323298]
+[node name="BounceSeed" type="Node3D" unique_id=828323298]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-script = ExtResource("1_c4ym0")
+script = ExtResource("1_2urgt")
 speed = 250.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1153148146]

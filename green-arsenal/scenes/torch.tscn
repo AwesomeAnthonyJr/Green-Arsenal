@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cnwa7fcr5qsd7"]
+
+[ext_resource type="Script" uid="uid://cu3hjcr0wy4k8" path="res://scripts/torch.gd" id="1_d4v33"]
+[ext_resource type="Material" uid="uid://261r71cbnjxf" path="res://materials/player_glasses.tres" id="2_my26j"]
+[ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="3_o2tjn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r3k50"]
+height = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o2tjn"]
+radius = 1.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ndh0a"]
+height = 1.5
+radius = 0.99
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h45xw"]
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_my26j"]
+top_radius = 1.0
+height = 0.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o2tjn"]
+top_radius = 0.01
+bottom_radius = 0.1
+height = 1.0
+
+[node name="Torch" type="Node3D" unique_id=2026293210 groups=["torch"]]
+script = ExtResource("1_d4v33")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1723465457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=611202310]
+shape = SubResource("CylinderShape3D_r3k50")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1918933485 groups=["torch"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1068844, 0)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=762661927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5870671, 0)
+shape = SubResource("SphereShape3D_o2tjn")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=66837617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1068844, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=415872058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5870671, 0)
+shape = SubResource("CylinderShape3D_ndh0a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1583428369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("2_my26j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=248284720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1068844, 0)
+mesh = SubResource("CylinderMesh_my26j")
+surface_material_override/0 = ExtResource("2_my26j")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1285048407]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1044575409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
+mesh = SubResource("CylinderMesh_o2tjn")
+surface_material_override/0 = ExtResource("2_my26j")
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=965516036]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2" unique_id=840483822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
+mesh = SubResource("CylinderMesh_o2tjn")
+surface_material_override/0 = ExtResource("2_my26j")
+
+[node name="Node3D3" type="Node3D" parent="." unique_id=1065190370]
+transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D3" unique_id=1312118538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
+mesh = SubResource("CylinderMesh_o2tjn")
+surface_material_override/0 = ExtResource("2_my26j")
+
+[node name="Node3D4" type="Node3D" parent="." unique_id=561308369]
+transform = Transform3D(-0.70710665, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.70710665, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D4" unique_id=492977480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
+mesh = SubResource("CylinderMesh_o2tjn")
+surface_material_override/0 = ExtResource("2_my26j")
+
+[node name="Node3D5" type="Node3D" parent="." unique_id=504441724]
+transform = Transform3D(-0.9999997, 0, 0, 0, 1, 0, 0, 0, -0.9999997, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D5" unique_id=596727064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
+mesh = SubResource("CylinderMesh_o2tjn")
+surface_material_override/0 = ExtResource("2_my26j")
+
+[node name="Node3D6" type="Node3D" parent="." unique_id=1185676132]
+transform = Transform3D(-0.7071068, -0.003971378, -0.70709497, -0.0045901616, 0.9999889, -0.0010261658, 0.7070913, 0.0025200732, -0.7071172, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D6" unique_id=1600812469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
+mesh = SubResource("CylinderMesh_o2tjn")
+surface_material_override/0 = ExtResource("2_my26j")
+
+[node name="Node3D7" type="Node3D" parent="." unique_id=1249630039]
+transform = Transform3D(-1.1622906e-06, -0.0049975924, -0.999987, -0.007110253, 0.99996215, -0.004997456, 0.9999743, 0.0071101617, -3.6656857e-05, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D7" unique_id=1528840331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
+mesh = SubResource("CylinderMesh_o2tjn")
+surface_material_override/0 = ExtResource("2_my26j")
+
+[node name="Node3D8" type="Node3D" parent="." unique_id=957888350]
+transform = Transform3D(0.7070878, 0.0014938121, -0.7071236, -0.0071102534, 0.9999623, -0.004997456, 0.7070895, 0.008561475, 0.7070717, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D8" unique_id=1932705568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
+mesh = SubResource("CylinderMesh_o2tjn")
+surface_material_override/0 = ExtResource("2_my26j")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1107837933]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1.7778337, 0)
+modulate = Color(0.9254902, 0.5058824, 0.23137255, 1)
+billboard = 1
+texture = ExtResource("3_o2tjn")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D" unique_id=32380606]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.57891035, 0)
+shadow_enabled = true
+omni_range = 10.0

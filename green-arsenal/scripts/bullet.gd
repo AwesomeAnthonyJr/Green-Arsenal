@@ -12,6 +12,14 @@ var player: Player
 #shapecast to give a slight margin in favor of the player for enemies; enemy colliders on layer 3
 @onready var enemy_cast: ShapeCast3D = $ShapeCast3D
 
+func become_a_fireball():
+	var inst = Preloads.fireball.instantiate()
+	get_parent().add_child(inst)
+	inst.global_position = global_position
+	inst.global_rotation = global_rotation
+	inst.speed = speed / 2.0
+	destroy_bullet()
+
 func align_collision_rotation(norm, obj):
 	#print(norm)
 	obj.global_rotation = global_rotation
@@ -27,8 +35,11 @@ func _physics_process(delta: float) -> void:
 	puzzle_cast.force_raycast_update()
 	
 	if enemy_cast.is_colliding():
-		hit_enemy(enemy_cast.get_collider(0))
-		return
+		if enemy_cast.get_collider(0).is_in_group("blaze_flower"):
+			become_a_fireball()
+		else:
+			hit_enemy(enemy_cast.get_collider(0))
+			return
 	if puzzle_cast.is_colliding():
 		if puzzle_cast.get_collider().is_in_group("soil"):
 			plant_seed(puzzle_cast.get_collision_point(), puzzle_cast.get_collision_normal())
@@ -47,7 +58,7 @@ func hit_enemy(obj):
 		print("Taking damage")
 		obj.take_damage(2)
 	else:
-		print("FAIL: obj does not have take_damageFunction")
+		print("FAIL: obj does not have take_damage Function")
 	destroy_bullet()
 
 
