@@ -17,6 +17,7 @@ albedo_color = Color(0.39215687, 0.8156863, 0.09803922, 1)
 [node name="LifeSeed" type="Node3D" unique_id=828323298]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 script = ExtResource("1_c4ym0")
+speed = 250.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1153148146]
 wait_time = 1.5

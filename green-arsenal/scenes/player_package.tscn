@@ -6,13 +6,15 @@
 
 [node name="PlayerPackage" type="Node3D" unique_id=1280539618]
 
-[node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot", "hud") instance=ExtResource("1_aaihd")]
+[node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot", "hud", "aiming_target") instance=ExtResource("1_aaihd")]
 linear_damp = 3.0
-jumpForce = null
-heavy_grav = null
-light_grav = null
+jumpForce = 10.0
+heavy_grav = 1.5
 look_pivot = NodePath("../CameraRig/TwistPivot")
 hud = NodePath("../InGameHUD")
+aiming_target = NodePath("../AimingTarget")
+
+[node name="AimingTarget" type="Node3D" parent="." unique_id=906602711]
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=233280687 node_paths=PackedStringArray("mirror")]
 script = ExtResource("2_221em")

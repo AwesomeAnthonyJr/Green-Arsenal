@@ -37,7 +37,7 @@ func read_back():
 func read_accept():
 	if player.is_reloading:
 		load_special_seed.emit(revolver.get_selection())
-		print(revolver.get_selection())
+		#print(revolver.get_selection())
 
 func find_main(x) -> Main:
 	var p = x.get_parent()

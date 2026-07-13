@@ -22,7 +22,9 @@ var supress_movement = false
 
 @onready var cameraRig = $"../CameraRig/TwistPivot/PitchPivot/Camera3D"
 @onready var aimRayCast = $"../CameraRig/TwistPivot/PitchPivot/AimRayCast"
-@onready var gun = $Pivot/Pivot2/Gun
+@onready var shooter = $Pivot/Pivot2/Model/Armature_001/Skeleton3D/BoneAttachment3D/Gun/Node3D/Shooter
+@onready var hand_looker = $Pivot/Pivot2/Model/Armature_001/Skeleton3D/LookAtModifier3D
+@export var aiming_target: Node3D
 
 @onready var pivot = $Pivot
 @onready var pivot_2 = $Pivot/Pivot2
@@ -40,6 +42,7 @@ func _ready() -> void:
 	if HUD != null:
 		hud.update_petals(loaded_in_gun)
 		connect_hud()
+	hand_looker.target_node = aiming_target.get_path()
 
 func connect_hud():
 	hud.load_special_seed.connect(reload_special_seed)
@@ -74,7 +77,8 @@ func read_pause():
 	#Unlocks the curser on esc press
 func read_shoot():
 	is_reloading = false
-	if current_bullet < 6:
+	print(current_bullet)
+	if current_bullet < 7:
 		var new_curr = 5
 		for i in loaded_in_gun.size():
 			if loaded_in_gun[i] != 0:
@@ -89,15 +93,12 @@ func read_reload():
 	if is_reloading:
 		hud.reset_rot()
 		reload_bullet_seed()
-		if current_bullet > 5:
-			is_reloading = false
-			current_bullet = 0
 	else:
 		is_reloading = true
 		hud.update_petals(loaded_in_gun)
 		hud.reset_rot()
-		if current_bullet > 5:
-			current_bullet = 0
+		current_bullet = 0
+
 func read_interact():
 	if is_reloading:
 		pass
@@ -108,12 +109,18 @@ func reload_special_seed(n):
 	if loaded_in_gun[current_bullet] == 0:
 		loaded_in_gun[current_bullet] = n
 	current_bullet += 1
+	if current_bullet > 5:
+			is_reloading = false
+			current_bullet = 0
 	hud.update_petals(loaded_in_gun)
 
 func reload_bullet_seed():
 	if loaded_in_gun[current_bullet] == 0:
 		loaded_in_gun[current_bullet] = 1
 	current_bullet += 1
+	if current_bullet > 5:
+			is_reloading = false
+			current_bullet = 0
 	hud.update_petals(loaded_in_gun)
 
 # simple recursive solution to find the main node.
@@ -151,7 +158,9 @@ func gun_rotation():
 		targetPoint = aimRayCast.get_collision_point()
 	else:
 		targetPoint = aimRayCast.global_position - (aimRayCast.global_transform.basis.z * 100)
-	gun.look_at(targetPoint, Vector3.UP)
+	if aiming_target != null:
+		aiming_target.global_position = targetPoint
+		shooter.look_at(targetPoint, Vector3.UP)
 
 func physics_looking() -> void:
 	pivot.rotation.y = lerp_angle(pivot.rotation.y, look_pivot.rotation.y, 0.5)
@@ -202,5 +211,5 @@ func shoot():
 			bullet = Preloads.life_seed.instantiate()
 	get_parent().add_child(bullet)
 	
-	bullet.global_position = gun.global_position
-	bullet.global_rotation = gun.global_rotation
+	bullet.global_position = shooter.global_position
+	bullet.global_rotation = shooter.global_rotation
