@@ -216,7 +216,7 @@ func apply_air_drift(delta) -> void:
 func playerJump() -> void:
 	if is_grounded and !supress_movement:
 		#print()
-		var speed_mult = lerpf(1.0, 1.5, linear_velocity.slide(Vector3.UP).length() / 12.0)
+		var speed_mult = lerpf(1.0, 1.75, linear_velocity.slide(Vector3.UP).length() / 12.0)
 		apply_central_impulse(Vector3.UP * jumpForce * speed_mult);
 		is_jump_drifting = true
 	#Applies jump force 
