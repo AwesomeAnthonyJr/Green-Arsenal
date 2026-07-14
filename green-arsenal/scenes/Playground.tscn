@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cnwa7fcr5qsd7" path="res://scenes/torch.tscn" id="5_gv6bp"]
 [ext_resource type="Material" uid="uid://doiuat84x0eiv" path="res://materials/fresh_water.tres" id="6_070rk"]
 [ext_resource type="Material" uid="uid://oc5kpu32ennv" path="res://materials/salt_water.tres" id="7_070rk"]
+[ext_resource type="PackedScene" uid="uid://cnys260vhf7u2" path="res://scenes/flyingEnemy.tscn" id="8_h8tnp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3invt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -145,5 +146,8 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Water2" unique_id=698328317]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.0199881, 8.5)
 shape = SubResource("BoxShape3D_pewrh")
+
+[node name="flyingEnemy" parent="." unique_id=1962981469 instance=ExtResource("8_h8tnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.023456, 3.4071681, -8.160309)
 
 [editable path="PlayerPackage"]
