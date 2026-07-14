@@ -50,7 +50,9 @@ func _ready() -> void:
 	if HUD != null:
 		hud.update_petals(loaded_in_gun)
 		connect_hud()
+		hud.update_health_display(max_health, current_health)
 	hand_looker.target_node = aiming_target.get_path()
+	
 
 func connect_hud():
 	hud.load_special_seed.connect(reload_special_seed)
@@ -82,6 +84,7 @@ func read_end_jump():
 #TODO: improve this / handle pausing in some other script! (fine for now)
 func read_pause():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
+	get_tree().paused = true
 	#Unlocks the curser on esc press
 func read_shoot():
 	is_reloading = false
@@ -173,7 +176,7 @@ func _physics_process(delta: float) -> void:
 		pass
 	
 	#just going to use the walk animation to convey all movement for now...
-	if move_dir.length() > 0:
+	if move_dir.length() > 0 and !supress_movement:
 		var move_speed = lerpf(1.0, 2.5, Vector2(linear_velocity.x, linear_velocity.z).length() / 12.0)
 		model_anim_tree.set("parameters/TimeScale/scale", move_speed)
 		model_anim_tree["parameters/WalkState/playback"].travel("left_step")
@@ -269,14 +272,17 @@ func heal_1():
 	current_health += 1
 	if current_health > max_health:
 		current_health = max_health
+	hud.update_health_display(max_health, current_health)
 
 func take_damage(n):
 	print(current_health)
 	current_health -= n
+	#TODO: make player death actually reload the game and stuff not just resetting position (obviously)
 	if current_health <= 0:
 		print("PLAYER DIES!!")
 		current_health = max_health
 		global_position = get_parent().global_position
 	iframes = true
+	hud.update_health_display(max_health, current_health)
 	await get_tree().create_timer(0.1).timeout
 	iframes = false

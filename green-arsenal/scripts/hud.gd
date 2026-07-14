@@ -4,6 +4,7 @@ class_name HUD
 @export var player: Player
 @onready var crosshair = $Crosshair
 @onready var revolver = $Revolver
+@onready var health = $Health
 
 signal load_special_seed(n)
 
@@ -75,3 +76,7 @@ func reset_rot():
 	crosshair.animation_tree["parameters/playback"].travel("RESET")
 	crosshair.reset_petal_animations()
 	revolver.reloading_anim()
+
+func update_health_display(max, curr):
+	health.update_visibility(max)
+	health.update_sprites(curr)
