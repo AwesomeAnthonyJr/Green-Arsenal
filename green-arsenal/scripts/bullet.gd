@@ -3,6 +3,7 @@ class_name Bullet
 #class name so special seeds can just extend the behavior
 
 var player: Player
+var in_water = false
 
 @export var speed: float = 50.0
 #Bullet Speed
@@ -37,6 +38,8 @@ func _physics_process(delta: float) -> void:
 	if enemy_cast.is_colliding():
 		if enemy_cast.get_collider(0).is_in_group("blaze_flower"):
 			become_a_fireball()
+		elif enemy_cast.get_collider(0).is_in_group("fresh_water"):
+			in_water = true
 		else:
 			hit_enemy(enemy_cast.get_collider(0))
 			return

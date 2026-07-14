@@ -7,6 +7,8 @@ func plant_seed(point, norm):
 	var inst = Preloads.platform_lilypad.instantiate()
 	get_parent().add_child(inst)
 	inst.global_position = point
+	if in_water:
+		inst.seeK_surface()
 	#align_collision_rotation(norm, inst)
 	
 	player.active_plants.append(inst)
