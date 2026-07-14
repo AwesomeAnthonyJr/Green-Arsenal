@@ -597,7 +597,7 @@ states/reloading/position = Vector2(536, 73)
 "states/reloading 2/node" = SubResource("AnimationNodeAnimation_cawb2")
 "states/reloading 2/position" = Vector2(760, -198)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_qnwhp"), "RESET", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_cawb2"), "on_bullet_5", "on_bullet_5 2", SubResource("AnimationNodeStateMachineTransition_3lubi"), "on_bullet_0", "on_bullet_0 2", SubResource("AnimationNodeStateMachineTransition_hpryw"), "on_bullet_1", "on_bullet_1 2", SubResource("AnimationNodeStateMachineTransition_by6v6"), "on_bullet_2", "on_bullet_2 2", SubResource("AnimationNodeStateMachineTransition_rcaw0"), "on_bullet_3", "on_bullet_3 2", SubResource("AnimationNodeStateMachineTransition_yhpat"), "on_bullet_4", "on_bullet_4 2", SubResource("AnimationNodeStateMachineTransition_rk5t0"), "on_bullet_0 2", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_2urha"), "on_bullet_1 2", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_3xuwr"), "on_bullet_2 2", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_xof42"), "on_bullet_3 2", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_8jm0m"), "on_bullet_4 2", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_oll3d"), "on_bullet_5 2", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_wgbt3"), "on_bullet_0", "reloading", SubResource("AnimationNodeStateMachineTransition_umgpx"), "reloading", "reloading 2", SubResource("AnimationNodeStateMachineTransition_10wg2"), "reloading 2", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_8x3mc"), "on_bullet_1", "reloading", SubResource("AnimationNodeStateMachineTransition_sbl5u"), "on_bullet_2", "reloading", SubResource("AnimationNodeStateMachineTransition_edenc"), "on_bullet_3", "reloading", SubResource("AnimationNodeStateMachineTransition_156o1"), "on_bullet_4", "reloading", SubResource("AnimationNodeStateMachineTransition_wkm38"), "on_bullet_5", "reloading", SubResource("AnimationNodeStateMachineTransition_2k0n8")]
-graph_offset = Vector2(26, -248)
+graph_offset = Vector2(26, -246)
 
 [node name="InGameHUD" type="CanvasLayer" unique_id=521452179]
 script = ExtResource("1_26122")
@@ -816,6 +816,61 @@ texture = ExtResource("7_dl01e")
 texture = ExtResource("8_3s1eg")
 hframes = 7
 frame = 6
+
+[node name="Label" type="Label" parent="Revolver/InteractMenu" unique_id=1863959460]
+layout_mode = 0
+offset_left = 227.0
+offset_top = -28.0
+offset_right = 267.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 40
+text = "E"
+
+[node name="Label2" type="Label" parent="Revolver/InteractMenu" unique_id=1938432236]
+layout_mode = 0
+offset_left = 198.0
+offset_top = -79.0
+offset_right = 238.0
+offset_bottom = -24.0
+theme_override_font_sizes/font_size = 20
+text = "W"
+
+[node name="Label3" type="Label" parent="Revolver/InteractMenu" unique_id=1511330556]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 47.0
+offset_right = 243.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 20
+text = "S"
+
+[node name="Label5" type="Label" parent="Revolver/InteractMenu" unique_id=194432766]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 55.0
+offset_right = 205.0
+offset_bottom = 110.0
+rotation = -1.5707964
+theme_override_font_sizes/font_size = 20
+text = "<"
+
+[node name="Label6" type="Label" parent="Revolver/InteractMenu" unique_id=395750875]
+layout_mode = 0
+offset_left = 195.0
+offset_top = -55.0
+offset_right = 235.0
+rotation = -4.712389
+theme_override_font_sizes/font_size = 20
+text = "<"
+
+[node name="Label4" type="Label" parent="Revolver/InteractMenu" unique_id=1609501840]
+layout_mode = 0
+offset_left = -192.0
+offset_top = 41.0
+offset_right = -152.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 40
+text = "R"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Revolver" unique_id=2035205259]
 libraries/ = SubResource("AnimationLibrary_4f0tj")

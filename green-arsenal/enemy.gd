@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 @export var speed = 2
-@export var maxHealth = 10
+@export var maxHealth = 1
 @export var player: Node3D
 
 @onready var currHealth: int = maxHealth

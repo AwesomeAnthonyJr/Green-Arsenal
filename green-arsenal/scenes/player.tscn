@@ -5,6 +5,8 @@
 [ext_resource type="Material" uid="uid://ct0tpf1wcbdkn" path="res://materials/cel_test_mat.tres" id="2_qhqgy"]
 [ext_resource type="Material" uid="uid://btv5wmb323tvi" path="res://materials/player_holster.tres" id="3_dqkch"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p1t08"]
+
 [sub_resource type="Skin" id="Skin_dv487"]
 resource_name = "Skin"
 bind_count = 39
@@ -147,6 +149,154 @@ angle = 3.1415927
 [sub_resource type="CylinderMesh" id="CylinderMesh_qhqgy"]
 height = 1.0
 
+[sub_resource type="Animation" id="Animation_qlg0r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../IKOffset3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.108593866, -0.9607407, 0.03304644)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../IKOffset4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.109, -0.961, 0.033)]
+}
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "left_step"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../IKOffset3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 0.5, 1, 1),
+"update": 0,
+"values": [Vector3(-0.108593866, -0.9607407, 0.03304644), Vector3(-0.109, -0.692, 0.5), Vector3(-0.109, -0.62, -0.5), Vector3(-0.108593866, -0.9607407, 0.03304644), Vector3(-0.108593866, -0.9607407, 0.03304644)]
+}
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "right_step"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../IKOffset4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 0.5, 1, 1),
+"update": 0,
+"values": [Vector3(0.109, -0.961, 0.033), Vector3(0.109, -0.692, 0.5), Vector3(0.109, -0.62, -0.5), Vector3(0.109, -0.961, 0.033), Vector3(0.109, -0.961, 0.033)]
+}
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+resource_name = "standing"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../IKOffset3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.108593866, -0.9607407, 0.03304644)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../IKOffset4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.109, -0.961, 0.033)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
+_data = {
+&"RESET": SubResource("Animation_qlg0r"),
+&"left_step": SubResource("Animation_tuyoq"),
+&"right_step": SubResource("Animation_fjrip"),
+&"standing": SubResource("Animation_dqkch")
+}
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_dqkch"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dqkch"]
+animation = &"left_step"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qlg0r"]
+animation = &"right_step"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tuyoq"]
+animation = &"standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fjrip"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_smehm"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ur7pv"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y4r1p"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d2wvv"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3v2ag"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jej6c"]
+xfade_time = 0.5
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f1ej7"]
+states/left_step/node = SubResource("AnimationNodeAnimation_dqkch")
+states/left_step/position = Vector2(654, 89)
+states/right_step/node = SubResource("AnimationNodeAnimation_qlg0r")
+states/right_step/position = Vector2(671, 146)
+states/standing/node = SubResource("AnimationNodeAnimation_tuyoq")
+states/standing/position = Vector2(350, 100)
+transitions = ["Start", "standing", SubResource("AnimationNodeStateMachineTransition_fjrip"), "standing", "left_step", SubResource("AnimationNodeStateMachineTransition_smehm"), "left_step", "right_step", SubResource("AnimationNodeStateMachineTransition_ur7pv"), "right_step", "left_step", SubResource("AnimationNodeStateMachineTransition_y4r1p"), "right_step", "standing", SubResource("AnimationNodeStateMachineTransition_d2wvv"), "left_step", "standing", SubResource("AnimationNodeStateMachineTransition_3v2ag"), "standing", "right_step", SubResource("AnimationNodeStateMachineTransition_jej6c")]
+graph_offset = Vector2(20, -43)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h3b12"]
+graph_offset = Vector2(-234, 118)
+nodes/output/position = Vector2(360, 160)
+nodes/WalkState/node = SubResource("AnimationNodeStateMachine_f1ej7")
+nodes/WalkState/position = Vector2(-80, 140)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_dqkch")
+nodes/TimeScale/position = Vector2(200, 140)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"WalkState"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g36yv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i20g8"]
@@ -157,6 +307,7 @@ height = 0.2
 radius = 0.18
 
 [node name="Player" type="RigidBody3D" unique_id=278666006 groups=["player"]]
+physics_material_override = SubResource("PhysicsMaterial_p1t08")
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_g2els")
@@ -336,23 +487,23 @@ bones/23/name = "Upper Leg L"
 bones/23/parent = 1
 bones/23/rest = Transform3D(-0.006669901, 0.09509246, 0.9954541, -0.15111813, -0.98413146, 0.09299979, 0.9884965, -0.14980918, 0.02093435, 0.19832411, -0.060268164, -0.08044089)
 bones/23/enabled = true
-bones/23/position = Vector3(0.19832411, -0.060268164, -0.08044089)
-bones/23/rotation = Quaternion(0.6993796, -0.020026745, 0.7091783, -0.086794145)
-bones/23/scale = Vector3(1.0000032, 1, 1.000008)
+bones/23/position = Vector3(0.19832411, -0.06026817, -0.080440894)
+bones/23/rotation = Quaternion(0.6993796, -0.02002675, 0.7091783, -0.08679413)
+bones/23/scale = Vector3(1.0000035, 1.0000001, 1.0000079)
 bones/24/name = "Lower Leg L"
 bones/24/parent = 23
 bones/24/rest = Transform3D(0.993459, -0.11406217, -0.0053865714, 0.114131995, 0.99036103, 0.078478016, -0.003616722, -0.07857946, 0.99690133, 1.1874363e-08, 1.0305434, -4.904905e-09)
 bones/24/enabled = true
-bones/24/position = Vector3(1.1874363e-08, 1.0305434, -4.904905e-09)
-bones/24/rotation = Quaternion(-0.039359335, -0.00044353236, 0.057186518, 0.99758726)
-bones/24/scale = Vector3(0.99999994, 0.99999994, 1)
+bones/24/position = Vector3(-0.009774208, 1.0304968, 9.1165304e-05)
+bones/24/rotation = Quaternion(-0.03928905, -0.0001836678, 0.06193454, 0.9973066)
+bones/24/scale = Vector3(0.9999998, 0.9999999, 0.99999976)
 bones/25/name = "Ankle L"
 bones/25/parent = 24
 bones/25/rest = Transform3D(0.76108986, 0.64861506, 0.006387354, -0.64864045, 0.7610035, 0.011802041, 0.0027941829, -0.013125511, 0.99990994, 7.785275e-09, 1.4765723, 2.750025e-08)
 bones/25/enabled = true
-bones/25/position = Vector3(7.785275e-09, 1.4765723, 2.750025e-08)
-bones/25/rotation = Quaternion(-0.006641326, 0.0009573112, -0.34562144, 0.93835)
-bones/25/scale = Vector3(1, 1, 0.99999994)
+bones/25/position = Vector3(0.023770459, 1.4753509, -0.0003619194)
+bones/25/rotation = Quaternion(-0.0063174083, 0.0006439574, -0.35032445, 0.9366069)
+bones/25/scale = Vector3(0.9999999, 1, 1)
 bones/26/name = "Foot L"
 bones/26/parent = 25
 bones/26/rest = Transform3D(0.6194129, 0.7850599, -0.0028879386, -0.7850599, 0.61939114, -0.00594155, -0.002875709, 0.0059474786, 0.9999781, -5.2852556e-08, 0.28597155, -1.5948899e-08)
@@ -525,6 +676,48 @@ bone = 18
 forward_axis = 2
 primary_rotation_axis = 0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot/Pivot2/Model/Armature_001/Skeleton3D" unique_id=1262509340]
+libraries/ = SubResource("AnimationLibrary_qlg0r")
+
+[node name="AnimationTree" type="AnimationTree" parent="Pivot/Pivot2/Model/Armature_001/Skeleton3D" unique_id=1972956370]
+tree_root = SubResource("AnimationNodeBlendTree_h3b12")
+anim_player = NodePath("../AnimationPlayer")
+parameters/TimeScale/scale = 1.0
+
+[node name="CCDIK3D3" type="CCDIK3D" parent="Pivot/Pivot2/Model/Armature_001/Skeleton3D" unique_id=1599276341]
+max_iterations = 11
+setting_count = 1
+settings/0/target_node = NodePath("../../../../IKOffset3")
+settings/0/root_bone_name = "Upper Leg L"
+settings/0/root_bone = 23
+settings/0/end_bone_name = "Ankle L"
+settings/0/end_bone = 25
+settings/0/extend_end_bone = false
+settings/0/joint_count = 3
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 2
+settings/0/joints/1/limitation = null
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+
+[node name="CCDIK3D4" type="CCDIK3D" parent="Pivot/Pivot2/Model/Armature_001/Skeleton3D" unique_id=576549291]
+max_iterations = 11
+setting_count = 1
+settings/0/target_node = NodePath("../../../../IKOffset4")
+settings/0/root_bone_name = "Upper Leg R"
+settings/0/root_bone = 27
+settings/0/end_bone_name = "Ankle R"
+settings/0/end_bone = 29
+settings/0/extend_end_bone = false
+settings/0/joint_count = 3
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Pivot2" unique_id=1178222609]
 visible = false
 mesh = SubResource("CapsuleMesh_g36yv")
@@ -535,6 +728,12 @@ transform = Transform3D(0.014123129, -0.96158993, -0.2741267, -0.10133316, -0.27
 
 [node name="IKOffset2" type="Node3D" parent="Pivot/Pivot2" unique_id=1409358566]
 transform = Transform3D(0.014123129, -0.96158993, -0.2741267, -0.10133316, -0.27411902, 0.9563421, -0.99475217, 0.014271578, -0.10131237, -0.18359867, -0.00024712086, -0.07590565)
+
+[node name="IKOffset3" type="Node3D" parent="Pivot/Pivot2" unique_id=612807028]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.108593866, -0.9607407, 0.03304644)
+
+[node name="IKOffset4" type="Node3D" parent="Pivot/Pivot2" unique_id=1759110127]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.109, -0.961, 0.033)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1143345378]
 shape = SubResource("CapsuleShape3D_i20g8")

@@ -28,6 +28,7 @@ var supress_movement = false
 
 @onready var pivot = $Pivot
 @onready var pivot_2 = $Pivot/Pivot2
+@onready var model_anim_tree = $Pivot/Pivot2/Model/Armature_001/Skeleton3D/AnimationTree
 
 var is_reloading = false
 var current_bullet = 0
@@ -167,6 +168,16 @@ func _physics_process(delta: float) -> void:
 		#print(gravity_scale)
 	else:
 		pass
+	
+	#just going to use the walk animation to convey all movement for now...
+	if move_dir.length() > 0:
+		var move_speed = lerpf(1.0, 2.5, Vector2(linear_velocity.x, linear_velocity.z).length() / 12.0)
+		model_anim_tree.set("parameters/TimeScale/scale", move_speed)
+		model_anim_tree["parameters/WalkState/playback"].travel("left_step")
+	else:
+		model_anim_tree.set("parameters/TimeScale/scale", 1.0)
+		model_anim_tree["parameters/WalkState/playback"].travel("standing")
+	
 func gun_rotation():
 	var targetPoint = Vector3()
 	if aimRayCast.is_colliding():
