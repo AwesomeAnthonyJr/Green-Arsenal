@@ -13,7 +13,7 @@ extends Control
 @onready var load_5 = $Sprite2D/Control/Loaded5
 
 #TODO: read from save data instead! just assume we have all of them for now.
-var seeds = [2, 3, 4, 5, 6]
+var seeds = [2, 3, 4, 5]
 var seed_select = 0
 
 func select_increment(n):

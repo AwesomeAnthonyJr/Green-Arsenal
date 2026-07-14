@@ -815,7 +815,7 @@ texture = ExtResource("7_dl01e")
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircleW" unique_id=1664948421]
 texture = ExtResource("8_3s1eg")
 hframes = 7
-frame = 6
+frame = 5
 
 [node name="Label" type="Label" parent="Revolver/InteractMenu" unique_id=1863959460]
 layout_mode = 0
