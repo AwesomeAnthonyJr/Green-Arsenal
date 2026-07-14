@@ -3,14 +3,22 @@ extends CharacterBody3D
 
 @export var speed = 2
 @export var maxHealth = 1
-@export var player: Node3D
+@export var contact_damage = 1
+var player = null
 
 @onready var currHealth: int = maxHealth
 var move_velocity: Vector3 = Vector3.ZERO
 var target_velocity: Vector3 = Vector3.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if player == null:
+		find_player()
+
+func find_player():
+	var level = get_parent()
+	for c in level.get_children():
+		if c.is_in_group("player_package") and player == null:
+			player = c.get_child(0)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -18,7 +26,8 @@ func _physics_process(delta: float) -> void:
 	if player != null:
 		var target_pos = player.global_position
 		target_pos.y = global_position.y 
-		if global_position.distance_to(target_pos) > 0.1:
+		var dist = global_position.distance_to(target_pos)
+		if dist > 0.1 and dist < 10.0:
 			look_at(target_pos, Vector3.UP)
 		var direction = (target_pos - global_position).normalized()
 		move_velocity.x = direction.x * speed
@@ -44,3 +53,11 @@ func die() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_hurtbox_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		if body.has_method("take_damage"):
+			if !body.iframes:
+				body.take_damage(contact_damage)
+			take_knockback(5.0 * global_basis.z)

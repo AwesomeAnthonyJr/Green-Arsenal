@@ -4,11 +4,10 @@
 [ext_resource type="Script" uid="uid://ctioco30i1jxg" path="res://scripts/camera_rig.gd" id="2_221em"]
 [ext_resource type="PackedScene" uid="uid://b1te36p3nyvr4" path="res://scenes/in_game_hud.tscn" id="3_q2s2p"]
 
-[node name="PlayerPackage" type="Node3D" unique_id=1280539618]
+[node name="PlayerPackage" type="Node3D" unique_id=1280539618 groups=["player_package"]]
 
 [node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot", "hud", "aiming_target") instance=ExtResource("1_aaihd")]
 linear_damp = 3.0
-heavy_grav = 2.0
 look_pivot = NodePath("../CameraRig/TwistPivot")
 hud = NodePath("../InGameHUD")
 aiming_target = NodePath("../AimingTarget")

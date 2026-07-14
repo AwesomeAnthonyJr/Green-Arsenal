@@ -32,10 +32,8 @@ func _physics_process(delta: float) -> void:
 #will be inherited by subclasses
 func hit_enemy(obj):
 	if obj.has_method("take_damage"):
-		print("Taking damage from a fireball")
+		#print("Taking damage from a fireball")
 		obj.take_damage(10)
-	else:
-		print(obj.name)
 	destroy_bullet()
 
 

@@ -29,6 +29,7 @@ soil="for planting seeds in"
 player="for the player"
 blaze_flower="for the blaze flower"
 torch="for torches!"
+player_package=""
 
 [input]
 

@@ -1,0 +1,331 @@
+[gd_scene format=3 uid="uid://dqoak2hrjxbsl"]
+
+[ext_resource type="PackedScene" uid="uid://bes4hymed4oow" path="res://scenes/player_package.tscn" id="1_kaeib"]
+[ext_resource type="Material" uid="uid://c8i4sbymv8db4" path="res://materials/placeholder_soil.tres" id="2_wjmrw"]
+[ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="3_ij02i"]
+[ext_resource type="PackedScene" uid="uid://d2b7pimm2lunt" path="res://scenes/enemy.tscn" id="4_wmjvc"]
+[ext_resource type="PackedScene" uid="uid://cnwa7fcr5qsd7" path="res://scenes/torch.tscn" id="5_3dwt6"]
+[ext_resource type="Script" uid="uid://1yv3vtnelsid" path="res://scripts/torch_boss.gd" id="5_kaeib"]
+[ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="7_wjmrw"]
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="8_wmjvc"]
+[ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="9_3dwt6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3invt"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_80c3a"]
+sky_material = SubResource("ProceduralSkyMaterial_3invt")
+
+[sub_resource type="Environment" id="Environment_d17em"]
+background_mode = 2
+sky = SubResource("Sky_80c3a")
+ambient_light_source = 1
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_ybq8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cm066"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.5, 0), Vector3(0, -3.30229, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_avpma"]
+_data = {
+&"RESET": SubResource("Animation_ybq8s"),
+&"open": SubResource("Animation_cm066")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_h45xw"]
+size = Vector3(3, 6, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hhbv0"]
+render_priority = 0
+shader = ExtResource("8_wmjvc")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("9_3dwt6")
+shader_parameter/albedo_in_shadow = Color(0.46008006, 0.30960003, 0.72, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("9_3dwt6")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.1999999955296
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m7ebb"]
+size = Vector3(3, 6, 1)
+
+[node name="Demo" type="Node3D" unique_id=798919202]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1573310155]
+environment = SubResource("Environment_d17em")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1823464550]
+transform = Transform3D(1, -2.9802322e-08, -2.9802322e-08, 2.7805946e-08, 0.49999994, 0.86602545, 0, -0.86602545, 0.49999994, 0, 0, 0)
+shadow_enabled = true
+
+[node name="PlayerPackage" parent="." unique_id=1280539618 instance=ExtResource("1_kaeib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2447414, 0)
+
+[node name="Soil" type="CSGCombiner3D" parent="." unique_id=1250127289 groups=["soil"]]
+layers = 3
+material_override = ExtResource("2_wjmrw")
+use_collision = true
+collision_layer = 3
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Soil" unique_id=777509885]
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Soil" unique_id=1472792563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -11)
+size = Vector3(14, 9, 10)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Soil" unique_id=2025071732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 13, -15.5)
+size = Vector3(5, 10, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Soil" unique_id=555109836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 18, -15.5)
+size = Vector3(5, 10, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Soil" unique_id=1837702899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 23, -15.5)
+size = Vector3(5, 10, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Soil" unique_id=724481634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 29, -15.5)
+size = Vector3(5, 10, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Soil" unique_id=1067294303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, -3, -3)
+size = Vector3(11, 9, 26)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Soil" unique_id=2067061007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, -3, -3)
+size = Vector3(11, 9, 26)
+
+[node name="NonSoil" type="CSGCombiner3D" parent="." unique_id=1556634286]
+layers = 3
+material_override = ExtResource("3_ij02i")
+use_collision = true
+collision_layer = 3
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NonSoil" unique_id=1501977630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 4.5, 0)
+size = Vector3(3, 10, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NonSoil" unique_id=148737218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 4.5, 0)
+size = Vector3(3, 10, 10)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="NonSoil" unique_id=230495811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 4, -11.5)
+size = Vector3(3, 9, 3)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="NonSoil" unique_id=1329716967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 4, -11.5)
+size = Vector3(3, 9, 3)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="NonSoil" unique_id=1155277450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 18, 7.5)
+size = Vector3(37, 37, 5)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="NonSoil" unique_id=822377553]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.5, 18, -8.5)
+size = Vector3(37, 37, 5)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="NonSoil" unique_id=432791733]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20.5, 18, -8.5)
+size = Vector3(37, 37, 5)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="NonSoil" unique_id=329241104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 18, -17.5)
+size = Vector3(37, 37, 5)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="NonSoil" unique_id=983019258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 13, -15.5)
+operation = 2
+size = Vector3(5, 10, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="NonSoil" unique_id=402984574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 18, -15.5)
+operation = 2
+size = Vector3(5, 10, 1)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="NonSoil" unique_id=628304817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 23, -15.5)
+operation = 2
+size = Vector3(5, 10, 1)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="NonSoil" unique_id=1135311047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 29, -15.5)
+operation = 2
+size = Vector3(5, 10, 1)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="NonSoil" unique_id=258171017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 26.5, -12.5)
+size = Vector3(7, 5, 7)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="NonSoil" unique_id=1426121225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 26.5, -12.5)
+size = Vector3(7, 5, 7)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="NonSoil" unique_id=483940704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 31.5, -19.5)
+size = Vector3(7, 15, 7)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="NonSoil" unique_id=1548112905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 31.5, -5.5)
+size = Vector3(7, 15, 7)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="NonSoil" unique_id=1931700285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.5, 31.5, -12.5)
+size = Vector3(7, 15, 7)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="NonSoil" unique_id=1520029235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 38, -14)
+size = Vector3(62, 2, 54)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="NonSoil" unique_id=610582868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 31.5, -12.5)
+operation = 2
+size = Vector3(7, 5, 3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="NonSoil" unique_id=1743041676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -5.5)
+size = Vector3(16, 10, 1)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="NonSoil" unique_id=2139085122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4.5, -11)
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="NonSoil" unique_id=1001082199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 4.5, -11)
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="NonSoil" unique_id=1160221087]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 6.5, 37.510406, 11.010407)
+operation = 2
+size = Vector3(3, 10, 27)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="NonSoil" unique_id=1766840212]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 1.5, 37.510406, 11.010407)
+operation = 2
+size = Vector3(3, 10, 27)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="NonSoil" unique_id=2110652089]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -3.5, 37.510406, 11.010407)
+operation = 2
+size = Vector3(3, 10, 27)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="NonSoil" unique_id=786107574]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, -9.5, 37.510406, 11.010407)
+operation = 2
+size = Vector3(3, 10, 27)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="NonSoil" unique_id=966288465]
+transform = Transform3D(1, 0, 0, 0, -0.49999994, 0.8660254, 0, -0.8660254, -0.49999994, 1, 37.510406, -7.9895935)
+operation = 2
+size = Vector3(30, 10, 27)
+
+[node name="Enemy" parent="." unique_id=553297755 instance=ExtResource("4_wmjvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.951641, 8.999998, -13.257543)
+
+[node name="Enemy2" parent="." unique_id=164762315 instance=ExtResource("4_wmjvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.130781, 8.999997, -12.072872)
+
+[node name="Enemy3" parent="." unique_id=1936664999 instance=ExtResource("4_wmjvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.790334, 2.000002, -4.6557736)
+
+[node name="Enemy4" parent="." unique_id=1704768772 instance=ExtResource("4_wmjvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.01838, 2.000002, -3.4627652)
+
+[node name="TorchBoss" type="Node3D" parent="." unique_id=580665367]
+script = ExtResource("5_kaeib")
+
+[node name="Torch" parent="TorchBoss" unique_id=2026293210 instance=ExtResource("5_3dwt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 8.5, -11.5)
+
+[node name="Torch2" parent="TorchBoss" unique_id=200414111 instance=ExtResource("5_3dwt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 8.5, -11.5)
+
+[node name="Torch3" parent="TorchBoss" unique_id=600932315 instance=ExtResource("5_3dwt6")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 31.5, -15)
+
+[node name="PuzzleDoor" type="Node3D" parent="." unique_id=600167188]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19, 29, -12.5)
+script = ExtResource("7_wjmrw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PuzzleDoor" unique_id=1706398233]
+libraries/ = SubResource("AnimationLibrary_avpma")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PuzzleDoor" unique_id=968861808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_hhbv0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PuzzleDoor/MeshInstance3D" unique_id=589025629]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzleDoor/MeshInstance3D/StaticBody3D" unique_id=311929720]
+shape = SubResource("BoxShape3D_m7ebb")
+
+[node name="Label3D" type="Label3D" parent="PuzzleDoor/MeshInstance3D" unique_id=1452696532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9271374, 0.5044384)
+text = "Light all of the torches
+to open this door!"
+font_size = 50
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1518828471]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 27, 30.707586, -12.495562)
+text = "This is where the player would get
+a new seed or a stat upgrade
+or would just be a new room
+but that's not here yet because
+it's just a prototype!"
+font_size = 50
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=1877543709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
+text = "Welcome to the Green Arsenal Prototype!
+------------------------------------------------
+Move around with WASD
+Reload with R
+Use your special seeds to escape!"
+font_size = 50
+
+[node name="Label3D3" type="Label3D" parent="." unique_id=2028555488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, -5.1717606)
+text = "These are placeholder enemies.
+Try not to touch them!
+If you get damaged by them,
+use a life fruit to heal!"
+font_size = 50
+
+[connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
+
+[editable path="PlayerPackage"]

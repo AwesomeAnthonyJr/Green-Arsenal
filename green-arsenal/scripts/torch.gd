@@ -1,4 +1,5 @@
 extends Node3D
+class_name Torch
 
 var lit = false
 @onready var flame = $Sprite3D

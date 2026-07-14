@@ -34,10 +34,12 @@ var is_reloading = false
 var current_bullet = 0
 var loaded_in_gun = [0, 0, 0, 0, 0, 0]
 var max_health = 3
-var current_health = 1
+var current_health = max_health
 
 var plant_max = 3
 var active_plants = []
+
+var iframes = false
 
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
@@ -148,6 +150,7 @@ func _process(delta: float) -> void:
 
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
+	#print(linear_velocity.y)
 	#print(gravity_scale)
 	#print(is_grounded, ", ", gravity_scale)
 	if groundCast.get_collision_count() > 0:
@@ -266,3 +269,14 @@ func heal_1():
 	current_health += 1
 	if current_health > max_health:
 		current_health = max_health
+
+func take_damage(n):
+	print(current_health)
+	current_health -= n
+	if current_health <= 0:
+		print("PLAYER DIES!!")
+		current_health = max_health
+		global_position = get_parent().global_position
+	iframes = true
+	await get_tree().create_timer(0.1).timeout
+	iframes = false
