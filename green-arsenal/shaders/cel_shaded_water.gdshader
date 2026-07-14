@@ -9,6 +9,7 @@ uniform sampler2D texture_albedo : source_color, filter_nearest, repeat_enable;
 uniform vec4 albedo_in_shadow : source_color;
 uniform sampler2D texture_albedo_in_shadow : source_color, filter_nearest, repeat_enable;
 uniform sampler2D depth_texture : hint_depth_texture;
+uniform sampler2D screen_texture : hint_screen_texture;
 uniform float shadow_threshold : hint_range(0.0, 1.0, 0.01) = 0.50;
 uniform float specular_threshold : hint_range(0.0, 1.0, 0.01) = 0.80;
 uniform float specular_strength : hint_range(0.0, 10.0, 0.1) = 1.0;
@@ -52,8 +53,8 @@ float fresnel(float amount, vec3 normal, vec3 view){
 void fragment() {
 	lit_color = texture(texture_albedo, UV).rgb * albedo.rgb;
 	shadow_color = texture(texture_albedo_in_shadow, UV).rgb * albedo_in_shadow.rgb;		
-	ALPHA = 0.5;
 	ALBEDO = vec3(1.0);
+	ALPHA = 0.7;
 }
 
 vec3 diffuse_calc(vec3 color, vec3 fresnel, float edge_amount) {
@@ -71,7 +72,10 @@ void light() {
 	fres = step(0.5, fres);
 	vec3 fres2 = vec3(1.0, 1.0, 1.0) * fresnel_strength * fres;
 	//cel
-	float dot_prod = max(dot(NORMAL, LIGHT) * ATTENUATION * length(LIGHT_COLOR), 0.0) ;
+	//trying water depth stuff, not really working
+	//vec3 mixed_color = mix(lit_color, texture(screen_texture, SCREEN_UV).rgb, texture(depth_texture, SCREEN_UV).x * 50.0);
+	//vec3 mixed_color2 = mix(shadow_color, texture(screen_texture, SCREEN_UV).rgb, texture(depth_texture, SCREEN_UV).x * 50.0);
+	float dot_prod = max(dot(NORMAL, LIGHT) * ATTENUATION * length(LIGHT_COLOR), 0.0);
 	if (dot_prod <= shadow_threshold){
 		if (DIFFUSE_LIGHT == diffuse_calc(lit_color, fres2, edge_amount)) {
 			DIFFUSE_LIGHT = diffuse_calc(lit_color, fres2, edge_amount);
@@ -87,7 +91,7 @@ void light() {
 	spec = step(specular_threshold, spec);
 	if (DIFFUSE_LIGHT == diffuse_calc(lit_color, fres2, edge_amount)){
 		if (SPECULAR_LIGHT == vec3(0.0, 0.0, 0.0)){ 
-			SPECULAR_LIGHT = spec * lit_color * specular_strength;
+			SPECULAR_LIGHT = spec * vec3(1.0, 1.0, 1.0) * specular_strength;
 		}
 	}
 }
