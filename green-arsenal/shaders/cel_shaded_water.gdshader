@@ -54,7 +54,7 @@ void fragment() {
 	lit_color = texture(texture_albedo, UV).rgb * albedo.rgb;
 	shadow_color = texture(texture_albedo_in_shadow, UV).rgb * albedo_in_shadow.rgb;		
 	ALBEDO = vec3(1.0);
-	ALPHA = 0.7;
+	ALPHA = 0.5;
 }
 
 vec3 diffuse_calc(vec3 color, vec3 fresnel, float edge_amount) {
