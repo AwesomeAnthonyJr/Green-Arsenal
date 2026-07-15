@@ -267,6 +267,8 @@ func shoot():
 			bullet = Preloads.platform_seed.instantiate()
 		6:
 			bullet = Preloads.seeker_seed.instantiate()
+		7:
+			bullet = Preloads.propeller_seed.instantiate()
 	get_parent().get_parent().add_child(bullet)
 	
 	bullet.global_position = shooter.global_position

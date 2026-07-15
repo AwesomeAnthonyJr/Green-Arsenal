@@ -2,13 +2,13 @@ extends Bullet
 #is a subclass of bullet
 #as such, requires a timer, a racyast, and a shapecast as a child
 
-func plant_seed(point, norm):
+func plant_seed(point, norm, obj):
 	print("PLANTING A PLATFORM SEED!")
 	var inst = Preloads.platform_lilypad.instantiate()
-	get_parent().add_child(inst)
+	obj.add_child(inst)
 	inst.global_position = point
 	if in_water:
-		inst.seeK_surface()
+		inst.seek_surface()
 	#align_collision_rotation(norm, inst)
 	
 	player.active_plants.append(inst)

@@ -48,13 +48,13 @@ func _physics_process(delta: float) -> void:
 			return
 	if puzzle_cast.is_colliding():
 		if puzzle_cast.get_collider().is_in_group("soil"):
-			plant_seed(puzzle_cast.get_collision_point(), puzzle_cast.get_collision_normal())
+			plant_seed(puzzle_cast.get_collision_point(), puzzle_cast.get_collision_normal(), puzzle_cast.get_collider())
 		destroy_bullet()
 	
 	
 
 #will be inherited by subclasses
-func plant_seed(point, norm):
+func plant_seed(point, norm, obj):
 	print("PLANTING A SEED!")
 
 #will be inherited by subclasses

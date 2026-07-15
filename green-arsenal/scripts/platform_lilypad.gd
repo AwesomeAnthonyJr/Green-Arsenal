@@ -2,7 +2,7 @@ extends Plant
 
 @onready var raycast = $RayCast3D
 
-func seeK_surface():
+func seek_surface():
 	print("SEEK SURFACE")
 	raycast.force_raycast_update()
 	if raycast.is_colliding():
