@@ -19,6 +19,7 @@ var is_sprinting = false
 var is_jump_drifting = false
 var is_grounded = false
 var supress_movement = false
+var supress_shooting = false
 
 @onready var cameraRig = $"../CameraRig/TwistPivot/PitchPivot/Camera3D"
 @onready var aimRayCast = $"../CameraRig/TwistPivot/PitchPivot/AimRayCast"
@@ -87,6 +88,8 @@ func read_pause():
 	get_tree().paused = true
 	#Unlocks the curser on esc press
 func read_shoot():
+	if supress_shooting:
+		return
 	is_reloading = false
 	#print(current_bullet)
 	if current_bullet < 7:
@@ -102,6 +105,8 @@ func read_shoot():
 			current_bullet += 1
 			hud.update_revolver(loaded_in_gun)
 func read_reload():
+	if supress_shooting:
+		return
 	if is_reloading:
 		hud.reset_rot()
 		reload_bullet_seed()
@@ -113,6 +118,8 @@ func read_reload():
 		current_bullet = 0
 
 func read_interact():
+	if supress_shooting:
+		return
 	if is_reloading:
 		pass
 	else:
@@ -148,8 +155,13 @@ func find_main(x) -> Main:
 
 # going to just handle some flags here
 func _process(delta: float) -> void:
-	supress_movement = is_reloading
-	cameraRig.get_parent().get_parent().get_parent().supress_looking = is_reloading
+	supress_movement = is_reloading or supress_shooting
+	cameraRig.get_parent().get_parent().get_parent().supress_looking = is_reloading or supress_shooting
+	supress_shooting = false
+	for p in active_plants:
+		if !supress_shooting:
+			if p is SeekerFlower and p.has_bullet:
+				supress_shooting = true
 
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
@@ -252,6 +264,8 @@ func shoot():
 			bullet = Preloads.life_seed.instantiate()
 		5:
 			bullet = Preloads.platform_seed.instantiate()
+		6:
+			bullet = Preloads.seeker_seed.instantiate()
 	get_parent().get_parent().add_child(bullet)
 	
 	bullet.global_position = shooter.global_position

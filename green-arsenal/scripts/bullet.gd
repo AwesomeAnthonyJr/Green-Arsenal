@@ -40,6 +40,9 @@ func _physics_process(delta: float) -> void:
 			become_a_fireball()
 		elif enemy_cast.get_collider(0).is_in_group("fresh_water"):
 			in_water = true
+		elif enemy_cast.get_collider(0).is_in_group("seeker_flower"):
+			get_parent().remove_child(self)
+			enemy_cast.get_collider(0).get_parent().store(self)
 		else:
 			hit_enemy(enemy_cast.get_collider(0))
 			return
