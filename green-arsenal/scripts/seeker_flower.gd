@@ -19,7 +19,7 @@ func connect_inputs():
 func read_look(y, x):
 	if has_bullet:
 		twist_pivot.rotate_y(y);
-		pitch_pivot.rotate_x(x);
+		pitch_pivot.rotate_x(-x);
 		pitch_pivot.rotation.x = clamp(
 			pitch_pivot.rotation.x,
 			deg_to_rad(-89),

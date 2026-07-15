@@ -159,9 +159,10 @@ func _process(delta: float) -> void:
 	cameraRig.get_parent().get_parent().get_parent().supress_looking = is_reloading or supress_shooting
 	supress_shooting = false
 	for p in active_plants:
-		if !supress_shooting:
-			if p is SeekerFlower and p.has_bullet:
-				supress_shooting = true
+		if is_instance_valid(p):
+			if !supress_shooting:
+				if p is SeekerFlower and p.has_bullet:
+					supress_shooting = true
 
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
