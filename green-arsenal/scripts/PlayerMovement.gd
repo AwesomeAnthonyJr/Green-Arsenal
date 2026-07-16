@@ -104,6 +104,8 @@ func physics_looking() -> void:
 
 #putting the movement aside here 
 func physics_movement(delta:float) -> void:
+	if !is_grounded:
+		return
 	var input := Vector3.ZERO;
 	input.x = move_dir.y;
 	input.z = move_dir.x;
@@ -120,7 +122,11 @@ func physics_movement(delta:float) -> void:
 	#Moves the player
 
 #handles the "air drift" for a better jump
+<<<<<<< Updated upstream
 func apply_air_drift() -> void:
+=======
+func apply_air_drift(delta: float) -> void:
+>>>>>>> Stashed changes
 	if is_jump_drifting:
 		if linear_velocity.y < 0:
 			is_jump_drifting = false
@@ -128,6 +134,18 @@ func apply_air_drift() -> void:
 	else:
 		gravity_scale = heavy_grav
 
+	var input := Vector3.ZERO
+	input.x = move_dir.y
+	input.z = move_dir.x
+	var target_dir = (look_pivot.basis * input.normalized())
+	target_dir.y = 0
+	target_dir = target_dir.normalized()
+	if target_dir.length() > 0:
+		var horizontal_vel = Vector3(linear_velocity.x, 0, linear_velocity.z)
+		var forward_speed = horizontal_vel.dot(target_dir)
+		var max_air_speed = max_speed_factor * sprintSpeed
+		if forward_speed < max_air_speed:
+			apply_central_force(target_dir * 250.0 * delta * sprintSpeed)
 #jump has been improved a bit
 func playerJump() -> void:
 	if is_grounded:
