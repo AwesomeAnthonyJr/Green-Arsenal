@@ -195,7 +195,7 @@ surface_material_override/0 = ExtResource("3_8tsvv")
 shape = SubResource("BoxShape3D_070rk")
 
 [node name="FlyingEnemy" parent="." unique_id=677690380 instance=ExtResource("9_8luvy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.183667, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67125225, 4.183667, -9.863661)
 
 [connection signal="body_entered" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_enter"]
 [connection signal="body_exited" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_exit"]

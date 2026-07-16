@@ -125,7 +125,14 @@ func read_interact():
 		pass
 	else:
 		pass
-
+func exit_reload_early():
+	is_reloading = false
+	current_bullet = 0
+	for i in loaded_in_gun.size():
+		if loaded_in_gun[i] != 0:
+			current_bullet = i
+			break 
+	hud.revolver.spin_to_bullet(current_bullet)
 func reload_special_seed(n):
 	if loaded_in_gun[current_bullet] == 0:
 		loaded_in_gun[current_bullet] = n
@@ -156,6 +163,8 @@ func find_main(x) -> Main:
 
 # going to just handle some flags here
 func _process(delta: float) -> void:
+	if is_reloading and Input.is_action_just_pressed("close_reload"):
+		exit_reload_early()
 	supress_movement = is_reloading or supress_shooting
 	cameraRig.get_parent().get_parent().get_parent().supress_looking = is_reloading or supress_shooting
 	supress_shooting = false

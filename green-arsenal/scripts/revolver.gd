@@ -67,6 +67,5 @@ func spin_to_bullet(n):
 			playback.travel("on_bullet_4 2")
 		5:
 			playback.travel("on_bullet_5 2")
-
 func reloading_anim():
 	animation_tree["parameters/playback"].travel("reloading 2")
