@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d2b7pimm2lunt"]
 
-[ext_resource type="Script" uid="uid://cw82473gdcmih" path="res://enemy.gd" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://cw82473gdcmih" path="res://scripts/enemy.gd" id="1_7p1mj"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://bu3wr4034lcts" path="res://textures/test_checker2.png" id="3_5uy6h"]
 [ext_resource type="Material" uid="uid://261r71cbnjxf" path="res://materials/player_glasses.tres" id="4_5uy6h"]

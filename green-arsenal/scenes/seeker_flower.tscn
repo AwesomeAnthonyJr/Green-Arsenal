@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://oq6yiavrn6b8"]
+
+[ext_resource type="Script" uid="uid://cspo1gq6bo7k7" path="res://scripts/seeker_flower.gd" id="1_m6fr3"]
+[ext_resource type="Material" uid="uid://oo177hw72h6" path="res://materials/player_skin.tres" id="2_m6fr3"]
+[ext_resource type="Material" uid="uid://d3kxkl3mohtba" path="res://materials/blaze_flower.tres" id="3_1vk7v"]
+[ext_resource type="Shader" uid="uid://bue2b34h86uxe" path="res://shaders/cel_shaded_two_sides.gdshader" id="3_4nox7"]
+[ext_resource type="Script" uid="uid://mkylynwd6ylk" path="res://scripts/mirror_other.gd" id="5_4nox7"]
+[ext_resource type="Shader" uid="uid://ci7n4r15ymo5h" path="res://shaders/color_invert.gdshader" id="6_cq6xm"]
+[ext_resource type="Texture2D" uid="uid://dkrcdj2qvhr0p" path="res://ui/green_arsenal_ui_crosshair.png" id="7_g48w1"]
+[ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="8_smkxe"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h45xw"]
+top_radius = 0.1
+bottom_radius = 0.06
+height = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_h45xw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xv61a"]
+render_priority = 0
+shader = ExtResource("3_4nox7")
+shader_parameter/albedo = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/albedo_in_shadow = Color(0.69, 0.69, 0.69, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0o143"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_h45xw"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0o143"]
+top_radius = 0.22802734
+bottom_radius = 0.22802734
+height = 0.08544922
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m6fr3"]
+top_radius = 0.14550781
+bottom_radius = 0.14550781
+height = 0.08544922
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h45xw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ug45f"]
+shader = ExtResource("6_cq6xm")
+
+[node name="SeekerFlower" type="Node3D" unique_id=1252632312]
+script = ExtResource("1_m6fr3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=48345425]
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("2_m6fr3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1178599180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48961723, 0)
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("2_m6fr3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1406702985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96504354, 0)
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("2_m6fr3")
+
+[node name="Flower" type="Node3D" parent="." unique_id=355949764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2873102, 0)
+
+[node name="Pivot" type="Node3D" parent="Flower" unique_id=1984860516]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flower/Pivot" unique_id=125440852]
+transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0.004064083, 0.21441528)
+mesh = SubResource("SphereMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_xv61a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Flower/Pivot" unique_id=154168700]
+transform = Transform3D(0.255, 0, 0, 0, 0.255, 0, 0, 0, 0.255, 0, 0.004064083, 0.27821672)
+mesh = SubResource("SphereMesh_h45xw")
+surface_material_override/0 = SubResource("StandardMaterial3D_0o143")
+
+[node name="PetalPivot" type="Node3D" parent="Flower/Pivot" unique_id=1785507709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.004064083, 0.21441528)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Flower/Pivot/PetalPivot" unique_id=2033531347]
+transform = Transform3D(0.3950888, 0, 0, 0, 0.23625167, -0.0644865, 0, 0.40919992, 0.037231293, 0, 0.20272923, 0)
+mesh = SubResource("PrismMesh_h45xw")
+surface_material_override/0 = ExtResource("3_1vk7v")
+
+[node name="PetalPivot2" type="Node3D" parent="Flower/Pivot" unique_id=1705388207]
+transform = Transform3D(0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0, 0, 1, 0, 0.004064083, 0.21441528)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Flower/Pivot/PetalPivot2" unique_id=1686667554]
+transform = Transform3D(0.3950888, 0, 0, 0, 0.23625167, -0.0644865, 0, 0.40919992, 0.037231293, 0, 0.20272923, 0)
+mesh = SubResource("PrismMesh_h45xw")
+surface_material_override/0 = ExtResource("3_1vk7v")
+
+[node name="PetalPivot3" type="Node3D" parent="Flower/Pivot" unique_id=553108005]
+transform = Transform3D(-0.5000001, 0.8660254, 0, -0.8660254, -0.5000001, 0, 0, 0, 1, 0, 0.004064083, 0.21441528)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Flower/Pivot/PetalPivot3" unique_id=246889274]
+transform = Transform3D(0.3950888, 0, 0, 0, 0.23625167, -0.0644865, 0, 0.40919992, 0.037231293, 0, 0.20272923, 0)
+mesh = SubResource("PrismMesh_h45xw")
+surface_material_override/0 = ExtResource("3_1vk7v")
+
+[node name="PetalPivot4" type="Node3D" parent="Flower/Pivot" unique_id=1535532708]
+transform = Transform3D(-1, -1.1920929e-07, 0, 1.1920929e-07, -1, 0, 0, 0, 1, 0, 0.004064083, 0.21441528)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Flower/Pivot/PetalPivot4" unique_id=426237719]
+transform = Transform3D(0.3950888, 0, 0, 0, 0.23625167, -0.0644865, 0, 0.40919992, 0.037231293, 0, 0.20272923, 0)
+mesh = SubResource("PrismMesh_h45xw")
+surface_material_override/0 = ExtResource("3_1vk7v")
+
+[node name="PetalPivot5" type="Node3D" parent="Flower/Pivot" unique_id=1231608493]
+transform = Transform3D(-0.49999988, -0.8660255, 0, 0.8660255, -0.49999988, 0, 0, 0, 1, 0, 0.004064083, 0.21441528)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Flower/Pivot/PetalPivot5" unique_id=196223269]
+transform = Transform3D(0.3950888, 0, 0, 0, 0.23625167, -0.0644865, 0, 0.40919992, 0.037231293, 0, 0.20272923, 0)
+mesh = SubResource("PrismMesh_h45xw")
+surface_material_override/0 = ExtResource("3_1vk7v")
+
+[node name="PetalPivot6" type="Node3D" parent="Flower/Pivot" unique_id=534259813]
+transform = Transform3D(0.5000002, -0.8660253, 0, 0.8660253, 0.5000002, 0, 0, 0, 1, 0, 0.004064083, 0.21441528)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Flower/Pivot/PetalPivot6" unique_id=2012446978]
+transform = Transform3D(0.3950888, 0, 0, 0, 0.23625167, -0.0644865, 0, 0.40919992, 0.037231293, 0, 0.20272923, 0)
+mesh = SubResource("PrismMesh_h45xw")
+surface_material_override/0 = ExtResource("3_1vk7v")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Flower/Pivot" unique_id=915814941]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.008102179, 0.010858148)
+mesh = SubResource("CylinderMesh_0o143")
+surface_material_override/0 = ExtResource("3_1vk7v")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Flower/Pivot" unique_id=1374185641]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.008102179, -0.062859684)
+mesh = SubResource("CylinderMesh_m6fr3")
+surface_material_override/0 = ExtResource("3_1vk7v")
+
+[node name="CamTarget" type="Node3D" parent="Flower/Pivot" unique_id=918078306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4135967)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=980151477 groups=["seeker_flower"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3098841, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1309211412]
+shape = SubResource("SphereShape3D_h45xw")
+
+[node name="SeekerUI" type="CanvasLayer" parent="." unique_id=456580925]
+layer = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SeekerUI" unique_id=82351285]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="SeekerUI/SubViewportContainer" unique_id=1508121494]
+handle_input_locally = false
+size = Vector2i(400, 400)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SeekerUI/SubViewportContainer/SubViewport" unique_id=1424832843 node_paths=PackedStringArray("other")]
+script = ExtResource("5_4nox7")
+other = NodePath("../../../../Flower/Pivot/CamTarget")
+
+[node name="Camera3D" type="Camera3D" parent="SeekerUI/SubViewportContainer/SubViewport/Node3D" unique_id=310898922]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Crosshair" type="Control" parent="SeekerUI" unique_id=1642642503]
+material = SubResource("ShaderMaterial_ug45f")
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CenterDot" type="Sprite2D" parent="SeekerUI/Crosshair" unique_id=663689289]
+use_parent_material = true
+texture = ExtResource("7_g48w1")
+
+[node name="CenterDot2" type="Sprite2D" parent="SeekerUI/Crosshair" unique_id=1229005798]
+use_parent_material = true
+scale = Vector2(0.066, 0.14)
+texture = ExtResource("8_smkxe")

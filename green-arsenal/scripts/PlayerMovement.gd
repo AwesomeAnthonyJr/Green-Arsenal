@@ -1,7 +1,7 @@
 extends RigidBody3D
 class_name Player
 
-@export var jumpForce: float = 10.0;
+@export var jumpForce: float = 5.0;
 #guys feel free to tweak these this is just some random guesses
 @export var light_grav: float = 0.7
 @export var heavy_grav: float = 1.5
@@ -11,6 +11,7 @@ class_name Player
 const walkSpeed = 1.5;
 const sprintSpeed = 2.5;
 var currentSpeed = walkSpeed;
+const max_speed_factor = 7.0
 
 @export var look_pivot: Node3D
 @export var hud: HUD
@@ -19,6 +20,7 @@ var is_sprinting = false
 var is_jump_drifting = false
 var is_grounded = false
 var supress_movement = false
+var supress_shooting = false
 
 @onready var cameraRig = $"../CameraRig/TwistPivot/PitchPivot/Camera3D"
 @onready var aimRayCast = $"../CameraRig/TwistPivot/PitchPivot/AimRayCast"
@@ -87,6 +89,8 @@ func read_pause():
 	get_tree().paused = true
 	#Unlocks the curser on esc press
 func read_shoot():
+	if supress_shooting:
+		return
 	is_reloading = false
 	#print(current_bullet)
 	if current_bullet < 7:
@@ -102,6 +106,8 @@ func read_shoot():
 			current_bullet += 1
 			hud.update_revolver(loaded_in_gun)
 func read_reload():
+	if supress_shooting:
+		return
 	if is_reloading:
 		hud.reset_rot()
 		reload_bullet_seed()
@@ -113,6 +119,8 @@ func read_reload():
 		current_bullet = 0
 
 func read_interact():
+	if supress_shooting:
+		return
 	if is_reloading:
 		pass
 	else:
@@ -148,8 +156,14 @@ func find_main(x) -> Main:
 
 # going to just handle some flags here
 func _process(delta: float) -> void:
-	supress_movement = is_reloading
-	cameraRig.get_parent().get_parent().get_parent().supress_looking = is_reloading
+	supress_movement = is_reloading or supress_shooting
+	cameraRig.get_parent().get_parent().get_parent().supress_looking = is_reloading or supress_shooting
+	supress_shooting = false
+	for p in active_plants:
+		if is_instance_valid(p):
+			if !supress_shooting:
+				if p is SeekerFlower and p.has_bullet:
+					supress_shooting = true
 
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
@@ -210,13 +224,22 @@ func physics_movement(delta:float) -> void:
 	var ground_mult = 1.0
 	if !is_grounded:
 		#less control over in-air movement
-		ground_mult = 0.3
+		ground_mult = 0.05
 	if is_sprinting:
 		currentSpeed = sprintSpeed;
 	else:
 		currentSpeed = walkSpeed;
 		#Sprint mechanic 
-	apply_central_force(look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult);
+	var speed = linear_velocity.length()
+	var max_speed = max_speed_factor * currentSpeed
+	if speed < max_speed_factor:
+		apply_central_force(look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult);
+	else:
+		var angle = input.angle_to(linear_velocity)
+		if angle > deg_to_rad(30):
+			#print("ALLOW TURNING")
+			apply_central_force(look_pivot.basis * input.normalized() * 600.0 * delta * currentSpeed * ground_mult)
+		#print("OVER DA LIMIT!")
 	#Moves the player
 
 #handles the "air drift" for a better jump
@@ -252,6 +275,12 @@ func shoot():
 			bullet = Preloads.life_seed.instantiate()
 		5:
 			bullet = Preloads.platform_seed.instantiate()
+		6:
+			bullet = Preloads.seeker_seed.instantiate()
+		7:
+			bullet = Preloads.propeller_seed.instantiate()
+		8:
+			bullet = Preloads.heavy_seed.instantiate()
 	get_parent().get_parent().add_child(bullet)
 	
 	bullet.global_position = shooter.global_position
