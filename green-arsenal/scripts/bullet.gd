@@ -40,18 +40,23 @@ func _physics_process(delta: float) -> void:
 			become_a_fireball()
 		elif enemy_cast.get_collider(0).is_in_group("fresh_water"):
 			in_water = true
+		elif enemy_cast.get_collider(0).is_in_group("seeker_flower"):
+			get_parent().remove_child(self)
+			enemy_cast.get_collider(0).get_parent().store(self)
+		elif enemy_cast.get_collider(0).is_in_group("roller"):
+			hit_roller(enemy_cast.get_collider(0))
 		else:
 			hit_enemy(enemy_cast.get_collider(0))
 			return
 	if puzzle_cast.is_colliding():
 		if puzzle_cast.get_collider().is_in_group("soil"):
-			plant_seed(puzzle_cast.get_collision_point(), puzzle_cast.get_collision_normal())
+			plant_seed(puzzle_cast.get_collision_point(), puzzle_cast.get_collision_normal(), puzzle_cast.get_collider())
 		destroy_bullet()
 	
 	
 
 #will be inherited by subclasses
-func plant_seed(point, norm):
+func plant_seed(point, norm, obj):
 	print("PLANTING A SEED!")
 
 #will be inherited by subclasses
@@ -64,6 +69,10 @@ func hit_enemy(obj):
 		print("FAIL: obj does not have take_damage Function")
 	destroy_bullet()
 
+func hit_roller(obj):
+	if obj.has_method("take_knockback"):
+		obj.take_knockback(35.00 * -global_transform.basis.z)
+	destroy_bullet()
 
 func _on_timer_timeout() -> void:
 	destroy_bullet()

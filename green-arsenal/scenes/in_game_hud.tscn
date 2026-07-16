@@ -7,12 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://defcpqgo04smo" path="res://ui/petals-Sheet.png" id="3_hbevh"]
 [ext_resource type="Script" uid="uid://b2chw2o1ec7ob" path="res://scripts/revolver.gd" id="6_bfp8s"]
 [ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="7_dl01e"]
-[ext_resource type="Texture2D" uid="uid://5171spr7g6r5" path="res://ui/seeds1-Sheet.png" id="8_3s1eg"]
 [ext_resource type="Texture2D" uid="uid://ddtrcn1oee5uc" path="res://ui/seeds2-Sheet.png" id="8_m5iab"]
 [ext_resource type="Texture2D" uid="uid://cltppkvwd4dkn" path="res://ui/revolver_ui.png" id="9_22r63"]
 [ext_resource type="Script" uid="uid://dfwso1byupjuc" path="res://scripts/loaded_sprite.gd" id="9_p1t08"]
 [ext_resource type="Texture2D" uid="uid://bwk6ab1qu5223" path="res://ui/health_full.png" id="12_3dbat"]
+[ext_resource type="Texture2D" uid="uid://dvvfgmmqo1ymu" path="res://ui/bullet_ui_1_take_2.png" id="12_40yl3"]
 [ext_resource type="Script" uid="uid://d06d2safsnxsy" path="res://scripts/health_displayer.gd" id="12_ve54s"]
+[ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="13_ywslq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_eyt8w")
@@ -738,37 +739,37 @@ anchors_preset = 0
 [node name="Loaded0" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=1821509222]
 position = Vector2(0, -95)
 texture = ExtResource("8_m5iab")
-hframes = 7
+hframes = 11
 script = ExtResource("9_p1t08")
 
 [node name="Loaded1" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=2053767526]
 position = Vector2(82.272, -47.5)
 texture = ExtResource("8_m5iab")
-hframes = 7
+hframes = 11
 script = ExtResource("9_p1t08")
 
 [node name="Loaded2" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=1008185018]
 position = Vector2(82.2724, 47.5)
 texture = ExtResource("8_m5iab")
-hframes = 7
+hframes = 11
 script = ExtResource("9_p1t08")
 
 [node name="Loaded3" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=1846676551]
 position = Vector2(0, 95)
 texture = ExtResource("8_m5iab")
-hframes = 7
+hframes = 11
 script = ExtResource("9_p1t08")
 
 [node name="Loaded4" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=524432886]
 position = Vector2(-82.272, 47.5)
 texture = ExtResource("8_m5iab")
-hframes = 7
+hframes = 11
 script = ExtResource("9_p1t08")
 
 [node name="Loaded5" type="Sprite2D" parent="Revolver/Sprite2D/Control" unique_id=2099358432]
 position = Vector2(-82.2724, -47.5)
 texture = ExtResource("8_m5iab")
-hframes = 7
+hframes = 11
 script = ExtResource("9_p1t08")
 
 [node name="InteractMenu" type="Control" parent="Revolver" unique_id=1050791154]
@@ -785,8 +786,9 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_dl01e")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircle" unique_id=2088746165]
-texture = ExtResource("8_3s1eg")
-hframes = 7
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("13_ywslq")
+hframes = 11
 frame = 2
 
 [node name="SeedCircle2" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=780994671]
@@ -795,9 +797,8 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_dl01e")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircle2" unique_id=253623783]
-texture = ExtResource("8_3s1eg")
-hframes = 7
-frame = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("12_40yl3")
 
 [node name="SeedCircleS" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=1173893162]
 position = Vector2(165, 85)
@@ -805,8 +806,9 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_dl01e")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircleS" unique_id=709967447]
-texture = ExtResource("8_3s1eg")
-hframes = 7
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("13_ywslq")
+hframes = 11
 frame = 3
 
 [node name="SeedCircleW" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=1339314390]
@@ -815,8 +817,9 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_dl01e")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircleW" unique_id=1664948421]
-texture = ExtResource("8_3s1eg")
-hframes = 7
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("13_ywslq")
+hframes = 11
 frame = 5
 
 [node name="Label" type="Label" parent="Revolver/InteractMenu" unique_id=1863959460]

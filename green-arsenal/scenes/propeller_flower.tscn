@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dshrkk8pp4ig0"]
+
+[ext_resource type="Script" uid="uid://ca4yuideqblit" path="res://scripts/propeller_flower.gd" id="1_86hui"]
+[ext_resource type="Material" uid="uid://bs151x65dj5ud" path="res://materials/player_skin_2.tres" id="2_lpui4"]
+[ext_resource type="Shader" uid="uid://bue2b34h86uxe" path="res://shaders/cel_shaded_two_sides.gdshader" id="3_lpui4"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h45xw"]
+top_radius = 0.1
+bottom_radius = 0.06
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bmp18"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_h45xw"]
+size = Vector3(0.1, 0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yugl8"]
+render_priority = 0
+shader = ExtResource("3_lpui4")
+shader_parameter/albedo = Color(0.4448527, 0.8094352, 0.947879, 1)
+shader_parameter/albedo_in_shadow = Color(0.14030002, 0.40646333, 0.61, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[node name="PropellerFlower" type="Node3D" unique_id=1252632312]
+script = ExtResource("1_86hui")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=48345425]
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("2_lpui4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=930048408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5060587, 0)
+mesh = SubResource("CylinderMesh_bmp18")
+surface_material_override/0 = ExtResource("2_lpui4")
+
+[node name="Centerpoint" type="Node3D" parent="." unique_id=737817067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Centerpoint" unique_id=1861904767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6634898)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_yugl8")
+
+[node name="Centerpoint2" type="Node3D" parent="." unique_id=729503335]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Centerpoint2" unique_id=263325789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6634898)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_yugl8")
+
+[node name="Centerpoint3" type="Node3D" parent="." unique_id=485164319]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Centerpoint3" unique_id=825993189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6634898)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_yugl8")
+
+[node name="Centerpoint4" type="Node3D" parent="." unique_id=577935004]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Centerpoint4" unique_id=1642859785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6634898)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_yugl8")
