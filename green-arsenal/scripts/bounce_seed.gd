@@ -17,3 +17,8 @@ func hit_enemy(obj):
 	if obj.has_method("take_knockback"):
 		obj.take_knockback(35.00 * -global_transform.basis.z)
 	destroy_bullet()
+
+func hit_roller(obj):
+	if obj.has_method("take_knockback"):
+		obj.take_knockback(65.00 * -global_transform.basis.z)
+	destroy_bullet()

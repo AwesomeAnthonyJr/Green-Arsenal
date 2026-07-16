@@ -5,9 +5,6 @@
 [ext_resource type="Material" uid="uid://ct0tpf1wcbdkn" path="res://materials/cel_test_mat.tres" id="2_qhqgy"]
 [ext_resource type="Material" uid="uid://btv5wmb323tvi" path="res://materials/player_holster.tres" id="3_dqkch"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p1t08"]
-friction = 0.2
-
 [sub_resource type="Skin" id="Skin_dv487"]
 resource_name = "Skin"
 bind_count = 39
@@ -308,11 +305,9 @@ height = 0.2
 radius = 0.18
 
 [node name="Player" type="RigidBody3D" unique_id=278666006 groups=["player"]]
-physics_material_override = SubResource("PhysicsMaterial_p1t08")
 can_sleep = false
 lock_rotation = true
 script = ExtResource("1_g2els")
-heavy_grav = 2.5
 
 [node name="Pivot" type="Node3D" parent="." unique_id=185476992]
 

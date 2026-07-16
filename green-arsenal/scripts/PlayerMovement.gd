@@ -1,7 +1,7 @@
 extends RigidBody3D
 class_name Player
 
-@export var jumpForce: float = 10.0;
+@export var jumpForce: float = 5.0;
 #guys feel free to tweak these this is just some random guesses
 @export var light_grav: float = 0.7
 @export var heavy_grav: float = 1.5
@@ -11,6 +11,7 @@ class_name Player
 const walkSpeed = 1.5;
 const sprintSpeed = 2.5;
 var currentSpeed = walkSpeed;
+const max_speed_factor = 7.0
 
 @export var look_pivot: Node3D
 @export var hud: HUD
@@ -223,13 +224,22 @@ func physics_movement(delta:float) -> void:
 	var ground_mult = 1.0
 	if !is_grounded:
 		#less control over in-air movement
-		ground_mult = 0.3
+		ground_mult = 0.05
 	if is_sprinting:
 		currentSpeed = sprintSpeed;
 	else:
 		currentSpeed = walkSpeed;
 		#Sprint mechanic 
-	apply_central_force(look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult);
+	var speed = linear_velocity.length()
+	var max_speed = max_speed_factor * currentSpeed
+	if speed < max_speed_factor:
+		apply_central_force(look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult);
+	else:
+		var angle = input.angle_to(linear_velocity)
+		if angle > deg_to_rad(30):
+			#print("ALLOW TURNING")
+			apply_central_force(look_pivot.basis * input.normalized() * 600.0 * delta * currentSpeed * ground_mult)
+		#print("OVER DA LIMIT!")
 	#Moves the player
 
 #handles the "air drift" for a better jump
@@ -269,6 +279,8 @@ func shoot():
 			bullet = Preloads.seeker_seed.instantiate()
 		7:
 			bullet = Preloads.propeller_seed.instantiate()
+		8:
+			bullet = Preloads.heavy_seed.instantiate()
 	get_parent().get_parent().add_child(bullet)
 	
 	bullet.global_position = shooter.global_position

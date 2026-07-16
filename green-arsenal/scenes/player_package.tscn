@@ -7,7 +7,8 @@
 [node name="PlayerPackage" type="Node3D" unique_id=1280539618 groups=["player_package"]]
 
 [node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot", "hud", "aiming_target") instance=ExtResource("1_aaihd")]
-linear_damp = 3.0
+light_grav = 0.8
+heavy_grav = 2.0
 look_pivot = NodePath("../CameraRig/TwistPivot")
 hud = NodePath("../InGameHUD")
 aiming_target = NodePath("../AimingTarget")
@@ -35,6 +36,7 @@ debug_shape_custom_color = Color(1, 1, 0, 1)
 [node name="AimRayCast" type="RayCast3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=69101290]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.8, 0.1, 3)
 target_position = Vector3(0, 0, -50)
+collision_mask = 5
 
 [node name="InGameHUD" parent="." unique_id=521452179 node_paths=PackedStringArray("player") instance=ExtResource("3_q2s2p")]
 player = NodePath("../Player")

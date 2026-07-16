@@ -164,6 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -2, 0)
 script = ExtResource("8_h8tnp")
 end_position = Vector3(8, 2.9, 0)
 start_position = Vector3(8, -2, 0)
+propellers_needed = 2
 
 [node name="AnimatableBody3D2" type="AnimatableBody3D" parent="PropellablePlatform" unique_id=1079990722 groups=["propellable", "soil"]]
 
@@ -176,6 +177,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0)
 mesh = SubResource("BoxMesh_h8tnp")
 surface_material_override/0 = ExtResource("1_d17em")
 
+[node name="WeightReader" type="Area3D" parent="PropellablePlatform/AnimatableBody3D2" unique_id=1073652475]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform/AnimatableBody3D2/WeightReader" unique_id=354978694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0)
+shape = SubResource("BoxShape3D_h8tnp")
+
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="PropellablePlatform" unique_id=256485114]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 
@@ -185,5 +192,8 @@ surface_material_override/0 = ExtResource("3_8tsvv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=1089507573]
 shape = SubResource("BoxShape3D_070rk")
+
+[connection signal="body_entered" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_enter"]
+[connection signal="body_exited" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_exit"]
 
 [editable path="PlayerPackage"]
