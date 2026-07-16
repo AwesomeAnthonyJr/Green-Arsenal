@@ -136,7 +136,9 @@ func exit_reload_early():
 func reload_special_seed(n):
 	if loaded_in_gun[current_bullet] == 0:
 		loaded_in_gun[current_bullet] = n
-	current_bullet += 1
+		current_bullet += 1
+	while current_bullet < 6 and loaded_in_gun[current_bullet] != 0:
+		current_bullet += 1
 	if current_bullet > 5:
 			is_reloading = false
 			current_bullet = 0
@@ -146,11 +148,13 @@ func reload_special_seed(n):
 func reload_bullet_seed():
 	if loaded_in_gun[current_bullet] == 0:
 		loaded_in_gun[current_bullet] = 1
-	current_bullet += 1
+		current_bullet += 1
+	while current_bullet < 6 and loaded_in_gun[current_bullet] != 0:
+		current_bullet += 1
 	if current_bullet > 5:
-			is_reloading = false
-			current_bullet = 0
-			hud.revolver.spin_to_bullet(current_bullet)
+		is_reloading = false
+		current_bullet = 0
+		hud.revolver.spin_to_bullet(current_bullet)
 	hud.update_petals(loaded_in_gun)
 
 # simple recursive solution to find the main node.
