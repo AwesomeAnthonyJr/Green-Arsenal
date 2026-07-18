@@ -17,6 +17,7 @@ script = ExtResource("1_5l28o")
 adjacent_rooms = Array[int]([1, 2])
 
 [node name="SoilPatch10x10" type="StaticBody3D" parent="." unique_id=418669196 groups=["soil"]]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SoilPatch10x10" unique_id=352200857]
 shape = SubResource("BoxShape3D_h45xw")
@@ -27,6 +28,7 @@ surface_material_override/0 = ExtResource("2_kugbc")
 
 [node name="SoilPatch10x10_2" type="StaticBody3D" parent="." unique_id=542999688 groups=["soil"]]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 10, 0)
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SoilPatch10x10_2" unique_id=198776378]
 shape = SubResource("BoxShape3D_h45xw")

@@ -27,16 +27,17 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 [node name="Camera3D" type="Camera3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=1881616207]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, 3)
 
+[node name="AimRayCast" type="RayCast3D" parent="CameraRig/TwistPivot/PitchPivot/Camera3D" unique_id=69101290]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, -0.1)
+target_position = Vector3(0, 0, -50)
+collision_mask = 5
+
 [node name="RayCast3D" type="RayCast3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=949016877]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.8, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.8, 0.1, 0)
+visible = false
 target_position = Vector3(0, 0, 3)
 collision_mask = 2
 debug_shape_custom_color = Color(1, 1, 0, 1)
-
-[node name="AimRayCast" type="RayCast3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=69101290]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.8, 0.1, 3)
-target_position = Vector3(0, 0, -50)
-collision_mask = 5
 
 [node name="InGameHUD" parent="." unique_id=521452179 node_paths=PackedStringArray("player") instance=ExtResource("3_q2s2p")]
 player = NodePath("../Player")

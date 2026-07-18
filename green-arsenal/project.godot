@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Preloads="*uid://c5n6qt55bpyrn"
+SaveManager="*uid://bd8wrv5ug7xbf"
 
 [display]
 

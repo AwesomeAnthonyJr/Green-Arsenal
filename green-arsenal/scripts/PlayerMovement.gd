@@ -23,7 +23,7 @@ var supress_movement = false
 var supress_shooting = false
 
 @onready var cameraRig = $"../CameraRig/TwistPivot/PitchPivot/Camera3D"
-@onready var aimRayCast = $"../CameraRig/TwistPivot/PitchPivot/AimRayCast"
+@onready var aimRayCast = $"../CameraRig/TwistPivot/PitchPivot/Camera3D/AimRayCast"
 @onready var shooter = $Pivot/Pivot2/Model/Armature_001/Skeleton3D/BoneAttachment3D/Gun/Node3D/Shooter
 @onready var hand_looker = $Pivot/Pivot2/Model/Armature_001/Skeleton3D/LookAtModifier3D
 @export var aiming_target: Node3D

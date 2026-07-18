@@ -13,7 +13,7 @@ extends Node3D
 #maybe update to shapecast if theres clipping problems
 @onready var raycast = $TwistPivot/PitchPivot/RayCast3D
 
-@onready var aimRayCast = $TwistPivot/PitchPivot/AimRayCast
+@onready var aimRayCast = $TwistPivot/PitchPivot/Camera3D/AimRayCast
 
 const MAX_DIST = 3.0
 const PITCH_OFFSET = Vector3(0, 0.6, 0)
@@ -31,7 +31,7 @@ func read_look(y, x):
 		pitch_pivot.rotation.x = clamp(
 			pitch_pivot.rotation.x,
 			deg_to_rad(-75),
-			deg_to_rad(45)
+			deg_to_rad(75)
 		)
 	#Locks the camera so it doesn't go beyond boundaries
 	
