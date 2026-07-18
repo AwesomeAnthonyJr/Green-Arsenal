@@ -7,12 +7,14 @@ class_name RoomLoader
 
 const room_dict = {
 	0: "res://scenes/rooms/room_a.tscn",
-	1: "res://scenes/rooms/room_b.tscn"
+	1: "res://scenes/rooms/room_b.tscn",
+	2: "res://scenes/rooms/room_c.tscn"
 }
 #must be the inverse of the first!!!
 const reverse_dict = {
 	"res://scenes/rooms/room_a.tscn": 0,
-	"res://scenes/rooms/room_b.tscn": 1
+	"res://scenes/rooms/room_b.tscn": 1,
+	"res://scenes/rooms/room_c.tscn": 2
 }
 
 var loadings = []
