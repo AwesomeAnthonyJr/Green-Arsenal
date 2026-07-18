@@ -36,9 +36,15 @@ mesh = SubResource("PlaneMesh_y383h")
 surface_material_override/0 = ExtResource("2_kugbc")
 
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("3_5l28o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5.5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5, -5.5)
 new_id = 1
 
 [node name="Exit2" parent="." unique_id=1321845981 instance=ExtResource("3_5l28o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 5.5)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5, 5.5)
 new_id = 2
+
+[node name="Label3D" type="Label3D" parent="." unique_id=239695081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+billboard = 2
+text = "Room A"
+font_size = 256
