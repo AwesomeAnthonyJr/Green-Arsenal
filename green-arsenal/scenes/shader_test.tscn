@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://83pj3gfonoio"]
 
-[ext_resource type="Material" uid="uid://c8i4sbymv8db4" path="res://materials/placeholder_soil.tres" id="1_3x27y"]
+[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_2.tres" id="1_3x27y"]
 [ext_resource type="Material" uid="uid://ct0tpf1wcbdkn" path="res://materials/cel_test_mat.tres" id="1_im7wb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_h45xw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mwg8d"]
+subdivide_width = 10
+subdivide_height = 10
+subdivide_depth = 10
 
 [sub_resource type="Environment" id="Environment_h45xw"]
 ambient_light_source = 1
@@ -13,6 +18,11 @@ ambient_light_source = 1
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=843916994]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09038001, -0.54086864, -0.45522088)
 mesh = SubResource("SphereMesh_h45xw")
+surface_material_override/0 = ExtResource("1_3x27y")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1021234476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69442225, -0.16532597, -2.9551933)
+mesh = SubResource("BoxMesh_mwg8d")
 surface_material_override/0 = ExtResource("1_3x27y")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=201481588]

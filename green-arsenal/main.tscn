@@ -2,15 +2,45 @@
 
 [ext_resource type="Script" uid="uid://bqsx2hglgfolr" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://i5pjehi8mq60" path="res://scripts/input_manager.gd" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bhaffqlwgnwei" path="res://scenes/Playground.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://cr7ch745a207w" path="res://scripts/room_loader.gd" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bes4hymed4oow" path="res://scenes/player_package.tscn" id="5_lquwl"]
 
-[node name="Main" type="Node" unique_id=383612433 node_paths=PackedStringArray("input_manager")]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_80c3a"]
+sky_material = SubResource("ProceduralSkyMaterial_7mycd")
+
+[sub_resource type="Environment" id="Environment_272bh"]
+background_mode = 2
+sky = SubResource("Sky_80c3a")
+ambient_light_source = 1
+glow_enabled = true
+
+[node name="Main" type="Node" unique_id=383612433 node_paths=PackedStringArray("input_manager", "room_loader")]
 script = ExtResource("1_h2yge")
 input_manager = NodePath("InputManager")
+room_loader = NodePath("Active/RoomLoader")
 
 [node name="Testing" type="Node" parent="." unique_id=798207614]
 
-[node name="Playground" parent="Testing" unique_id=798919202 instance=ExtResource("2_h2yge")]
-
 [node name="InputManager" type="Node" parent="." unique_id=106243138]
 script = ExtResource("2_0xm2m")
+
+[node name="Active" type="Node" parent="." unique_id=1560057200]
+
+[node name="RoomLoader" type="Node3D" parent="Active" unique_id=481011108]
+script = ExtResource("3_1bvp3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Active/RoomLoader" unique_id=449614055]
+environment = SubResource("Environment_272bh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Active/RoomLoader" unique_id=111573551]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="PlayerPackage" parent="Active/RoomLoader" unique_id=1280539618 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2447414, 0)
+
+[editable path="Active/RoomLoader/PlayerPackage"]

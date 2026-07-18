@@ -55,7 +55,7 @@ radius = 0.75
 
 [node name="SpringVine" type="Node3D" unique_id=1252632312]
 script = ExtResource("1_7n0vc")
-bounce_strength = 50.0
+bounce_strength = 20.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=535271514]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24531221, 0)
