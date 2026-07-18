@@ -18,3 +18,4 @@ mesh = SubResource("BoxMesh_h45xw")
 surface_material_override/0 = ExtResource("2_rpahi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

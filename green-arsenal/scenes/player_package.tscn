@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://ctioco30i1jxg" path="res://scripts/camera_rig.gd" id="2_221em"]
 [ext_resource type="PackedScene" uid="uid://b1te36p3nyvr4" path="res://scenes/in_game_hud.tscn" id="3_q2s2p"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_h45xw"]
+radius = 0.05
+
 [node name="PlayerPackage" type="Node3D" unique_id=1280539618 groups=["player_package"]]
 
 [node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot", "hud", "aiming_target") instance=ExtResource("1_aaihd")]
@@ -32,11 +35,10 @@ transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, -0.1)
 target_position = Vector3(0, 0, -50)
 collision_mask = 5
 
-[node name="RayCast3D" type="RayCast3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=949016877]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.8, 0.1, 0)
-visible = false
-target_position = Vector3(0, 0, 3)
-collision_mask = 2
+[node name="ShapeCast3D" type="ShapeCast3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=988462735]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.8, 0, 0)
+shape = SubResource("SphereShape3D_h45xw")
+target_position = Vector3(0, 0, 2.95)
 debug_shape_custom_color = Color(1, 1, 0, 1)
 
 [node name="InGameHUD" parent="." unique_id=521452179 node_paths=PackedStringArray("player") instance=ExtResource("3_q2s2p")]

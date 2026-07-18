@@ -11,7 +11,8 @@ extends Node3D
 
 @onready var actual_camera = $TwistPivot/PitchPivot/Camera3D
 #maybe update to shapecast if theres clipping problems
-@onready var raycast = $TwistPivot/PitchPivot/RayCast3D
+#update: there was clipping problems
+@onready var camcast = $TwistPivot/PitchPivot/ShapeCast3D
 
 @onready var aimRayCast = $TwistPivot/PitchPivot/Camera3D/AimRayCast
 
@@ -49,8 +50,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	#has the camera move close if it would clip through geometry
 	var dist = MAX_DIST
-	if raycast.is_colliding():
-		dist = global_position.distance_to(raycast.get_collision_point())
+	if camcast.get_collision_count() > 0:
+		dist = camcast.get_closest_collision_safe_fraction() * MAX_DIST
 	actual_camera.position.z = lerpf(actual_camera.position.z, dist, 0.5)
 
 
