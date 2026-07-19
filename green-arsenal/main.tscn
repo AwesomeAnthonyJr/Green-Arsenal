@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bes4hymed4oow" path="res://scenes/player_package.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b2hy7nwf61v0w" path="res://scenes/pause_status.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://vfwgi73yjqyr" path="res://scenes/controls.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://22o4pnshc1ou" path="res://scenes/map.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://28s37t1348g5" path="res://scenes/audio.tscn" id="7_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
@@ -41,6 +42,15 @@ resource_local_to_scene = true
 transparency = 1
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_ycdy4")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gldc4"]
+viewport_path = NodePath("PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Map/MeshInstance3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paxxb"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_gldc4")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kek77"]
 viewport_path = NodePath("PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio/MeshInstance3D/SubViewport")
@@ -95,7 +105,7 @@ render_target_update_mode = 4
 cull_mask = 524288
 
 [node name="Pivot" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D" unique_id=1402576271]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.3, 0)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.3, 0)
 
 [node name="Status" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot" unique_id=1764311947]
 
@@ -133,13 +143,13 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -550)
 layers = 524288
 mesh = SubResource("QuadMesh_h45xw")
-surface_material_override/0 = SubResource("StandardMaterial3D_efxa6")
+surface_material_override/0 = SubResource("StandardMaterial3D_paxxb")
 
 [node name="SubViewport" type="SubViewport" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Map/MeshInstance3D" unique_id=746053801]
 transparent_bg = true
 size = Vector2i(1280, 720)
 
-[node name="Controls" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Map/MeshInstance3D/SubViewport" unique_id=1062398738 instance=ExtResource("6_272bh")]
+[node name="Map" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Map/MeshInstance3D/SubViewport" unique_id=938632931 instance=ExtResource("7_5vw27")]
 
 [node name="Audio" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot" unique_id=1239297743]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

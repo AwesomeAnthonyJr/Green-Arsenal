@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://22o4pnshc1ou"]
+
+[ext_resource type="Texture2D" uid="uid://cf8tt4p1m0hjt" path="res://ui/pause_menu_ui_map_v1.png" id="1_4xfga"]
+
+[node name="Map" type="CanvasLayer" unique_id=938632931]
+
+[node name="Control" type="Control" parent="." unique_id=1874354937]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1229519740]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_4xfga")
