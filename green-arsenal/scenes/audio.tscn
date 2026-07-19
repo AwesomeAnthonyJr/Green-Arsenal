@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://28s37t1348g5"]
+
+[ext_resource type="Texture2D" uid="uid://d2gesldvkevgp" path="res://ui/pause_menu_ui_audio_v1.png" id="1_6n3bj"]
+[ext_resource type="PackedScene" uid="uid://gla5qwkplqry" path="res://scenes/volume_slider.tscn" id="2_bwtr5"]
+
+[node name="Audio" type="CanvasLayer" unique_id=1930912985]
+
+[node name="Control" type="Control" parent="." unique_id=909552247]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=451502208]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6n3bj")
+
+[node name="VolumeSlider" parent="Control" unique_id=2084235105 instance=ExtResource("2_bwtr5")]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 190.0
+offset_right = 590.0
+offset_bottom = 220.0
+
+[node name="VolumeSlider2" parent="Control" unique_id=700896396 instance=ExtResource("2_bwtr5")]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 310.0
+offset_right = 590.0
+offset_bottom = 340.0
+
+[node name="VolumeSlider3" parent="Control" unique_id=390098579 instance=ExtResource("2_bwtr5")]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 430.0
+offset_right = 590.0
+offset_bottom = 460.0

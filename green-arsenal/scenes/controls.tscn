@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vfwgi73yjqyr"]
 
-[ext_resource type="Texture2D" uid="uid://b40iqahnhoevw" path="res://ui/pause_menu_ui_controls_v1.png" id="1_i2gav"]
+[ext_resource type="Texture2D" uid="uid://b04gibnht6e3n" path="res://ui/pause_menu_ui_controls_v2.png" id="1_i2gav"]
 
 [node name="Controls" type="CanvasLayer" unique_id=908675108]
 

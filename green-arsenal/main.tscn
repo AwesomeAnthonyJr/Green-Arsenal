@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bes4hymed4oow" path="res://scenes/player_package.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b2hy7nwf61v0w" path="res://scenes/pause_status.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://vfwgi73yjqyr" path="res://scenes/controls.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://28s37t1348g5" path="res://scenes/audio.tscn" id="7_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -40,6 +41,15 @@ resource_local_to_scene = true
 transparency = 1
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_ycdy4")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kek77"]
+viewport_path = NodePath("PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio/MeshInstance3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_kek77")
 
 [node name="Main" type="Node" unique_id=383612433 node_paths=PackedStringArray("input_manager", "room_loader")]
 script = ExtResource("1_h2yge")
@@ -85,7 +95,7 @@ render_target_update_mode = 4
 cull_mask = 524288
 
 [node name="Pivot" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D" unique_id=1402576271]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.3, 0)
 
 [node name="Status" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot" unique_id=1764311947]
 
@@ -115,6 +125,36 @@ transparent_bg = true
 size = Vector2i(1280, 720)
 
 [node name="Controls" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Controls/MeshInstance3D/SubViewport" unique_id=908675108 instance=ExtResource("6_272bh")]
+
+[node name="Map" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot" unique_id=1515238819]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Map" unique_id=608870104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -550)
+layers = 524288
+mesh = SubResource("QuadMesh_h45xw")
+surface_material_override/0 = SubResource("StandardMaterial3D_efxa6")
+
+[node name="SubViewport" type="SubViewport" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Map/MeshInstance3D" unique_id=746053801]
+transparent_bg = true
+size = Vector2i(1280, 720)
+
+[node name="Controls" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Map/MeshInstance3D/SubViewport" unique_id=1062398738 instance=ExtResource("6_272bh")]
+
+[node name="Audio" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot" unique_id=1239297743]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio" unique_id=671612968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -550)
+layers = 524288
+mesh = SubResource("QuadMesh_h45xw")
+surface_material_override/0 = SubResource("StandardMaterial3D_5vw27")
+
+[node name="SubViewport" type="SubViewport" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio/MeshInstance3D" unique_id=330924649]
+transparent_bg = true
+size = Vector2i(1280, 720)
+
+[node name="Audio" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio/MeshInstance3D/SubViewport" unique_id=1930912985 instance=ExtResource("7_272bh")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D" unique_id=2067227638]
 layers = 524288

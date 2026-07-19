@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2hy7nwf61v0w"]
 
-[ext_resource type="Texture2D" uid="uid://blyoxrm64dbg2" path="res://ui/pause_menu_ui_status_v2.png" id="1_k2bl5"]
+[ext_resource type="Texture2D" uid="uid://delpxc4juo2c2" path="res://ui/pause_menu_ui_status_v3.png" id="1_k2bl5"]
 [ext_resource type="Texture2D" uid="uid://bt5pgejxb6g4y" path="res://ui/pause_menu_ui_selector_1.png" id="2_k2bl5"]
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="2_xn0vo"]
 [ext_resource type="PackedScene" uid="uid://kwmr4xhfpaq8" path="res://scenes/blaze_flower.tscn" id="4_k2bl5"]
