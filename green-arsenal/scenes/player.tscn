@@ -287,7 +287,7 @@ transitions = ["Start", "standing", SubResource("AnimationNodeStateMachineTransi
 graph_offset = Vector2(20, -43)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h3b12"]
-graph_offset = Vector2(-234, 118)
+graph_offset = Vector2(-325.92258, -10.942822)
 nodes/output/position = Vector2(360, 160)
 nodes/WalkState/node = SubResource("AnimationNodeStateMachine_f1ej7")
 nodes/WalkState/position = Vector2(-80, 140)
@@ -677,6 +677,7 @@ primary_rotation_axis = 0
 libraries/ = SubResource("AnimationLibrary_qlg0r")
 
 [node name="AnimationTree" type="AnimationTree" parent="Pivot/Pivot2/Model/Armature_001/Skeleton3D" unique_id=1972956370]
+active = false
 tree_root = SubResource("AnimationNodeBlendTree_h3b12")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 1.0
