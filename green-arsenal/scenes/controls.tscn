@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://vfwgi73yjqyr"]
+
+[ext_resource type="Texture2D" uid="uid://b40iqahnhoevw" path="res://ui/pause_menu_ui_controls_v1.png" id="1_i2gav"]
+
+[node name="Controls" type="CanvasLayer" unique_id=908675108]
+
+[node name="Control" type="Control" parent="." unique_id=462549663]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1747270239]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_i2gav")

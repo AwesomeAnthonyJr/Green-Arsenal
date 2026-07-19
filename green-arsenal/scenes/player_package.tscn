@@ -29,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=1881616207]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, 3)
-cull_mask = 524287
+cull_mask = 262143
 
 [node name="AimRayCast" type="RayCast3D" parent="CameraRig/TwistPivot/PitchPivot/Camera3D" unique_id=69101290]
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, -0.1)

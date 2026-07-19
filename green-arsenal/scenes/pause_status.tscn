@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://b2hy7nwf61v0w"]
+
+[ext_resource type="Texture2D" uid="uid://blyoxrm64dbg2" path="res://ui/pause_menu_ui_status_v2.png" id="1_k2bl5"]
+[ext_resource type="Texture2D" uid="uid://bt5pgejxb6g4y" path="res://ui/pause_menu_ui_selector_1.png" id="2_k2bl5"]
+[ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="2_xn0vo"]
+[ext_resource type="PackedScene" uid="uid://kwmr4xhfpaq8" path="res://scenes/blaze_flower.tscn" id="4_k2bl5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2bl5"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_80c3a"]
+sky_material = SubResource("ProceduralSkyMaterial_k2bl5")
+
+[sub_resource type="Environment" id="Environment_h2u1m"]
+background_mode = 2
+sky = SubResource("Sky_80c3a")
+ambient_light_source = 1
+glow_enabled = true
+
+[node name="PauseStatus" type="CanvasLayer" unique_id=111155969]
+
+[node name="Control" type="Control" parent="." unique_id=1089514977]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1848793519]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_k2bl5")
+
+[node name="SeedSelect" type="Sprite2D" parent="Control" unique_id=1276620294]
+visibility_layer = 524288
+position = Vector2(154, 275)
+texture = ExtResource("2_k2bl5")
+
+[node name="Seed1" type="Sprite2D" parent="Control" unique_id=1537875698]
+visibility_layer = 524288
+position = Vector2(154, 275)
+texture = ExtResource("2_xn0vo")
+hframes = 11
+frame = 2
+
+[node name="Seed2" type="Sprite2D" parent="Control" unique_id=95842972]
+visibility_layer = 524288
+position = Vector2(219, 204)
+texture = ExtResource("2_xn0vo")
+hframes = 11
+frame = 3
+
+[node name="Seed3" type="Sprite2D" parent="Control" unique_id=1926504652]
+visibility_layer = 524288
+position = Vector2(284, 275)
+texture = ExtResource("2_xn0vo")
+hframes = 11
+frame = 4
+
+[node name="Seed4" type="Sprite2D" parent="Control" unique_id=856123227]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524288
+position = Vector2(349, 204)
+texture = ExtResource("2_xn0vo")
+hframes = 11
+frame = 5
+
+[node name="Seed5" type="Sprite2D" parent="Control" unique_id=348027026]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524288
+position = Vector2(414, 275)
+texture = ExtResource("2_xn0vo")
+hframes = 11
+frame = 6
+
+[node name="Seed6" type="Sprite2D" parent="Control" unique_id=1440466741]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524288
+position = Vector2(479, 204)
+texture = ExtResource("2_xn0vo")
+hframes = 11
+frame = 7
+
+[node name="Seed7" type="Sprite2D" parent="Control" unique_id=2036207916]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524288
+position = Vector2(544, 275)
+texture = ExtResource("2_xn0vo")
+hframes = 11
+frame = 8
+
+[node name="Control" type="Control" parent="Control" unique_id=409755747]
+anchors_preset = 0
+offset_left = 740.0
+offset_top = 160.0
+offset_right = 780.0
+offset_bottom = 200.0
+
+[node name="PlantDisplayer" type="SubViewportContainer" parent="Control/Control" unique_id=93034161]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 400.0
+
+[node name="SubViewport" type="SubViewport" parent="Control/Control/PlantDisplayer" unique_id=51773393]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(400, 400)
+render_target_update_mode = 4
+
+[node name="Pivot" type="Node3D" parent="Control/Control/PlantDisplayer/SubViewport" unique_id=2136695860]
+
+[node name="Camera3D" type="Camera3D" parent="Control/Control/PlantDisplayer/SubViewport/Pivot" unique_id=833935108]
+transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.96592575, 0, 2, 2)
+cull_mask = 262144
+
+[node name="BlazeFlower" parent="Control/Control/PlantDisplayer/SubViewport" unique_id=1252632312 instance=ExtResource("4_k2bl5")]
+
+[node name="MeshInstance3D" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower" index="0" unique_id=48345425]
+layers = 262144
+
+[node name="MeshInstance3D4" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower" index="1" unique_id=1011431441]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D" parent_id_path=PackedInt32Array(1252632312, 437523559) index="0" unique_id=1548463745]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D9" parent_id_path=PackedInt32Array(1252632312, 294821790) index="0" unique_id=494265217]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D10" parent_id_path=PackedInt32Array(1252632312, 110192833) index="0" unique_id=1856530496]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D2" parent_id_path=PackedInt32Array(1252632312, 1313609177) index="0" unique_id=964680219]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D3" parent_id_path=PackedInt32Array(1252632312, 1774025607) index="0" unique_id=562437770]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D4" parent_id_path=PackedInt32Array(1252632312, 442782362) index="0" unique_id=697311996]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D5" parent_id_path=PackedInt32Array(1252632312, 1687954477) index="0" unique_id=2111051825]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D6" parent_id_path=PackedInt32Array(1252632312, 46697779) index="0" unique_id=791420975]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D7" parent_id_path=PackedInt32Array(1252632312, 1067782026) index="0" unique_id=818032901]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D8" parent_id_path=PackedInt32Array(1252632312, 1481189099) index="0" unique_id=1260804956]
+layers = 262144
+
+[node name="MeshInstance3D2" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower" index="12" unique_id=471780768]
+layers = 262144
+
+[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower" index="13" unique_id=767942786]
+layers = 262144
+
+[node name="OmniLight3D" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower" index="15" unique_id=182943981]
+layers = 262144
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Control/Control/PlantDisplayer/SubViewport" unique_id=1567586933]
+transform = Transform3D(0.9686385, -0.12123416, 0.21689105, 0, 0.8728915, 0.4879144, -0.24847424, -0.47261268, 0.84551626, 0, 0, 0)
+layers = 262144
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Control/Control/PlantDisplayer/SubViewport" unique_id=1704693536]
+environment = SubResource("Environment_h2u1m")
+
+[node name="PlantDescriber" type="RichTextLabel" parent="Control/Control" unique_id=1996662465]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 396.0
+offset_bottom = 396.0
+text = "DESCRIBING PLANTS DESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTS"
+
+[editable path="Control/Control/PlantDisplayer/SubViewport/BlazeFlower"]

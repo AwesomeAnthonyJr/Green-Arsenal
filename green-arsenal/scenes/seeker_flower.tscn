@@ -179,6 +179,7 @@ other = NodePath("../../../../Flower/Pivot/CamTarget")
 
 [node name="Camera3D" type="Camera3D" parent="SeekerUI/SubViewportContainer/SubViewport/Node3D" unique_id=310898922]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+cull_mask = 262143
 
 [node name="Crosshair" type="Control" parent="SeekerUI" unique_id=1642642503]
 material = SubResource("ShaderMaterial_ug45f")
