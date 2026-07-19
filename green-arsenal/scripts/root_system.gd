@@ -76,53 +76,63 @@ func walk(point: RootPoint, path: Array):
 	for c in next:
 		walk(c, path)
 
+###commented for kai
 func generate_tube(branch: Array):
 	var curve = Curve3D.new()
 	var radii = []
 	for p in branch:
 		curve.add_point(to_local(p.global_position))
 		radii.append(p.radius)
+	#adding this extra one for some later radii shenaniganry; basically assumes roots end in a point
+	radii.append(0.01)
+	#could probably have been an @export variable but like who cares
 	curve.bake_interval = 0.5
 	var points = curve.get_baked_points()
-	
-	if points.size() < 2:
-		return
+	#this "start index" is for later
 	var start_index = vertices.size()
+	
+	#iterates over all the points
 	for i in points.size():
 		var point = points[i]
 		
+		#this bit calculates the "local forward" of the point
 		var forward: Vector3
 		if i == points.size() - 1:
 			forward = (points[i] - points[i-1]).normalized()
 		else:
 			forward = (points[i+1] - points[i]).normalized()
 		
+		#this bit calculates up, you get some weird artifacts without this check so google says to do it i guess
 		var up = Vector3.UP
-		
-		if abs(forward.dot(up)) > 0.99:
+		if abs(forward.dot(up)) > 0.5:
 			up = Vector3.RIGHT
+		#3d math stuff
 		var right = forward.cross(up).normalized()
 		up = right.cross(forward).normalized()
 		
+		#iterate over sides to generate the actual points of the mesh
 		for j in sides:
+			#uses math to make a circle basically
 			var angle = TAU * float(j) / sides
-			var direction = (
-				right * cos(angle) +
-				up * sin(angle)
-			)
-			var local_radius = lerp(radii[0], radii[radii.size()-1],float(i) / float(points.size()-1))
-			vertices.append(
-				point + direction * local_radius
-			)
+			var direction = (right * cos(angle) + up * sin(angle))
+			#basically a fancy way to interpolate between set radii
+			var temp_ind = (float(i) / float(points.size()-1)) * float(radii.size()-2)
+			var temp_perc = temp_ind
+			temp_ind = int(temp_ind)
+			temp_perc -= temp_ind
+			var local_radius = lerp(radii[temp_ind], radii[temp_ind + 1], temp_perc)
+			#adds a point offset by the circle direction and radius
+			vertices.append(point + direction * local_radius)
 			normals.append(direction)
 	
+	#this part just basically labels the points for the arraymesh to use
 	for i in range(points.size() - 1):
 		for j in sides:
 			var current = start_index + i * sides + j
 			var next = start_index + i * sides + ((j + 1) % sides)
 			var next_ring = start_index + (i + 1) * sides + j
 			var next_ring_next = start_index + (i + 1) * sides + ((j + 1) % sides)
-			
+			#if you change this order it can flip it inside out i discovered!
 			indices.append(current)
 			indices.append(next)
 			indices.append(next_ring)
