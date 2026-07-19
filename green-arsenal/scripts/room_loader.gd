@@ -4,7 +4,6 @@ class_name RoomLoader
 #will not be export in final game!
 @export var active_room: Room
 @export var active_key = 0
-@export var actually_active = true
 
 const room_dict = {
 	0: "res://scenes/rooms/room_a.tscn",
@@ -23,11 +22,7 @@ var loaded_objects_keys = []
 var loaded_objects = []
 
 func _ready() -> void:
-	if actually_active:
-		setup_active_room(active_key)
-	else:
-		hide()
-		process_mode = Node.PROCESS_MODE_DISABLED
+	setup_active_room(active_key)
 
 func _process(delta):
 	for path in loadings:

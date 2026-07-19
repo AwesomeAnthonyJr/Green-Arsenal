@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bqsx2hglgfolr" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://i5pjehi8mq60" path="res://scripts/input_manager.gd" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bhaffqlwgnwei" path="res://scenes/Playground.tscn" id="2_5vw27"]
 [ext_resource type="Script" uid="uid://cr7ch745a207w" path="res://scripts/room_loader.gd" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://21ni2h84u6f3" path="res://ui/pause_menu_ui_status_v1.png" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bes4hymed4oow" path="res://scenes/player_package.tscn" id="5_lquwl"]
@@ -43,8 +42,6 @@ room_loader = NodePath("Active/RoomLoader")
 
 [node name="Testing" type="Node" parent="." unique_id=798207614]
 
-[node name="Playground" parent="Testing" unique_id=798919202 instance=ExtResource("2_5vw27")]
-
 [node name="InputManager" type="Node" parent="." unique_id=106243138]
 script = ExtResource("2_0xm2m")
 
@@ -52,7 +49,6 @@ script = ExtResource("2_0xm2m")
 
 [node name="RoomLoader" type="Node3D" parent="Active" unique_id=481011108]
 script = ExtResource("3_1bvp3")
-actually_active = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Active/RoomLoader" unique_id=449614055]
 environment = SubResource("Environment_272bh")
