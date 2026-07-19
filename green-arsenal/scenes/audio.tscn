@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://28s37t1348g5"]
 
-[ext_resource type="Texture2D" uid="uid://d2gesldvkevgp" path="res://ui/pause_menu_ui_audio_v1.png" id="1_6n3bj"]
+[ext_resource type="Texture2D" uid="uid://wn47gi0lyh7k" path="res://ui/pause_menu_ui_audio_v2.png" id="1_bwtr5"]
 [ext_resource type="PackedScene" uid="uid://gla5qwkplqry" path="res://scenes/volume_slider.tscn" id="2_bwtr5"]
 
 [node name="Audio" type="CanvasLayer" unique_id=1930912985]
@@ -15,7 +15,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_6n3bj")
+texture = ExtResource("1_bwtr5")
 
 [node name="VolumeSlider" parent="Control" unique_id=2084235105 instance=ExtResource("2_bwtr5")]
 layout_mode = 0

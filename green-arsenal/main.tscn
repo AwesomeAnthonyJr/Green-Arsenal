@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://vfwgi73yjqyr" path="res://scenes/controls.tscn" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://22o4pnshc1ou" path="res://scenes/map.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://28s37t1348g5" path="res://scenes/audio.tscn" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://c14s62txvhglc" path="res://ui/pause_menu_ui_bar_v2.png" id="9_kek77"]
+[ext_resource type="Texture2D" uid="uid://exckl7woqqqs" path="res://ui/pause_menu_ui_right_arrow.png" id="10_efxa6"]
+[ext_resource type="Texture2D" uid="uid://53av56yfhcbq" path="res://ui/pause_menu_ui_left_arrow.png" id="11_dg77c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,7 +34,6 @@ viewport_path = NodePath("PauseMenu/CanvasLayer/SubViewportContainer/SubViewport
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kek77"]
 resource_local_to_scene = true
 transparency = 1
-shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_4c57u")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ycdy4"]
@@ -40,7 +42,6 @@ viewport_path = NodePath("PauseMenu/CanvasLayer/SubViewportContainer/SubViewport
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
 resource_local_to_scene = true
 transparency = 1
-shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_ycdy4")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gldc4"]
@@ -49,7 +50,6 @@ viewport_path = NodePath("PauseMenu/CanvasLayer/SubViewportContainer/SubViewport
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_paxxb"]
 resource_local_to_scene = true
 transparency = 1
-shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_gldc4")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kek77"]
@@ -58,7 +58,6 @@ viewport_path = NodePath("PauseMenu/CanvasLayer/SubViewportContainer/SubViewport
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
 resource_local_to_scene = true
 transparency = 1
-shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_kek77")
 
 [node name="Main" type="Node" unique_id=383612433 node_paths=PackedStringArray("input_manager", "room_loader")]
@@ -105,7 +104,7 @@ render_target_update_mode = 4
 cull_mask = 524288
 
 [node name="Pivot" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D" unique_id=1402576271]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.3, 0)
+transform = Transform3D(-4.3711378e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -4.3711378e-08, 0, 0.3, 0)
 
 [node name="Status" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot" unique_id=1764311947]
 
@@ -168,5 +167,50 @@ size = Vector2i(1280, 720)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D" unique_id=2067227638]
 layers = 524288
+
+[node name="OmniLight3D" type="OmniLight3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D" unique_id=2132187550]
+layers = 524288
+light_energy = 200.0
+light_cull_mask = 4294443008
+omni_range = 4096.0
+
+[node name="BottomBar" type="TextureRect" parent="PauseMenu/CanvasLayer" unique_id=1072652370]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -383.0
+offset_top = -120.0
+offset_right = 383.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_kek77")
+
+[node name="ArrowRight" type="TextureRect" parent="PauseMenu/CanvasLayer" unique_id=1244517168]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -87.5
+offset_right = -20.0
+offset_bottom = 87.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("10_efxa6")
+
+[node name="ArrowLeft" type="TextureRect" parent="PauseMenu/CanvasLayer" unique_id=677923274]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -87.5
+offset_right = 165.0
+offset_bottom = 87.5
+grow_vertical = 2
+texture = ExtResource("11_dg77c")
 
 [editable path="Active/RoomLoader/PlayerPackage"]
