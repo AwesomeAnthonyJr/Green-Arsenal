@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cnie8atsoy37k"]
+
+[ext_resource type="PackedScene" uid="uid://bu1hy8wl5w0ex" path="res://scenes/rooms/room_a.tscn" id="1_v1nq0"]
+[ext_resource type="PackedScene" uid="uid://oryts8sm26u6" path="res://scenes/rooms/room_b.tscn" id="2_q2tb6"]
+[ext_resource type="PackedScene" uid="uid://3vfg6n44r7yp" path="res://scenes/rooms/room_c.tscn" id="3_ywuqi"]
+
+[node name="FullRooms" type="Node3D" unique_id=1444283235]
+
+[node name="Room" parent="." unique_id=1984734813 instance=ExtResource("1_v1nq0")]
+
+[node name="Room2" parent="." unique_id=394878619 instance=ExtResource("2_q2tb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Room3" parent="." unique_id=1050039443 instance=ExtResource("3_ywuqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)

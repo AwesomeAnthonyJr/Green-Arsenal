@@ -3,7 +3,7 @@ var save_file_path = "user://saves/"
 var save_file_name = "GreenArsenal_save.tres"
 var save_settings_name = "GreenArsenal_settings.tres"
 var player_save = SaveFile.new()
-#var player_settings = Settings.new()
+var player_settings = Settings.new()
 
 func get_seed_types():
 	return player_save.seed_types
@@ -25,3 +25,11 @@ func read_save():
 
 func write_save():
 	ResourceSaver.save(player_save, save_file_path + save_file_name)
+
+func read_settings():
+	player_settings = Settings.new()
+	if (ResourceLoader.exists(save_file_path + save_settings_name)):
+		player_settings = ResourceLoader.load(save_file_path + save_settings_name)
+
+func write_settings():
+	ResourceSaver.save(player_settings, save_file_path + save_settings_name)

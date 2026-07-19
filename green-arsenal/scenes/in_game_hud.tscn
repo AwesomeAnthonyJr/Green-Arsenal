@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://ddtrcn1oee5uc" path="res://ui/seeds2-Sheet.png" id="8_m5iab"]
 [ext_resource type="Texture2D" uid="uid://cltppkvwd4dkn" path="res://ui/revolver_ui.png" id="9_22r63"]
 [ext_resource type="Script" uid="uid://dfwso1byupjuc" path="res://scripts/loaded_sprite.gd" id="9_p1t08"]
-[ext_resource type="Texture2D" uid="uid://bwk6ab1qu5223" path="res://ui/health_full.png" id="12_3dbat"]
 [ext_resource type="Texture2D" uid="uid://dvvfgmmqo1ymu" path="res://ui/bullet_ui_1_take_2.png" id="12_40yl3"]
 [ext_resource type="Script" uid="uid://d06d2safsnxsy" path="res://scripts/health_displayer.gd" id="12_ve54s"]
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="13_ywslq"]
+[ext_resource type="Texture2D" uid="uid://cu62pj1efch37" path="res://ui/heart_ui_1_take_2_flat.png" id="14_40yl3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_eyt8w")
@@ -300,7 +300,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-100, 785)]
+"values": [Vector2(-100, 870)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -430,7 +430,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(90, 535)]
+"values": [Vector2(90, 620)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -720,8 +720,10 @@ anchor_left = -0.08680555
 anchor_top = 1.2114197
 anchor_right = -0.08680555
 anchor_bottom = 1.2114197
-offset_top = 6.1035156e-05
-offset_bottom = 6.1035156e-05
+offset_left = 11.111107
+offset_top = -2.222168
+offset_right = 11.111107
+offset_bottom = -2.222168
 grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -891,73 +893,72 @@ script = ExtResource("12_ve54s")
 
 [node name="Node2D" type="Node2D" parent="Health" unique_id=1220075615]
 position = Vector2(-7.9999995, -14.999999)
-scale = Vector2(0.4, 0.4)
 
 [node name="Heart1" type="Sprite2D" parent="Health/Node2D" unique_id=1768483077]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(100, 100)
-texture = ExtResource("12_3dbat")
+position = Vector2(48, 55.000027)
+texture = ExtResource("14_40yl3")
 
 [node name="HeartSprite" type="Sprite2D" parent="Health/Node2D/Heart1" unique_id=967270779]
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="Heart2" type="Sprite2D" parent="Health/Node2D" unique_id=1342717979]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(178, 200)
+position = Vector2(115, 85.00002)
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="HeartSprite" type="Sprite2D" parent="Health/Node2D/Heart2" unique_id=1748200543]
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="Heart3" type="Sprite2D" parent="Health/Node2D" unique_id=401896943]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(255.99998, 99.99998)
+position = Vector2(183, 55.000004)
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="HeartSprite" type="Sprite2D" parent="Health/Node2D/Heart3" unique_id=1248265398]
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="Heart4" type="Sprite2D" parent="Health/Node2D" unique_id=487672920]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(334, 200)
+position = Vector2(250.99998, 85)
 scale = Vector2(0.9999997, 0.9999997)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="HeartSprite" type="Sprite2D" parent="Health/Node2D/Heart4" unique_id=1976007982]
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="Heart5" type="Sprite2D" parent="Health/Node2D" unique_id=1703258200]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(412, 100)
+position = Vector2(319, 55.000004)
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="HeartSprite" type="Sprite2D" parent="Health/Node2D/Heart5" unique_id=1592340599]
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="Heart6" type="Sprite2D" parent="Health/Node2D" unique_id=385199624]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(489.99997, 199.99997)
+position = Vector2(386, 84.99996)
 scale = Vector2(0.99999964, 0.99999964)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="HeartSprite" type="Sprite2D" parent="Health/Node2D/Heart6" unique_id=940794753]
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="Heart7" type="Sprite2D" parent="Health/Node2D" unique_id=127713055]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(568, 100)
+position = Vector2(454, 55)
 scale = Vector2(1.0000001, 1.0000001)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")
 
 [node name="HeartSprite" type="Sprite2D" parent="Health/Node2D/Heart7" unique_id=247215411]
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("12_3dbat")
+texture = ExtResource("14_40yl3")

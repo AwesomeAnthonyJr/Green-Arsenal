@@ -736,5 +736,6 @@ transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.109, -0.96
 shape = SubResource("CapsuleShape3D_i20g8")
 
 [node name="GroundCast" type="ShapeCast3D" parent="." unique_id=1999465458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
 shape = SubResource("CylinderShape3D_h45xw")
-target_position = Vector3(0, -0.95, 0)
+target_position = Vector3(0, 0, 0)
