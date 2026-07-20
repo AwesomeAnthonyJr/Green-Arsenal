@@ -25,10 +25,22 @@ enum ControlsSelection {
 	PUT_AWAY
 }
 
+enum ConfigSelection {
+	BIG_LEFT,
+	BIG_RIGHT,
+	MASTER_HOVER,
+	MASTER_SLIDER,
+	MUSIC_HOVER,
+	MUSIC_SLIDER,
+	SOUND_HOVER,
+	SOUND_SLIDER
+}
+
 var current_menu_2 = ControlsSelection.BIG_LEFT
 
 @onready var main_anim_tree = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/AnimationTree
 @onready var controls_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Controls/MeshInstance3D/SubViewport/Controls
+@onready var config_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio/MeshInstance3D/SubViewport/Audio
 
 #controls stuff
 var remapping = false
@@ -98,6 +110,24 @@ func update_visually():
 					playback.travel("on_PUT_AWAY")
 		MenuSelection.CONFIG:
 			playback.travel("on_config")
+			playback = config_menu.anim_tree["parameters/playback"]
+			match current_menu_2:
+				ConfigSelection.BIG_LEFT:
+					playback.travel("on_BIG_LEFT")
+				ConfigSelection.BIG_RIGHT:
+					playback.travel("on_BIG_RIGHT")
+				ConfigSelection.MASTER_HOVER:
+					playback.travel("on_MASTER_HOVER")
+				ConfigSelection.MASTER_SLIDER:
+					playback.travel("on_MASTER_SLIDER")
+				ConfigSelection.MUSIC_HOVER:
+					playback.travel("on_MUSIC_HOVER")
+				ConfigSelection.MUSIC_SLIDER:
+					playback.travel("on_MUSIC_SLIDER")
+				ConfigSelection.SOUND_HOVER:
+					playback.travel("on_SOUND_HOVER")
+				ConfigSelection.SOUND_SLIDER:
+					playback.travel("on_SOUND_SLIDER")
 		MenuSelection.MAP:
 			playback.travel("on_map")
 
@@ -143,7 +173,25 @@ func read_up():
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.RELOAD
 		MenuSelection.CONFIG:
-			pass
+			match current_menu_2:
+				ConfigSelection.BIG_LEFT:
+					pass
+				ConfigSelection.BIG_RIGHT:
+					pass
+				ConfigSelection.MASTER_HOVER:
+					pass
+				ConfigSelection.MASTER_SLIDER:
+					pass
+				ConfigSelection.MUSIC_HOVER:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MASTER_HOVER
+				ConfigSelection.MUSIC_SLIDER:
+					pass
+				ConfigSelection.SOUND_HOVER:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MUSIC_HOVER
+				ConfigSelection.SOUND_SLIDER:
+					pass
 		MenuSelection.MAP:
 			pass
 	update_visually()
@@ -189,7 +237,25 @@ func read_down():
 				ControlsSelection.PUT_AWAY:
 					pass
 		MenuSelection.CONFIG:
-			pass
+			match current_menu_2:
+				ConfigSelection.BIG_LEFT:
+					pass
+				ConfigSelection.BIG_RIGHT:
+					pass
+				ConfigSelection.MASTER_HOVER:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MUSIC_HOVER
+				ConfigSelection.MASTER_SLIDER:
+					pass
+				ConfigSelection.MUSIC_HOVER:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.SOUND_HOVER
+				ConfigSelection.MUSIC_SLIDER:
+					pass
+				ConfigSelection.SOUND_HOVER:
+					pass
+				ConfigSelection.SOUND_SLIDER:
+					pass
 		MenuSelection.MAP:
 			pass
 	update_visually()
@@ -239,7 +305,27 @@ func read_left():
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.SHOOT
 		MenuSelection.CONFIG:
-			pass
+			match current_menu_2:
+				ConfigSelection.BIG_LEFT:
+					pass
+				ConfigSelection.BIG_RIGHT:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MASTER_HOVER
+				ConfigSelection.MASTER_HOVER:
+					current_menu_2 = ConfigSelection.BIG_LEFT
+				ConfigSelection.MASTER_SLIDER:
+					#TODO: make this update the slider directly or indirectly
+					pass
+				ConfigSelection.MUSIC_HOVER:
+					current_menu_2 = ConfigSelection.BIG_LEFT
+				ConfigSelection.MUSIC_SLIDER:
+					#TODO: make this update the slider directly or indirectly
+					pass
+				ConfigSelection.SOUND_HOVER:
+					current_menu_2 = ConfigSelection.BIG_LEFT
+				ConfigSelection.SOUND_SLIDER:
+					#TODO: make this update the slider directly or indirectly
+					pass
 		MenuSelection.MAP:
 			pass
 	update_visually()
@@ -290,7 +376,27 @@ func read_right():
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.INTERACT
 		MenuSelection.CONFIG:
-			pass
+			match current_menu_2:
+				ConfigSelection.BIG_LEFT:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MASTER_HOVER
+				ConfigSelection.BIG_RIGHT:
+					pass
+				ConfigSelection.MASTER_HOVER:
+					current_menu_2 = ConfigSelection.BIG_RIGHT
+				ConfigSelection.MASTER_SLIDER:
+					#TODO: make this update the slider directly or indirectly
+					pass
+				ConfigSelection.MUSIC_HOVER:
+					current_menu_2 = ConfigSelection.BIG_RIGHT
+				ConfigSelection.MUSIC_SLIDER:
+					#TODO: make this update the slider directly or indirectly
+					pass
+				ConfigSelection.SOUND_HOVER:
+					current_menu_2 = ConfigSelection.BIG_RIGHT
+				ConfigSelection.SOUND_SLIDER:
+					#TODO: make this update the slider directly or indirectly
+					pass
 		MenuSelection.MAP:
 			pass
 	update_visually()
@@ -352,9 +458,26 @@ func read_accept():
 					await get_tree().process_frame
 					remapping = true
 		MenuSelection.CONFIG:
-			pass
+			match current_menu_2:
+				ConfigSelection.BIG_LEFT:
+					read_big_left()
+				ConfigSelection.BIG_RIGHT:
+					read_big_right()
+				ConfigSelection.MASTER_HOVER:
+					current_menu_2 = ConfigSelection.MASTER_SLIDER
+				ConfigSelection.MASTER_SLIDER:
+					current_menu_2 = ConfigSelection.MASTER_HOVER
+				ConfigSelection.MUSIC_HOVER:
+					current_menu_2 = ConfigSelection.MUSIC_SLIDER
+				ConfigSelection.MUSIC_SLIDER:
+					current_menu_2 = ConfigSelection.MUSIC_HOVER
+				ConfigSelection.SOUND_HOVER:
+					current_menu_2 = ConfigSelection.SOUND_SLIDER
+				ConfigSelection.SOUND_SLIDER:
+					current_menu_2 = ConfigSelection.SOUND_HOVER
 		MenuSelection.MAP:
 			pass
+	update_visually()
 
 func read_back():
 	if suppress_next_input:
@@ -379,8 +502,10 @@ func read_big_left():
 			current_menu = MenuSelection.STATUS
 		MenuSelection.CONFIG:
 			current_menu = MenuSelection.CONTROLS
+			current_menu_2 = ControlsSelection.BIG_LEFT
 		MenuSelection.MAP:
 			current_menu = MenuSelection.CONFIG
+			current_menu_2 = ConfigSelection.BIG_LEFT
 	update_visually()
 func read_big_right():
 	if suppress_next_input:
@@ -388,8 +513,10 @@ func read_big_right():
 	match current_menu:
 		MenuSelection.STATUS:
 			current_menu = MenuSelection.CONTROLS
+			current_menu_2 = ControlsSelection.BIG_RIGHT
 		MenuSelection.CONTROLS:
 			current_menu = MenuSelection.CONFIG
+			current_menu_2 = ConfigSelection.BIG_RIGHT
 		MenuSelection.CONFIG:
 			current_menu = MenuSelection.MAP
 		MenuSelection.MAP:

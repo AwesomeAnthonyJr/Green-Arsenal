@@ -5,7 +5,357 @@
 [ext_resource type="PackedScene" uid="uid://gla5qwkplqry" path="res://scenes/volume_slider.tscn" id="2_bwtr5"]
 [ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="4_hlm5c"]
 
+[sub_resource type="Animation" id="Animation_hlm5c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 205)]
+}
+
+[sub_resource type="Animation" id="Animation_3g2y6"]
+resource_name = "on_BIG_LEFT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lpqkh"]
+resource_name = "on_BIG_RIGHT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1280, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wdljl"]
+resource_name = "on_MASTER_HOVER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 205)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lymfh"]
+resource_name = "on_MASTER_SLIDER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 205)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_third_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dl6it"]
+resource_name = "on_MUSIC_HOVER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 325)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_p5uep"]
+resource_name = "on_MUSIC_SLIDER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 325)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_third_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8kkbo"]
+resource_name = "on_SOUND_HOVER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 445)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dn6px"]
+resource_name = "on_SOUND_SLIDER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 445)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_third_position"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dl6it"]
+_data = {
+&"RESET": SubResource("Animation_hlm5c"),
+&"on_BIG_LEFT": SubResource("Animation_3g2y6"),
+&"on_BIG_RIGHT": SubResource("Animation_lpqkh"),
+&"on_MASTER_HOVER": SubResource("Animation_wdljl"),
+&"on_MASTER_SLIDER": SubResource("Animation_lymfh"),
+&"on_MUSIC_HOVER": SubResource("Animation_dl6it"),
+&"on_MUSIC_SLIDER": SubResource("Animation_p5uep"),
+&"on_SOUND_HOVER": SubResource("Animation_8kkbo"),
+&"on_SOUND_SLIDER": SubResource("Animation_dn6px")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hlm5c"]
+animation = &"on_BIG_LEFT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wdljl"]
+animation = &"on_BIG_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dl6it"]
+animation = &"on_MASTER_HOVER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lpqkh"]
+animation = &"on_MASTER_SLIDER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8kkbo"]
+animation = &"on_MUSIC_HOVER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lymfh"]
+animation = &"on_MUSIC_SLIDER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3g2y6"]
+animation = &"on_SOUND_HOVER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p5uep"]
+animation = &"on_SOUND_SLIDER"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lpqkh"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lymfh"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p5uep"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dn6px"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ou3m"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iynmv"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ggveo"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nwc8s"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bf4yj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xrc4d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j2csl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vg0yf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8g2a7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rc0tf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mgily"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hlm5c"]
+states/End/position = Vector2(1029, 100)
+states/on_BIG_LEFT/node = SubResource("AnimationNodeAnimation_hlm5c")
+states/on_BIG_LEFT/position = Vector2(352, 91)
+states/on_BIG_RIGHT/node = SubResource("AnimationNodeAnimation_wdljl")
+states/on_BIG_RIGHT/position = Vector2(523, 13)
+states/on_MASTER_HOVER/node = SubResource("AnimationNodeAnimation_dl6it")
+states/on_MASTER_HOVER/position = Vector2(523, 91)
+states/on_MASTER_SLIDER/node = SubResource("AnimationNodeAnimation_lpqkh")
+states/on_MASTER_SLIDER/position = Vector2(710, 91)
+states/on_MUSIC_HOVER/node = SubResource("AnimationNodeAnimation_8kkbo")
+states/on_MUSIC_HOVER/position = Vector2(523, 153)
+states/on_MUSIC_SLIDER/node = SubResource("AnimationNodeAnimation_lymfh")
+states/on_MUSIC_SLIDER/position = Vector2(710, 153)
+states/on_SOUND_HOVER/node = SubResource("AnimationNodeAnimation_3g2y6")
+states/on_SOUND_HOVER/position = Vector2(523, 216)
+states/on_SOUND_SLIDER/node = SubResource("AnimationNodeAnimation_p5uep")
+states/on_SOUND_SLIDER/position = Vector2(710, 216)
+transitions = ["on_BIG_LEFT", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_lpqkh"), "on_MASTER_HOVER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_lymfh"), "on_MUSIC_HOVER", "on_SOUND_HOVER", SubResource("AnimationNodeStateMachineTransition_p5uep"), "on_SOUND_HOVER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_dn6px"), "on_MUSIC_HOVER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_8ou3m"), "on_MASTER_HOVER", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_iynmv"), "on_BIG_RIGHT", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_ggveo"), "on_MASTER_HOVER", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_nwc8s"), "Start", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_bf4yj"), "on_MASTER_SLIDER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_xrc4d"), "on_MASTER_HOVER", "on_MASTER_SLIDER", SubResource("AnimationNodeStateMachineTransition_j2csl"), "on_MUSIC_SLIDER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_vg0yf"), "on_MUSIC_HOVER", "on_MUSIC_SLIDER", SubResource("AnimationNodeStateMachineTransition_8g2a7"), "on_SOUND_SLIDER", "on_SOUND_HOVER", SubResource("AnimationNodeStateMachineTransition_rc0tf"), "on_SOUND_HOVER", "on_SOUND_SLIDER", SubResource("AnimationNodeStateMachineTransition_mgily")]
+graph_offset = Vector2(179, 47)
 
 [node name="Audio" type="CanvasLayer" unique_id=1930912985]
 script = ExtResource("1_f5a2e")
@@ -44,9 +394,11 @@ offset_right = 590.0
 offset_bottom = 460.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=855484125]
+libraries/ = SubResource("AnimationLibrary_dl6it")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=580770919]
 tree_root = SubResource("AnimationNodeStateMachine_hlm5c")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="Selector" parent="." unique_id=894841875 instance=ExtResource("4_hlm5c")]
-position = Vector2(205, 315)
+position = Vector2(140, 205)
