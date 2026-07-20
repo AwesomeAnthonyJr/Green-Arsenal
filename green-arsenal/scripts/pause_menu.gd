@@ -61,6 +61,9 @@ var current_menu_2 = ControlsSelection.BIG_LEFT
 @onready var controls_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Controls/MeshInstance3D/SubViewport/Controls
 @onready var config_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio/MeshInstance3D/SubViewport/Audio
 
+#status stuff
+var inspecting = false
+
 #controls stuff
 var remapping = false
 var action_to_remap: String
@@ -101,19 +104,61 @@ func update_display():
 					bar_text.display("[center][color=#fad019][b]To CONTROLS[/b][/color][/center]")
 				###NOTE! with a new seed order will need to manually move these around!
 				StatusSelection.SEED_1:
-					bar_text.display("Blaze Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					if SaveManager.player_save.seed_types[0]:
+						if inspecting:
+							bar_text.display("Blaze Flower. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+						else:
+							bar_text.display("Blaze Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					else:
+						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
 				StatusSelection.SEED_2:
-					bar_text.display("Bounce Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					if SaveManager.player_save.seed_types[1]:
+						if inspecting:
+							bar_text.display("Springvine. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+						else:
+							bar_text.display("Bounce Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					else:
+						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
 				StatusSelection.SEED_3:
-					bar_text.display("Life Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					if SaveManager.player_save.seed_types[2]:
+						if inspecting:
+							bar_text.display("Life Fruit. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+						else:
+							bar_text.display("Life Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					else:
+						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
 				StatusSelection.SEED_4:
-					bar_text.display("Platform Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					if SaveManager.player_save.seed_types[3]:
+						if inspecting:
+							bar_text.display("Platform Pad. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+						else:
+							bar_text.display("Platform Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					else:
+						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
 				StatusSelection.SEED_5:
-					bar_text.display("Seeker Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					if SaveManager.player_save.seed_types[4]:
+						if inspecting:
+							bar_text.display("Seeking Stalk. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+						else:
+							bar_text.display("Seeker Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					else:
+						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
 				StatusSelection.SEED_6:
-					bar_text.display("Propeller Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					if SaveManager.player_save.seed_types[5]:
+						if inspecting:
+							bar_text.display("Propeller Flower. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+						else:
+							bar_text.display("Propeller Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					else:
+						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
 				StatusSelection.SEED_7:
-					bar_text.display("Heavy Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					if SaveManager.player_save.seed_types[6]:
+						if inspecting:
+							bar_text.display("Boulder Fruit. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+						else:
+							bar_text.display("Heavy Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					else:
+						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
 				StatusSelection.HEART:
 					bar_text.display("Your max health is currently [b]{max_hp}[/b]")
 				StatusSelection.GROWTH_1:
@@ -475,24 +520,31 @@ func read_left():
 					current_menu_2 = StatusSelection.SEED_7
 				StatusSelection.SEED_1:
 					current_menu_2 = StatusSelection.BIG_LEFT
+					inspecting = false
 				StatusSelection.SEED_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_1
+					inspecting = false
 				StatusSelection.SEED_3:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_2
+					inspecting = false
 				StatusSelection.SEED_4:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_3
+					inspecting = false
 				StatusSelection.SEED_5:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_4
+					inspecting = false
 				StatusSelection.SEED_6:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_5
+					inspecting = false
 				StatusSelection.SEED_7:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_6
+					inspecting = false
 				StatusSelection.HEART:
 					current_menu_2 = StatusSelection.BIG_LEFT
 				StatusSelection.GROWTH_1:
@@ -582,23 +634,30 @@ func read_right():
 				StatusSelection.SEED_1:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_2
+					inspecting = false
 				StatusSelection.SEED_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_3
+					inspecting = false
 				StatusSelection.SEED_3:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_4
+					inspecting = false
 				StatusSelection.SEED_4:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_5
+					inspecting = false
 				StatusSelection.SEED_5:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_6
+					inspecting = false
 				StatusSelection.SEED_6:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_7
+					inspecting = false
 				StatusSelection.SEED_7:
 					current_menu_2 = StatusSelection.BIG_RIGHT
+					inspecting = false
 				StatusSelection.HEART:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
@@ -680,7 +739,40 @@ func read_accept():
 		return
 	match current_menu:
 		MenuSelection.STATUS:
-			pass
+			match current_menu_2:
+				StatusSelection.BIG_LEFT:
+					read_big_left()
+				StatusSelection.BIG_RIGHT:
+					read_big_right()
+				StatusSelection.SEED_1:
+					if !inspecting and SaveManager.player_save.seed_types[0]:
+						inspecting = true
+				StatusSelection.SEED_2:
+					if !inspecting and SaveManager.player_save.seed_types[1]:
+						inspecting = true
+				StatusSelection.SEED_3:
+					if !inspecting and SaveManager.player_save.seed_types[2]:
+						inspecting = true
+				StatusSelection.SEED_4:
+					if !inspecting and SaveManager.player_save.seed_types[3]:
+						inspecting = true
+				StatusSelection.SEED_5:
+					if !inspecting and SaveManager.player_save.seed_types[4]:
+						inspecting = true
+				StatusSelection.SEED_6:
+					if !inspecting and SaveManager.player_save.seed_types[5]:
+						inspecting = true
+				StatusSelection.SEED_7:
+					if !inspecting and SaveManager.player_save.seed_types[6]:
+						inspecting = true
+				StatusSelection.HEART:
+					pass
+				StatusSelection.GROWTH_1:
+					pass
+				StatusSelection.GROWTH_2:
+					pass
+				StatusSelection.GROWTH_3:
+					pass
 		MenuSelection.CONTROLS:
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:

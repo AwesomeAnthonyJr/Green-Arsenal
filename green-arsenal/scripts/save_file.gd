@@ -8,7 +8,7 @@ class_name SaveFile
 	true,
 	true,
 	true,
-	true
+	false
 ]
 @export var max_hp: int = 3
 @export var growth_charges: int = 1
