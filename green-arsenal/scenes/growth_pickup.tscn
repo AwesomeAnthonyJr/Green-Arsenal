@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dfs3yqx8dhbl"]
+
+[ext_resource type="Shader" uid="uid://davgmikf7tisq" path="res://ui/cel_shaded_transparent.gdshader" id="1_nh1vm"]
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="2_ro30r"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_h45xw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro30r"]
+render_priority = 0
+shader = ExtResource("1_nh1vm")
+shader_parameter/albedo = Color(0.26666668, 0.8980392, 0.21568628, 1)
+shader_parameter/albedo_in_shadow = Color(0.07058824, 0.7019608, 0.019607844, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.1999999955296
+shader_parameter/transparency = 0.499999988824
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_nh1vm"]
+flip_faces = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sv0vv"]
+render_priority = 0
+shader = ExtResource("2_ro30r")
+shader_parameter/albedo = Color(0.07058824, 0.7019608, 0.019607844, 1)
+shader_parameter/albedo_in_shadow = Color(0.26666668, 0.8980392, 0.21568628, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 0.0
+shader_parameter/fresnel_amount = 1.10000001639132
+shader_parameter/fresnel_strength = 0.1999999955296
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[node name="GrowthPickup" type="Node3D" unique_id=255482846]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1305793892]
+mesh = SubResource("SphereMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_ro30r")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1656693643]
+mesh = SubResource("SphereMesh_nh1vm")
+surface_material_override/0 = SubResource("ShaderMaterial_sv0vv")
