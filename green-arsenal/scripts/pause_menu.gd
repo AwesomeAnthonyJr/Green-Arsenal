@@ -55,6 +55,8 @@ enum ConfigSelection {
 var current_menu_2 = ControlsSelection.BIG_LEFT
 
 @onready var main_anim_tree = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/AnimationTree
+@onready var bar_text = $CanvasLayer/BottomBar/BarText
+
 @onready var status_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Status/MeshInstance3D/SubViewport/PauseStatus
 @onready var controls_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Controls/MeshInstance3D/SubViewport/Controls
 @onready var config_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio/MeshInstance3D/SubViewport/Audio
@@ -89,8 +91,89 @@ func _process(delta: float) -> void:
 	if suppress_next_input:
 		suppress_next_input = false
 
-#TODO: handle all animations here!
+func update_display():
+	match current_menu:
+		MenuSelection.STATUS:
+			match current_menu_2:
+				StatusSelection.BIG_LEFT:
+					bar_text.display("[center][color=#fad019][b]To MAP[/b][/color][/center]")
+				StatusSelection.BIG_RIGHT:
+					bar_text.display("[center][color=#fad019][b]To CONTROLS[/b][/color][/center]")
+				###NOTE! with a new seed order will need to manually move these around!
+				StatusSelection.SEED_1:
+					bar_text.display("Blaze Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+				StatusSelection.SEED_2:
+					bar_text.display("Bounce Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+				StatusSelection.SEED_3:
+					bar_text.display("Life Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+				StatusSelection.SEED_4:
+					bar_text.display("Platform Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+				StatusSelection.SEED_5:
+					bar_text.display("Seeker Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+				StatusSelection.SEED_6:
+					bar_text.display("Propeller Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+				StatusSelection.SEED_7:
+					bar_text.display("Heavy Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+				StatusSelection.HEART:
+					bar_text.display("Your max health is currently [b]{max_hp}[/b]")
+				StatusSelection.GROWTH_1:
+					bar_text.display("A growth charge. You have [b]{growth_charges}[/b]")
+				StatusSelection.GROWTH_2:
+					bar_text.display("A growth charge. You have [b]{growth_charges}[/b]")
+				StatusSelection.GROWTH_3:
+					bar_text.display("A growth charge. You have [b]{growth_charges}[/b]")
+		MenuSelection.CONTROLS:
+			match current_menu_2:
+				ControlsSelection.BIG_LEFT:
+					bar_text.display("[center][color=#fad019]To Status[/color=#fad019][/center]")
+				ControlsSelection.BIG_RIGHT:
+					bar_text.display("[center][color=#fad019]To Config[/color=#fad019][/center]")
+				ControlsSelection.MOVE_FORWARD:
+					pass
+				ControlsSelection.MOVE_BACK:
+					pass
+				ControlsSelection.MOVE_LEFT:
+					pass
+				ControlsSelection.MOVE_RIGHT:
+					pass
+				ControlsSelection.SPRINT:
+					pass
+				ControlsSelection.JUMP:
+					pass
+				ControlsSelection.PAUSE:
+					pass
+				ControlsSelection.RELOAD:
+					pass
+				ControlsSelection.INTERACT:
+					pass
+				ControlsSelection.SHOOT:
+					pass
+				ControlsSelection.PUT_AWAY:
+					pass
+		MenuSelection.CONFIG:
+			match current_menu_2:
+				ConfigSelection.BIG_LEFT:
+					bar_text.display("[center][color=#fad019]To Controls[/color=#fad019][/center]")
+				ConfigSelection.BIG_RIGHT:
+					bar_text.display("[center][color=#fad019]To Map[/color=#fad019][/center]")
+				ConfigSelection.MASTER_HOVER:
+					pass
+				ConfigSelection.MASTER_SLIDER:
+					pass
+				ConfigSelection.MUSIC_HOVER:
+					pass
+				ConfigSelection.MUSIC_SLIDER:
+					pass
+				ConfigSelection.SOUND_HOVER:
+					pass
+				ConfigSelection.SOUND_SLIDER:
+					pass
+		MenuSelection.MAP:
+			pass
+
+#handle all animations here!
 func update_visually():
+	update_display()
 	var playback = main_anim_tree["parameters/playback"]
 	match current_menu:
 		MenuSelection.STATUS:

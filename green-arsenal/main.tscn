@@ -11,8 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://28s37t1348g5" path="res://scenes/audio.tscn" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://c14s62txvhglc" path="res://ui/pause_menu_ui_bar_v2.png" id="9_kek77"]
 [ext_resource type="Texture2D" uid="uid://exckl7woqqqs" path="res://ui/pause_menu_ui_right_arrow.png" id="10_efxa6"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="11_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://53av56yfhcbq" path="res://ui/pause_menu_ui_left_arrow.png" id="11_dg77c"]
+[ext_resource type="Script" uid="uid://b6a5tb4hbvnyb" path="res://scripts/description_text.gd" id="11_w48qg"]
 [ext_resource type="PackedScene" uid="uid://b5wiv7bym1arx" path="res://scenes/controls_text.tscn" id="12_dg77c"]
+[ext_resource type="FontFile" uid="uid://i3l17i8ifdhk" path="res://fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" id="12_yaehf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -452,7 +455,7 @@ render_target_update_mode = 4
 cull_mask = 524288
 
 [node name="Pivot" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D" unique_id=1402576271]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.3, 0)
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0.3, 0)
 
 [node name="Status" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot" unique_id=1764311947]
 
@@ -535,6 +538,21 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("9_kek77")
 
+[node name="BarText" type="RichTextLabel" parent="PauseMenu/CanvasLayer/BottomBar" unique_id=107134100]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 743.0
+offset_bottom = 73.0
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("11_2cqfq")
+theme_override_fonts/bold_font = ExtResource("12_yaehf")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "this is where a description goes"
+script = ExtResource("11_w48qg")
+
 [node name="ArrowRight" type="TextureRect" parent="PauseMenu/CanvasLayer" unique_id=1244517168]
 anchors_preset = 6
 anchor_left = 1.0
@@ -563,9 +581,9 @@ code = "jump"
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 28.0
+offset_left = 26.0
 offset_top = -87.5
-offset_right = 173.0
+offset_right = 171.0
 offset_bottom = 87.5
 grow_vertical = 2
 texture = ExtResource("11_dg77c")
