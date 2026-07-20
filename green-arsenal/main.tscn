@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://b6a5tb4hbvnyb" path="res://scripts/description_text.gd" id="11_w48qg"]
 [ext_resource type="PackedScene" uid="uid://b5wiv7bym1arx" path="res://scenes/controls_text.tscn" id="12_dg77c"]
 [ext_resource type="FontFile" uid="uid://i3l17i8ifdhk" path="res://fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" id="12_yaehf"]
+[ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="17_yaehf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -406,6 +407,225 @@ states/status>map/position = Vector2(317, 192)
 transitions = ["Start", "on_status", SubResource("AnimationNodeStateMachineTransition_jq2sk"), "on_status", "status>controls", SubResource("AnimationNodeStateMachineTransition_0odxb"), "on_status", "status>map", SubResource("AnimationNodeStateMachineTransition_lswn8"), "on_controls", "controls>status", SubResource("AnimationNodeStateMachineTransition_a6jrf"), "on_controls", "controls>config", SubResource("AnimationNodeStateMachineTransition_xuqvo"), "on_config", "config>controls", SubResource("AnimationNodeStateMachineTransition_qsp4k"), "on_config", "config>map", SubResource("AnimationNodeStateMachineTransition_kq58d"), "on_map", "map>status", SubResource("AnimationNodeStateMachineTransition_seu75"), "on_map", "map>config", SubResource("AnimationNodeStateMachineTransition_htxhm"), "controls>status", "on_status", SubResource("AnimationNodeStateMachineTransition_4k2k6"), "controls>config", "on_config", SubResource("AnimationNodeStateMachineTransition_0rl1p"), "status>controls", "on_controls", SubResource("AnimationNodeStateMachineTransition_ok6jj"), "config>controls", "on_controls", SubResource("AnimationNodeStateMachineTransition_facbu"), "map>config", "on_config", SubResource("AnimationNodeStateMachineTransition_b1qrp"), "map>status", "on_status", SubResource("AnimationNodeStateMachineTransition_come4"), "status>map", "on_map", SubResource("AnimationNodeStateMachineTransition_h8e4i"), "config>map", "on_map", SubResource("AnimationNodeStateMachineTransition_4lmeg")]
 graph_offset = Vector2(14, -59)
 
+[sub_resource type="Animation" id="Animation_lswn8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_kq58d"]
+resource_name = "hide_on_left"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(114, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_seu75"]
+resource_name = "hide_on_right"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1166, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_a6jrf"]
+resource_name = "hide_selector"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_xuqvo"]
+resource_name = "select_big_left"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(114, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_fourth_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qsp4k"]
+resource_name = "select_big_right"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1166, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_fourth_position"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xuqvo"]
+_data = {
+&"RESET": SubResource("Animation_lswn8"),
+&"hide_on_left": SubResource("Animation_kq58d"),
+&"hide_on_right": SubResource("Animation_seu75"),
+&"hide_selector": SubResource("Animation_a6jrf"),
+&"select_big_left": SubResource("Animation_xuqvo"),
+&"select_big_right": SubResource("Animation_qsp4k")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xuqvo"]
+animation = &"hide_on_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a6jrf"]
+animation = &"hide_on_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0odxb"]
+animation = &"hide_selector"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lswn8"]
+animation = &"select_big_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qsp4k"]
+animation = &"select_big_right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0cp0l"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d2t1y"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gngh3"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cegan"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yaehf"]
+xfade_time = 0.2
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0n3wm"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qnost"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wnkbs"]
+xfade_time = 0.2
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f6a44"]
+xfade_time = 0.05
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kq58d"]
+states/hide_on_left/node = SubResource("AnimationNodeAnimation_xuqvo")
+states/hide_on_left/position = Vector2(613, 32)
+states/hide_on_right/node = SubResource("AnimationNodeAnimation_a6jrf")
+states/hide_on_right/position = Vector2(613, 167)
+states/hide_selector/node = SubResource("AnimationNodeAnimation_0odxb")
+states/hide_selector/position = Vector2(613, 100)
+states/select_big_left/node = SubResource("AnimationNodeAnimation_lswn8")
+states/select_big_left/position = Vector2(613, -29)
+states/select_big_right/node = SubResource("AnimationNodeAnimation_qsp4k")
+states/select_big_right/position = Vector2(613, 242)
+transitions = ["Start", "hide_selector", SubResource("AnimationNodeStateMachineTransition_0cp0l"), "hide_on_left", "select_big_left", SubResource("AnimationNodeStateMachineTransition_d2t1y"), "select_big_left", "hide_on_left", SubResource("AnimationNodeStateMachineTransition_gngh3"), "hide_selector", "hide_on_left", SubResource("AnimationNodeStateMachineTransition_cegan"), "hide_on_left", "hide_selector", SubResource("AnimationNodeStateMachineTransition_yaehf"), "select_big_right", "hide_on_right", SubResource("AnimationNodeStateMachineTransition_0n3wm"), "hide_on_right", "select_big_right", SubResource("AnimationNodeStateMachineTransition_qnost"), "hide_on_right", "hide_selector", SubResource("AnimationNodeStateMachineTransition_wnkbs"), "hide_selector", "hide_on_right", SubResource("AnimationNodeStateMachineTransition_f6a44")]
+graph_offset = Vector2(72, -4)
+
 [node name="Main" type="Node" unique_id=383612433 node_paths=PackedStringArray("input_manager", "room_loader")]
 script = ExtResource("1_h2yge")
 input_manager = NodePath("InputManager")
@@ -598,4 +818,27 @@ offset_bottom = 87.5
 scale = Vector2(1.2, 0.8)
 code = "sprint"
 
+[node name="Selector" parent="PauseMenu/CanvasLayer" unique_id=894841875 instance=ExtResource("17_yaehf")]
+position = Vector2(640, 360)
+
+[node name="TopLeft" parent="PauseMenu/CanvasLayer/Selector" index="0" unique_id=822140784]
+modulate = Color(0.98039216, 0.8156863, 0.09803922, 1)
+
+[node name="TopRight" parent="PauseMenu/CanvasLayer/Selector" index="1" unique_id=284136182]
+modulate = Color(0.98039216, 0.8156863, 0.09803922, 1)
+
+[node name="BottomLeft" parent="PauseMenu/CanvasLayer/Selector" index="2" unique_id=989442644]
+modulate = Color(0.98039216, 0.8156863, 0.09803922, 1)
+
+[node name="BottomRight" parent="PauseMenu/CanvasLayer/Selector" index="3" unique_id=770489196]
+modulate = Color(0.98039216, 0.8156863, 0.09803922, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PauseMenu" unique_id=1854141212]
+libraries/ = SubResource("AnimationLibrary_xuqvo")
+
+[node name="AnimationTree" type="AnimationTree" parent="PauseMenu" unique_id=1706502955]
+tree_root = SubResource("AnimationNodeStateMachine_kq58d")
+anim_player = NodePath("../AnimationPlayer")
+
 [editable path="Active/RoomLoader/PlayerPackage"]
+[editable path="PauseMenu/CanvasLayer/Selector"]

@@ -17,6 +17,36 @@ func update_status_plants(b: bool, n: int):
 	if b:
 		display.show_plant(n-2)
 
+func handle_status_description(b: bool, n: int):
+	n = Constants.seed_order[n]
+	var describer = $Control/Control/PlantDescriber
+	if b:
+		describer.show()
+		$Control/Control/PlantDisplayer.modulate = Color(0.5, 0.5, 0.5)
+		print(n)
+		match n:
+			2:
+				describer.display("[font_size=30][b]Blaze Flower[/b][/font_size]\n\nA fiery relative of the [i]dictamnus albus[/i], otherwise known as the gas plant. Similarly, the Blaze Flower has petals coated in a flammable oil, which ignites any seeds moving through it into a fireball, which can light torches, or deal extra damage as a projectile.")
+			3:
+				describer.display("[font_size=30][b]Spring Vine[/b][/font_size]\n\nA flower with a surprisingly sturdy talk, the Spring Vine supports it's weight by compressing it's coiled vine like a spring, launching anything that weighs down it's flower. Use it to bounce high into the air, or as a seed to knock enemies back safely.")
+			4:
+				describer.display("[font_size=30][b]Life Fruit[/b][/font_size]\n\nAn exceptionally nutritious fruit, if allowed to fully ripen it can even increase your max health, however you can only grow a weaker version which heals you. Beware however, it's seeds have a healing power too and will heal anything they shoot.")
+			5:
+				describer.display("[font_size=30][b]Platform Pad[/b][/font_size]\n\nA giant lily pad, similar to the [i]victoria amazonica[/i], the Platform Pad is strong enough to support the full weight of a person, lending to it's name and use as platform. It always grows upwards, and will float on the surface of water as well. If it was to hit an enemy however it would grow around them as a protective shield.")
+			6:
+				describer.display("[font_size=30][b]Seeking Stalk[/b][/font_size]\n\nThe Seeking Stalk is a curious plant, with a flower that appears to resemble a human eye. It's exceptionally reactive to stimuli and will redirect any projectile that hits them, allowing you to shoot seeds from an alternate perspective.")
+			7:
+				describer.display("[font_size=30][b]Propeller Flower[/b][/font_size]\n\nPropeller Flowers are uniquely shaped to spin like a turbine, allowing them to generate lift and raise certain platforms. Although their seeds resemble maple seeds, the flowering plant does not seem to have any relation to the trees.")
+			8:
+				describer.display("[font_size=30][b]Boulder Fruit[/b][/font_size]\n\nA very heavy and dense squash, the Boulder Fruit grows off of a vine, and can be used to weigh down scales, loose platforms, and anything else that needs extra weight. The fruit can be detatched from it's vine with a little force, allowing the Boulder Fruit to freely roll around.")
+	else:
+		describer.hide()
+		describer.text = ""
+		$Control/Control/PlantDisplayer.modulate = Color(1.0, 1.0, 1.0)
+
+func update_status_plant_lighting(n: int):
+	$Control/Control/PlantDisplayer/SubViewport/DirectionalLight3D.visible = SaveManager.get_seed_types()[n]
+
 func update_status_seeds():
 	for i in Constants.seed_order.size():
 		update_status_seed(SaveManager.get_seed_types()[i], Constants.seed_order[i])

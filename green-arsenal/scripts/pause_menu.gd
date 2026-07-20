@@ -55,6 +55,7 @@ enum ConfigSelection {
 var current_menu_2 = ControlsSelection.BIG_LEFT
 
 @onready var main_anim_tree = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/AnimationTree
+@onready var select_anim_tree = $AnimationTree
 @onready var bar_text = $CanvasLayer/BottomBar/BarText
 
 @onready var status_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Status/MeshInstance3D/SubViewport/PauseStatus
@@ -168,39 +169,42 @@ func update_display():
 				StatusSelection.GROWTH_3:
 					bar_text.display("A growth charge. You have [b]{growth_charges}[/b]")
 		MenuSelection.CONTROLS:
-			match current_menu_2:
-				ControlsSelection.BIG_LEFT:
-					bar_text.display("[center][color=#fad019]To Status[/color=#fad019][/center]")
-				ControlsSelection.BIG_RIGHT:
-					bar_text.display("[center][color=#fad019]To Config[/color=#fad019][/center]")
-				ControlsSelection.MOVE_FORWARD:
-					pass
-				ControlsSelection.MOVE_BACK:
-					pass
-				ControlsSelection.MOVE_LEFT:
-					pass
-				ControlsSelection.MOVE_RIGHT:
-					pass
-				ControlsSelection.SPRINT:
-					pass
-				ControlsSelection.JUMP:
-					pass
-				ControlsSelection.PAUSE:
-					pass
-				ControlsSelection.RELOAD:
-					pass
-				ControlsSelection.INTERACT:
-					pass
-				ControlsSelection.SHOOT:
-					pass
-				ControlsSelection.PUT_AWAY:
-					pass
+			if remapping:
+				bar_text.display("[center][pulse freq=1.0 color=#b4b4b4 ease=-2.0]Awaiting Input...[/pulse][/center]")
+			else:
+				match current_menu_2:
+					ControlsSelection.BIG_LEFT:
+						bar_text.display("[center][color=#fad019][b]To STATUS[/b][/color][/center]")
+					ControlsSelection.BIG_RIGHT:
+						bar_text.display("[center][color=#fad019][b]To CONFIG[/b][/color][/center]")
+					ControlsSelection.MOVE_FORWARD:
+						bar_text.display("Move Forward. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
+					ControlsSelection.MOVE_BACK:
+						bar_text.display("Move Back. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
+					ControlsSelection.MOVE_LEFT:
+						bar_text.display("Move Left. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
+					ControlsSelection.MOVE_RIGHT:
+						bar_text.display("Move Right. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
+					ControlsSelection.SPRINT:
+						bar_text.display("Sprint. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
+					ControlsSelection.JUMP:
+						bar_text.display("Jump. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
+					ControlsSelection.PAUSE:
+						bar_text.display("Pause. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
+					ControlsSelection.RELOAD:
+						bar_text.display("Reload. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
+					ControlsSelection.INTERACT:
+						bar_text.display("Interact. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
+					ControlsSelection.SHOOT:
+						bar_text.display("Shoot. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
+					ControlsSelection.PUT_AWAY:
+						bar_text.display("Put Away. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to begin remapping")
 		MenuSelection.CONFIG:
 			match current_menu_2:
 				ConfigSelection.BIG_LEFT:
-					bar_text.display("[center][color=#fad019]To Controls[/color=#fad019][/center]")
+					bar_text.display("[center][color=#fad019][b]To CONTROLS[/b][/color][/center]")
 				ConfigSelection.BIG_RIGHT:
-					bar_text.display("[center][color=#fad019]To Map[/color=#fad019][/center]")
+					bar_text.display("[center][color=#fad019][b]To MAP[/b][/color][/center]")
 				ConfigSelection.MASTER_HOVER:
 					pass
 				ConfigSelection.MASTER_SLIDER:
@@ -234,32 +238,50 @@ func update_visually():
 				StatusSelection.SEED_1:
 					playback.travel("on_SEED_1")
 					status_menu.update_status_plants(SaveManager.get_seed_types()[0], Constants.seed_order[0])
+					status_menu.update_status_plant_lighting(0)
+					status_menu.handle_status_description(inspecting, 0)
 				StatusSelection.SEED_2:
 					playback.travel("on_SEED_2")
 					status_menu.update_status_plants(SaveManager.get_seed_types()[1], Constants.seed_order[1])
+					status_menu.update_status_plant_lighting(1)
+					status_menu.handle_status_description(inspecting, 1)
 				StatusSelection.SEED_3:
 					playback.travel("on_SEED_3")
 					status_menu.update_status_plants(SaveManager.get_seed_types()[2], Constants.seed_order[2])
+					status_menu.update_status_plant_lighting(2)
+					status_menu.handle_status_description(inspecting, 2)
 				StatusSelection.SEED_4:
 					playback.travel("on_SEED_4")
 					status_menu.update_status_plants(SaveManager.get_seed_types()[3], Constants.seed_order[3])
+					status_menu.update_status_plant_lighting(3)
+					status_menu.handle_status_description(inspecting, 3)
 				StatusSelection.SEED_5:
 					playback.travel("on_SEED_5")
 					status_menu.update_status_plants(SaveManager.get_seed_types()[4], Constants.seed_order[4])
+					status_menu.update_status_plant_lighting(4)
+					status_menu.handle_status_description(inspecting, 4)
 				StatusSelection.SEED_6:
 					playback.travel("on_SEED_6")
 					status_menu.update_status_plants(SaveManager.get_seed_types()[5], Constants.seed_order[5])
+					status_menu.update_status_plant_lighting(5)
+					status_menu.handle_status_description(inspecting, 5)
 				StatusSelection.SEED_7:
 					playback.travel("on_SEED_7")
 					status_menu.update_status_plants(SaveManager.get_seed_types()[6], Constants.seed_order[6])
+					status_menu.update_status_plant_lighting(6)
+					status_menu.handle_status_description(inspecting, 6)
 				StatusSelection.HEART:
 					playback.travel("on_HEART")
+					status_menu.handle_status_description(inspecting, 0)
 				StatusSelection.GROWTH_1:
 					playback.travel("on_GROWTH_1")
+					status_menu.handle_status_description(inspecting, 0)
 				StatusSelection.GROWTH_2:
 					playback.travel("on_GROWTH_2")
+					status_menu.handle_status_description(inspecting, 0)
 				StatusSelection.GROWTH_3:
 					playback.travel("on_GROWTH_3")
+					status_menu.handle_status_description(inspecting, 0)
 		MenuSelection.CONTROLS:
 			playback.travel("on_controls")
 			playback = controls_menu.anim_tree["parameters/playback"]
@@ -312,6 +334,13 @@ func update_visually():
 					playback.travel("on_SOUND_SLIDER")
 		MenuSelection.MAP:
 			playback.travel("on_map")
+	playback = select_anim_tree["parameters/playback"]
+	if current_menu_2 == StatusSelection.BIG_LEFT or current_menu_2 == ControlsSelection.BIG_LEFT or current_menu_2 == ConfigSelection.BIG_LEFT:
+		playback.travel("select_big_left")
+	elif current_menu_2 == StatusSelection.BIG_RIGHT or current_menu_2 == ControlsSelection.BIG_RIGHT or current_menu_2 == ConfigSelection.BIG_RIGHT:
+		playback.travel("select_big_right")
+	else:
+		playback.travel("hide_selector")
 
 func read_up():
 	if suppress_next_input:
@@ -421,24 +450,31 @@ func read_down():
 				StatusSelection.SEED_1:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.HEART
+					inspecting = false
 				StatusSelection.SEED_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.HEART
+					inspecting = false
 				StatusSelection.SEED_3:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.HEART
+					inspecting = false
 				StatusSelection.SEED_4:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.HEART
+					inspecting = false
 				StatusSelection.SEED_5:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
+					inspecting = false
 				StatusSelection.SEED_6:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
+					inspecting = false
 				StatusSelection.SEED_7:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
+					inspecting = false
 				StatusSelection.HEART:
 					pass
 				StatusSelection.GROWTH_1:
@@ -850,7 +886,10 @@ func read_back():
 		return
 	match current_menu:
 		MenuSelection.STATUS:
-			pass
+			print("yo?")
+			if inspecting:
+				inspecting = false
+				update_visually()
 		MenuSelection.CONTROLS:
 			pass
 		MenuSelection.CONFIG:
@@ -866,6 +905,7 @@ func read_big_left():
 			current_menu = MenuSelection.MAP
 		MenuSelection.CONTROLS:
 			current_menu = MenuSelection.STATUS
+			current_menu_2 = StatusSelection.BIG_LEFT
 		MenuSelection.CONFIG:
 			current_menu = MenuSelection.CONTROLS
 			current_menu_2 = ControlsSelection.BIG_LEFT
@@ -887,6 +927,7 @@ func read_big_right():
 			current_menu = MenuSelection.MAP
 		MenuSelection.MAP:
 			current_menu = MenuSelection.STATUS
+			current_menu_2 = StatusSelection.BIG_RIGHT
 	update_visually()
 
 func match_next_remapping(n: String):

@@ -13,8 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://oq6yiavrn6b8" path="res://scenes/seeker_flower.tscn" id="8_1xkri"]
 [ext_resource type="PackedScene" uid="uid://dshrkk8pp4ig0" path="res://scenes/propeller_flower.tscn" id="9_8037b"]
 [ext_resource type="PackedScene" uid="uid://bu6btccih5wg4" path="res://scenes/boulder_fruit.tscn" id="10_yrimf"]
+[ext_resource type="Script" uid="uid://b6a5tb4hbvnyb" path="res://scripts/description_text.gd" id="13_akywl"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="13_cslsk"]
 [ext_resource type="FontFile" uid="uid://i3l17i8ifdhk" path="res://fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" id="13_iehjl"]
 [ext_resource type="Texture2D" uid="uid://cu62pj1efch37" path="res://ui/heart_ui_1_take_2_flat.png" id="14_kig37"]
+[ext_resource type="FontFile" uid="uid://bi5b6pmkcisnd" path="res://fonts/Roboto_Mono/static/RobotoMono-MediumItalic.ttf" id="15_4uvb4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2bl5"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -814,13 +817,20 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.25, 0)
 visible = false
 
 [node name="PlantDescriber" type="RichTextLabel" parent="Control/Control" unique_id=1996662465]
-visible = false
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 396.0
 offset_bottom = 396.0
-text = "DESCRIBING PLANTS DESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTS"
+theme_override_fonts/normal_font = ExtResource("13_cslsk")
+theme_override_fonts/bold_font = ExtResource("13_iehjl")
+theme_override_fonts/italics_font = ExtResource("15_4uvb4")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+script = ExtResource("13_akywl")
 
 [node name="Control2" type="Control" parent="Control" unique_id=1099446858]
 anchors_preset = 0
