@@ -17,4 +17,9 @@ func display(message: String):
 	message = message.format({"max_hp": str(SaveManager.player_save.max_hp)})
 	message = message.format({"growth_charges": str(SaveManager.player_save.growth_charges)})
 	
+	message = message.format({"master_vol": SaveManager.player_settings.get_mono_audio_text(0)})
+	message = message.format({"music_vol": SaveManager.player_settings.get_mono_audio_text(1)})
+	message = message.format({"sound_vol": SaveManager.player_settings.get_mono_audio_text(2)})
+	message = message.format({"mouse_sense": SaveManager.player_settings.get_sense_text()})
+	
 	text = message

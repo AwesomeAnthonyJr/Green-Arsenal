@@ -3,6 +3,31 @@ extends CanvasLayer
 @onready var anim_tree = $AnimationTree
 @onready var selector = $Selector
 
+func hide_controls_text(n: String):
+	match n:
+		"move_forward":
+			$Control/TextureRect/ControlsText3/Control/RichTextLabel.text = ""
+		"move_back":
+			$Control/TextureRect/ControlsText4/Control/RichTextLabel.text = ""
+		"move_left":
+			$Control/TextureRect/ControlsText1/Control/RichTextLabel.text = ""
+		"move_right":
+			$Control/TextureRect/ControlsText2/Control/RichTextLabel.text = ""
+		"sprint":
+			$Control/TextureRect/ControlsText5/Control/RichTextLabel.text = ""
+		"jump":
+			$Control/TextureRect/ControlsText6/Control/RichTextLabel.text = ""
+		"pause":
+			$Control/TextureRect/ControlsText7/Control/RichTextLabel.text = ""
+		"shoot":
+			$Control/TextureRect/ControlsText8/Control/RichTextLabel.text = ""
+		"reload":
+			$Control/TextureRect/ControlsText9/Control/RichTextLabel.text = ""
+		"interact":
+			$Control/TextureRect/ControlsText10/Control/RichTextLabel.text = ""
+		"close_reload":
+			$Control/TextureRect/ControlsText11/Control/RichTextLabel.text = ""
+
 func update_status_health():
 	$Control/Control2/CurrentMaxText.text = "[right]" + str(SaveManager.player_save.max_hp) + "[/right]"
 	$Control/Control2/MaxMaxText.text = "[left]" + str(Constants.max_possible_health) + "[/left]"
@@ -23,12 +48,11 @@ func handle_status_description(b: bool, n: int):
 	if b:
 		describer.show()
 		$Control/Control/PlantDisplayer.modulate = Color(0.5, 0.5, 0.5)
-		print(n)
 		match n:
 			2:
 				describer.display("[font_size=30][b]Blaze Flower[/b][/font_size]\n\nA fiery relative of the [i]dictamnus albus[/i], otherwise known as the gas plant. Similarly, the Blaze Flower has petals coated in a flammable oil, which ignites any seeds moving through it into a fireball, which can light torches, or deal extra damage as a projectile.")
 			3:
-				describer.display("[font_size=30][b]Spring Vine[/b][/font_size]\n\nA flower with a surprisingly sturdy talk, the Spring Vine supports it's weight by compressing it's coiled vine like a spring, launching anything that weighs down it's flower. Use it to bounce high into the air, or as a seed to knock enemies back safely.")
+				describer.display("[font_size=30][b]Spring Vine[/b][/font_size]\n\nA flower with a particularly flexible stem, the Spring Vine supports it's weight by compressing it's coiled vine like a spring, launching anything that weighs down it's flower. Use it to bounce high into the air, or as a seed to knock enemies back safely.")
 			4:
 				describer.display("[font_size=30][b]Life Fruit[/b][/font_size]\n\nAn exceptionally nutritious fruit, if allowed to fully ripen it can even increase your max health, however you can only grow a weaker version which heals you. Beware however, it's seeds have a healing power too and will heal anything they shoot.")
 			5:

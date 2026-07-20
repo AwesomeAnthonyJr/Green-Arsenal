@@ -7,7 +7,7 @@ enum MenuSelection {
 	MAP
 } 
 
-var current_menu = MenuSelection.CONTROLS
+var current_menu = MenuSelection.STATUS
 
 enum StatusSelection {
 	BIG_LEFT,
@@ -49,10 +49,12 @@ enum ConfigSelection {
 	MUSIC_HOVER,
 	MUSIC_SLIDER,
 	SOUND_HOVER,
-	SOUND_SLIDER
+	SOUND_SLIDER,
+	MOUSE_HOVER,
+	MOUSE_SLIDER
 }
 
-var current_menu_2 = ControlsSelection.BIG_LEFT
+var current_menu_2 = StatusSelection.SEED_1
 
 @onready var main_anim_tree = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/AnimationTree
 @onready var select_anim_tree = $AnimationTree
@@ -72,6 +74,9 @@ var suppress_next_input = false
 
 func _ready() -> void:
 	connect_inputs()
+	await get_tree().process_frame
+	status_menu.selector.travel_shrunk_position()
+	update_visually()
 func connect_inputs():
 	var manager = find_main(self).input_manager
 	manager.up.connect(read_up)
@@ -115,7 +120,7 @@ func update_display():
 				StatusSelection.SEED_2:
 					if SaveManager.player_save.seed_types[1]:
 						if inspecting:
-							bar_text.display("Springvine. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+							bar_text.display("Spring Vine. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
 						else:
 							bar_text.display("Bounce Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
 					else:
@@ -206,17 +211,22 @@ func update_display():
 				ConfigSelection.BIG_RIGHT:
 					bar_text.display("[center][color=#fad019][b]To MAP[/b][/color][/center]")
 				ConfigSelection.MASTER_HOVER:
-					pass
+					bar_text.display("Master Volume. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to modify")
 				ConfigSelection.MASTER_SLIDER:
-					pass
+					bar_text.display("[center][bgcolor=white][color=black][outline_color=white][b]{move_left}[/b][/outline_color][/color][/bgcolor]      < {master_vol}% >      [bgcolor=white][color=black][outline_color=white][b]{move_right}[/b][/outline_color][/color][/bgcolor][/center]")
 				ConfigSelection.MUSIC_HOVER:
-					pass
+					bar_text.display("Music Volume. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to modify")
 				ConfigSelection.MUSIC_SLIDER:
-					pass
+					bar_text.display("[center][bgcolor=white][color=black][outline_color=white][b]{move_left}[/b][/outline_color][/color][/bgcolor]      < {music_vol}% >      [bgcolor=white][color=black][outline_color=white][b]{move_right}[/b][/outline_color][/color][/bgcolor][/center]")
 				ConfigSelection.SOUND_HOVER:
-					pass
+					bar_text.display("Sound Volume. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to modify")
 				ConfigSelection.SOUND_SLIDER:
-					pass
+					bar_text.display("[center][bgcolor=white][color=black][outline_color=white][b]{move_left}[/b][/outline_color][/color][/bgcolor]      < {sound_vol}% >      [bgcolor=white][color=black][outline_color=white][b]{move_right}[/b][/outline_color][/color][/bgcolor][/center]")
+				ConfigSelection.MOUSE_HOVER:
+					bar_text.display("Mouse Sensitivity. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to modify")
+				ConfigSelection.MOUSE_SLIDER:
+					bar_text.display("[center][bgcolor=white][color=black][outline_color=white][b]{move_left}[/b][/outline_color][/color][/bgcolor]      < {mouse_sense} >      [bgcolor=white][color=black][outline_color=white][b]{move_right}[/b][/outline_color][/color][/bgcolor][/center]")
+				
 		MenuSelection.MAP:
 			pass
 
@@ -332,6 +342,10 @@ func update_visually():
 					playback.travel("on_SOUND_HOVER")
 				ConfigSelection.SOUND_SLIDER:
 					playback.travel("on_SOUND_SLIDER")
+				ConfigSelection.MOUSE_HOVER:
+					playback.travel("on_MOUSE_HOVER")
+				ConfigSelection.MOUSE_SLIDER:
+					playback.travel("on_MOUSE_SLIDER")
 		MenuSelection.MAP:
 			playback.travel("on_map")
 	playback = select_anim_tree["parameters/playback"]
@@ -427,11 +441,17 @@ func read_up():
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MASTER_HOVER
 				ConfigSelection.MUSIC_SLIDER:
-					pass
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MASTER_HOVER
 				ConfigSelection.SOUND_HOVER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MUSIC_HOVER
 				ConfigSelection.SOUND_SLIDER:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MUSIC_HOVER
+				ConfigSelection.MOUSE_HOVER:
+					pass
+				ConfigSelection.MOUSE_SLIDER:
 					pass
 		MenuSelection.MAP:
 			pass
@@ -529,15 +549,21 @@ func read_down():
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MUSIC_HOVER
 				ConfigSelection.MASTER_SLIDER:
-					pass
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MUSIC_HOVER
 				ConfigSelection.MUSIC_HOVER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.SOUND_HOVER
 				ConfigSelection.MUSIC_SLIDER:
-					pass
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.SOUND_HOVER
 				ConfigSelection.SOUND_HOVER:
 					pass
 				ConfigSelection.SOUND_SLIDER:
+					pass
+				ConfigSelection.MOUSE_HOVER:
+					pass#TODO: stuff later though!!!
+				ConfigSelection.MOUSE_SLIDER:
 					pass
 		MenuSelection.MAP:
 			pass
@@ -636,22 +662,24 @@ func read_left():
 					pass
 				ConfigSelection.BIG_RIGHT:
 					config_menu.selector.travel_shrunk_position()
-					current_menu_2 = ConfigSelection.MASTER_HOVER
+					current_menu_2 = ConfigSelection.MOUSE_HOVER
 				ConfigSelection.MASTER_HOVER:
 					current_menu_2 = ConfigSelection.BIG_LEFT
 				ConfigSelection.MASTER_SLIDER:
-					#TODO: make this update the slider directly or indirectly
-					pass
+					SaveManager.player_settings.increment_volume(0, -5)
 				ConfigSelection.MUSIC_HOVER:
 					current_menu_2 = ConfigSelection.BIG_LEFT
 				ConfigSelection.MUSIC_SLIDER:
-					#TODO: make this update the slider directly or indirectly
-					pass
+					SaveManager.player_settings.increment_volume(1, -5)
 				ConfigSelection.SOUND_HOVER:
 					current_menu_2 = ConfigSelection.BIG_LEFT
 				ConfigSelection.SOUND_SLIDER:
-					#TODO: make this update the slider directly or indirectly
-					pass
+					SaveManager.player_settings.increment_volume(2, -5)
+				ConfigSelection.MOUSE_HOVER:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MASTER_HOVER
+				ConfigSelection.MOUSE_SLIDER:
+					SaveManager.player_settings.increment_sense(-0.05)
 		MenuSelection.MAP:
 			pass
 	update_visually()
@@ -752,20 +780,22 @@ func read_right():
 				ConfigSelection.BIG_RIGHT:
 					pass
 				ConfigSelection.MASTER_HOVER:
-					current_menu_2 = ConfigSelection.BIG_RIGHT
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MOUSE_HOVER
 				ConfigSelection.MASTER_SLIDER:
-					#TODO: make this update the slider directly or indirectly
-					pass
+					SaveManager.player_settings.increment_volume(0, 5)
 				ConfigSelection.MUSIC_HOVER:
-					current_menu_2 = ConfigSelection.BIG_RIGHT
+					pass
 				ConfigSelection.MUSIC_SLIDER:
-					#TODO: make this update the slider directly or indirectly
-					pass
+					SaveManager.player_settings.increment_volume(1, 5)
 				ConfigSelection.SOUND_HOVER:
-					current_menu_2 = ConfigSelection.BIG_RIGHT
-				ConfigSelection.SOUND_SLIDER:
-					#TODO: make this update the slider directly or indirectly
 					pass
+				ConfigSelection.SOUND_SLIDER:
+					SaveManager.player_settings.increment_volume(2, 5)
+				ConfigSelection.MOUSE_HOVER:
+					current_menu_2 = ConfigSelection.BIG_RIGHT
+				ConfigSelection.MOUSE_SLIDER:
+					SaveManager.player_settings.increment_sense(0.05)
 		MenuSelection.MAP:
 			pass
 	update_visually()
@@ -859,6 +889,7 @@ func read_accept():
 					action_to_remap = "close_reload"
 					await get_tree().process_frame
 					remapping = true
+			controls_menu.hide_controls_text(action_to_remap)
 		MenuSelection.CONFIG:
 			match current_menu_2:
 				ConfigSelection.BIG_LEFT:
@@ -877,6 +908,10 @@ func read_accept():
 					current_menu_2 = ConfigSelection.SOUND_SLIDER
 				ConfigSelection.SOUND_SLIDER:
 					current_menu_2 = ConfigSelection.SOUND_HOVER
+				ConfigSelection.MOUSE_HOVER:
+					current_menu_2 = ConfigSelection.MOUSE_SLIDER
+				ConfigSelection.MOUSE_SLIDER:
+					current_menu_2 = ConfigSelection.MOUSE_HOVER
 		MenuSelection.MAP:
 			pass
 	update_visually()
@@ -886,14 +921,25 @@ func read_back():
 		return
 	match current_menu:
 		MenuSelection.STATUS:
-			print("yo?")
 			if inspecting:
 				inspecting = false
 				update_visually()
 		MenuSelection.CONTROLS:
 			pass
 		MenuSelection.CONFIG:
-			pass
+			match current_menu_2:
+				ConfigSelection.MASTER_SLIDER:
+					current_menu_2 = ConfigSelection.MASTER_HOVER
+					update_visually()
+				ConfigSelection.MUSIC_SLIDER:
+					current_menu_2 = ConfigSelection.MUSIC_HOVER
+					update_visually()
+				ConfigSelection.SOUND_SLIDER:
+					current_menu_2 = ConfigSelection.SOUND_HOVER
+					update_visually()
+				ConfigSelection.MOUSE_SLIDER:
+					current_menu_2 = ConfigSelection.MOUSE_HOVER
+					update_visually()
 		MenuSelection.MAP:
 			pass
 
@@ -971,6 +1017,7 @@ func _input(event):
 			remapping = next_remapping
 			suppress_next_input = true
 			action_to_remap = temp
+			controls_menu.hide_controls_text(action_to_remap)
 			update_visually()
 		elif event is InputEventMouseButton && event.pressed:
 			var temp = SaveManager.player_settings.find_duplicate_actions(action_to_remap, event)
@@ -984,4 +1031,5 @@ func _input(event):
 			remapping = next_remapping
 			suppress_next_input = true
 			action_to_remap = temp
+			controls_menu.hide_controls_text(action_to_remap)
 			update_visually()

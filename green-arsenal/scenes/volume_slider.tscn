@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://gla5qwkplqry"]
 
-[ext_resource type="Texture2D" uid="uid://4frsfc82cs5v" path="res://ui/ui_little_rectangle_green_3.png" id="1_1snrh"]
+[ext_resource type="Texture2D" uid="uid://ghg0ued8ynqw" path="res://ui/just_transparent_i_guess.png" id="1_4v2uo"]
 [ext_resource type="Texture2D" uid="uid://d3uu4ytrq3ykg" path="res://ui/ui_little_rectangle.png" id="1_ynsfn"]
+[ext_resource type="Script" uid="uid://b6pejkhgugac1" path="res://scripts/volume_slider.gd" id="3_4v2uo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1snrh"]
 bg_color = Color(0.2509804, 1, 0.1882353, 1)
@@ -15,7 +16,7 @@ border_width_top = 30
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_ggm58"]
-HSlider/icons/grabber = ExtResource("1_1snrh")
+HSlider/icons/grabber = ExtResource("1_4v2uo")
 HSlider/icons/grabber_disabled = ExtResource("1_ynsfn")
 HSlider/icons/grabber_highlight = ExtResource("1_ynsfn")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_1snrh")
@@ -28,3 +29,4 @@ offset_bottom = 30.0
 theme = SubResource("Theme_ggm58")
 value = 30.0
 rounded = true
+script = ExtResource("3_4v2uo")
