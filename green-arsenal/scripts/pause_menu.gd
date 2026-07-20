@@ -96,6 +96,7 @@ func update_visually():
 		MenuSelection.STATUS:
 			playback.travel("on_status")
 			status_menu.update_status_seeds()
+			status_menu.update_status_health()
 			playback = status_menu.anim_tree["parameters/playback"]
 			match current_menu_2:
 				StatusSelection.BIG_LEFT:

@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://oq6yiavrn6b8" path="res://scenes/seeker_flower.tscn" id="8_1xkri"]
 [ext_resource type="PackedScene" uid="uid://dshrkk8pp4ig0" path="res://scenes/propeller_flower.tscn" id="9_8037b"]
 [ext_resource type="PackedScene" uid="uid://bu6btccih5wg4" path="res://scenes/boulder_fruit.tscn" id="10_yrimf"]
+[ext_resource type="FontFile" uid="uid://i3l17i8ifdhk" path="res://fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" id="13_iehjl"]
+[ext_resource type="Texture2D" uid="uid://cu62pj1efch37" path="res://ui/heart_ui_1_take_2_flat.png" id="14_kig37"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2bl5"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -819,6 +821,82 @@ offset_top = 4.0
 offset_right = 396.0
 offset_bottom = 396.0
 text = "DESCRIBING PLANTS DESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTS"
+
+[node name="Control2" type="Control" parent="Control" unique_id=1099446858]
+anchors_preset = 0
+offset_left = 122.0
+offset_top = 383.0
+offset_right = 283.0
+offset_bottom = 505.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Control2" unique_id=1670726039]
+z_index = 2
+layout_mode = 0
+offset_left = 24.0
+offset_top = -8.0
+offset_right = 185.0
+offset_bottom = 114.0
+rotation = 0.15946096
+scale = Vector2(0.7614514, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("13_iehjl")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]/[/center]"
+
+[node name="CurrentMaxText" type="RichTextLabel" parent="Control/Control2" unique_id=1982703159]
+z_index = 2
+layout_mode = 0
+offset_left = -91.00001
+offset_top = 37.0
+offset_right = 69.99999
+offset_bottom = 159.0
+rotation = -0.18266775
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("13_iehjl")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[right]3[/right]"
+
+[node name="MaxMaxText" type="RichTextLabel" parent="Control/Control2" unique_id=1146733594]
+z_index = 2
+layout_mode = 0
+offset_left = 96.0
+offset_top = 16.999998
+offset_right = 257.0
+offset_bottom = 139.0
+rotation = 0.20538907
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("13_iehjl")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[left]7[/left]"
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control/Control2" unique_id=556576919]
+z_index = 1
+position = Vector2(76, 64)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("14_kig37")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control/Control2" unique_id=909641521]
+z_index = 1
+position = Vector2(107, 42)
+rotation = 0.2617994
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("14_kig37")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Control2" unique_id=1543144702]
+z_index = 1
+position = Vector2(47.000015, 46)
+rotation = -0.2617994
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_kig37")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1118619452]
 libraries/ = SubResource("AnimationLibrary_83ph3")

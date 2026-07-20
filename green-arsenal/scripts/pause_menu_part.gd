@@ -3,6 +3,10 @@ extends CanvasLayer
 @onready var anim_tree = $AnimationTree
 @onready var selector = $Selector
 
+func update_status_health():
+	$Control/Control2/CurrentMaxText.text = "[right]" + str(SaveManager.player_save.max_hp) + "[/right]"
+	$Control/Control2/MaxMaxText.text = "[left]" + str(Constants.max_possible_health) + "[/left]"
+
 func not_on_seed_anymore():
 	var display = $Control/Control/PlantDisplayer/SubViewport/Plants
 	display.hide_all()
