@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://22o4pnshc1ou"]
 
 [ext_resource type="Texture2D" uid="uid://cf8tt4p1m0hjt" path="res://ui/pause_menu_ui_map_v1.png" id="1_4xfga"]
+[ext_resource type="Script" uid="uid://dvh7o02l8t1p7" path="res://scripts/pause_menu_part.gd" id="1_paxxb"]
+[ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="3_gldc4"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4xfga"]
 
 [node name="Map" type="CanvasLayer" unique_id=938632931]
+script = ExtResource("1_paxxb")
 
 [node name="Control" type="Control" parent="." unique_id=1874354937]
 layout_mode = 3
@@ -15,3 +20,11 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_4xfga")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=48961826]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1653263603]
+tree_root = SubResource("AnimationNodeStateMachine_4xfga")
+
+[node name="Selector" parent="." unique_id=894841875 instance=ExtResource("3_gldc4")]
+position = Vector2(205, 315)

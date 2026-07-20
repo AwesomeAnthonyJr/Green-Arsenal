@@ -14,7 +14,9 @@ class_name Settings
 	"shoot": InputMap.action_get_events("shoot")[0],
 	"reload": InputMap.action_get_events("reload")[0],
 	"interact": InputMap.action_get_events("interact")[0],
+	"close_reload": InputMap.action_get_events("close_reload")[0],
 }
+signal input_changed
 
 func load_action_dict():
 	for a in action_dict:
@@ -66,6 +68,7 @@ func rebindAction(n: String, event):
 	action_dict[n] = event
 	InputMap.action_erase_events(n)
 	InputMap.action_add_event(n, event)
+	input_changed.emit()
 
 func get_text(code):
 	match code:
@@ -89,3 +92,5 @@ func get_text(code):
 			return cleanString(action_dict.get("reload").as_text())
 		"interact":
 			return cleanString(action_dict.get("interact").as_text())
+		"close_reload":
+			return cleanString(action_dict.get("close_reload").as_text())

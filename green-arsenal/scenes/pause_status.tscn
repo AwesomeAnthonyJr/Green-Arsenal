@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://b2hy7nwf61v0w"]
 
+[ext_resource type="Script" uid="uid://dvh7o02l8t1p7" path="res://scripts/pause_menu_part.gd" id="1_h2u1m"]
 [ext_resource type="Texture2D" uid="uid://delpxc4juo2c2" path="res://ui/pause_menu_ui_status_v3.png" id="1_k2bl5"]
 [ext_resource type="Texture2D" uid="uid://bt5pgejxb6g4y" path="res://ui/pause_menu_ui_selector_1.png" id="2_k2bl5"]
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="2_xn0vo"]
 [ext_resource type="PackedScene" uid="uid://kwmr4xhfpaq8" path="res://scenes/blaze_flower.tscn" id="4_k2bl5"]
+[ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="6_nndsu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2bl5"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,7 +20,10 @@ sky = SubResource("Sky_80c3a")
 ambient_light_source = 1
 glow_enabled = true
 
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h2u1m"]
+
 [node name="PauseStatus" type="CanvasLayer" unique_id=111155969]
+script = ExtResource("1_h2u1m")
 
 [node name="Control" type="Control" parent="." unique_id=1089514977]
 layout_mode = 3
@@ -176,5 +181,13 @@ offset_top = 4.0
 offset_right = 396.0
 offset_bottom = 396.0
 text = "DESCRIBING PLANTS DESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTS"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1118619452]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=979793095]
+tree_root = SubResource("AnimationNodeStateMachine_h2u1m")
+
+[node name="Selector" parent="." unique_id=894841875 instance=ExtResource("6_nndsu")]
+position = Vector2(205, 315)
 
 [editable path="Control/Control/PlantDisplayer/SubViewport/BlazeFlower"]

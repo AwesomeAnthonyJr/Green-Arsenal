@@ -1,8 +1,618 @@
 [gd_scene format=3 uid="uid://vfwgi73yjqyr"]
 
 [ext_resource type="Texture2D" uid="uid://b04gibnht6e3n" path="res://ui/pause_menu_ui_controls_v2.png" id="1_i2gav"]
+[ext_resource type="Script" uid="uid://dvh7o02l8t1p7" path="res://scripts/pause_menu_part.gd" id="1_ihl6s"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="3_cywyo"]
+[ext_resource type="Script" uid="uid://cmfkan1bxowh5" path="res://scripts/controls_text.gd" id="3_ihl6s"]
+[ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="5_jlst0"]
+
+[sub_resource type="Animation" id="Animation_jlst0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(205, 485)]
+}
+
+[sub_resource type="Animation" id="Animation_vwfca"]
+resource_name = "on_BIG_LEFT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1q0lp"]
+resource_name = "on_BIG_RIGHT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1280, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8sahj"]
+resource_name = "on_INTERACT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1025, 265)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bd2fc"]
+resource_name = "on_JUMP"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(405, 485)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_k6bol"]
+resource_name = "on_MOVE_BACK"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(305, 415)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_a8sje"]
+resource_name = "on_MOVE_FORWARD"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(305, 215)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dloai"]
+resource_name = "on_MOVE_LEFT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(205, 315)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_t622t"]
+resource_name = "on_MOVE_RIGHT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(405, 315)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qfrta"]
+resource_name = "on_PAUSE"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 485)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rkygl"]
+resource_name = "on_PUT_AWAY"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(950, 405)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_aa41a"]
+resource_name = "on_RELOAD"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(875, 265)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qifi2"]
+resource_name = "on_SHOOT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(840, 430)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_niyus"]
+resource_name = "on_SPRINT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(205, 485)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_second_position"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6bol"]
+_data = {
+&"RESET": SubResource("Animation_jlst0"),
+&"on_BIG_LEFT": SubResource("Animation_vwfca"),
+&"on_BIG_RIGHT": SubResource("Animation_1q0lp"),
+&"on_INTERACT": SubResource("Animation_8sahj"),
+&"on_JUMP": SubResource("Animation_bd2fc"),
+&"on_MOVE_BACK": SubResource("Animation_k6bol"),
+&"on_MOVE_FORWARD": SubResource("Animation_a8sje"),
+&"on_MOVE_LEFT": SubResource("Animation_dloai"),
+&"on_MOVE_RIGHT": SubResource("Animation_t622t"),
+&"on_PAUSE": SubResource("Animation_qfrta"),
+&"on_PUT_AWAY": SubResource("Animation_rkygl"),
+&"on_RELOAD": SubResource("Animation_aa41a"),
+&"on_SHOOT": SubResource("Animation_qifi2"),
+&"on_SPRINT": SubResource("Animation_niyus")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t622t"]
+animation = &"on_BIG_LEFT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vwfca"]
+animation = &"on_BIG_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_niyus"]
+animation = &"on_INTERACT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8sahj"]
+animation = &"on_JUMP"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jlst0"]
+animation = &"on_MOVE_BACK"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dloai"]
+animation = &"on_MOVE_FORWARD"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k6bol"]
+animation = &"on_MOVE_LEFT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a8sje"]
+animation = &"on_MOVE_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bd2fc"]
+animation = &"on_PAUSE"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qfrta"]
+animation = &"on_PUT_AWAY"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rkygl"]
+animation = &"on_RELOAD"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aa41a"]
+animation = &"on_SHOOT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qifi2"]
+animation = &"on_SPRINT"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vwfca"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_niyus"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8sahj"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bd2fc"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qfrta"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rkygl"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aa41a"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qifi2"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1q0lp"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oo203"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ql8e"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_54f2a"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8odh1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ai0qo"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pbj41"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1qxo2"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cg5a3"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cu4c0"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ixi2v"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iueda"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l8lr7"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4y2ou"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jlst0"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dloai"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k6bol"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a8sje"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t622t"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ahaeo"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sia63"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ha7ki"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2xqvd"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xbi83"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hpqwc"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_khyrq"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fpdya"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x3qfo"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q2m0b"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jlst0"]
+states/End/position = Vector2(1572, 108)
+states/Start/position = Vector2(-176, 100)
+states/on_BIG_LEFT/node = SubResource("AnimationNodeAnimation_t622t")
+states/on_BIG_LEFT/position = Vector2(31, 163)
+states/on_BIG_RIGHT/node = SubResource("AnimationNodeAnimation_vwfca")
+states/on_BIG_RIGHT/position = Vector2(1408, 108)
+states/on_INTERACT/node = SubResource("AnimationNodeAnimation_niyus")
+states/on_INTERACT/position = Vector2(1224, 108)
+states/on_JUMP/node = SubResource("AnimationNodeAnimation_8sahj")
+states/on_JUMP/position = Vector2(618, 268)
+states/on_MOVE_BACK/node = SubResource("AnimationNodeAnimation_jlst0")
+states/on_MOVE_BACK/position = Vector2(441, 194)
+states/on_MOVE_FORWARD/node = SubResource("AnimationNodeAnimation_dloai")
+states/on_MOVE_FORWARD/position = Vector2(441, 3)
+states/on_MOVE_LEFT/node = SubResource("AnimationNodeAnimation_k6bol")
+states/on_MOVE_LEFT/position = Vector2(268, 100)
+states/on_MOVE_RIGHT/node = SubResource("AnimationNodeAnimation_a8sje")
+states/on_MOVE_RIGHT/position = Vector2(618, 100)
+states/on_PAUSE/node = SubResource("AnimationNodeAnimation_bd2fc")
+states/on_PAUSE/position = Vector2(846, 268)
+states/on_PUT_AWAY/node = SubResource("AnimationNodeAnimation_qfrta")
+states/on_PUT_AWAY/position = Vector2(1098, 194)
+states/on_RELOAD/node = SubResource("AnimationNodeAnimation_rkygl")
+states/on_RELOAD/position = Vector2(986, 108)
+states/on_SHOOT/node = SubResource("AnimationNodeAnimation_aa41a")
+states/on_SHOOT/position = Vector2(986, 268)
+states/on_SPRINT/node = SubResource("AnimationNodeAnimation_qifi2")
+states/on_SPRINT/position = Vector2(268, 268)
+transitions = ["on_MOVE_LEFT", "on_MOVE_FORWARD", SubResource("AnimationNodeStateMachineTransition_vwfca"), "on_MOVE_FORWARD", "on_MOVE_LEFT", SubResource("AnimationNodeStateMachineTransition_niyus"), "on_MOVE_RIGHT", "on_MOVE_FORWARD", SubResource("AnimationNodeStateMachineTransition_8sahj"), "on_MOVE_FORWARD", "on_MOVE_RIGHT", SubResource("AnimationNodeStateMachineTransition_bd2fc"), "on_MOVE_BACK", "on_MOVE_RIGHT", SubResource("AnimationNodeStateMachineTransition_qfrta"), "on_MOVE_RIGHT", "on_MOVE_BACK", SubResource("AnimationNodeStateMachineTransition_rkygl"), "on_MOVE_BACK", "on_MOVE_LEFT", SubResource("AnimationNodeStateMachineTransition_aa41a"), "on_MOVE_LEFT", "on_MOVE_BACK", SubResource("AnimationNodeStateMachineTransition_qifi2"), "on_MOVE_LEFT", "on_MOVE_RIGHT", SubResource("AnimationNodeStateMachineTransition_1q0lp"), "on_MOVE_RIGHT", "on_MOVE_LEFT", SubResource("AnimationNodeStateMachineTransition_oo203"), "on_MOVE_FORWARD", "on_MOVE_BACK", SubResource("AnimationNodeStateMachineTransition_2ql8e"), "on_MOVE_BACK", "on_MOVE_FORWARD", SubResource("AnimationNodeStateMachineTransition_54f2a"), "Start", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_8odh1"), "on_MOVE_LEFT", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_ai0qo"), "on_BIG_LEFT", "on_MOVE_LEFT", SubResource("AnimationNodeStateMachineTransition_pbj41"), "on_MOVE_BACK", "on_SPRINT", SubResource("AnimationNodeStateMachineTransition_1qxo2"), "on_SPRINT", "on_MOVE_LEFT", SubResource("AnimationNodeStateMachineTransition_cg5a3"), "on_JUMP", "on_MOVE_RIGHT", SubResource("AnimationNodeStateMachineTransition_cu4c0"), "on_SHOOT", "on_PUT_AWAY", SubResource("AnimationNodeStateMachineTransition_ixi2v"), "on_PUT_AWAY", "on_RELOAD", SubResource("AnimationNodeStateMachineTransition_iueda"), "on_RELOAD", "on_PUT_AWAY", SubResource("AnimationNodeStateMachineTransition_l8lr7"), "on_INTERACT", "on_PUT_AWAY", SubResource("AnimationNodeStateMachineTransition_4y2ou"), "on_MOVE_RIGHT", "on_RELOAD", SubResource("AnimationNodeStateMachineTransition_jlst0"), "on_RELOAD", "on_MOVE_RIGHT", SubResource("AnimationNodeStateMachineTransition_dloai"), "on_BIG_RIGHT", "on_INTERACT", SubResource("AnimationNodeStateMachineTransition_k6bol"), "on_INTERACT", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_a8sje"), "on_SPRINT", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_t622t"), "on_JUMP", "on_SPRINT", SubResource("AnimationNodeStateMachineTransition_ahaeo"), "on_PAUSE", "on_JUMP", SubResource("AnimationNodeStateMachineTransition_sia63"), "on_INTERACT", "on_RELOAD", SubResource("AnimationNodeStateMachineTransition_ha7ki"), "on_RELOAD", "on_INTERACT", SubResource("AnimationNodeStateMachineTransition_2xqvd"), "on_SHOOT", "on_PAUSE", SubResource("AnimationNodeStateMachineTransition_xbi83"), "on_PUT_AWAY", "on_SHOOT", SubResource("AnimationNodeStateMachineTransition_hpqwc"), "on_SPRINT", "on_JUMP", SubResource("AnimationNodeStateMachineTransition_khyrq"), "on_JUMP", "on_PAUSE", SubResource("AnimationNodeStateMachineTransition_fpdya"), "on_PAUSE", "on_SHOOT", SubResource("AnimationNodeStateMachineTransition_x3qfo"), "on_PUT_AWAY", "on_INTERACT", SubResource("AnimationNodeStateMachineTransition_q2m0b")]
+graph_offset = Vector2(232, 64)
 
 [node name="Controls" type="CanvasLayer" unique_id=908675108]
+script = ExtResource("1_ihl6s")
 
 [node name="Control" type="Control" parent="." unique_id=462549663]
 layout_mode = 3
@@ -15,3 +625,315 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_i2gav")
+
+[node name="Control" type="Control" parent="Control/TextureRect" unique_id=1250038118]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ControlsText1" type="Control" parent="Control/TextureRect" unique_id=1465305487]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 205.0
+offset_top = 315.0
+offset_right = 205.0
+offset_bottom = 315.0
+script = ExtResource("3_ihl6s")
+code = "move_left"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText1" unique_id=901988588]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText1/Control" unique_id=1802607519]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="ControlsText2" type="Control" parent="Control/TextureRect" unique_id=1380977843]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 405.0
+offset_top = 315.0
+offset_right = 405.0
+offset_bottom = 315.0
+script = ExtResource("3_ihl6s")
+code = "move_right"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText2" unique_id=2040612417]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText2/Control" unique_id=1722596336]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="ControlsText3" type="Control" parent="Control/TextureRect" unique_id=1557115942]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 305.0
+offset_top = 215.0
+offset_right = 305.0
+offset_bottom = 215.0
+script = ExtResource("3_ihl6s")
+code = "move_forward"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText3" unique_id=1819645851]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText3/Control" unique_id=587138354]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="ControlsText4" type="Control" parent="Control/TextureRect" unique_id=144987144]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 305.0
+offset_top = 415.0
+offset_right = 305.0
+offset_bottom = 415.0
+script = ExtResource("3_ihl6s")
+code = "move_back"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText4" unique_id=2037663128]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText4/Control" unique_id=15945738]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="ControlsText5" type="Control" parent="Control/TextureRect" unique_id=1842637732]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 205.0
+offset_top = 485.0
+offset_right = 205.0
+offset_bottom = 485.0
+script = ExtResource("3_ihl6s")
+code = "sprint"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText5" unique_id=1195150405]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText5/Control" unique_id=383820121]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="ControlsText6" type="Control" parent="Control/TextureRect" unique_id=1050055289]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 405.0
+offset_top = 485.0
+offset_right = 405.0
+offset_bottom = 485.0
+script = ExtResource("3_ihl6s")
+code = "jump"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText6" unique_id=443855263]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText6/Control" unique_id=82502023]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="ControlsText7" type="Control" parent="Control/TextureRect" unique_id=2044530280]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 640.0
+offset_top = 485.0
+offset_right = 640.0
+offset_bottom = 485.0
+script = ExtResource("3_ihl6s")
+code = "pause"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText7" unique_id=2018569886]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText7/Control" unique_id=1329750233]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="ControlsText8" type="Control" parent="Control/TextureRect" unique_id=1569344124]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 840.0
+offset_top = 430.0
+offset_right = 840.0
+offset_bottom = 430.0
+script = ExtResource("3_ihl6s")
+code = "shoot"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText8" unique_id=1082057986]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText8/Control" unique_id=1406529210]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="ControlsText9" type="Control" parent="Control/TextureRect" unique_id=377239203]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 875.0
+offset_top = 265.0
+offset_right = 875.0
+offset_bottom = 265.0
+script = ExtResource("3_ihl6s")
+code = "reload"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText9" unique_id=1980114046]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText9/Control" unique_id=1921252042]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="ControlsText10" type="Control" parent="Control/TextureRect" unique_id=1892770408]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 1025.0
+offset_top = 265.0
+offset_right = 1025.0
+offset_bottom = 265.0
+script = ExtResource("3_ihl6s")
+code = "interact"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText10" unique_id=1998538453]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText10/Control" unique_id=731601320]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="ControlsText11" type="Control" parent="Control/TextureRect" unique_id=1050905716]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+anchors_preset = 0
+offset_left = 950.0
+offset_top = 405.0
+offset_right = 950.0
+offset_bottom = 405.0
+script = ExtResource("3_ihl6s")
+code = "close_reload"
+
+[node name="Control" type="Control" parent="Control/TextureRect/ControlsText11" unique_id=358982806]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextureRect/ControlsText11/Control" unique_id=2065783223]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("3_cywyo")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=102233339]
+libraries/ = SubResource("AnimationLibrary_k6bol")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1431854448]
+tree_root = SubResource("AnimationNodeStateMachine_jlst0")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Selector" parent="." unique_id=894841875 instance=ExtResource("5_jlst0")]
+position = Vector2(205, 485)

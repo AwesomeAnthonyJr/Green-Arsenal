@@ -17,6 +17,9 @@ signal interact
 signal look(x, y)
 signal up
 signal down
+signal left
+signal right
+signal sprint_burst
 
 var mouse_sensitivity = 0.001
 
@@ -31,6 +34,8 @@ func _process(delta: float) -> void:
 	interact_input()
 	up_input()
 	down_input()
+	left_input()
+	right_input()
 
 func move_input():
 	if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
@@ -42,6 +47,8 @@ func move_input():
 
 func sprint_input():
 	sprint.emit(Input.is_action_pressed("sprint"))
+	if Input.is_action_just_pressed("sprint"):
+		sprint_burst.emit()
 
 func jump_input():
 	if Input.is_action_just_pressed("jump"):
@@ -72,6 +79,14 @@ func up_input():
 func down_input():
 	if Input.is_action_just_pressed("move_back"):
 		down.emit()
+
+func left_input():
+	if Input.is_action_just_pressed("move_left"):
+		left.emit()
+
+func right_input():
+	if Input.is_action_just_pressed("move_right"):
+		right.emit()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
