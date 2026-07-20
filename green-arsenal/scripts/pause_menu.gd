@@ -9,6 +9,22 @@ enum MenuSelection {
 
 var current_menu = MenuSelection.CONTROLS
 
+enum StatusSelection {
+	BIG_LEFT,
+	BIG_RIGHT,
+	SEED_1,
+	SEED_2,
+	SEED_3,
+	SEED_4,
+	SEED_5,
+	SEED_6,
+	SEED_7,
+	HEART,
+	GROWTH_1,
+	GROWTH_2,
+	GROWTH_3
+}
+
 enum ControlsSelection {
 	BIG_LEFT,
 	BIG_RIGHT,
@@ -39,6 +55,7 @@ enum ConfigSelection {
 var current_menu_2 = ControlsSelection.BIG_LEFT
 
 @onready var main_anim_tree = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/AnimationTree
+@onready var status_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Status/MeshInstance3D/SubViewport/PauseStatus
 @onready var controls_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Controls/MeshInstance3D/SubViewport/Controls
 @onready var config_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio/MeshInstance3D/SubViewport/Audio
 
@@ -78,6 +95,42 @@ func update_visually():
 	match current_menu:
 		MenuSelection.STATUS:
 			playback.travel("on_status")
+			status_menu.update_status_seeds()
+			playback = status_menu.anim_tree["parameters/playback"]
+			match current_menu_2:
+				StatusSelection.BIG_LEFT:
+					playback.travel("on_BIG_LEFT")
+				StatusSelection.BIG_RIGHT:
+					playback.travel("on_BIG_RIGHT")
+				StatusSelection.SEED_1:
+					playback.travel("on_SEED_1")
+					status_menu.update_status_plants(SaveManager.get_seed_types()[0], Constants.seed_order[0])
+				StatusSelection.SEED_2:
+					playback.travel("on_SEED_2")
+					status_menu.update_status_plants(SaveManager.get_seed_types()[1], Constants.seed_order[1])
+				StatusSelection.SEED_3:
+					playback.travel("on_SEED_3")
+					status_menu.update_status_plants(SaveManager.get_seed_types()[2], Constants.seed_order[2])
+				StatusSelection.SEED_4:
+					playback.travel("on_SEED_4")
+					status_menu.update_status_plants(SaveManager.get_seed_types()[3], Constants.seed_order[3])
+				StatusSelection.SEED_5:
+					playback.travel("on_SEED_5")
+					status_menu.update_status_plants(SaveManager.get_seed_types()[4], Constants.seed_order[4])
+				StatusSelection.SEED_6:
+					playback.travel("on_SEED_6")
+					status_menu.update_status_plants(SaveManager.get_seed_types()[5], Constants.seed_order[5])
+				StatusSelection.SEED_7:
+					playback.travel("on_SEED_7")
+					status_menu.update_status_plants(SaveManager.get_seed_types()[6], Constants.seed_order[6])
+				StatusSelection.HEART:
+					playback.travel("on_HEART")
+				StatusSelection.GROWTH_1:
+					pass
+				StatusSelection.GROWTH_2:
+					pass
+				StatusSelection.GROWTH_3:
+					pass
 		MenuSelection.CONTROLS:
 			playback.travel("on_controls")
 			playback = controls_menu.anim_tree["parameters/playback"]
@@ -136,7 +189,37 @@ func read_up():
 		return
 	match current_menu:
 		MenuSelection.STATUS:
-			pass
+			match current_menu_2:
+				StatusSelection.BIG_LEFT:
+					pass
+				StatusSelection.BIG_RIGHT:
+					pass
+				StatusSelection.SEED_1:
+					pass
+				StatusSelection.SEED_2:
+					pass
+				StatusSelection.SEED_3:
+					pass
+				StatusSelection.SEED_4:
+					pass
+				StatusSelection.SEED_5:
+					pass
+				StatusSelection.SEED_6:
+					pass
+				StatusSelection.SEED_7:
+					pass
+				StatusSelection.HEART:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_1
+				StatusSelection.GROWTH_1:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_5
+				StatusSelection.GROWTH_2:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_1
+				StatusSelection.GROWTH_3:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_2
 		MenuSelection.CONTROLS:
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:
@@ -201,7 +284,42 @@ func read_down():
 		return
 	match current_menu:
 		MenuSelection.STATUS:
-			pass
+			match current_menu_2:
+				StatusSelection.BIG_LEFT:
+					pass
+				StatusSelection.BIG_RIGHT:
+					pass
+				StatusSelection.SEED_1:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.HEART
+				StatusSelection.SEED_2:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.HEART
+				StatusSelection.SEED_3:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.HEART
+				StatusSelection.SEED_4:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.HEART
+				StatusSelection.SEED_5:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_1
+				StatusSelection.SEED_6:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_1
+				StatusSelection.SEED_7:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_1
+				StatusSelection.HEART:
+					pass
+				StatusSelection.GROWTH_1:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_2
+				StatusSelection.GROWTH_2:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_3
+				StatusSelection.GROWTH_3:
+					pass
 		MenuSelection.CONTROLS:
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:
@@ -265,7 +383,43 @@ func read_left():
 		return
 	match current_menu:
 		MenuSelection.STATUS:
-			pass
+			match current_menu_2:
+				StatusSelection.BIG_LEFT:
+					pass
+				StatusSelection.BIG_RIGHT:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_7
+				StatusSelection.SEED_1:
+					current_menu_2 = StatusSelection.BIG_LEFT
+				StatusSelection.SEED_2:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_1
+				StatusSelection.SEED_3:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_2
+				StatusSelection.SEED_4:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_3
+				StatusSelection.SEED_5:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_4
+				StatusSelection.SEED_6:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_5
+				StatusSelection.SEED_7:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_6
+				StatusSelection.HEART:
+					current_menu_2 = StatusSelection.BIG_LEFT
+				StatusSelection.GROWTH_1:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.HEART
+				StatusSelection.GROWTH_2:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_1
+				StatusSelection.GROWTH_3:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_2
 		MenuSelection.CONTROLS:
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:
@@ -335,7 +489,43 @@ func read_right():
 		return
 	match current_menu:
 		MenuSelection.STATUS:
-			pass
+			match current_menu_2:
+				StatusSelection.BIG_LEFT:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_1
+				StatusSelection.BIG_RIGHT:
+					pass
+				StatusSelection.SEED_1:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_2
+				StatusSelection.SEED_2:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_3
+				StatusSelection.SEED_3:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_4
+				StatusSelection.SEED_4:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_5
+				StatusSelection.SEED_5:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_6
+				StatusSelection.SEED_6:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.SEED_7
+				StatusSelection.SEED_7:
+					current_menu_2 = StatusSelection.BIG_RIGHT
+				StatusSelection.HEART:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_1
+				StatusSelection.GROWTH_1:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_2
+				StatusSelection.GROWTH_2:
+					status_menu.selector.travel_shrunk_position()
+					current_menu_2 = StatusSelection.GROWTH_3
+				StatusSelection.GROWTH_3:
+					current_menu_2 = StatusSelection.BIG_RIGHT
 		MenuSelection.CONTROLS:
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:

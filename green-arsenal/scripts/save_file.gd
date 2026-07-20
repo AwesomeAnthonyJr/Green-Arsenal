@@ -1,7 +1,15 @@
 extends Resource
 class_name SaveFile
 
-@export var seed_types: Array[int] = []
+@export var seed_types: Array[bool] = [
+	true,
+	true,
+	true,
+	true,
+	true,
+	true,
+	true
+]
 @export var max_hp: int = 3
 @export var seed_count: int = 1
 
