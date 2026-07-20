@@ -11,7 +11,7 @@ class_name SaveFile
 	true
 ]
 @export var max_hp: int = 3
-@export var seed_count: int = 1
+@export var growth_charges: int = 1
 
 ###this is for like doors and stuff, depending on the rooms. empty for now.
 @export var game_flags: Array[bool] = [

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="2_xn0vo"]
 [ext_resource type="Script" uid="uid://c2ounwmbfdkpi" path="res://scripts/plant_displayer.gd" id="4_8037b"]
 [ext_resource type="PackedScene" uid="uid://kwmr4xhfpaq8" path="res://scenes/blaze_flower.tscn" id="4_k2bl5"]
+[ext_resource type="Texture2D" uid="uid://1u1klsx5x1q4" path="res://ui/status_ui_growth_charge.png" id="4_yrimf"]
 [ext_resource type="PackedScene" uid="uid://ditxtduhwcry6" path="res://scenes/spring_vine.tscn" id="5_nndsu"]
 [ext_resource type="PackedScene" uid="uid://by7qpr87u2351" path="res://scenes/life_fruit.tscn" id="6_7flq5"]
 [ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="6_nndsu"]
@@ -135,6 +136,96 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4uvb4"]
+resource_name = "on_GROWTH_1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(353, 397)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_shrunk_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_b5qbp"]
+resource_name = "on_GROWTH_2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(418, 432)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_shrunk_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_r4j1q"]
+resource_name = "on_GROWTH_3"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(483, 467)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_shrunk_position"
 }]
 }
 
@@ -383,6 +474,9 @@ _data = {
 &"RESET": SubResource("Animation_h2u1m"),
 &"on_BIG_LEFT": SubResource("Animation_83ph3"),
 &"on_BIG_RIGHT": SubResource("Animation_iehjl"),
+&"on_GROWTH_1": SubResource("Animation_4uvb4"),
+&"on_GROWTH_2": SubResource("Animation_b5qbp"),
+&"on_GROWTH_3": SubResource("Animation_r4j1q"),
 &"on_HEART": SubResource("Animation_kig37"),
 &"on_SEED_1": SubResource("Animation_nndsu"),
 &"on_SEED_2": SubResource("Animation_7flq5"),
@@ -398,6 +492,15 @@ animation = &"on_BIG_LEFT"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nndsu"]
 animation = &"on_BIG_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kig37"]
+animation = &"on_GROWTH_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_akywl"]
+animation = &"on_GROWTH_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cslsk"]
+animation = &"on_GROWTH_3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_83ph3"]
 animation = &"on_HEART"
@@ -492,6 +595,33 @@ xfade_time = 0.1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_10bws"]
 xfade_time = 0.1
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hidmd"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m4s1r"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kddxl"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jn6u1"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ce43c"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2rlr5"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_usx4i"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xomwm"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x2emi"]
+xfade_time = 0.1
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h2u1m"]
 states/End/position = Vector2(1366, 95)
 states/Start/position = Vector2(-74, 55)
@@ -499,6 +629,12 @@ states/on_BIG_LEFT/node = SubResource("AnimationNodeAnimation_h2u1m")
 states/on_BIG_LEFT/position = Vector2(94, 57)
 states/on_BIG_RIGHT/node = SubResource("AnimationNodeAnimation_nndsu")
 states/on_BIG_RIGHT/position = Vector2(1228, 95)
+states/on_GROWTH_1/node = SubResource("AnimationNodeAnimation_kig37")
+states/on_GROWTH_1/position = Vector2(646, 138)
+states/on_GROWTH_2/node = SubResource("AnimationNodeAnimation_akywl")
+states/on_GROWTH_2/position = Vector2(773, 205)
+states/on_GROWTH_3/node = SubResource("AnimationNodeAnimation_cslsk")
+states/on_GROWTH_3/position = Vector2(930, 237)
 states/on_HEART/node = SubResource("AnimationNodeAnimation_83ph3")
 states/on_HEART/position = Vector2(325, 138)
 states/on_SEED_1/node = SubResource("AnimationNodeAnimation_7flq5")
@@ -515,8 +651,8 @@ states/on_SEED_6/node = SubResource("AnimationNodeAnimation_yrimf")
 states/on_SEED_6/position = Vector2(827, 55)
 states/on_SEED_7/node = SubResource("AnimationNodeAnimation_iehjl")
 states/on_SEED_7/position = Vector2(957, 55)
-transitions = ["Start", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_kig37"), "on_BIG_LEFT", "on_SEED_1", SubResource("AnimationNodeStateMachineTransition_akywl"), "on_SEED_1", "on_SEED_2", SubResource("AnimationNodeStateMachineTransition_cslsk"), "on_SEED_2", "on_SEED_3", SubResource("AnimationNodeStateMachineTransition_4uvb4"), "on_SEED_3", "on_SEED_4", SubResource("AnimationNodeStateMachineTransition_b5qbp"), "on_SEED_4", "on_SEED_3", SubResource("AnimationNodeStateMachineTransition_r4j1q"), "on_SEED_3", "on_SEED_2", SubResource("AnimationNodeStateMachineTransition_2xmey"), "on_SEED_2", "on_SEED_1", SubResource("AnimationNodeStateMachineTransition_n68mc"), "on_SEED_1", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_gjc3p"), "on_HEART", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_ken4e"), "on_SEED_1", "on_HEART", SubResource("AnimationNodeStateMachineTransition_x7kc2"), "on_HEART", "on_SEED_1", SubResource("AnimationNodeStateMachineTransition_8pmkr"), "on_SEED_2", "on_HEART", SubResource("AnimationNodeStateMachineTransition_ek5c7"), "on_SEED_3", "on_HEART", SubResource("AnimationNodeStateMachineTransition_r56lo"), "on_SEED_4", "on_HEART", SubResource("AnimationNodeStateMachineTransition_dn51u"), "on_SEED_4", "on_SEED_5", SubResource("AnimationNodeStateMachineTransition_myo7e"), "on_SEED_5", "on_SEED_4", SubResource("AnimationNodeStateMachineTransition_mh0yc"), "on_SEED_5", "on_SEED_6", SubResource("AnimationNodeStateMachineTransition_2uj5j"), "on_SEED_6", "on_SEED_5", SubResource("AnimationNodeStateMachineTransition_y7km3"), "on_SEED_6", "on_SEED_7", SubResource("AnimationNodeStateMachineTransition_cni6c"), "on_SEED_7", "on_SEED_6", SubResource("AnimationNodeStateMachineTransition_kjmrn"), "on_SEED_7", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_jr8ka"), "on_BIG_RIGHT", "on_SEED_7", SubResource("AnimationNodeStateMachineTransition_10bws")]
-graph_offset = Vector2(-162, -42)
+transitions = ["Start", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_kig37"), "on_BIG_LEFT", "on_SEED_1", SubResource("AnimationNodeStateMachineTransition_akywl"), "on_SEED_1", "on_SEED_2", SubResource("AnimationNodeStateMachineTransition_cslsk"), "on_SEED_2", "on_SEED_3", SubResource("AnimationNodeStateMachineTransition_4uvb4"), "on_SEED_3", "on_SEED_4", SubResource("AnimationNodeStateMachineTransition_b5qbp"), "on_SEED_4", "on_SEED_3", SubResource("AnimationNodeStateMachineTransition_r4j1q"), "on_SEED_3", "on_SEED_2", SubResource("AnimationNodeStateMachineTransition_2xmey"), "on_SEED_2", "on_SEED_1", SubResource("AnimationNodeStateMachineTransition_n68mc"), "on_SEED_1", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_gjc3p"), "on_HEART", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_ken4e"), "on_SEED_1", "on_HEART", SubResource("AnimationNodeStateMachineTransition_x7kc2"), "on_HEART", "on_SEED_1", SubResource("AnimationNodeStateMachineTransition_8pmkr"), "on_SEED_2", "on_HEART", SubResource("AnimationNodeStateMachineTransition_ek5c7"), "on_SEED_3", "on_HEART", SubResource("AnimationNodeStateMachineTransition_r56lo"), "on_SEED_4", "on_HEART", SubResource("AnimationNodeStateMachineTransition_dn51u"), "on_SEED_4", "on_SEED_5", SubResource("AnimationNodeStateMachineTransition_myo7e"), "on_SEED_5", "on_SEED_4", SubResource("AnimationNodeStateMachineTransition_mh0yc"), "on_SEED_5", "on_SEED_6", SubResource("AnimationNodeStateMachineTransition_2uj5j"), "on_SEED_6", "on_SEED_5", SubResource("AnimationNodeStateMachineTransition_y7km3"), "on_SEED_6", "on_SEED_7", SubResource("AnimationNodeStateMachineTransition_cni6c"), "on_SEED_7", "on_SEED_6", SubResource("AnimationNodeStateMachineTransition_kjmrn"), "on_SEED_7", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_jr8ka"), "on_BIG_RIGHT", "on_SEED_7", SubResource("AnimationNodeStateMachineTransition_10bws"), "on_GROWTH_3", "on_GROWTH_2", SubResource("AnimationNodeStateMachineTransition_hidmd"), "on_GROWTH_2", "on_GROWTH_3", SubResource("AnimationNodeStateMachineTransition_m4s1r"), "on_GROWTH_2", "on_GROWTH_1", SubResource("AnimationNodeStateMachineTransition_kddxl"), "on_GROWTH_1", "on_GROWTH_2", SubResource("AnimationNodeStateMachineTransition_jn6u1"), "on_GROWTH_1", "on_SEED_5", SubResource("AnimationNodeStateMachineTransition_ce43c"), "on_SEED_5", "on_GROWTH_1", SubResource("AnimationNodeStateMachineTransition_2rlr5"), "on_HEART", "on_GROWTH_1", SubResource("AnimationNodeStateMachineTransition_usx4i"), "on_GROWTH_1", "on_HEART", SubResource("AnimationNodeStateMachineTransition_xomwm"), "on_GROWTH_3", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_x2emi")]
+graph_offset = Vector2(300, 50)
 
 [node name="PauseStatus" type="CanvasLayer" unique_id=111155969]
 script = ExtResource("1_h2u1m")
@@ -588,6 +724,24 @@ position = Vector2(544, 275)
 texture = ExtResource("2_xn0vo")
 hframes = 11
 frame = 8
+
+[node name="GrowthCharge1" type="Sprite2D" parent="Control" unique_id=1684070708]
+visibility_layer = 524288
+z_index = 1
+position = Vector2(352, 397)
+texture = ExtResource("4_yrimf")
+
+[node name="GrowthCharge2" type="Sprite2D" parent="Control" unique_id=1536532922]
+visibility_layer = 524288
+z_index = 1
+position = Vector2(417, 432)
+texture = ExtResource("4_yrimf")
+
+[node name="GrowthCharge3" type="Sprite2D" parent="Control" unique_id=51034616]
+visibility_layer = 524288
+z_index = 1
+position = Vector2(482, 467)
+texture = ExtResource("4_yrimf")
 
 [node name="Control" type="Control" parent="Control" unique_id=409755747]
 anchors_preset = 0

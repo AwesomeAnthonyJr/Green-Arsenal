@@ -16,6 +16,19 @@ func update_status_plants(b: bool, n: int):
 func update_status_seeds():
 	for i in Constants.seed_order.size():
 		update_status_seed(SaveManager.get_seed_types()[i], Constants.seed_order[i])
+	match SaveManager.player_save.growth_charges:
+		1:
+			$Control/GrowthCharge1.show()
+			$Control/GrowthCharge2.hide()
+			$Control/GrowthCharge3.hide()
+		2:
+			$Control/GrowthCharge1.show()
+			$Control/GrowthCharge2.show()
+			$Control/GrowthCharge3.hide()
+		3:
+			$Control/GrowthCharge1.show()
+			$Control/GrowthCharge2.show()
+			$Control/GrowthCharge3.show()
 
 func update_status_seed(b: bool, n: int):
 	var seed: Sprite2D = null

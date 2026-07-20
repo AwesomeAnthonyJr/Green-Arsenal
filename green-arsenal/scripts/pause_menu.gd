@@ -126,11 +126,11 @@ func update_visually():
 				StatusSelection.HEART:
 					playback.travel("on_HEART")
 				StatusSelection.GROWTH_1:
-					pass
+					playback.travel("on_GROWTH_1")
 				StatusSelection.GROWTH_2:
-					pass
+					playback.travel("on_GROWTH_2")
 				StatusSelection.GROWTH_3:
-					pass
+					playback.travel("on_GROWTH_3")
 		MenuSelection.CONTROLS:
 			playback.travel("on_controls")
 			playback = controls_menu.anim_tree["parameters/playback"]
