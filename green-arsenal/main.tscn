@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqsx2hglgfolr" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://i5pjehi8mq60" path="res://scripts/input_manager.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bhaffqlwgnwei" path="res://scenes/Playground.tscn" id="2_074og"]
 [ext_resource type="Script" uid="uid://cr7ch745a207w" path="res://scripts/room_loader.gd" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bes4hymed4oow" path="res://scenes/player_package.tscn" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://bnmd5aw0ol2pp" path="res://scripts/pause_menu.gd" id="5_ycdy4"]
@@ -1305,6 +1306,8 @@ input_manager = NodePath("InputManager")
 room_loader = NodePath("Active/RoomLoader")
 
 [node name="Testing" type="Node" parent="." unique_id=798207614]
+
+[node name="Playground" parent="Testing" unique_id=798919202 instance=ExtResource("2_074og")]
 
 [node name="InputManager" type="Node" parent="." unique_id=106243138]
 process_mode = 3

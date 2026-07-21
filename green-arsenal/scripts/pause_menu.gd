@@ -451,7 +451,10 @@ func update_visually():
 
 func find_current_floor():
 	var room_loader = main.room_loader
-	return room_loader.get_floor() + 1
+	if is_instance_valid(room_loader):
+		return room_loader.get_floor() + 1
+	else:
+		return 2
 
 func limit_map_selection(n: int):
 	return min(n - 1, SaveManager.player_save.farthest_floor) + 1
