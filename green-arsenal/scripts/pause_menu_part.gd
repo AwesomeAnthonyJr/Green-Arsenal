@@ -3,6 +3,21 @@ extends CanvasLayer
 @onready var anim_tree = $AnimationTree
 @onready var selector = $Selector
 
+func match_map_frame(n: int):
+	$Control/MapDisplay.frame = n
+
+func match_map_buttons(n: int):
+	var buttons = [$Control/MenuButton1, $Control/MenuButton2, $Control/MenuButton3, $Control/MenuButton4, $Control/MenuButton5, $Control/MenuButton6, $Control/MenuButton7, $Control/MenuButton8, $Control/MenuButton9]
+	for i in buttons.size():
+		if i == n:
+			buttons[i].show()
+			buttons[i].frame = 1
+		elif i < SaveManager.player_save.farthest_floor:
+			buttons[i].show()
+			buttons[i].frame = 0
+		else:
+			buttons[i].hide()
+
 func hide_controls_text(n: String):
 	match n:
 		"move_forward":

@@ -21,6 +21,13 @@ var loadings = []
 var loaded_objects_keys = []
 var loaded_objects = []
 
+func get_floor():
+	if active_key == 0 or active_key == 1:
+		return 1
+	elif active_key == 2:
+		return 2
+	return 0
+
 func _ready() -> void:
 	setup_active_room(active_key)
 

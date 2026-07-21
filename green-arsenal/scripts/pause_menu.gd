@@ -1,5 +1,7 @@
 extends Node
 
+var main: Main
+
 enum MenuSelection {
 	STATUS,
 	CONTROLS,
@@ -54,6 +56,20 @@ enum ConfigSelection {
 	MOUSE_SLIDER
 }
 
+enum MapSelection {
+	BIG_LEFT,
+	BIG_RIGHT,
+	BUTTON_1,
+	BUTTON_2,
+	BUTTON_3,
+	BUTTON_4,
+	BUTTON_5,
+	BUTTON_6,
+	BUTTON_7,
+	BUTTON_8,
+	BUTTON_9
+}
+
 var current_menu_2 = StatusSelection.SEED_1
 
 @onready var main_anim_tree = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/AnimationTree
@@ -63,6 +79,7 @@ var current_menu_2 = StatusSelection.SEED_1
 @onready var status_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Status/MeshInstance3D/SubViewport/PauseStatus
 @onready var controls_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Controls/MeshInstance3D/SubViewport/Controls
 @onready var config_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio/MeshInstance3D/SubViewport/Audio
+@onready var map_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Map/MeshInstance3D/SubViewport/Map
 
 #status stuff
 var inspecting = false
@@ -72,20 +89,21 @@ var remapping = false
 var action_to_remap: String
 var suppress_next_input = false
 
+#for pausing/unpausing
+var in_menu = false
+
 func _ready() -> void:
+	main = find_main(self)
 	connect_inputs()
-	await get_tree().process_frame
-	status_menu.selector.travel_shrunk_position()
-	update_visually()
 func connect_inputs():
-	var manager = find_main(self).input_manager
+	var manager = main.input_manager
 	manager.up.connect(read_up)
 	manager.down.connect(read_down)
 	manager.left.connect(read_left)
 	manager.right.connect(read_right)
 	manager.sprint_burst.connect(read_big_left)
 	manager.jump.connect(read_big_right)
-	#manager.pause.connect(read_pause)
+	manager.pause.connect(read_pause)
 	#manager.shoot.connect(read_shoot)
 	manager.reload.connect(read_back)
 	manager.interact.connect(read_accept)
@@ -95,10 +113,30 @@ func find_main(x) -> Main:
 		return p
 	else:
 		return find_main(p)
-
 func _process(delta: float) -> void:
 	if suppress_next_input:
 		suppress_next_input = false
+#TODO: redo all this and handle pausing here rather than on the player
+func read_pause():
+	await get_tree().process_frame
+	if !in_menu:
+		current_menu = MenuSelection.STATUS
+		current_menu_2 = StatusSelection.SEED_1
+		update_visually()
+		await get_tree().create_timer(0.2).timeout
+		in_menu = true
+	else:
+		in_menu = false
+		var playback = main_anim_tree["parameters/playback"]
+		match current_menu:
+			MenuSelection.STATUS:
+				playback.travel("close_menu_status")
+			MenuSelection.CONTROLS:
+				playback.travel("close_menu_controls")
+			MenuSelection.CONFIG:
+				playback.travel("close_menu_config")
+			MenuSelection.MAP:
+				playback.travel("close_menu_map")
 
 func update_display():
 	match current_menu:
@@ -226,9 +264,30 @@ func update_display():
 					bar_text.display("Mouse Sensitivity. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to modify")
 				ConfigSelection.MOUSE_SLIDER:
 					bar_text.display("[center][bgcolor=white][color=black][outline_color=white][b]{move_left}[/b][/outline_color][/color][/bgcolor]      < {mouse_sense} >      [bgcolor=white][color=black][outline_color=white][b]{move_right}[/b][/outline_color][/color][/bgcolor][/center]")
-				
 		MenuSelection.MAP:
-			pass
+			match current_menu_2:
+				MapSelection.BIG_LEFT:
+					bar_text.display("[center][color=#fad019][b]To CONFIG[/b][/color][/center]")
+				MapSelection.BIG_RIGHT:
+					bar_text.display("[center][color=#fad019][b]To STATUS[/b][/color][/center]")
+				MapSelection.BUTTON_1:
+					bar_text.display("Forest Map Layer. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to view")
+				MapSelection.BUTTON_2:
+					bar_text.display("Forest Map Layer. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to view")
+				MapSelection.BUTTON_3:
+					bar_text.display("Forest Map Layer. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to view")
+				MapSelection.BUTTON_4:
+					bar_text.display("Forest Map Layer. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to view")
+				MapSelection.BUTTON_5:
+					bar_text.display("Forest Map Layer. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to view")
+				MapSelection.BUTTON_6:
+					bar_text.display("Forest Map Layer. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to view")
+				MapSelection.BUTTON_7:
+					bar_text.display("Forest Map Layer. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to view")
+				MapSelection.BUTTON_8:
+					bar_text.display("Forest Map Layer. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to view")
+				MapSelection.BUTTON_9:
+					bar_text.display("Forest Map Layer. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to view")
 
 #handle all animations here!
 func update_visually():
@@ -348,16 +407,50 @@ func update_visually():
 					playback.travel("on_MOUSE_SLIDER")
 		MenuSelection.MAP:
 			playback.travel("on_map")
+			playback = map_menu.anim_tree["parameters/playback"]
+			map_menu.match_map_buttons(find_current_floor() - 2)
+			match current_menu_2:
+				MapSelection.BIG_LEFT:
+					playback.travel("on_BIG_LEFT")
+				MapSelection.BIG_RIGHT:
+					playback.travel("on_BIG_RIGHT")
+				MapSelection.BUTTON_1:
+					playback.travel("on_BUTTON_1")
+				MapSelection.BUTTON_2:
+					playback.travel("on_BUTTON_2")
+				MapSelection.BUTTON_3:
+					playback.travel("on_BUTTON_3")
+				MapSelection.BUTTON_4:
+					playback.travel("on_BUTTON_4")
+				MapSelection.BUTTON_5:
+					playback.travel("on_BUTTON_5")
+				MapSelection.BUTTON_6:
+					playback.travel("on_BUTTON_6")
+				MapSelection.BUTTON_7:
+					playback.travel("on_BUTTON_7")
+				MapSelection.BUTTON_8:
+					playback.travel("on_BUTTON_8")
+				MapSelection.BUTTON_9:
+					playback.travel("on_BUTTON_9")
 	playback = select_anim_tree["parameters/playback"]
-	if current_menu_2 == StatusSelection.BIG_LEFT or current_menu_2 == ControlsSelection.BIG_LEFT or current_menu_2 == ConfigSelection.BIG_LEFT:
+	if current_menu_2 == StatusSelection.BIG_LEFT or current_menu_2 == ControlsSelection.BIG_LEFT or current_menu_2 == ConfigSelection.BIG_LEFT or current_menu_2 == MapSelection.BIG_LEFT:
 		playback.travel("select_big_left")
-	elif current_menu_2 == StatusSelection.BIG_RIGHT or current_menu_2 == ControlsSelection.BIG_RIGHT or current_menu_2 == ConfigSelection.BIG_RIGHT:
+	elif current_menu_2 == StatusSelection.BIG_RIGHT or current_menu_2 == ControlsSelection.BIG_RIGHT or current_menu_2 == ConfigSelection.BIG_RIGHT or current_menu_2 == MapSelection.BIG_RIGHT:
 		playback.travel("select_big_right")
 	else:
 		playback.travel("hide_selector")
 
+func find_current_floor():
+	var room_loader = main.room_loader
+	return room_loader.get_floor() + 1
+
+func limit_map_selection(n: int):
+	return min(n - 1, SaveManager.player_save.farthest_floor) + 1
+
 func read_up():
 	if suppress_next_input:
+		return
+	if !in_menu:
 		return
 	match current_menu:
 		MenuSelection.STATUS:
@@ -454,11 +547,35 @@ func read_up():
 				ConfigSelection.MOUSE_SLIDER:
 					pass
 		MenuSelection.MAP:
-			pass
+			match current_menu_2:
+				MapSelection.BIG_LEFT:
+					pass
+				MapSelection.BIG_RIGHT:
+					pass
+				MapSelection.BUTTON_1:
+					pass
+				MapSelection.BUTTON_2:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_1)
+				MapSelection.BUTTON_3:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_2)
+				MapSelection.BUTTON_4:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_3)
+				MapSelection.BUTTON_5:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_4)
+				MapSelection.BUTTON_6:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_5)
+				MapSelection.BUTTON_7:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_6)
+				MapSelection.BUTTON_8:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_7)
+				MapSelection.BUTTON_9:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_8)
 	update_visually()
 
 func read_down():
 	if suppress_next_input:
+		return
+	if !in_menu:
 		return
 	match current_menu:
 		MenuSelection.STATUS:
@@ -566,11 +683,35 @@ func read_down():
 				ConfigSelection.MOUSE_SLIDER:
 					pass
 		MenuSelection.MAP:
-			pass
+			match current_menu_2:
+				MapSelection.BIG_LEFT:
+					pass
+				MapSelection.BIG_RIGHT:
+					pass
+				MapSelection.BUTTON_1:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_2)
+				MapSelection.BUTTON_2:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_3)
+				MapSelection.BUTTON_3:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_4)
+				MapSelection.BUTTON_4:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_5)
+				MapSelection.BUTTON_5:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_6)
+				MapSelection.BUTTON_6:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_7)
+				MapSelection.BUTTON_7:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_8)
+				MapSelection.BUTTON_8:
+					current_menu_2 = limit_map_selection(MapSelection.BUTTON_9)
+				MapSelection.BUTTON_9:
+					pass
 	update_visually()
 
 func read_left():
 	if suppress_next_input:
+		return
+	if !in_menu:
 		return
 	match current_menu:
 		MenuSelection.STATUS:
@@ -681,11 +822,36 @@ func read_left():
 				ConfigSelection.MOUSE_SLIDER:
 					SaveManager.player_settings.increment_sense(-0.05)
 		MenuSelection.MAP:
-			pass
+			match current_menu_2:
+				MapSelection.BIG_LEFT:
+					pass
+				MapSelection.BIG_RIGHT:
+					map_menu.selector.travel_shrunk_position()
+					current_menu_2 = find_current_floor()
+				MapSelection.BUTTON_1:
+					current_menu_2 = MapSelection.BIG_LEFT
+				MapSelection.BUTTON_2:
+					current_menu_2 = MapSelection.BIG_LEFT
+				MapSelection.BUTTON_3:
+					current_menu_2 = MapSelection.BIG_LEFT
+				MapSelection.BUTTON_4:
+					current_menu_2 = MapSelection.BIG_LEFT
+				MapSelection.BUTTON_5:
+					current_menu_2 = MapSelection.BIG_LEFT
+				MapSelection.BUTTON_6:
+					current_menu_2 = MapSelection.BIG_LEFT
+				MapSelection.BUTTON_7:
+					current_menu_2 = MapSelection.BIG_LEFT
+				MapSelection.BUTTON_8:
+					current_menu_2 = MapSelection.BIG_LEFT
+				MapSelection.BUTTON_9:
+					current_menu_2 = MapSelection.BIG_LEFT
 	update_visually()
 
 func read_right():
 	if suppress_next_input:
+		return
+	if !in_menu:
 		return
 	match current_menu:
 		MenuSelection.STATUS:
@@ -797,11 +963,36 @@ func read_right():
 				ConfigSelection.MOUSE_SLIDER:
 					SaveManager.player_settings.increment_sense(0.05)
 		MenuSelection.MAP:
-			pass
+			match current_menu_2:
+				MapSelection.BIG_LEFT:
+					map_menu.selector.travel_shrunk_position()
+					current_menu_2 = find_current_floor()
+				MapSelection.BIG_RIGHT:
+					pass
+				MapSelection.BUTTON_1:
+					current_menu_2 = MapSelection.BIG_RIGHT
+				MapSelection.BUTTON_2:
+					current_menu_2 = MapSelection.BIG_RIGHT
+				MapSelection.BUTTON_3:
+					current_menu_2 = MapSelection.BIG_RIGHT
+				MapSelection.BUTTON_4:
+					current_menu_2 = MapSelection.BIG_RIGHT
+				MapSelection.BUTTON_5:
+					current_menu_2 = MapSelection.BIG_RIGHT
+				MapSelection.BUTTON_6:
+					current_menu_2 = MapSelection.BIG_RIGHT
+				MapSelection.BUTTON_7:
+					current_menu_2 = MapSelection.BIG_RIGHT
+				MapSelection.BUTTON_8:
+					current_menu_2 = MapSelection.BIG_RIGHT
+				MapSelection.BUTTON_9:
+					current_menu_2 = MapSelection.BIG_RIGHT
 	update_visually()
 
 func read_accept():
 	if suppress_next_input:
+		return
+	if !in_menu:
 		return
 	match current_menu:
 		MenuSelection.STATUS:
@@ -913,11 +1104,35 @@ func read_accept():
 				ConfigSelection.MOUSE_SLIDER:
 					current_menu_2 = ConfigSelection.MOUSE_HOVER
 		MenuSelection.MAP:
-			pass
+			match current_menu_2:
+				MapSelection.BIG_LEFT:
+					read_big_left()
+				MapSelection.BIG_RIGHT:
+					read_big_right()
+				MapSelection.BUTTON_1:
+					map_menu.match_map_frame(0)
+				MapSelection.BUTTON_2:
+					map_menu.match_map_frame(1)
+				MapSelection.BUTTON_3:
+					map_menu.match_map_frame(2)
+				MapSelection.BUTTON_4:
+					map_menu.match_map_frame(3)
+				MapSelection.BUTTON_5:
+					map_menu.match_map_frame(4)
+				MapSelection.BUTTON_6:
+					map_menu.match_map_frame(5)
+				MapSelection.BUTTON_7:
+					map_menu.match_map_frame(6)
+				MapSelection.BUTTON_8:
+					map_menu.match_map_frame(7)
+				MapSelection.BUTTON_9:
+					map_menu.match_map_frame(8)
 	update_visually()
 
 func read_back():
 	if suppress_next_input:
+		return
+	if !in_menu:
 		return
 	match current_menu:
 		MenuSelection.STATUS:
@@ -946,9 +1161,12 @@ func read_back():
 func read_big_left():
 	if suppress_next_input:
 		return
+	if !in_menu:
+		return
 	match current_menu:
 		MenuSelection.STATUS:
 			current_menu = MenuSelection.MAP
+			current_menu_2 = MapSelection.BIG_LEFT
 		MenuSelection.CONTROLS:
 			current_menu = MenuSelection.STATUS
 			current_menu_2 = StatusSelection.BIG_LEFT
@@ -962,6 +1180,8 @@ func read_big_left():
 func read_big_right():
 	if suppress_next_input:
 		return
+	if !in_menu:
+		return
 	match current_menu:
 		MenuSelection.STATUS:
 			current_menu = MenuSelection.CONTROLS
@@ -971,10 +1191,14 @@ func read_big_right():
 			current_menu_2 = ConfigSelection.BIG_RIGHT
 		MenuSelection.CONFIG:
 			current_menu = MenuSelection.MAP
+			current_menu_2 = MapSelection.BIG_RIGHT
 		MenuSelection.MAP:
 			current_menu = MenuSelection.STATUS
 			current_menu_2 = StatusSelection.BIG_RIGHT
 	update_visually()
+
+func initialize_map_frame():
+	map_menu.match_map_frame(find_current_floor() - 2)
 
 func match_next_remapping(n: String):
 	match n:

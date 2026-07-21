@@ -85,6 +85,86 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_jq2sk"]
+resource_name = "close_menu_config"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.1415927, 0), Vector3(1.5707964, 3.1415927, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4k2k6"]
+resource_name = "close_menu_controls"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(4.371139e-08, 1.5707964, -1.5707964)]
+}
+
+[sub_resource type="Animation" id="Animation_ok6jj"]
+resource_name = "close_menu_map"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0), Vector3(4.371139e-08, -1.5707964, 1.5707964)]
+}
+
+[sub_resource type="Animation" id="Animation_0rl1p"]
+resource_name = "close_menu_status"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_facbu"]
+resource_name = "closed"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_1u8w0"]
 resource_name = "config>controls"
 length = 0.2
@@ -241,6 +321,22 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_htxhm"]
+resource_name = "open_menu"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_074og"]
 resource_name = "status>controls"
 length = 0.2
@@ -276,6 +372,11 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2cqfq"]
 _data = {
 &"RESET": SubResource("Animation_ycdy4"),
+&"close_menu_config": SubResource("Animation_jq2sk"),
+&"close_menu_controls": SubResource("Animation_4k2k6"),
+&"close_menu_map": SubResource("Animation_ok6jj"),
+&"close_menu_status": SubResource("Animation_0rl1p"),
+&"closed": SubResource("Animation_facbu"),
 &"config>controls": SubResource("Animation_1u8w0"),
 &"config>map": SubResource("Animation_0odxb"),
 &"controls>config": SubResource("Animation_ryguw"),
@@ -286,9 +387,25 @@ _data = {
 &"on_controls": SubResource("Animation_w48qg"),
 &"on_map": SubResource("Animation_yaehf"),
 &"on_status": SubResource("Animation_vivmo"),
+&"open_menu": SubResource("Animation_htxhm"),
 &"status>controls": SubResource("Animation_074og"),
 &"status>map": SubResource("Animation_cegan")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_seu75"]
+animation = &"close_menu_config"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_htxhm"]
+animation = &"close_menu_controls"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jq2sk"]
+animation = &"close_menu_map"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4k2k6"]
+animation = &"close_menu_status"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0rl1p"]
+animation = &"closed"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ycdy4"]
 animation = &"config>controls"
@@ -320,14 +437,14 @@ animation = &"on_map"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_82xsv"]
 animation = &"on_status"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kq58d"]
+animation = &"open_menu"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d13ii"]
 animation = &"status>controls"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1u8w0"]
 animation = &"status>map"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jq2sk"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0odxb"]
 
@@ -377,9 +494,47 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0cbny"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hrvbo"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uypp3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_blkrb"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_abqjc"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vke2r"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uit24"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_074og"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_82xsv"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_getpj"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ryguw"]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h45xw"]
-states/End/position = Vector2(1142, 100)
-states/Start/position = Vector2(141, 100)
+states/End/position = Vector2(1258, 74)
+states/Start/position = Vector2(-226, 155)
+states/close_menu_config/node = SubResource("AnimationNodeAnimation_seu75")
+states/close_menu_config/position = Vector2(960, 100)
+states/close_menu_controls/node = SubResource("AnimationNodeAnimation_htxhm")
+states/close_menu_controls/position = Vector2(572, -129)
+states/close_menu_map/node = SubResource("AnimationNodeAnimation_jq2sk")
+states/close_menu_map/position = Vector2(572, 336)
+states/close_menu_status/node = SubResource("AnimationNodeAnimation_4k2k6")
+states/close_menu_status/position = Vector2(122, 52)
+states/closed/node = SubResource("AnimationNodeAnimation_0rl1p")
+states/closed/position = Vector2(-45, 155)
 states/config>controls/node = SubResource("AnimationNodeAnimation_ycdy4")
 states/config>controls/position = Vector2(823, 5)
 states/config>map/node = SubResource("AnimationNodeAnimation_vivmo")
@@ -400,12 +555,14 @@ states/on_map/node = SubResource("AnimationNodeAnimation_074og")
 states/on_map/position = Vector2(572, 192)
 states/on_status/node = SubResource("AnimationNodeAnimation_82xsv")
 states/on_status/position = Vector2(427, 100)
+states/open_menu/node = SubResource("AnimationNodeAnimation_kq58d")
+states/open_menu/position = Vector2(122, 155)
 states/status>controls/node = SubResource("AnimationNodeAnimation_d13ii")
 states/status>controls/position = Vector2(317, 5)
 states/status>map/node = SubResource("AnimationNodeAnimation_1u8w0")
 states/status>map/position = Vector2(317, 192)
-transitions = ["Start", "on_status", SubResource("AnimationNodeStateMachineTransition_jq2sk"), "on_status", "status>controls", SubResource("AnimationNodeStateMachineTransition_0odxb"), "on_status", "status>map", SubResource("AnimationNodeStateMachineTransition_lswn8"), "on_controls", "controls>status", SubResource("AnimationNodeStateMachineTransition_a6jrf"), "on_controls", "controls>config", SubResource("AnimationNodeStateMachineTransition_xuqvo"), "on_config", "config>controls", SubResource("AnimationNodeStateMachineTransition_qsp4k"), "on_config", "config>map", SubResource("AnimationNodeStateMachineTransition_kq58d"), "on_map", "map>status", SubResource("AnimationNodeStateMachineTransition_seu75"), "on_map", "map>config", SubResource("AnimationNodeStateMachineTransition_htxhm"), "controls>status", "on_status", SubResource("AnimationNodeStateMachineTransition_4k2k6"), "controls>config", "on_config", SubResource("AnimationNodeStateMachineTransition_0rl1p"), "status>controls", "on_controls", SubResource("AnimationNodeStateMachineTransition_ok6jj"), "config>controls", "on_controls", SubResource("AnimationNodeStateMachineTransition_facbu"), "map>config", "on_config", SubResource("AnimationNodeStateMachineTransition_b1qrp"), "map>status", "on_status", SubResource("AnimationNodeStateMachineTransition_come4"), "status>map", "on_map", SubResource("AnimationNodeStateMachineTransition_h8e4i"), "config>map", "on_map", SubResource("AnimationNodeStateMachineTransition_4lmeg")]
-graph_offset = Vector2(14, -59)
+transitions = ["on_status", "status>controls", SubResource("AnimationNodeStateMachineTransition_0odxb"), "on_status", "status>map", SubResource("AnimationNodeStateMachineTransition_lswn8"), "on_controls", "controls>status", SubResource("AnimationNodeStateMachineTransition_a6jrf"), "on_controls", "controls>config", SubResource("AnimationNodeStateMachineTransition_xuqvo"), "on_config", "config>controls", SubResource("AnimationNodeStateMachineTransition_qsp4k"), "on_config", "config>map", SubResource("AnimationNodeStateMachineTransition_kq58d"), "on_map", "map>status", SubResource("AnimationNodeStateMachineTransition_seu75"), "on_map", "map>config", SubResource("AnimationNodeStateMachineTransition_htxhm"), "controls>status", "on_status", SubResource("AnimationNodeStateMachineTransition_4k2k6"), "controls>config", "on_config", SubResource("AnimationNodeStateMachineTransition_0rl1p"), "status>controls", "on_controls", SubResource("AnimationNodeStateMachineTransition_ok6jj"), "config>controls", "on_controls", SubResource("AnimationNodeStateMachineTransition_facbu"), "map>config", "on_config", SubResource("AnimationNodeStateMachineTransition_b1qrp"), "map>status", "on_status", SubResource("AnimationNodeStateMachineTransition_come4"), "status>map", "on_map", SubResource("AnimationNodeStateMachineTransition_h8e4i"), "config>map", "on_map", SubResource("AnimationNodeStateMachineTransition_4lmeg"), "open_menu", "on_status", SubResource("AnimationNodeStateMachineTransition_0cbny"), "on_config", "close_menu_config", SubResource("AnimationNodeStateMachineTransition_hrvbo"), "on_status", "close_menu_status", SubResource("AnimationNodeStateMachineTransition_uypp3"), "on_controls", "close_menu_controls", SubResource("AnimationNodeStateMachineTransition_blkrb"), "on_map", "close_menu_map", SubResource("AnimationNodeStateMachineTransition_abqjc"), "Start", "closed", SubResource("AnimationNodeStateMachineTransition_vke2r"), "closed", "open_menu", SubResource("AnimationNodeStateMachineTransition_uit24"), "close_menu_status", "closed", SubResource("AnimationNodeStateMachineTransition_074og"), "close_menu_config", "closed", SubResource("AnimationNodeStateMachineTransition_82xsv"), "close_menu_map", "closed", SubResource("AnimationNodeStateMachineTransition_getpj"), "close_menu_controls", "closed", SubResource("AnimationNodeStateMachineTransition_ryguw")]
+graph_offset = Vector2(-309, 88)
 
 [sub_resource type="Animation" id="Animation_lswn8"]
 length = 0.001
@@ -672,7 +829,7 @@ states/select_big_left/position = Vector2(613, -29)
 states/select_big_right/node = SubResource("AnimationNodeAnimation_qsp4k")
 states/select_big_right/position = Vector2(613, 242)
 transitions = ["Start", "hide_selector", SubResource("AnimationNodeStateMachineTransition_0cp0l"), "hide_on_left", "select_big_left", SubResource("AnimationNodeStateMachineTransition_d2t1y"), "select_big_left", "hide_on_left", SubResource("AnimationNodeStateMachineTransition_gngh3"), "hide_selector", "hide_on_left", SubResource("AnimationNodeStateMachineTransition_cegan"), "hide_on_left", "hide_selector", SubResource("AnimationNodeStateMachineTransition_yaehf"), "select_big_right", "hide_on_right", SubResource("AnimationNodeStateMachineTransition_0n3wm"), "hide_on_right", "select_big_right", SubResource("AnimationNodeStateMachineTransition_qnost"), "hide_on_right", "hide_selector", SubResource("AnimationNodeStateMachineTransition_wnkbs"), "hide_selector", "hide_on_right", SubResource("AnimationNodeStateMachineTransition_f6a44")]
-graph_offset = Vector2(72, -4)
+graph_offset = Vector2(44, -56)
 
 [node name="Main" type="Node" unique_id=383612433 node_paths=PackedStringArray("input_manager", "room_loader")]
 script = ExtResource("1_h2yge")
@@ -723,7 +880,7 @@ render_target_update_mode = 4
 cull_mask = 524288
 
 [node name="Pivot" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D" unique_id=1402576271]
-transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999998, 0, 0.3, 0)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999976, 0, 0.3, 0)
 
 [node name="Status" type="Node3D" parent="PauseMenu/CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot" unique_id=1764311947]
 

@@ -17,3 +17,5 @@ class_name SaveFile
 @export var game_flags: Array[bool] = [
 	
 ]
+###this is mostly for the map screen to hide certain layers until its time
+@export var farthest_floor: int = 2
