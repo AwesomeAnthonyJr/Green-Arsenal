@@ -315,37 +315,37 @@ func update_visually():
 					playback.travel("on_BIG_RIGHT")
 				StatusSelection.SEED_1:
 					playback.travel("on_SEED_1")
-					status_menu.update_status_plants(SaveManager.get_seed_types()[0], Constants.seed_order[0])
+					#status_menu.update_status_plants(SaveManager.get_seed_types()[0], Constants.seed_order[0])
 					status_menu.update_status_plant_lighting(0)
 					status_menu.handle_status_description(inspecting, 0)
 				StatusSelection.SEED_2:
 					playback.travel("on_SEED_2")
-					status_menu.update_status_plants(SaveManager.get_seed_types()[1], Constants.seed_order[1])
+					#status_menu.update_status_plants(SaveManager.get_seed_types()[1], Constants.seed_order[1])
 					status_menu.update_status_plant_lighting(1)
 					status_menu.handle_status_description(inspecting, 1)
 				StatusSelection.SEED_3:
 					playback.travel("on_SEED_3")
-					status_menu.update_status_plants(SaveManager.get_seed_types()[2], Constants.seed_order[2])
+					#status_menu.update_status_plants(SaveManager.get_seed_types()[2], Constants.seed_order[2])
 					status_menu.update_status_plant_lighting(2)
 					status_menu.handle_status_description(inspecting, 2)
 				StatusSelection.SEED_4:
 					playback.travel("on_SEED_4")
-					status_menu.update_status_plants(SaveManager.get_seed_types()[3], Constants.seed_order[3])
+					#status_menu.update_status_plants(SaveManager.get_seed_types()[3], Constants.seed_order[3])
 					status_menu.update_status_plant_lighting(3)
 					status_menu.handle_status_description(inspecting, 3)
 				StatusSelection.SEED_5:
 					playback.travel("on_SEED_5")
-					status_menu.update_status_plants(SaveManager.get_seed_types()[4], Constants.seed_order[4])
+					#status_menu.update_status_plants(SaveManager.get_seed_types()[4], Constants.seed_order[4])
 					status_menu.update_status_plant_lighting(4)
 					status_menu.handle_status_description(inspecting, 4)
 				StatusSelection.SEED_6:
 					playback.travel("on_SEED_6")
-					status_menu.update_status_plants(SaveManager.get_seed_types()[5], Constants.seed_order[5])
+					#status_menu.update_status_plants(SaveManager.get_seed_types()[5], Constants.seed_order[5])
 					status_menu.update_status_plant_lighting(5)
 					status_menu.handle_status_description(inspecting, 5)
 				StatusSelection.SEED_7:
 					playback.travel("on_SEED_7")
-					status_menu.update_status_plants(SaveManager.get_seed_types()[6], Constants.seed_order[6])
+					#status_menu.update_status_plants(SaveManager.get_seed_types()[6], Constants.seed_order[6])
 					status_menu.update_status_plant_lighting(6)
 					status_menu.handle_status_description(inspecting, 6)
 				StatusSelection.HEART:
@@ -488,9 +488,11 @@ func read_up():
 				StatusSelection.HEART:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_1
+					status_menu.update_status_plants(SaveManager.get_seed_types()[0], Constants.seed_order[0])
 				StatusSelection.GROWTH_1:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_5
+					status_menu.update_status_plants(SaveManager.get_seed_types()[4], Constants.seed_order[4])
 				StatusSelection.GROWTH_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
@@ -733,32 +735,40 @@ func read_left():
 				StatusSelection.BIG_RIGHT:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_7
+					status_menu.update_status_plants(SaveManager.get_seed_types()[6], Constants.seed_order[6])
+					inspecting = false
 				StatusSelection.SEED_1:
 					current_menu_2 = StatusSelection.BIG_LEFT
 					inspecting = false
 				StatusSelection.SEED_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_1
+					status_menu.update_status_plants(SaveManager.get_seed_types()[0], Constants.seed_order[0])
 					inspecting = false
 				StatusSelection.SEED_3:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_2
+					status_menu.update_status_plants(SaveManager.get_seed_types()[1], Constants.seed_order[1])
 					inspecting = false
 				StatusSelection.SEED_4:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_3
+					status_menu.update_status_plants(SaveManager.get_seed_types()[2], Constants.seed_order[2])
 					inspecting = false
 				StatusSelection.SEED_5:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_4
+					status_menu.update_status_plants(SaveManager.get_seed_types()[3], Constants.seed_order[3])
 					inspecting = false
 				StatusSelection.SEED_6:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_5
+					status_menu.update_status_plants(SaveManager.get_seed_types()[4], Constants.seed_order[4])
 					inspecting = false
 				StatusSelection.SEED_7:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_6
+					status_menu.update_status_plants(SaveManager.get_seed_types()[5], Constants.seed_order[5])
 					inspecting = false
 				StatusSelection.HEART:
 					current_menu_2 = StatusSelection.BIG_LEFT
@@ -871,31 +881,39 @@ func read_right():
 				StatusSelection.BIG_LEFT:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_1
+					status_menu.update_status_plants(SaveManager.get_seed_types()[0], Constants.seed_order[0])
+					inspecting = false
 				StatusSelection.BIG_RIGHT:
 					pass
 				StatusSelection.SEED_1:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_2
+					status_menu.update_status_plants(SaveManager.get_seed_types()[1], Constants.seed_order[1])
 					inspecting = false
 				StatusSelection.SEED_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_3
+					status_menu.update_status_plants(SaveManager.get_seed_types()[2], Constants.seed_order[2])
 					inspecting = false
 				StatusSelection.SEED_3:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_4
+					status_menu.update_status_plants(SaveManager.get_seed_types()[3], Constants.seed_order[3])
 					inspecting = false
 				StatusSelection.SEED_4:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_5
+					status_menu.update_status_plants(SaveManager.get_seed_types()[4], Constants.seed_order[4])
 					inspecting = false
 				StatusSelection.SEED_5:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_6
+					status_menu.update_status_plants(SaveManager.get_seed_types()[5], Constants.seed_order[5])
 					inspecting = false
 				StatusSelection.SEED_6:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_7
+					status_menu.update_status_plants(SaveManager.get_seed_types()[6], Constants.seed_order[6])
 					inspecting = false
 				StatusSelection.SEED_7:
 					current_menu_2 = StatusSelection.BIG_RIGHT

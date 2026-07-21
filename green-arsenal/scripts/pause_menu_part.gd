@@ -69,7 +69,7 @@ func handle_status_description(b: bool, n: int):
 			3:
 				describer.display("[font_size=30][b]Spring Vine[/b][/font_size]\n\nA flower with a particularly flexible stem, the Spring Vine supports it's weight by compressing it's coiled vine like a spring, launching anything that weighs down it's flower. Use it to bounce high into the air, or as a seed to knock enemies back safely.")
 			4:
-				describer.display("[font_size=30][b]Life Fruit[/b][/font_size]\n\nAn exceptionally nutritious fruit, if allowed to fully ripen it can even increase your max health, however you can only grow a weaker version which heals you. Beware however, it's seeds have a healing power too and will heal anything they shoot.")
+				describer.display("[font_size=30][b]Life Fruit[/b][/font_size]\n\nAn exceptionally nutritious fruit, if allowed to fully ripen it can even increase your max health, however you can only grow a weaker version which heals you. Watch out, it's seeds have a healing power too and will heal anything they shoot.")
 			5:
 				describer.display("[font_size=30][b]Platform Pad[/b][/font_size]\n\nA giant lily pad, similar to the [i]victoria amazonica[/i], the Platform Pad is strong enough to support the full weight of a person, lending to it's name and use as platform. It always grows upwards, and will float on the surface of water as well. If it was to hit an enemy however it would grow around them as a protective shield.")
 			6:
