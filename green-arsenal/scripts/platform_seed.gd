@@ -10,7 +10,7 @@ func plant_seed(point, norm, obj):
 	if in_water:
 		inst.seek_surface()
 	else:
-		print("PLEASE DO DEFAULT HEIGHT?")
+		#print("PLEASE DO DEFAULT HEIGHT?")
 		inst.default_height()
 	inst.default_push = norm
 	inst.own_soil = obj
