@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dngy88aglx0tr" path="res://scripts/room.gd" id="1_5l28o"]
 [ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_2.tres" id="2_kugbc"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="3_5l28o"]
+[ext_resource type="Material" uid="uid://dwx7y6pd8ocmx" path="res://materials/placeholder_leaves.tres" id="3_eanj3"]
 [ext_resource type="Script" uid="uid://cy5fvcba6qqcy" path="res://scripts/root_system.gd" id="4_j1143"]
 [ext_resource type="Script" uid="uid://hf8wah0rtjxk" path="res://scripts/root_point.gd" id="4_kclr8"]
 [ext_resource type="PackedScene" uid="uid://cmoiwur54qrki" path="res://scenes/level_parts/root_system.tscn" id="4_l5rmu"]
@@ -17,7 +18,7 @@ size = Vector2(10, 10)
 subdivide_width = 30
 subdivide_depth = 30
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_l5rmu"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_eanj3"]
 _surfaces = [{
 "aabb": AABB(-3.3078966, -0.8155138, -3.8896167, 5.5988455, 8.834383, 8.985457),
 "format": 34359742471,
@@ -47,16 +48,17 @@ shape = SubResource("BoxShape3D_h45xw")
 mesh = SubResource("PlaneMesh_y383h")
 surface_material_override/0 = ExtResource("2_kugbc")
 
-[node name="SoilPatch10x10_2" type="StaticBody3D" parent="." unique_id=542999688 groups=["soil"]]
+[node name="Leaves" type="StaticBody3D" parent="." unique_id=542999688]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 10, 0)
 collision_layer = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SoilPatch10x10_2" unique_id=198776378]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Leaves" unique_id=198776378]
 shape = SubResource("BoxShape3D_h45xw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SoilPatch10x10_2" unique_id=453339516]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Leaves" unique_id=453339516]
+cast_shadow = 2
 mesh = SubResource("PlaneMesh_y383h")
-surface_material_override/0 = ExtResource("2_kugbc")
+surface_material_override/0 = ExtResource("3_eanj3")
 
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("3_5l28o")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5, -5.5)
@@ -83,7 +85,7 @@ auto_rebuild = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RootSystem2" unique_id=255475527]
 material_override = ExtResource("5_whqak")
-mesh = SubResource("ArrayMesh_l5rmu")
+mesh = SubResource("ArrayMesh_eanj3")
 
 [node name="StaticBody3D_L1" type="StaticBody3D" parent="RootSystem2" unique_id=1966279754]
 collision_layer = 3

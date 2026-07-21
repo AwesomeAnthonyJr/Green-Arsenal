@@ -83,6 +83,8 @@ func read_end_jump():
 	is_jump_drifting = false
 ###read_pause(): has moved to the pause menu script!
 func read_shoot():
+	if get_tree().paused:
+		return
 	if supress_shooting:
 		return
 	is_reloading = false
@@ -100,6 +102,8 @@ func read_shoot():
 			current_bullet += 1
 			hud.update_revolver(loaded_in_gun)
 func read_reload():
+	if get_tree().paused:
+		return
 	if supress_shooting:
 		return
 	if is_reloading:
@@ -113,6 +117,8 @@ func read_reload():
 		current_bullet = 0
 
 func read_interact():
+	if get_tree().paused:
+		return
 	if supress_shooting:
 		return
 	if is_reloading:
@@ -120,6 +126,8 @@ func read_interact():
 	else:
 		pass
 func exit_reload_early():
+	if get_tree().paused:
+		return
 	is_reloading = false
 	current_bullet = 0
 	for i in loaded_in_gun.size():
@@ -262,6 +270,8 @@ func apply_air_drift(delta) -> void:
 
 #jump has been improved a bit
 func playerJump() -> void:
+	if get_tree().paused:
+		return
 	if is_grounded and !supress_movement:
 		#print()
 		var speed_mult = lerpf(1.0, 1.75, linear_velocity.slide(Vector3.UP).length() / 12.0)

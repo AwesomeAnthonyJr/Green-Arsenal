@@ -8,6 +8,7 @@
 radius = 0.05
 
 [node name="PlayerPackage" type="Node3D" unique_id=1280539618 groups=["player_package"]]
+process_mode = 1
 
 [node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot", "hud", "aiming_target") instance=ExtResource("1_aaihd")]
 light_grav = 0.8

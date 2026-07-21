@@ -34,7 +34,7 @@ subdivide_width = 100
 subdivide_depth = 100
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_80iay"]
-size = Vector3(48, 4, 32)
+size = Vector3(48, 24, 32)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pewrh"]
 size = Vector3(48, 1, 32)
@@ -79,6 +79,10 @@ size = Vector3(10, 1, 10)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Soil" unique_id=1454028469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -3.806196, 8.5)
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Soil" unique_id=302617483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5, -14.806196, 8.5)
 size = Vector3(10, 1, 10)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Soil" unique_id=1761221709]
@@ -149,7 +153,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Water" unique_id=1264510325]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1.5, 8.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -11.5, 8.5)
 shape = SubResource("BoxShape3D_80iay")
 
 [node name="Water2" type="Area3D" parent="." unique_id=1163669924 groups=["fresh_water"]]
