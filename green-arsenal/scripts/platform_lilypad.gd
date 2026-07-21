@@ -33,10 +33,10 @@ func push_away_from_others(delta):
 		var push_direction = Vector3.ZERO
 		for body in avoidance_area.get_overlapping_bodies():
 			if body != platform:
-				var away = body.global_position - platform.global_position
-				if body.get_parent() is PlatformLilypad:
-					away = platform.global_position - body.global_position
-				elif body == own_soil:
+				var away = platform.global_position - body.global_position
+				#if body.get_parent() is PlatformLilypad or body.get_parent() is RootSystem or body is Player:
+				#	away = platform.global_position - body.global_position
+				if body == own_soil:
 					#force use default (normal from this soil)
 					away = Vector3.ZERO
 				away.y = 0
@@ -48,19 +48,23 @@ func push_away_from_others(delta):
 		pos_offset += Vector3(0, pusher_countdown, 0) * delta
 	else:
 		do_push = false
-		plat_collider.disabled = false
+		
 
 func default_height():
-	await get_tree().physics_frame
+	
 	#assume ceiling
 	if default_push.y < -0.75:
 		pos_offset = Vector3(-2, -0.5, -2)
 	else:
 		pos_offset = Vector3(0, 0.5, 0)
+	
+	await get_tree().physics_frame
 	do_push = true
+	await get_tree().physics_frame
+	plat_collider.disabled = false
 
 func seek_surface():
-	await get_tree().physics_frame
+	
 	print("SEEK SURFACE")
 	raycast.force_raycast_update()
 	if raycast.is_colliding():
@@ -68,4 +72,8 @@ func seek_surface():
 		if raycast.get_collider().is_in_group("fresh_water"):
 			#print(raycast.get_collision_point().distance_to(global_position))
 			pos_offset = raycast.get_collision_point() - global_position
+	
+	await get_tree().physics_frame
 	do_push = true
+	await get_tree().physics_frame
+	plat_collider.disabled = false

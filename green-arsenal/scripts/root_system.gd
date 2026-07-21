@@ -1,5 +1,6 @@
 @tool
 extends Node3D
+class_name RootSystem
 
 var branches = []
 @export var rebuild = false
