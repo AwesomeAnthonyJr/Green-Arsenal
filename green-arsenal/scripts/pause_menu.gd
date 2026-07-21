@@ -144,6 +144,8 @@ func read_pause():
 				playback.travel("close_menu_config")
 			MenuSelection.MAP:
 				playback.travel("close_menu_map")
+		playback = select_anim_tree["parameters/playback"]
+		playback.travel("hide_selector")
 
 func update_display():
 	match current_menu:
