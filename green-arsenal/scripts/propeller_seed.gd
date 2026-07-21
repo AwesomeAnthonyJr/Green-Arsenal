@@ -14,6 +14,7 @@ func plant_seed(point, norm, obj):
 	inst.global_position = point
 	align_collision_rotation(norm, inst)
 	
+	inst.grow()
 	player.active_plants.append(inst)
 	player.check_special_plants()
 

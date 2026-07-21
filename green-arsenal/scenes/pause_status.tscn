@@ -811,7 +811,7 @@ transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
 visible = false
 
 [node name="PropellerFlower" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=567932213 instance=ExtResource("9_8037b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 visible = false
 
 [node name="BoulderFruit" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=1479091050 instance=ExtResource("10_yrimf")]
