@@ -46,7 +46,6 @@ var iframes = false
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	connect_inputs()
 	await get_tree().process_frame
 	if HUD != null:
@@ -66,7 +65,6 @@ func connect_inputs():
 	manager.sprint.connect(read_sprint)
 	manager.jump.connect(read_jump)
 	manager.end_jump.connect(read_end_jump)
-	manager.pause.connect(read_pause)
 	manager.shoot.connect(read_shoot)
 	manager.reload.connect(read_reload)
 	manager.interact.connect(read_interact)
@@ -83,11 +81,7 @@ func read_jump():
 	playerJump()
 func read_end_jump():
 	is_jump_drifting = false
-#TODO: improve this / handle pausing in some other script! (fine for now)
-func read_pause():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
-	get_tree().paused = true
-	#Unlocks the curser on esc press
+###read_pause(): has moved to the pause menu script!
 func read_shoot():
 	if supress_shooting:
 		return

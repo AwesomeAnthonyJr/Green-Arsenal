@@ -95,6 +95,7 @@ var in_menu = false
 func _ready() -> void:
 	main = find_main(self)
 	connect_inputs()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 func connect_inputs():
 	var manager = main.input_manager
 	manager.up.connect(read_up)
@@ -116,16 +117,22 @@ func find_main(x) -> Main:
 func _process(delta: float) -> void:
 	if suppress_next_input:
 		suppress_next_input = false
-#TODO: redo all this and handle pausing here rather than on the player
+
+#this is where the game handles pausing.
 func read_pause():
-	await get_tree().process_frame
-	if !in_menu:
+	var p = get_tree().paused
+	if !p:
+		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 		current_menu = MenuSelection.STATUS
 		current_menu_2 = StatusSelection.SEED_1
 		update_visually()
+		initialize_map_frame()
 		await get_tree().create_timer(0.2).timeout
 		in_menu = true
 	else:
+		get_tree().paused = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 		in_menu = false
 		var playback = main_anim_tree["parameters/playback"]
 		match current_menu:

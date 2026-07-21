@@ -87,7 +87,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_jq2sk"]
 resource_name = "close_menu_config"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -103,7 +103,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_4k2k6"]
 resource_name = "close_menu_controls"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -119,7 +119,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ok6jj"]
 resource_name = "close_menu_map"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -135,7 +135,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_0rl1p"]
 resource_name = "close_menu_status"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -151,7 +151,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_facbu"]
 resource_name = "closed"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -323,7 +323,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_htxhm"]
 resource_name = "open_menu"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

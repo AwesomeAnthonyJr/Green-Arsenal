@@ -21,7 +21,8 @@ signal left
 signal right
 signal sprint_burst
 
-var mouse_sensitivity = 0.001
+#counter-intuitively, not the actual sensitivity
+const mouse_sensitivity = 0.001
 
 #here calls all the smaller functions for each input
 func _process(delta: float) -> void:
@@ -93,4 +94,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			var look_x = -1 * event.relative.x * mouse_sensitivity;
 			var look_y = -1 * event.relative.y * mouse_sensitivity;
+			look_x *= SaveManager.player_settings.mouse_sense
+			look_y *= SaveManager.player_settings.mouse_sense
 			look.emit(look_x, look_y)
