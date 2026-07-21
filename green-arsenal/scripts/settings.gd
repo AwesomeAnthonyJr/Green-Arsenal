@@ -1,8 +1,10 @@
 extends Resource
 class_name Settings
 
-@export var music = 100
-@export var sound = 100
+@export var master_vol: int = 100
+@export var music_vol: int = 100
+@export var sound_vol: int = 100
+@export var mouse_sense: float = 1.0
 @export var action_dict = {
 	"move_forward": InputMap.action_get_events("move_forward")[0],
 	"move_back": InputMap.action_get_events("move_back")[0],
@@ -14,7 +16,52 @@ class_name Settings
 	"shoot": InputMap.action_get_events("shoot")[0],
 	"reload": InputMap.action_get_events("reload")[0],
 	"interact": InputMap.action_get_events("interact")[0],
+	"close_reload": InputMap.action_get_events("close_reload")[0],
 }
+signal input_changed
+
+func get_sense_text():
+	return "%0*.*f" % [4, 2, mouse_sense]
+
+func get_mono_audio_text(i: int):
+	var num_result = 0
+	match i:
+		0:
+			num_result = master_vol
+		1:
+			num_result = music_vol
+		2:
+			num_result = sound_vol
+	num_result = str(num_result)
+	match num_result.length():
+		1:
+			num_result = "  " + num_result
+		2:
+			num_result = " " + num_result
+	return num_result
+
+func increment_sense(n: float):
+	mouse_sense += n
+	
+	mouse_sense = max(0.05, mouse_sense)
+	mouse_sense = min(5.0, mouse_sense)
+
+func increment_volume(i: int, n: int):
+	match i:
+		0:
+			master_vol += n
+		1:
+			music_vol += n
+		2:
+			sound_vol += n
+	
+	master_vol = max(0, master_vol)
+	master_vol = min(100, master_vol)
+	music_vol = max(0, music_vol)
+	music_vol = min(100, music_vol)
+	sound_vol = max(0, sound_vol)
+	sound_vol = min(100, sound_vol)
+	update_audio_bus()
 
 func load_action_dict():
 	for a in action_dict:
@@ -48,8 +95,9 @@ func cleanString(input):
 	return str
 
 func update_audio_bus():
-	AudioServer.set_bus_volume_db(1, linear_to_db(music/100.0))
-	AudioServer.set_bus_volume_db(2, linear_to_db(sound/100.0))
+	AudioServer.set_bus_volume_db(0, linear_to_db(master_vol/100.0))
+	AudioServer.set_bus_volume_db(1, linear_to_db(music_vol/100.0))
+	AudioServer.set_bus_volume_db(2, linear_to_db(sound_vol/100.0))
 
 func find_duplicate_actions(n: String, event):
 	print(n, ", " ,event)
@@ -66,6 +114,7 @@ func rebindAction(n: String, event):
 	action_dict[n] = event
 	InputMap.action_erase_events(n)
 	InputMap.action_add_event(n, event)
+	input_changed.emit()
 
 func get_text(code):
 	match code:
@@ -89,3 +138,5 @@ func get_text(code):
 			return cleanString(action_dict.get("reload").as_text())
 		"interact":
 			return cleanString(action_dict.get("interact").as_text())
+		"close_reload":
+			return cleanString(action_dict.get("close_reload").as_text())

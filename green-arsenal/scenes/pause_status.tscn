@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://b2hy7nwf61v0w"]
 
-[ext_resource type="Texture2D" uid="uid://blyoxrm64dbg2" path="res://ui/pause_menu_ui_status_v2.png" id="1_k2bl5"]
-[ext_resource type="Texture2D" uid="uid://bt5pgejxb6g4y" path="res://ui/pause_menu_ui_selector_1.png" id="2_k2bl5"]
+[ext_resource type="Script" uid="uid://dvh7o02l8t1p7" path="res://scripts/pause_menu_part.gd" id="1_h2u1m"]
+[ext_resource type="Texture2D" uid="uid://delpxc4juo2c2" path="res://ui/pause_menu_ui_status_v3.png" id="1_k2bl5"]
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="2_xn0vo"]
+[ext_resource type="Script" uid="uid://c2ounwmbfdkpi" path="res://scripts/plant_displayer.gd" id="4_8037b"]
 [ext_resource type="PackedScene" uid="uid://kwmr4xhfpaq8" path="res://scenes/blaze_flower.tscn" id="4_k2bl5"]
+[ext_resource type="Texture2D" uid="uid://1u1klsx5x1q4" path="res://ui/status_ui_growth_charge.png" id="4_yrimf"]
+[ext_resource type="PackedScene" uid="uid://ditxtduhwcry6" path="res://scenes/spring_vine.tscn" id="5_nndsu"]
+[ext_resource type="PackedScene" uid="uid://by7qpr87u2351" path="res://scenes/life_fruit.tscn" id="6_7flq5"]
+[ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="6_nndsu"]
+[ext_resource type="PackedScene" uid="uid://c2vuw8gs6pqlp" path="res://scenes/platform_lilypad.tscn" id="7_c3tfo"]
+[ext_resource type="PackedScene" uid="uid://oq6yiavrn6b8" path="res://scenes/seeker_flower.tscn" id="8_1xkri"]
+[ext_resource type="PackedScene" uid="uid://dshrkk8pp4ig0" path="res://scenes/propeller_flower.tscn" id="9_8037b"]
+[ext_resource type="PackedScene" uid="uid://bu6btccih5wg4" path="res://scenes/boulder_fruit.tscn" id="10_yrimf"]
+[ext_resource type="Script" uid="uid://b6a5tb4hbvnyb" path="res://scripts/description_text.gd" id="13_akywl"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="13_cslsk"]
+[ext_resource type="FontFile" uid="uid://i3l17i8ifdhk" path="res://fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" id="13_iehjl"]
+[ext_resource type="Texture2D" uid="uid://cu62pj1efch37" path="res://ui/heart_ui_1_take_2_flat.png" id="14_kig37"]
+[ext_resource type="FontFile" uid="uid://bi5b6pmkcisnd" path="res://fonts/Roboto_Mono/static/RobotoMono-MediumItalic.ttf" id="15_4uvb4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k2bl5"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,7 +32,637 @@ sky = SubResource("Sky_80c3a")
 ambient_light_source = 1
 glow_enabled = true
 
+[sub_resource type="Animation" id="Animation_akywl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cslsk"]
+resource_name = "auto_spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4uvb4"]
+_data = {
+&"RESET": SubResource("Animation_akywl"),
+&"auto_spin": SubResource("Animation_cslsk")
+}
+
+[sub_resource type="Animation" id="Animation_h2u1m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(155, 275)]
+}
+
+[sub_resource type="Animation" id="Animation_83ph3"]
+resource_name = "on_BIG_LEFT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iehjl"]
+resource_name = "on_BIG_RIGHT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1280, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4uvb4"]
+resource_name = "on_GROWTH_1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(353, 397)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_shrunk_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_b5qbp"]
+resource_name = "on_GROWTH_2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(418, 432)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_shrunk_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_r4j1q"]
+resource_name = "on_GROWTH_3"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(483, 467)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_shrunk_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_kig37"]
+resource_name = "on_HEART"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(201, 430)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_fourth_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_nndsu"]
+resource_name = "on_SEED_1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(155, 275)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7flq5"]
+resource_name = "on_SEED_2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(220, 205)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_c3tfo"]
+resource_name = "on_SEED_3"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(285, 275)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rvvyc"]
+resource_name = "on_SEED_4"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(350, 205)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1xkri"]
+resource_name = "on_SEED_5"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(415, 275)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8037b"]
+resource_name = "on_SEED_6"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 205)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_yrimf"]
+resource_name = "on_SEED_7"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(545, 275)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83ph3"]
+_data = {
+&"RESET": SubResource("Animation_h2u1m"),
+&"on_BIG_LEFT": SubResource("Animation_83ph3"),
+&"on_BIG_RIGHT": SubResource("Animation_iehjl"),
+&"on_GROWTH_1": SubResource("Animation_4uvb4"),
+&"on_GROWTH_2": SubResource("Animation_b5qbp"),
+&"on_GROWTH_3": SubResource("Animation_r4j1q"),
+&"on_HEART": SubResource("Animation_kig37"),
+&"on_SEED_1": SubResource("Animation_nndsu"),
+&"on_SEED_2": SubResource("Animation_7flq5"),
+&"on_SEED_3": SubResource("Animation_c3tfo"),
+&"on_SEED_4": SubResource("Animation_rvvyc"),
+&"on_SEED_5": SubResource("Animation_1xkri"),
+&"on_SEED_6": SubResource("Animation_8037b"),
+&"on_SEED_7": SubResource("Animation_yrimf")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h2u1m"]
+animation = &"on_BIG_LEFT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nndsu"]
+animation = &"on_BIG_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kig37"]
+animation = &"on_GROWTH_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_akywl"]
+animation = &"on_GROWTH_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cslsk"]
+animation = &"on_GROWTH_3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_83ph3"]
+animation = &"on_HEART"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7flq5"]
+animation = &"on_SEED_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3tfo"]
+animation = &"on_SEED_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rvvyc"]
+animation = &"on_SEED_3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1xkri"]
+animation = &"on_SEED_4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8037b"]
+animation = &"on_SEED_5"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yrimf"]
+animation = &"on_SEED_6"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iehjl"]
+animation = &"on_SEED_7"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kig37"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_akywl"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cslsk"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4uvb4"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b5qbp"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r4j1q"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2xmey"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n68mc"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gjc3p"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ken4e"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x7kc2"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8pmkr"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ek5c7"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r56lo"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dn51u"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_myo7e"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mh0yc"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2uj5j"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y7km3"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cni6c"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kjmrn"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jr8ka"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_10bws"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hidmd"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m4s1r"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kddxl"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jn6u1"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ce43c"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2rlr5"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_usx4i"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xomwm"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x2emi"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q8dlx"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h2u1m"]
+states/End/position = Vector2(1366, 95)
+states/Start/position = Vector2(-66, -23)
+states/on_BIG_LEFT/node = SubResource("AnimationNodeAnimation_h2u1m")
+states/on_BIG_LEFT/position = Vector2(94, 57)
+states/on_BIG_RIGHT/node = SubResource("AnimationNodeAnimation_nndsu")
+states/on_BIG_RIGHT/position = Vector2(1228, 95)
+states/on_GROWTH_1/node = SubResource("AnimationNodeAnimation_kig37")
+states/on_GROWTH_1/position = Vector2(646, 138)
+states/on_GROWTH_2/node = SubResource("AnimationNodeAnimation_akywl")
+states/on_GROWTH_2/position = Vector2(773, 205)
+states/on_GROWTH_3/node = SubResource("AnimationNodeAnimation_cslsk")
+states/on_GROWTH_3/position = Vector2(930, 237)
+states/on_HEART/node = SubResource("AnimationNodeAnimation_83ph3")
+states/on_HEART/position = Vector2(325, 138)
+states/on_SEED_1/node = SubResource("AnimationNodeAnimation_7flq5")
+states/on_SEED_1/position = Vector2(184, -23)
+states/on_SEED_2/node = SubResource("AnimationNodeAnimation_c3tfo")
+states/on_SEED_2/position = Vector2(312, -23)
+states/on_SEED_3/node = SubResource("AnimationNodeAnimation_rvvyc")
+states/on_SEED_3/position = Vector2(440, -23)
+states/on_SEED_4/node = SubResource("AnimationNodeAnimation_1xkri")
+states/on_SEED_4/position = Vector2(558, -23)
+states/on_SEED_5/node = SubResource("AnimationNodeAnimation_8037b")
+states/on_SEED_5/position = Vector2(687, 55)
+states/on_SEED_6/node = SubResource("AnimationNodeAnimation_yrimf")
+states/on_SEED_6/position = Vector2(827, 55)
+states/on_SEED_7/node = SubResource("AnimationNodeAnimation_iehjl")
+states/on_SEED_7/position = Vector2(957, 55)
+transitions = ["Start", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_kig37"), "on_BIG_LEFT", "on_SEED_1", SubResource("AnimationNodeStateMachineTransition_akywl"), "on_SEED_1", "on_SEED_2", SubResource("AnimationNodeStateMachineTransition_cslsk"), "on_SEED_2", "on_SEED_3", SubResource("AnimationNodeStateMachineTransition_4uvb4"), "on_SEED_3", "on_SEED_4", SubResource("AnimationNodeStateMachineTransition_b5qbp"), "on_SEED_4", "on_SEED_3", SubResource("AnimationNodeStateMachineTransition_r4j1q"), "on_SEED_3", "on_SEED_2", SubResource("AnimationNodeStateMachineTransition_2xmey"), "on_SEED_2", "on_SEED_1", SubResource("AnimationNodeStateMachineTransition_n68mc"), "on_SEED_1", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_gjc3p"), "on_HEART", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_ken4e"), "on_SEED_1", "on_HEART", SubResource("AnimationNodeStateMachineTransition_x7kc2"), "on_HEART", "on_SEED_1", SubResource("AnimationNodeStateMachineTransition_8pmkr"), "on_SEED_2", "on_HEART", SubResource("AnimationNodeStateMachineTransition_ek5c7"), "on_SEED_3", "on_HEART", SubResource("AnimationNodeStateMachineTransition_r56lo"), "on_SEED_4", "on_HEART", SubResource("AnimationNodeStateMachineTransition_dn51u"), "on_SEED_4", "on_SEED_5", SubResource("AnimationNodeStateMachineTransition_myo7e"), "on_SEED_5", "on_SEED_4", SubResource("AnimationNodeStateMachineTransition_mh0yc"), "on_SEED_5", "on_SEED_6", SubResource("AnimationNodeStateMachineTransition_2uj5j"), "on_SEED_6", "on_SEED_5", SubResource("AnimationNodeStateMachineTransition_y7km3"), "on_SEED_6", "on_SEED_7", SubResource("AnimationNodeStateMachineTransition_cni6c"), "on_SEED_7", "on_SEED_6", SubResource("AnimationNodeStateMachineTransition_kjmrn"), "on_SEED_7", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_jr8ka"), "on_BIG_RIGHT", "on_SEED_7", SubResource("AnimationNodeStateMachineTransition_10bws"), "on_GROWTH_3", "on_GROWTH_2", SubResource("AnimationNodeStateMachineTransition_hidmd"), "on_GROWTH_2", "on_GROWTH_3", SubResource("AnimationNodeStateMachineTransition_m4s1r"), "on_GROWTH_2", "on_GROWTH_1", SubResource("AnimationNodeStateMachineTransition_kddxl"), "on_GROWTH_1", "on_GROWTH_2", SubResource("AnimationNodeStateMachineTransition_jn6u1"), "on_GROWTH_1", "on_SEED_5", SubResource("AnimationNodeStateMachineTransition_ce43c"), "on_SEED_5", "on_GROWTH_1", SubResource("AnimationNodeStateMachineTransition_2rlr5"), "on_HEART", "on_GROWTH_1", SubResource("AnimationNodeStateMachineTransition_usx4i"), "on_GROWTH_1", "on_HEART", SubResource("AnimationNodeStateMachineTransition_xomwm"), "on_GROWTH_3", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_x2emi"), "Start", "on_SEED_1", SubResource("AnimationNodeStateMachineTransition_q8dlx")]
+graph_offset = Vector2(-230, -110)
+
 [node name="PauseStatus" type="CanvasLayer" unique_id=111155969]
+script = ExtResource("1_h2u1m")
 
 [node name="Control" type="Control" parent="." unique_id=1089514977]
 layout_mode = 3
@@ -32,33 +676,31 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_k2bl5")
 
-[node name="SeedSelect" type="Sprite2D" parent="Control" unique_id=1276620294]
+[node name="SeedBlaze" type="Sprite2D" parent="Control" unique_id=1537875698]
 visibility_layer = 524288
-position = Vector2(154, 275)
-texture = ExtResource("2_k2bl5")
-
-[node name="Seed1" type="Sprite2D" parent="Control" unique_id=1537875698]
-visibility_layer = 524288
+z_index = 1
 position = Vector2(154, 275)
 texture = ExtResource("2_xn0vo")
 hframes = 11
 frame = 2
 
-[node name="Seed2" type="Sprite2D" parent="Control" unique_id=95842972]
+[node name="SeedBounce" type="Sprite2D" parent="Control" unique_id=95842972]
 visibility_layer = 524288
+z_index = 1
 position = Vector2(219, 204)
 texture = ExtResource("2_xn0vo")
 hframes = 11
 frame = 3
 
-[node name="Seed3" type="Sprite2D" parent="Control" unique_id=1926504652]
+[node name="SeedLife" type="Sprite2D" parent="Control" unique_id=1926504652]
 visibility_layer = 524288
+z_index = 1
 position = Vector2(284, 275)
 texture = ExtResource("2_xn0vo")
 hframes = 11
 frame = 4
 
-[node name="Seed4" type="Sprite2D" parent="Control" unique_id=856123227]
+[node name="SeedPlatform" type="Sprite2D" parent="Control" unique_id=856123227]
 modulate = Color(0, 0, 0, 1)
 visibility_layer = 524288
 position = Vector2(349, 204)
@@ -66,7 +708,7 @@ texture = ExtResource("2_xn0vo")
 hframes = 11
 frame = 5
 
-[node name="Seed5" type="Sprite2D" parent="Control" unique_id=348027026]
+[node name="SeedSeeker" type="Sprite2D" parent="Control" unique_id=348027026]
 modulate = Color(0, 0, 0, 1)
 visibility_layer = 524288
 position = Vector2(414, 275)
@@ -74,7 +716,7 @@ texture = ExtResource("2_xn0vo")
 hframes = 11
 frame = 6
 
-[node name="Seed6" type="Sprite2D" parent="Control" unique_id=1440466741]
+[node name="SeedPropeller" type="Sprite2D" parent="Control" unique_id=1440466741]
 modulate = Color(0, 0, 0, 1)
 visibility_layer = 524288
 position = Vector2(479, 204)
@@ -82,13 +724,31 @@ texture = ExtResource("2_xn0vo")
 hframes = 11
 frame = 7
 
-[node name="Seed7" type="Sprite2D" parent="Control" unique_id=2036207916]
+[node name="SeedWeight" type="Sprite2D" parent="Control" unique_id=2036207916]
 modulate = Color(0, 0, 0, 1)
 visibility_layer = 524288
 position = Vector2(544, 275)
 texture = ExtResource("2_xn0vo")
 hframes = 11
 frame = 8
+
+[node name="GrowthCharge1" type="Sprite2D" parent="Control" unique_id=1684070708]
+visibility_layer = 524288
+z_index = 1
+position = Vector2(352, 397)
+texture = ExtResource("4_yrimf")
+
+[node name="GrowthCharge2" type="Sprite2D" parent="Control" unique_id=1536532922]
+visibility_layer = 524288
+z_index = 1
+position = Vector2(417, 432)
+texture = ExtResource("4_yrimf")
+
+[node name="GrowthCharge3" type="Sprite2D" parent="Control" unique_id=51034616]
+visibility_layer = 524288
+z_index = 1
+position = Vector2(482, 467)
+texture = ExtResource("4_yrimf")
 
 [node name="Control" type="Control" parent="Control" unique_id=409755747]
 anchors_preset = 0
@@ -103,6 +763,7 @@ offset_right = 400.0
 offset_bottom = 400.0
 
 [node name="SubViewport" type="SubViewport" parent="Control/Control/PlantDisplayer" unique_id=51773393]
+own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(400, 400)
@@ -112,69 +773,149 @@ render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Control/Control/PlantDisplayer/SubViewport/Pivot" unique_id=833935108]
 transform = Transform3D(1, 0, 0, 0, 0.96592575, 0.258819, 0, -0.258819, 0.96592575, 0, 2, 2)
-cull_mask = 262144
-
-[node name="BlazeFlower" parent="Control/Control/PlantDisplayer/SubViewport" unique_id=1252632312 instance=ExtResource("4_k2bl5")]
-
-[node name="MeshInstance3D" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower" index="0" unique_id=48345425]
-layers = 262144
-
-[node name="MeshInstance3D4" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower" index="1" unique_id=1011431441]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D" parent_id_path=PackedInt32Array(1252632312, 437523559) index="0" unique_id=1548463745]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D9" parent_id_path=PackedInt32Array(1252632312, 294821790) index="0" unique_id=494265217]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D10" parent_id_path=PackedInt32Array(1252632312, 110192833) index="0" unique_id=1856530496]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D2" parent_id_path=PackedInt32Array(1252632312, 1313609177) index="0" unique_id=964680219]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D3" parent_id_path=PackedInt32Array(1252632312, 1774025607) index="0" unique_id=562437770]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D4" parent_id_path=PackedInt32Array(1252632312, 442782362) index="0" unique_id=697311996]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D5" parent_id_path=PackedInt32Array(1252632312, 1687954477) index="0" unique_id=2111051825]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D6" parent_id_path=PackedInt32Array(1252632312, 46697779) index="0" unique_id=791420975]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D7" parent_id_path=PackedInt32Array(1252632312, 1067782026) index="0" unique_id=818032901]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower/Node3D8" parent_id_path=PackedInt32Array(1252632312, 1481189099) index="0" unique_id=1260804956]
-layers = 262144
-
-[node name="MeshInstance3D2" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower" index="12" unique_id=471780768]
-layers = 262144
-
-[node name="MeshInstance3D3" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower" index="13" unique_id=767942786]
-layers = 262144
-
-[node name="OmniLight3D" parent="Control/Control/PlantDisplayer/SubViewport/BlazeFlower" index="15" unique_id=182943981]
-layers = 262144
+cull_mask = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Control/Control/PlantDisplayer/SubViewport" unique_id=1567586933]
 transform = Transform3D(0.9686385, -0.12123416, 0.21689105, 0, 0.8728915, 0.4879144, -0.24847424, -0.47261268, 0.84551626, 0, 0, 0)
-layers = 262144
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Control/Control/PlantDisplayer/SubViewport" unique_id=1704693536]
 environment = SubResource("Environment_h2u1m")
 
-[node name="PlantDescriber" type="RichTextLabel" parent="Control/Control" unique_id=1996662465]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Control/PlantDisplayer/SubViewport" unique_id=1702923099]
+libraries/ = SubResource("AnimationLibrary_4uvb4")
+autoplay = &"auto_spin"
+speed_scale = 0.1
+
+[node name="Plants" type="Node3D" parent="Control/Control/PlantDisplayer/SubViewport" unique_id=1414143325]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715574, 0, -0.08715574, 0.9961947, 0, 0, 0)
+script = ExtResource("4_8037b")
+
+[node name="BlazeFlower" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=1252632312 instance=ExtResource("4_k2bl5")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.2, 0)
 visible = false
+
+[node name="SpringVine" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=1058501669 instance=ExtResource("5_nndsu")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.8, 0)
+visible = false
+
+[node name="LifeFruit" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=677679092 instance=ExtResource("6_7flq5")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.4, 0)
+visible = false
+
+[node name="PlatformPad" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=1091955975 instance=ExtResource("7_c3tfo")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 1, 0)
+visible = false
+
+[node name="SeekerFlower" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=1176463301 instance=ExtResource("8_1xkri")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+visible = false
+
+[node name="PropellerFlower" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=567932213 instance=ExtResource("9_8037b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+visible = false
+
+[node name="BoulderFruit" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=1479091050 instance=ExtResource("10_yrimf")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.25, 0)
+visible = false
+
+[node name="PlantDescriber" type="RichTextLabel" parent="Control/Control" unique_id=1996662465]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 396.0
 offset_bottom = 396.0
-text = "DESCRIBING PLANTS DESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTSDESCRIBING PLANTS"
+theme_override_fonts/normal_font = ExtResource("13_cslsk")
+theme_override_fonts/bold_font = ExtResource("13_iehjl")
+theme_override_fonts/italics_font = ExtResource("15_4uvb4")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+script = ExtResource("13_akywl")
 
-[editable path="Control/Control/PlantDisplayer/SubViewport/BlazeFlower"]
+[node name="Control2" type="Control" parent="Control" unique_id=1099446858]
+anchors_preset = 0
+offset_left = 122.0
+offset_top = 383.0
+offset_right = 283.0
+offset_bottom = 505.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Control2" unique_id=1670726039]
+z_index = 2
+layout_mode = 0
+offset_left = 24.0
+offset_top = -8.0
+offset_right = 185.0
+offset_bottom = 114.0
+rotation = 0.15946096
+scale = Vector2(0.7614514, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("13_iehjl")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]/[/center]"
+
+[node name="CurrentMaxText" type="RichTextLabel" parent="Control/Control2" unique_id=1982703159]
+z_index = 2
+layout_mode = 0
+offset_left = -91.00001
+offset_top = 37.0
+offset_right = 69.99999
+offset_bottom = 159.0
+rotation = -0.18266775
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("13_iehjl")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[right]3[/right]"
+
+[node name="MaxMaxText" type="RichTextLabel" parent="Control/Control2" unique_id=1146733594]
+z_index = 2
+layout_mode = 0
+offset_left = 96.0
+offset_top = 16.999998
+offset_right = 257.0
+offset_bottom = 139.0
+rotation = 0.20538907
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("13_iehjl")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[left]7[/left]"
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control/Control2" unique_id=556576919]
+z_index = 1
+position = Vector2(76, 64)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("14_kig37")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control/Control2" unique_id=909641521]
+z_index = 1
+position = Vector2(107, 42)
+rotation = 0.2617994
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("14_kig37")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Control2" unique_id=1543144702]
+z_index = 1
+position = Vector2(47.000015, 46)
+rotation = -0.2617994
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_kig37")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1118619452]
+libraries/ = SubResource("AnimationLibrary_83ph3")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=979793095]
+tree_root = SubResource("AnimationNodeStateMachine_h2u1m")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Selector" parent="." unique_id=894841875 instance=ExtResource("6_nndsu")]
+position = Vector2(155, 275)

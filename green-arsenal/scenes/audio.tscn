@@ -1,0 +1,529 @@
+[gd_scene format=3 uid="uid://28s37t1348g5"]
+
+[ext_resource type="Script" uid="uid://dvh7o02l8t1p7" path="res://scripts/pause_menu_part.gd" id="1_f5a2e"]
+[ext_resource type="PackedScene" uid="uid://gla5qwkplqry" path="res://scenes/volume_slider.tscn" id="2_bwtr5"]
+[ext_resource type="Texture2D" uid="uid://8orsnjmichxg" path="res://scenes/pause_menu_ui_audio_v3.png" id="2_hlm5c"]
+[ext_resource type="Texture2D" uid="uid://ghg0ued8ynqw" path="res://ui/just_transparent_i_guess.png" id="3_8kkbo"]
+[ext_resource type="Texture2D" uid="uid://d3uu4ytrq3ykg" path="res://ui/ui_little_rectangle.png" id="4_3g2y6"]
+[ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="4_hlm5c"]
+[ext_resource type="Script" uid="uid://di5rnietukg8x" path="res://scripts/sense_slider.gd" id="5_lpqkh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kkbo"]
+bg_color = Color(0.09803922, 0.30980393, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4v2uo"]
+bg_color = Color(0.2509804, 1, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3p2l"]
+bg_color = Color(0.26666668, 0.8980392, 0.21568628, 1)
+border_width_top = 30
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_3g2y6"]
+HSlider/icons/grabber = ExtResource("3_8kkbo")
+HSlider/icons/grabber_disabled = ExtResource("4_3g2y6")
+HSlider/icons/grabber_highlight = ExtResource("4_3g2y6")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_8kkbo")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_4v2uo")
+HSlider/styles/slider = SubResource("StyleBoxFlat_p3p2l")
+
+[sub_resource type="Animation" id="Animation_hlm5c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 205)]
+}
+
+[sub_resource type="Animation" id="Animation_3g2y6"]
+resource_name = "on_BIG_LEFT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lpqkh"]
+resource_name = "on_BIG_RIGHT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1280, 360)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_expanded_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wdljl"]
+resource_name = "on_MASTER_HOVER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 205)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lymfh"]
+resource_name = "on_MASTER_SLIDER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 205)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_third_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8ou3m"]
+resource_name = "on_MOUSE_HOVER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1140, 205)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iynmv"]
+resource_name = "on_MOUSE_SLIDER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1140, 205)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_fifth_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dl6it"]
+resource_name = "on_MUSIC_HOVER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 325)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_p5uep"]
+resource_name = "on_MUSIC_SLIDER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 325)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_third_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8kkbo"]
+resource_name = "on_SOUND_HOVER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 445)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_first_position"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dn6px"]
+resource_name = "on_SOUND_SLIDER"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(140, 445)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_third_position"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dl6it"]
+_data = {
+&"RESET": SubResource("Animation_hlm5c"),
+&"on_BIG_LEFT": SubResource("Animation_3g2y6"),
+&"on_BIG_RIGHT": SubResource("Animation_lpqkh"),
+&"on_MASTER_HOVER": SubResource("Animation_wdljl"),
+&"on_MASTER_SLIDER": SubResource("Animation_lymfh"),
+&"on_MOUSE_HOVER": SubResource("Animation_8ou3m"),
+&"on_MOUSE_SLIDER": SubResource("Animation_iynmv"),
+&"on_MUSIC_HOVER": SubResource("Animation_dl6it"),
+&"on_MUSIC_SLIDER": SubResource("Animation_p5uep"),
+&"on_SOUND_HOVER": SubResource("Animation_8kkbo"),
+&"on_SOUND_SLIDER": SubResource("Animation_dn6px")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hlm5c"]
+animation = &"on_BIG_LEFT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wdljl"]
+animation = &"on_BIG_RIGHT"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dl6it"]
+animation = &"on_MASTER_HOVER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lpqkh"]
+animation = &"on_MASTER_SLIDER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dn6px"]
+animation = &"on_MOUSE_HOVER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ou3m"]
+animation = &"on_MOUSE_SLIDER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8kkbo"]
+animation = &"on_MUSIC_HOVER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lymfh"]
+animation = &"on_MUSIC_SLIDER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3g2y6"]
+animation = &"on_SOUND_HOVER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p5uep"]
+animation = &"on_SOUND_SLIDER"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lpqkh"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lymfh"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p5uep"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dn6px"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ou3m"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nwc8s"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bf4yj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xrc4d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j2csl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vg0yf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8g2a7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rc0tf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mgily"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iynmv"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ggveo"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ol1yi"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7qyse"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i5ndw"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m8t7n"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g0r51"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ab7u"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hlm5c"]
+states/End/position = Vector2(1029, 100)
+states/on_BIG_LEFT/node = SubResource("AnimationNodeAnimation_hlm5c")
+states/on_BIG_LEFT/position = Vector2(352, 91)
+states/on_BIG_RIGHT/node = SubResource("AnimationNodeAnimation_wdljl")
+states/on_BIG_RIGHT/position = Vector2(710, -33)
+states/on_MASTER_HOVER/node = SubResource("AnimationNodeAnimation_dl6it")
+states/on_MASTER_HOVER/position = Vector2(523, 91)
+states/on_MASTER_SLIDER/node = SubResource("AnimationNodeAnimation_lpqkh")
+states/on_MASTER_SLIDER/position = Vector2(710, 91)
+states/on_MOUSE_HOVER/node = SubResource("AnimationNodeAnimation_dn6px")
+states/on_MOUSE_HOVER/position = Vector2(523, -33)
+states/on_MOUSE_SLIDER/node = SubResource("AnimationNodeAnimation_8ou3m")
+states/on_MOUSE_SLIDER/position = Vector2(523, -92)
+states/on_MUSIC_HOVER/node = SubResource("AnimationNodeAnimation_8kkbo")
+states/on_MUSIC_HOVER/position = Vector2(523, 153)
+states/on_MUSIC_SLIDER/node = SubResource("AnimationNodeAnimation_lymfh")
+states/on_MUSIC_SLIDER/position = Vector2(710, 153)
+states/on_SOUND_HOVER/node = SubResource("AnimationNodeAnimation_3g2y6")
+states/on_SOUND_HOVER/position = Vector2(523, 216)
+states/on_SOUND_SLIDER/node = SubResource("AnimationNodeAnimation_p5uep")
+states/on_SOUND_SLIDER/position = Vector2(710, 216)
+transitions = ["on_BIG_LEFT", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_lpqkh"), "on_MASTER_HOVER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_lymfh"), "on_MUSIC_HOVER", "on_SOUND_HOVER", SubResource("AnimationNodeStateMachineTransition_p5uep"), "on_SOUND_HOVER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_dn6px"), "on_MUSIC_HOVER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_8ou3m"), "on_MASTER_HOVER", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_nwc8s"), "Start", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_bf4yj"), "on_MASTER_SLIDER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_xrc4d"), "on_MASTER_HOVER", "on_MASTER_SLIDER", SubResource("AnimationNodeStateMachineTransition_j2csl"), "on_MUSIC_SLIDER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_vg0yf"), "on_MUSIC_HOVER", "on_MUSIC_SLIDER", SubResource("AnimationNodeStateMachineTransition_8g2a7"), "on_SOUND_SLIDER", "on_SOUND_HOVER", SubResource("AnimationNodeStateMachineTransition_rc0tf"), "on_SOUND_HOVER", "on_SOUND_SLIDER", SubResource("AnimationNodeStateMachineTransition_mgily"), "on_MUSIC_HOVER", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_iynmv"), "on_SOUND_HOVER", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_ggveo"), "on_MASTER_HOVER", "on_MOUSE_HOVER", SubResource("AnimationNodeStateMachineTransition_ol1yi"), "on_MOUSE_HOVER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_7qyse"), "on_BIG_RIGHT", "on_MOUSE_HOVER", SubResource("AnimationNodeStateMachineTransition_i5ndw"), "on_MOUSE_HOVER", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_m8t7n"), "on_MOUSE_SLIDER", "on_MOUSE_HOVER", SubResource("AnimationNodeStateMachineTransition_g0r51"), "on_MOUSE_HOVER", "on_MOUSE_SLIDER", SubResource("AnimationNodeStateMachineTransition_6ab7u")]
+graph_offset = Vector2(128, -125)
+
+[node name="Audio" type="CanvasLayer" unique_id=1930912985]
+script = ExtResource("1_f5a2e")
+
+[node name="Control" type="Control" parent="." unique_id=909552247]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=451502208]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_hlm5c")
+
+[node name="SenseSlider" type="HSlider" parent="Control" unique_id=2084235105]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 190.0
+offset_right = 1090.0
+offset_bottom = 220.0
+theme = SubResource("Theme_3g2y6")
+min_value = 0.05
+max_value = 5.0
+step = 0.05
+value = 1.0
+script = ExtResource("5_lpqkh")
+
+[node name="VolumeSlider" parent="Control" unique_id=1975079600 instance=ExtResource("2_bwtr5")]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 190.0
+offset_right = 590.0
+offset_bottom = 220.0
+
+[node name="VolumeSlider2" parent="Control" unique_id=700896396 instance=ExtResource("2_bwtr5")]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 310.0
+offset_right = 590.0
+offset_bottom = 340.0
+bus_index = 1
+
+[node name="VolumeSlider3" parent="Control" unique_id=390098579 instance=ExtResource("2_bwtr5")]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 430.0
+offset_right = 590.0
+offset_bottom = 460.0
+bus_index = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=855484125]
+libraries/ = SubResource("AnimationLibrary_dl6it")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=580770919]
+tree_root = SubResource("AnimationNodeStateMachine_hlm5c")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Selector" parent="." unique_id=894841875 instance=ExtResource("4_hlm5c")]
+position = Vector2(140, 205)

@@ -6,12 +6,13 @@
 [ext_resource type="Script" uid="uid://d0lvaijyy5nsx" path="res://scripts/crosshair_boss.gd" id="2_ey1u3"]
 [ext_resource type="Texture2D" uid="uid://defcpqgo04smo" path="res://ui/petals-Sheet.png" id="3_hbevh"]
 [ext_resource type="Script" uid="uid://b2chw2o1ec7ob" path="res://scripts/revolver.gd" id="6_bfp8s"]
-[ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="7_dl01e"]
 [ext_resource type="Texture2D" uid="uid://ddtrcn1oee5uc" path="res://ui/seeds2-Sheet.png" id="8_m5iab"]
 [ext_resource type="Texture2D" uid="uid://cltppkvwd4dkn" path="res://ui/revolver_ui.png" id="9_22r63"]
 [ext_resource type="Script" uid="uid://dfwso1byupjuc" path="res://scripts/loaded_sprite.gd" id="9_p1t08"]
+[ext_resource type="Texture2D" uid="uid://yab2v8aqlhsy" path="res://ui/revolver_ui_circle.png" id="10_ywslq"]
 [ext_resource type="Texture2D" uid="uid://dvvfgmmqo1ymu" path="res://ui/bullet_ui_1_take_2.png" id="12_40yl3"]
 [ext_resource type="Script" uid="uid://d06d2safsnxsy" path="res://scripts/health_displayer.gd" id="12_ve54s"]
+[ext_resource type="Texture2D" uid="uid://doje8a0avc0ah" path="res://ui/revolver_ui_circle_small.png" id="13_4f0tj"]
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="13_ywslq"]
 [ext_resource type="Texture2D" uid="uid://cu62pj1efch37" path="res://ui/heart_ui_1_take_2_flat.png" id="14_40yl3"]
 
@@ -600,7 +601,7 @@ states/reloading/position = Vector2(536, 73)
 "states/reloading 2/node" = SubResource("AnimationNodeAnimation_cawb2")
 "states/reloading 2/position" = Vector2(760, -198)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_qnwhp"), "RESET", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_cawb2"), "on_bullet_5", "on_bullet_5 2", SubResource("AnimationNodeStateMachineTransition_3lubi"), "on_bullet_0", "on_bullet_0 2", SubResource("AnimationNodeStateMachineTransition_hpryw"), "on_bullet_1", "on_bullet_1 2", SubResource("AnimationNodeStateMachineTransition_by6v6"), "on_bullet_2", "on_bullet_2 2", SubResource("AnimationNodeStateMachineTransition_rcaw0"), "on_bullet_3", "on_bullet_3 2", SubResource("AnimationNodeStateMachineTransition_yhpat"), "on_bullet_4", "on_bullet_4 2", SubResource("AnimationNodeStateMachineTransition_rk5t0"), "on_bullet_0 2", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_2urha"), "on_bullet_1 2", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_3xuwr"), "on_bullet_2 2", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_xof42"), "on_bullet_3 2", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_8jm0m"), "on_bullet_4 2", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_oll3d"), "on_bullet_5 2", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_wgbt3"), "on_bullet_0", "reloading", SubResource("AnimationNodeStateMachineTransition_umgpx"), "reloading", "reloading 2", SubResource("AnimationNodeStateMachineTransition_10wg2"), "reloading 2", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_8x3mc"), "on_bullet_1", "reloading", SubResource("AnimationNodeStateMachineTransition_sbl5u"), "on_bullet_2", "reloading", SubResource("AnimationNodeStateMachineTransition_edenc"), "on_bullet_3", "reloading", SubResource("AnimationNodeStateMachineTransition_156o1"), "on_bullet_4", "reloading", SubResource("AnimationNodeStateMachineTransition_wkm38"), "on_bullet_5", "reloading", SubResource("AnimationNodeStateMachineTransition_2k0n8")]
-graph_offset = Vector2(26, -246)
+graph_offset = Vector2(120, -207)
 
 [node name="InGameHUD" type="CanvasLayer" unique_id=521452179]
 script = ExtResource("1_26122")
@@ -784,42 +785,36 @@ offset_bottom = -110.0
 
 [node name="SeedCircle" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=570937159]
 position = Vector2(180, 0)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_dl01e")
+texture = ExtResource("10_ywslq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircle" unique_id=2088746165]
-scale = Vector2(2.5, 2.5)
 texture = ExtResource("13_ywslq")
 hframes = 11
 frame = 2
 
 [node name="SeedCircle2" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=780994671]
 position = Vector2(-180, 0)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_dl01e")
+texture = ExtResource("10_ywslq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircle2" unique_id=253623783]
-scale = Vector2(2.5, 2.5)
 texture = ExtResource("12_40yl3")
 
 [node name="SeedCircleS" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=1173893162]
 position = Vector2(165, 85)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_dl01e")
+texture = ExtResource("13_4f0tj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircleS" unique_id=709967447]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("13_ywslq")
 hframes = 11
 frame = 3
 
 [node name="SeedCircleW" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=1339314390]
 position = Vector2(165, -85)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_dl01e")
+texture = ExtResource("13_4f0tj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircleW" unique_id=1664948421]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("13_ywslq")
 hframes = 11
 frame = 5
