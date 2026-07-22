@@ -43,6 +43,9 @@ var active_plants = []
 
 var iframes = false
 
+var interactable_obj: InteractArea
+var ground_normal: Vector3
+
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -124,7 +127,9 @@ func read_interact():
 	if is_reloading:
 		pass
 	else:
-		pass
+		#not sure if the null check is needed but better safe than sorry!
+		if is_instance_valid(interactable_obj) and interactable_obj != null:
+			interactable_obj.interact()
 func exit_reload_early():
 	if get_tree().paused:
 		return
@@ -185,14 +190,22 @@ func _physics_process(delta: float) -> void:
 	#print(linear_velocity.y)
 	#print(gravity_scale)
 	#print(is_grounded, ", ", gravity_scale)
+	var g_norm = Vector3.UP
 	if groundCast.get_collision_count() > 0:
-		if !is_grounded:
-			for i in groundCast.get_collision_count():
-				var how_groundy = Vector3.UP.dot(groundCast.get_collision_normal(i))
-				if how_groundy > 0.5:
+		for i in groundCast.get_collision_count():
+			var o = groundCast.get_collider(i)
+			if is_instance_valid(o) and !o.is_in_group("not_ground"):
+				var norm = groundCast.get_collision_normal(i)
+				g_norm += norm
+				var how_groundy = Vector3.UP.dot(norm)
+				if o.is_in_group("springvine_ground") and linear_velocity.y < 0.1:
+					how_groundy = 0
+				if how_groundy > 0.1:
 					is_grounded = true
 	else:
 		is_grounded = false
+		g_norm = Vector3.UP
+	ground_normal = g_norm.normalized()
 	if !supress_movement:
 		physics_movement(delta)
 		physics_looking()
@@ -239,7 +252,7 @@ func physics_movement(delta:float) -> void:
 	var ground_mult = 1.0
 	if !is_grounded:
 		#less control over in-air movement
-		ground_mult = 0.05
+		ground_mult = 0.35
 	if is_sprinting:
 		currentSpeed = sprintSpeed;
 	else:
@@ -247,14 +260,17 @@ func physics_movement(delta:float) -> void:
 		#Sprint mechanic 
 	var speed = linear_velocity.length()
 	var max_speed = max_speed_factor * currentSpeed
+	var force = look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult
+	print(ground_normal.y)
+	print(force)
 	if speed < max_speed_factor:
-		apply_central_force(look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult);
+		apply_central_force(force.slide(ground_normal));
 	else:
 		var angle = input.angle_to(linear_velocity)
 		if angle > deg_to_rad(30):
 			#print("ALLOW TURNING")
-			apply_central_force(look_pivot.basis * input.normalized() * 600.0 * delta * currentSpeed * ground_mult)
-		#print("OVER DA LIMIT!")
+			force *= 0.5
+			apply_central_force(force.slide(ground_normal))
 	#Moves the player
 
 #handles the "air drift" for a better jump
@@ -311,6 +327,11 @@ func shoot():
 	active_plants = temp_plants
 
 func check_special_plants():
+	var temp_plants = []
+	for p in active_plants:
+		if is_instance_valid(p):
+			temp_plants.append(p)
+	active_plants = temp_plants
 	if active_plants.size() > plant_max:
 		active_plants[0].wither_self()
 

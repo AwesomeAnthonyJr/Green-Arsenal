@@ -20,6 +20,7 @@ signal down
 signal left
 signal right
 signal sprint_burst
+signal jump_held(b)
 
 #counter-intuitively, not the actual sensitivity
 const mouse_sensitivity = 0.001
@@ -56,6 +57,7 @@ func jump_input():
 		jump.emit()
 	elif Input.is_action_just_released("jump"):
 		end_jump.emit()
+	jump_held.emit(Input.is_action_pressed("jump"))
 
 func pause_input():
 	if Input.is_action_just_pressed("pause"):

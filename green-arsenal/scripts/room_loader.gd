@@ -3,18 +3,22 @@ class_name RoomLoader
 
 #will not be export in final game!
 @export var active_room: Room
-@export var active_key = 0
+@export var active_key = 4
 
 const room_dict = {
 	0: "res://scenes/rooms/room_a.tscn",
 	1: "res://scenes/rooms/room_b.tscn",
-	2: "res://scenes/rooms/room_c.tscn"
+	2: "res://scenes/rooms/room_c.tscn",
+	
+	4: "res://scenes/rooms/forest/forest_1.tscn",
 }
 #must be the inverse of the first!!!
 const reverse_dict = {
 	"res://scenes/rooms/room_a.tscn": 0,
 	"res://scenes/rooms/room_b.tscn": 1,
-	"res://scenes/rooms/room_c.tscn": 2
+	"res://scenes/rooms/room_c.tscn": 2,
+	
+	"res://scenes/rooms/forest/forest_1.tscn" : 4,
 }
 
 var loadings = []
@@ -22,10 +26,9 @@ var loaded_objects_keys = []
 var loaded_objects = []
 
 func get_floor():
-	if active_key == 0 or active_key == 1:
+	#forest
+	if active_key > -1 and active_key < 5:
 		return 1
-	elif active_key == 2:
-		return 2
 	return 0
 
 func _ready() -> void:

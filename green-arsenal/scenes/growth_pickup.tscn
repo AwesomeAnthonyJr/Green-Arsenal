@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfs3yqx8dhbl"]
 
-[ext_resource type="Shader" uid="uid://davgmikf7tisq" path="res://ui/cel_shaded_transparent.gdshader" id="1_nh1vm"]
+[ext_resource type="Shader" uid="uid://davgmikf7tisq" path="res://shaders/cel_shaded_transparent.gdshader" id="1_nh1vm"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="2_ro30r"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_h45xw"]

@@ -6,9 +6,11 @@ class_name PlatformLilypad
 @onready var plat_collider = $AnimatableBody3D/CollisionShape3D
 @onready var avoidance_area = $AnimatableBody3D/Area3D
 @onready var bone_attatchment = $FancyModel/Skeleton3D/BoneAttachment3D
+@onready var anim = $AnimationPlayer
+@onready var skeleton = $FancyModel/Skeleton3D
 
 var own_soil: Node3D
-var pos_offset: Vector3
+var pos_offset = Vector3(0, 10.0, -1.0)
 var default_push: Vector3
 const PUSH_SPEED = 10.0
 
@@ -19,7 +21,9 @@ func _ready() -> void:
 	bone_attatchment.rotate_y(randf_range(-PI, PI))
 
 func _physics_process(delta: float) -> void:
-	platform.global_transform.origin = global_position + pos_offset
+	var s = skeleton.get_bone_pose_scale(0).x
+	platform.global_transform.origin = global_position + Vector3.ZERO.lerp(pos_offset, s)
+	avoidance_area.scale = Vector3(1, 1, 1) * 1.0/s
 	if do_push:
 		push_away_from_others(delta)
 		pusher_countdown += 0.1 * delta
@@ -47,7 +51,8 @@ func push_away_from_others(delta):
 		pos_offset += push_direction.normalized() * delta * PUSH_SPEED
 		pos_offset += Vector3(0, pusher_countdown, 0) * delta
 	else:
-		do_push = false
+		if skeleton.get_bone_pose_scale(0).x >= 1:
+			do_push = false
 		
 
 func default_height():
@@ -77,3 +82,6 @@ func seek_surface():
 	do_push = true
 	await get_tree().physics_frame
 	plat_collider.disabled = false
+
+func grow():
+	anim.play("grow")

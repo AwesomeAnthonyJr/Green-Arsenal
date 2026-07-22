@@ -7,3 +7,6 @@ func destroy_self():
 func wither_self():
 	print("WITHERING AWAY!")
 	destroy_self()
+
+func grow():
+	pass

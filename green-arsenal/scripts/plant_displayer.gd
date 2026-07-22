@@ -8,3 +8,4 @@ func hide_all():
 
 func show_plant(i: int):
 	plants[i].show()
+	plants[i].grow()
