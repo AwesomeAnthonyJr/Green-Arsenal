@@ -43,6 +43,7 @@ seeker_flower="for da seeka flowa"
 roller=""
 propellable="for the propeller seed"
 not_ground="for when a staticbody shouldnt let the player jump"
+springvine_ground="for specifically the springvines weird behavior"
 
 [input]
 

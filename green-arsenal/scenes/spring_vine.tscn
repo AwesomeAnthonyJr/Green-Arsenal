@@ -3366,7 +3366,7 @@ settings/0/end_bone = 60
 settings/0/extend_end_bone = false
 settings/0/joint_count = 6
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=535271514 groups=["not_ground"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=535271514 groups=["springvine_ground"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=435642224]
 shape = SubResource("CylinderShape3D_ueyqu")
@@ -3391,8 +3391,12 @@ shape = SubResource("CylinderShape3D_0o143")
 target_position = Vector3(0, 0.8, 0)
 debug_shape_custom_color = Color(0.657558, 0.31962287, 1, 1)
 
+[node name="Timer" type="Timer" parent="." unique_id=1127042632]
+wait_time = 0.1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1696808316]
 libraries/ = SubResource("AnimationLibrary_ri4h5")
 speed_scale = 2.5
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
