@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://2qu2xc4rf2hd"]
+
+[ext_resource type="Script" uid="uid://dbjv58gtocdxs" path="res://scripts/enemySpawner.gd" id="1_2sabj"]
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="2_lx5bb"]
+[ext_resource type="Texture2D" uid="uid://bu3wr4034lcts" path="res://textures/test_checker2.png" id="3_6pqgs"]
+[ext_resource type="Material" uid="uid://261r71cbnjxf" path="res://materials/player_glasses.tres" id="4_3dnq0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0o143"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_h45xw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4w8v"]
+render_priority = 0
+shader = ExtResource("2_lx5bb")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_6pqgs")
+shader_parameter/albedo_in_shadow = Color(0.39308554, 0.3930855, 0.39308548, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("3_6pqgs")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.1999999955296
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h45xw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h45xw"]
+radius = 0.6
+
+[node name="enemySpawner" type="CharacterBody3D" unique_id=553297755]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_2sabj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=429253756]
+shape = SubResource("SphereShape3D_0o143")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=86046713]
+mesh = SubResource("SphereMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_c4w8v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=741426043]
+transform = Transform3D(0.25980762, 0.05, 0, -0.15, 0.08660254, 0, 0, 0, 0.2, -0.2, 0.216, -0.4)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = ExtResource("4_3dnq0")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=167694844]
+transform = Transform3D(0.3, 0, 0, 0, 0.099999994, 0, 0, 0, 0.2, 0, -0.116, -0.4)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = ExtResource("4_3dnq0")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=2134373591]
+transform = Transform3D(0.19318517, -0.025881905, 0, 0.05176381, 0.09659258, 0, 0, 0, 0.2, -0.20044029, -0.13546163, -0.4)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = ExtResource("4_3dnq0")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=1646768856]
+transform = Transform3D(0.19318517, 0.025881905, 0, -0.05176381, 0.09659258, 0, 0, 0, 0.2, 0.2, -0.135, -0.4)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = ExtResource("4_3dnq0")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1743680096]
+transform = Transform3D(0.2598076, -0.05, 0, 0.14999999, 0.08660254, 0, 0, 0, 0.2, 0.2, 0.216, -0.4)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = ExtResource("4_3dnq0")
+
+[node name="Timer" type="Timer" parent="." unique_id=2049442722]
+wait_time = 3.0
+autostart = true
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=540667210]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 0, 0, -0.6543365)
+
+[node name="Hurtbox" type="Area3D" parent="." unique_id=1695540574]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=2095420462]
+shape = SubResource("SphereShape3D_h45xw")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

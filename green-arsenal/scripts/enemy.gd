@@ -15,10 +15,16 @@ func _ready() -> void:
 		find_player()
 
 func find_player():
-	var level = get_parent()
-	for c in level.get_children():
-		if c.is_in_group("player_package") and player == null:
-			player = c.get_child(0)
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]
+		return
+	var level = get_tree().current_scene
+	if level:
+		for c in level.get_children():
+			if c.is_in_group("player_package") and player == null:
+				player = c.get_child(0)
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
