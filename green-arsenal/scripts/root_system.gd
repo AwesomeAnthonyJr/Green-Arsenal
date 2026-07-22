@@ -11,6 +11,7 @@ var branches = []
 var vertices: PackedVector3Array = []
 var normals: PackedVector3Array = []
 var indices: PackedInt32Array = []
+var uvs: PackedVector2Array = []
 
 func _process(delta: float) -> void:
 	if rebuild:
@@ -19,9 +20,11 @@ func _process(delta: float) -> void:
 		normals.clear()
 		indices.clear()
 		branches.clear()
+		uvs.clear()
 		setup()
 	else:
 		if Engine.is_editor_hint() and auto_rebuild:
+			#this is dumb but it works LMAO
 			await get_tree().process_frame
 			await get_tree().process_frame
 			await get_tree().process_frame
@@ -91,10 +94,14 @@ func generate_tube(branch: Array):
 	var points = curve.get_baked_points()
 	#this "start index" is for later
 	var start_index = vertices.size()
-	
+	#if we initialize this to zero it can just crash the engine over and over so lets not do that please
+	var accumulated_length = 0.00000001
 	#iterates over all the points
 	for i in points.size():
 		var point = points[i]
+		
+		if i > 0:
+			accumulated_length += points[i].distance_to(points[i-1])
 		
 		#this bit calculates the "local forward" of the point
 		var forward: Vector3
@@ -125,6 +132,8 @@ func generate_tube(branch: Array):
 			#adds a point offset by the circle direction and radius
 			vertices.append(point + direction * local_radius)
 			normals.append(direction)
+			#this part is for uvs to have textures!
+			uvs.append(Vector2(float(j) / sides, accumulated_length))
 	
 	#this part just basically labels the points for the arraymesh to use
 	for i in range(points.size() - 1):
@@ -149,6 +158,7 @@ func build_mesh():
 	arrays[Mesh.ARRAY_VERTEX] = vertices
 	arrays[Mesh.ARRAY_NORMAL] = normals
 	arrays[Mesh.ARRAY_INDEX] = indices
+	arrays[Mesh.ARRAY_TEX_UV] = uvs
 	
 	var mesh := ArrayMesh.new()
 	mesh.add_surface_from_arrays(
