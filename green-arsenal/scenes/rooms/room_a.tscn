@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://dngy88aglx0tr" path="res://scripts/room.gd" id="1_5l28o"]
 [ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_2.tres" id="2_kugbc"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="3_5l28o"]
-[ext_resource type="Material" uid="uid://dwx7y6pd8ocmx" path="res://materials/placeholder_leaves.tres" id="3_eanj3"]
+[ext_resource type="Material" uid="uid://dvt47ul4pjcvl" path="res://materials/leaves_nearest.tres" id="3_cqc2x"]
+[ext_resource type="Material" uid="uid://cqwygovsi155y" path="res://materials/leaves_between.tres" id="4_3j0bw"]
 [ext_resource type="Script" uid="uid://cy5fvcba6qqcy" path="res://scripts/root_system.gd" id="4_j1143"]
 [ext_resource type="Script" uid="uid://hf8wah0rtjxk" path="res://scripts/root_point.gd" id="4_kclr8"]
 [ext_resource type="PackedScene" uid="uid://cmoiwur54qrki" path="res://scenes/level_parts/root_system.tscn" id="4_l5rmu"]
+[ext_resource type="Material" uid="uid://b8f5nhjo3v8ex" path="res://materials/leaves_top.tres" id="5_3j0bw"]
 [ext_resource type="Material" uid="uid://blxh8itmv71oq" path="res://materials/tree_bark.tres" id="7_eanj3"]
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="7_jok6b"]
 
@@ -59,7 +61,49 @@ shape = SubResource("BoxShape3D_h45xw")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Leaves" unique_id=453339516]
 cast_shadow = 2
 mesh = SubResource("PlaneMesh_y383h")
-surface_material_override/0 = ExtResource("3_eanj3")
+surface_material_override/0 = ExtResource("3_cqc2x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Leaves" unique_id=1686882724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.742279e-08, -1, 0)
+mesh = SubResource("PlaneMesh_y383h")
+surface_material_override/0 = ExtResource("4_3j0bw")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Leaves" unique_id=656740870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7484547e-07, -2, 0)
+mesh = SubResource("PlaneMesh_y383h")
+surface_material_override/0 = ExtResource("5_3j0bw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Leaves" unique_id=1096462461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -9.536743e-07, 0)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_y383h")
+surface_material_override/0 = ExtResource("3_cqc2x")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Leaves" unique_id=1922969274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -1.000001, 0)
+mesh = SubResource("PlaneMesh_y383h")
+surface_material_override/0 = ExtResource("4_3j0bw")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Leaves" unique_id=814175305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -2.000001, 0)
+mesh = SubResource("PlaneMesh_y383h")
+surface_material_override/0 = ExtResource("5_3j0bw")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Leaves" unique_id=1523569823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 9.536743e-07, 0)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_y383h")
+surface_material_override/0 = ExtResource("3_cqc2x")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Leaves" unique_id=1552767235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.99999905, 0)
+mesh = SubResource("PlaneMesh_y383h")
+surface_material_override/0 = ExtResource("4_3j0bw")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Leaves" unique_id=758896146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.999999, 0)
+mesh = SubResource("PlaneMesh_y383h")
+surface_material_override/0 = ExtResource("5_3j0bw")
 
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("3_5l28o")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5, -5.5)

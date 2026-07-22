@@ -1,0 +1,31 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b8f5nhjo3v8ex"]
+
+[ext_resource type="Shader" uid="uid://dwaud0gd38ogk" path="res://shaders/leaves.gdshader" id="1_f8sw4"]
+[ext_resource type="Texture2D" uid="uid://dxv2xja3p8kdf" path="res://textures/leaves_texture_fall.png" id="2_f8sw4"]
+[ext_resource type="Texture2D" uid="uid://ciiw5lbj8grw0" path="res://textures/leaves_texture_blank.png" id="3_wkrcv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8phdd"]
+noise_type = 2
+seed = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tm4ox"]
+noise = SubResource("FastNoiseLite_8phdd")
+seamless = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_f8sw4")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_f8sw4")
+shader_parameter/albedo_in_shadow = Color(0.58974993, 0.32832032, 0.1242112, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("3_wkrcv")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.96999997831856
+shader_parameter/specular_strength = 0.70000001043084
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.0499999988824
+shader_parameter/wave = SubResource("NoiseTexture2D_tm4ox")
+shader_parameter/noise_scale = 10.0
+shader_parameter/height_scale = 1.5
+shader_parameter/uv1_scale = Vector2(-1, -1)
+shader_parameter/uv1_offset = Vector2(0, 0)
