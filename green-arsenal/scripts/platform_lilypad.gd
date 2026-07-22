@@ -23,6 +23,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var s = skeleton.get_bone_pose_scale(0).x
 	platform.global_transform.origin = global_position + Vector3.ZERO.lerp(pos_offset, s)
+	avoidance_area.scale = Vector3(1, 1, 1) * 1.0/s
 	if do_push:
 		push_away_from_others(delta)
 		pusher_countdown += 0.1 * delta
@@ -50,7 +51,8 @@ func push_away_from_others(delta):
 		pos_offset += push_direction.normalized() * delta * PUSH_SPEED
 		pos_offset += Vector3(0, pusher_countdown, 0) * delta
 	else:
-		do_push = false
+		if skeleton.get_bone_pose_scale(0).x >= 1:
+			do_push = false
 		
 
 func default_height():

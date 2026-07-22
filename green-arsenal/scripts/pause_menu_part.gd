@@ -73,7 +73,7 @@ func handle_status_description(b: bool, n: int):
 			5:
 				describer.display("[font_size=30][b]Platform Pad[/b][/font_size]\n\nA giant lily pad, similar to the [i]victoria amazonica[/i], the Platform Pad is strong enough to support the full weight of a person, lending to it's name and use as platform. It always grows upwards, and will float on the surface of water as well. If it was to hit an enemy however it would grow around them as a protective shield.")
 			6:
-				describer.display("[font_size=30][b]Seeking Stalk[/b][/font_size]\n\nThe Seeking Stalk is a curious plant, with a flower that appears to resemble a human eye. It's exceptionally reactive to stimuli and will redirect any projectile that hits them, allowing you to shoot seeds from an alternate perspective.")
+				describer.display("[font_size=30][b]Seeking Stalk[/b][/font_size]\n\nThe Seeking Stalk is a curious plant, with a flower that appears to resemble a human eye. They are exceptionally reactive to stimuli and will redirect any projectile that hits them, allowing you to shoot seeds from an alternate perspective.")
 			7:
 				describer.display("[font_size=30][b]Propeller Flower[/b][/font_size]\n\nPropeller Flowers are uniquely shaped to spin like a turbine, allowing them to generate lift and raise certain platforms. Although their seeds resemble maple seeds, the flowering plant does not seem to have any relation to the trees.")
 			8:
