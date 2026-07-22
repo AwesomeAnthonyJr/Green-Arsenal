@@ -7,6 +7,8 @@ class_name SeekerFlower
 @onready var seeker_ui = $SeekerUI
 var has_bullet = false
 var stored = null
+@onready var model_attatchment = $FancyModel/Skeleton3D/BoneAttachment3D
+@onready var anim = $AnimationPlayer
 
 func _ready() -> void:
 	connect_inputs()
@@ -27,12 +29,17 @@ func read_look(y, x):
 		)
 
 func read_shoot():
+	if get_tree().paused:
+		return
 	if has_bullet:
 		get_parent().add_child(stored)
 		stored.global_position = shooter.global_position
 		stored.global_rotation = shooter.global_rotation
 		has_bullet = false
 		stored = null
+		anim.play("catch")
+		#await get_tree().create_timer(0.5).timeout
+		#anim.play("standard")
 
 func find_main(x) -> Main:
 	var p = x.get_parent()
@@ -46,5 +53,16 @@ func store(obj):
 	has_bullet = true
 	#print("STORED", obj.name)
 
+func grow():
+	model_attatchment.override_pose = false
+	anim.play("grow")
+
+func grow_over():
+	model_attatchment.override_pose = true
+	anim.play("standard")
+
 func _process(delta: float) -> void:
 	seeker_ui.visible = has_bullet
+	if model_attatchment.override_pose:
+		model_attatchment.global_position = pitch_pivot.global_position
+		model_attatchment.global_rotation = pitch_pivot.global_rotation

@@ -43,6 +43,8 @@ var active_plants = []
 
 var iframes = false
 
+var interactable_obj: InteractArea
+
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -124,7 +126,9 @@ func read_interact():
 	if is_reloading:
 		pass
 	else:
-		pass
+		#not sure if the null check is needed but better safe than sorry!
+		if is_instance_valid(interactable_obj) and interactable_obj != null:
+			interactable_obj.interact()
 func exit_reload_early():
 	if get_tree().paused:
 		return
@@ -311,6 +315,11 @@ func shoot():
 	active_plants = temp_plants
 
 func check_special_plants():
+	var temp_plants = []
+	for p in active_plants:
+		if is_instance_valid(p):
+			temp_plants.append(p)
+	active_plants = temp_plants
 	if active_plants.size() > plant_max:
 		active_plants[0].wither_self()
 
