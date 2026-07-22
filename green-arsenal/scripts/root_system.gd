@@ -8,6 +8,8 @@ var branches = []
 @export var sides = 16
 #@export var radius = 0.5
 
+var frozen = false
+
 var vertices: PackedVector3Array = []
 var normals: PackedVector3Array = []
 var indices: PackedInt32Array = []
@@ -56,11 +58,12 @@ func setup():
 	for b in branches:
 		generate_tube(b)
 	build_mesh()
-	if !Engine.is_editor_hint():
+	if !Engine.is_editor_hint() or frozen:
 		generate_collision()
 
 func _ready() -> void:
-	setup()
+	if !frozen:
+		setup()
 
 func walk(point: RootPoint, path: Array):
 	

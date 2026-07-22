@@ -261,8 +261,10 @@ func physics_movement(delta:float) -> void:
 	var speed = linear_velocity.length()
 	var max_speed = max_speed_factor * currentSpeed
 	var force = look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult
-	print(ground_normal.y)
-	print(force)
+	#print(ground_normal.y)
+	#print(force)
+	if ground_normal == Vector3.ZERO:
+		ground_normal = Vector3.UP
 	if speed < max_speed_factor:
 		apply_central_force(force.slide(ground_normal));
 	else:

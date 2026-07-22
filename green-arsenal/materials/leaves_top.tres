@@ -1,8 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://b8f5nhjo3v8ex"]
 
 [ext_resource type="Shader" uid="uid://dwaud0gd38ogk" path="res://shaders/leaves.gdshader" id="1_f8sw4"]
-[ext_resource type="Texture2D" uid="uid://dxv2xja3p8kdf" path="res://textures/leaves_texture_fall.png" id="2_f8sw4"]
-[ext_resource type="Texture2D" uid="uid://ciiw5lbj8grw0" path="res://textures/leaves_texture_blank.png" id="3_wkrcv"]
+[ext_resource type="Texture2D" uid="uid://dhvpsanimj765" path="res://textures/leaves_texture.png" id="2_wkrcv"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8phdd"]
 noise_type = 2
@@ -16,9 +15,9 @@ seamless = true
 render_priority = 0
 shader = ExtResource("1_f8sw4")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("2_f8sw4")
-shader_parameter/albedo_in_shadow = Color(0.58974993, 0.32832032, 0.1242112, 1)
-shader_parameter/texture_albedo_in_shadow = ExtResource("3_wkrcv")
+shader_parameter/texture_albedo = ExtResource("2_wkrcv")
+shader_parameter/albedo_in_shadow = Color(1.1070073e-06, 0.44235763, 0.59721786, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("2_wkrcv")
 shader_parameter/shadow_threshold = 0.5
 shader_parameter/specular_threshold = 0.96999997831856
 shader_parameter/specular_strength = 0.70000001043084

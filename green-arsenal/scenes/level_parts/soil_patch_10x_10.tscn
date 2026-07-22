@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ce5xh3yj4v2vs"]
+
+[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_2.tres" id="1_0fmj7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fawqj"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ksqvi"]
+size = Vector2(10, 10)
+subdivide_width = 30
+subdivide_depth = 30
+
+[node name="SoilPatch10x10" type="StaticBody3D" unique_id=361187496 groups=["soil"]]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2058207144]
+shape = SubResource("BoxShape3D_fawqj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=60007716]
+mesh = SubResource("PlaneMesh_ksqvi")
+surface_material_override/0 = ExtResource("1_0fmj7")
