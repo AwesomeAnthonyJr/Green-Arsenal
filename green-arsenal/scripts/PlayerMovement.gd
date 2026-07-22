@@ -192,9 +192,10 @@ func _physics_process(delta: float) -> void:
 	if groundCast.get_collision_count() > 0:
 		if !is_grounded:
 			for i in groundCast.get_collision_count():
-				var how_groundy = Vector3.UP.dot(groundCast.get_collision_normal(i))
-				if how_groundy > 0.5:
-					is_grounded = true
+				if is_instance_valid(groundCast.get_collider(i)) and !groundCast.get_collider(i).is_in_group("not_ground"):
+					var how_groundy = Vector3.UP.dot(groundCast.get_collision_normal(i))
+					if how_groundy > 0.5:
+						is_grounded = true
 	else:
 		is_grounded = false
 	if !supress_movement:

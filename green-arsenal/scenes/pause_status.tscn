@@ -795,7 +795,7 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.2, 0)
 visible = false
 
 [node name="SpringVine" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=1058501669 instance=ExtResource("5_nndsu")]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 visible = false
 
 [node name="LifeFruit" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=677679092 instance=ExtResource("6_7flq5")]
