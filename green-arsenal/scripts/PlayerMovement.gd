@@ -315,6 +315,11 @@ func shoot():
 	active_plants = temp_plants
 
 func check_special_plants():
+	var temp_plants = []
+	for p in active_plants:
+		if is_instance_valid(p):
+			temp_plants.append(p)
+	active_plants = temp_plants
 	if active_plants.size() > plant_max:
 		active_plants[0].wither_self()
 
