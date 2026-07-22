@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://oryts8sm26u6" path="res://scenes/rooms/room_b.tscn" id="2_q2tb6"]
 [ext_resource type="PackedScene" uid="uid://3vfg6n44r7yp" path="res://scenes/rooms/room_c.tscn" id="3_ywuqi"]
 [ext_resource type="PackedScene" uid="uid://dvwkrjq22kad7" path="res://scenes/rooms/forest/forest_1.tscn" id="4_q2tb6"]
+[ext_resource type="PackedScene" uid="uid://ste677rfmwpv" path="res://scenes/rooms/forest/forest_2.tscn" id="5_ywuqi"]
 
 [node name="FullRooms" type="Node3D" unique_id=1444283235]
 
@@ -22,3 +23,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
 [node name="Room1" parent="Forest" unique_id=2108924292 instance=ExtResource("4_q2tb6")]
 adjacent_rooms = Array[int]([1, 2])
+
+[node name="Room2" parent="Forest" unique_id=114202016 instance=ExtResource("5_ywuqi")]

@@ -11,7 +11,7 @@ class_name Player
 const walkSpeed = 1.5;
 const sprintSpeed = 2.5;
 var currentSpeed = walkSpeed;
-const max_speed_factor = 7.0
+const max_speed_factor = 5.0
 
 @export var look_pivot: Node3D
 @export var hud: HUD
@@ -258,22 +258,15 @@ func physics_movement(delta:float) -> void:
 	else:
 		currentSpeed = walkSpeed;
 		#Sprint mechanic 
-	var speed = linear_velocity.length()
+	var current_speed_in_dir = linear_velocity.dot((look_pivot.basis * input).normalized())
 	var max_speed = max_speed_factor * currentSpeed
 	var force = look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult
 	#print(ground_normal.y)
 	#print(force)
 	if ground_normal == Vector3.ZERO:
 		ground_normal = Vector3.UP
-	if speed < max_speed_factor:
+	if current_speed_in_dir < max_speed:
 		apply_central_force(force.slide(ground_normal));
-	else:
-		var angle = input.angle_to(linear_velocity)
-		if angle > deg_to_rad(30):
-			#print("ALLOW TURNING")
-			force *= 0.5
-			apply_central_force(force.slide(ground_normal))
-	#Moves the player
 
 #handles the "air drift" for a better jump
 func apply_air_drift(delta) -> void:
@@ -292,7 +285,7 @@ func playerJump() -> void:
 		return
 	if is_grounded and !supress_movement:
 		#print()
-		var speed_mult = lerpf(1.0, 1.75, linear_velocity.slide(Vector3.UP).length() / 12.0)
+		var speed_mult = lerpf(1.0, 1.5, linear_velocity.slide(Vector3.UP).length() / 12.0)
 		apply_central_impulse(Vector3.UP * jumpForce * speed_mult);
 		is_jump_drifting = true
 	#Applies jump force 

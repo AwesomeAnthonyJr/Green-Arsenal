@@ -11,6 +11,7 @@ const room_dict = {
 	2: "res://scenes/rooms/room_c.tscn",
 	
 	4: "res://scenes/rooms/forest/forest_1.tscn",
+	5: "res://scenes/rooms/forest/forest_2.tscn",
 }
 #must be the inverse of the first!!!
 const reverse_dict = {
@@ -19,6 +20,7 @@ const reverse_dict = {
 	"res://scenes/rooms/room_c.tscn": 2,
 	
 	"res://scenes/rooms/forest/forest_1.tscn" : 4,
+	"res://scenes/rooms/forest/forest_2.tscn" : 5,
 }
 
 var loadings = []
@@ -27,7 +29,7 @@ var loaded_objects = []
 
 func get_floor():
 	#forest
-	if active_key > -1 and active_key < 5:
+	if active_key > -1 and active_key < 999:
 		return 1
 	return 0
 
