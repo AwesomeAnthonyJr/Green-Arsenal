@@ -64,10 +64,12 @@ func die() -> void:
 	var newSize = scale * 0.6
 	
 	if generation < maxSplits:
-		var level = get_tree().current_scene
+		var level = get_parent()
 		
 		var spawn1 = enemyScene.instantiate()
 		spawn1.generation = generation + 1
+		
+		level.add_child(spawn1) 
 		
 		spawn1.global_transform.origin = global_transform.origin - offset
 		spawn1.scale = newSize
@@ -76,10 +78,12 @@ func die() -> void:
 		spawn1.target_velocity = Vector3.ZERO
 		spawn1.velocity = Vector3.ZERO
 		
-		level.add_child(spawn1) 
+		
 		
 		var spawn2 = enemyScene.instantiate()
 		spawn2.generation = generation + 1
+		
+		level.add_child(spawn2)
 		
 		spawn2.global_transform.origin = global_transform.origin + offset
 		spawn2.scale = newSize
@@ -87,7 +91,7 @@ func die() -> void:
 		spawn2.target_velocity = Vector3.ZERO
 		spawn2.velocity = Vector3.ZERO
 		
-		level.add_child(spawn2)
+		
 		
 	queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.

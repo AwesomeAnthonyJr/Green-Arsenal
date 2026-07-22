@@ -11,8 +11,8 @@ func _ready() -> void:
 func _spawn_enemy() -> void:
 	if enemyScene:
 		var newEnemy = enemyScene.instantiate()
+		get_parent().add_child(newEnemy)
 		newEnemy.global_transform.origin = spawnPoint.global_transform.origin
-		get_tree().current_scene.add_child(newEnemy)
 func take_damage(amount: int) -> void:
 	currHealth -= amount
 	print("Remaining health: ", currHealth)
