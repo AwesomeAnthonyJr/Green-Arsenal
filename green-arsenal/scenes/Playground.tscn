@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://oc5kpu32ennv" path="res://materials/salt_water.tres" id="7_070rk"]
 [ext_resource type="Script" uid="uid://h1irw11mld5" path="res://scripts/propellable_platform.gd" id="8_h8tnp"]
 [ext_resource type="PackedScene" uid="uid://cnys260vhf7u2" path="res://scenes/flyingEnemy.tscn" id="9_8luvy"]
+[ext_resource type="PackedScene" uid="uid://2qu2xc4rf2hd" path="res://scenes/enemySpawner.tscn" id="10_ak4i2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3invt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -200,6 +201,9 @@ shape = SubResource("BoxShape3D_070rk")
 
 [node name="FlyingEnemy" parent="." unique_id=677690380 instance=ExtResource("9_8luvy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67125225, 4.183667, -9.863661)
+
+[node name="enemySpawner" parent="." unique_id=1028567862 instance=ExtResource("10_ak4i2")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 6.8088865, 2.8408837, 0.033565044)
 
 [connection signal="body_entered" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_enter"]
 [connection signal="body_exited" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_exit"]

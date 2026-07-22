@@ -1,16 +1,22 @@
 extends CharacterBody3D
-
+#Split Enemy Script
 
 @export var speed = 2
 @export var maxHealth = 1
 @export var contact_damage = 1
+@export var enemyScene: PackedScene = preload("res://scenes/splitEnemy.tscn")
+
+var generation: int = 0
+@export var maxSplits: int = 1
 var player = null
+#Change maxSplits if you want the enemy to split more
 
 @onready var currHealth: int = maxHealth
 var move_velocity: Vector3 = Vector3.ZERO
 var target_velocity: Vector3 = Vector3.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	currHealth = maxHealth
 	if player == null:
 		find_player()
 
@@ -24,7 +30,6 @@ func find_player():
 		for c in level.get_children():
 			if c.is_in_group("player_package") and player == null:
 				player = c.get_child(0)
-
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -55,7 +60,40 @@ func take_knockback(amount: Vector3) -> void:
 
 func die() -> void:
 	print("Enemy dead")
-	queue_free() 
+	var offset = Vector3(1.5, 0.5, 0)
+	var newSize = scale * 0.6
+	
+	if generation < maxSplits:
+		var level = get_parent()
+		
+		var spawn1 = enemyScene.instantiate()
+		spawn1.generation = generation + 1
+		
+		level.add_child(spawn1) 
+		
+		spawn1.global_transform.origin = global_transform.origin - offset
+		spawn1.scale = newSize
+		
+		spawn1.move_velocity = Vector3.ZERO
+		spawn1.target_velocity = Vector3.ZERO
+		spawn1.velocity = Vector3.ZERO
+		
+		
+		
+		var spawn2 = enemyScene.instantiate()
+		spawn2.generation = generation + 1
+		
+		level.add_child(spawn2)
+		
+		spawn2.global_transform.origin = global_transform.origin + offset
+		spawn2.scale = newSize
+		spawn2.move_velocity = Vector3.ZERO
+		spawn2.target_velocity = Vector3.ZERO
+		spawn2.velocity = Vector3.ZERO
+		
+		
+		
+	queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
