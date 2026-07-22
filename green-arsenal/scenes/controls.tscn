@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vfwgi73yjqyr"]
 
-[ext_resource type="Texture2D" uid="uid://b04gibnht6e3n" path="res://ui/pause_menu_ui_controls_v2.png" id="1_i2gav"]
 [ext_resource type="Script" uid="uid://dvh7o02l8t1p7" path="res://scripts/pause_menu_part.gd" id="1_ihl6s"]
+[ext_resource type="Texture2D" uid="uid://lehlqsrog2o0" path="res://ui/pause_menu_ui_controls_v3.png" id="2_jlst0"]
 [ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="3_cywyo"]
 [ext_resource type="Script" uid="uid://cmfkan1bxowh5" path="res://scripts/controls_text.gd" id="3_ihl6s"]
 [ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="5_jlst0"]
@@ -624,7 +624,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_i2gav")
+texture = ExtResource("2_jlst0")
 
 [node name="Control" type="Control" parent="Control/TextureRect" unique_id=1250038118]
 anchors_preset = 0
