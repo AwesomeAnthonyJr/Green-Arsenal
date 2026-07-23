@@ -75,9 +75,11 @@ func connect_inputs():
 func read_move_direction(z, x):
 	move_dir.x = z
 	move_dir.y = x
+	if !move_dir.is_zero_approx():
+		physics_material_override.friction = 0.6
 func read_move_stop():
 	move_dir = Vector2.ZERO
-	#can do more here if we want to halt all movement too!
+	physics_material_override.friction = 1.0
 func read_sprint(b):
 	is_sprinting = b
 func read_jump():
@@ -189,8 +191,8 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	#print(linear_velocity.y)
 	#print(gravity_scale)
-	#print(is_grounded, ", ", gravity_scale)
-	var g_norm = Vector3.UP
+	#print(is_grounded, ", ", physics_material_override.friction)
+	var g_norm = Vector3.ZERO
 	if groundCast.get_collision_count() > 0:
 		for i in groundCast.get_collision_count():
 			var o = groundCast.get_collider(i)
@@ -200,7 +202,7 @@ func _physics_process(delta: float) -> void:
 				var how_groundy = Vector3.UP.dot(norm)
 				if o.is_in_group("springvine_ground") and linear_velocity.y < 0.1:
 					how_groundy = 0
-				if how_groundy > 0.1:
+				if how_groundy > 0.45:
 					is_grounded = true
 	else:
 		is_grounded = false
@@ -266,7 +268,11 @@ func physics_movement(delta:float) -> void:
 	if ground_normal == Vector3.ZERO:
 		ground_normal = Vector3.UP
 	if current_speed_in_dir < max_speed:
-		apply_central_force(force.slide(ground_normal));
+		var temp = force.slide(ground_normal)
+		#multiply the y force to better handle slopes
+		temp.y *= 1.5
+		
+		apply_central_force(temp);
 
 #handles the "air drift" for a better jump
 func apply_air_drift(delta) -> void:

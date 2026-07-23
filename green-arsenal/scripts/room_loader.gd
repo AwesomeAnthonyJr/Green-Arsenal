@@ -12,6 +12,8 @@ const room_dict = {
 	
 	4: "res://scenes/rooms/forest/forest_1.tscn",
 	5: "res://scenes/rooms/forest/forest_2.tscn",
+	6: "res://scenes/rooms/forest/forest_3.tscn",
+	8: "res://scenes/rooms/forest/blaze_seed_vault.tscn",
 }
 #must be the inverse of the first!!!
 const reverse_dict = {
@@ -21,11 +23,18 @@ const reverse_dict = {
 	
 	"res://scenes/rooms/forest/forest_1.tscn" : 4,
 	"res://scenes/rooms/forest/forest_2.tscn" : 5,
+	"res://scenes/rooms/forest/forest_3.tscn" : 6,
+	"res://scenes/rooms/forest/blaze_seed_vault.tscn" :8,
+}
+
+#this is for secondary things - to load in stages if certain rooms are too large
+const room_dict_2 = {
 }
 
 var loadings = []
 var loaded_objects_keys = []
 var loaded_objects = []
+var extra_loadings = {}
 
 func get_floor():
 	#forest
@@ -41,7 +50,9 @@ func _process(delta):
 		var status = ResourceLoader.load_threaded_get_status(path)
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
 			var resource = ResourceLoader.load_threaded_get(path)
-			load_resource(resource, path)
+			var is_extra = extra_loadings.has(path)
+			load_resource(resource, path, is_extra)
+			extra_loadings.erase(path)
 			loadings.erase(path)
 	var erase_arr = []
 	for i in loaded_objects_keys.size():
@@ -59,12 +70,24 @@ func _process(delta):
 			#var k = loaded_objects_keys[i]
 			#var o = loaded_objects[i]
 
-func load_resource(resource: PackedScene, path: String):
+func load_resource(resource: PackedScene, path: String, extra: bool):
 	var inst = resource.instantiate()
-	add_child(inst)
-	inst.global_position = inst.room_pos
-	loaded_objects.append(inst)
-	loaded_objects_keys.append(reverse_dict[path])
+	if !extra:
+		add_child(inst)
+		inst.global_position = inst.room_pos
+	else:
+		#print("EXTRA EXTRA")
+		var key = extra_loadings[path]
+		for i in loaded_objects_keys.size():
+			#print(i, ", ", loaded_objects_keys[i], ", ", key)
+			if loaded_objects_keys[i] == key:
+				loaded_objects[i].add_child(inst)
+				break
+	if !extra:
+		loaded_objects.append(inst)
+		var key = reverse_dict[path]
+		loaded_objects_keys.append(key)
+		load_room_extra(key)
 
 func load_room(key: int):
 	var path = room_dict[key]
@@ -72,11 +95,20 @@ func load_room(key: int):
 	loadings.append(path)
 	print("ROOM: ", key, " IS LOADED!")
 
+func load_room_extra(key: int):
+	if room_dict_2.has(key):
+		var path = room_dict_2[key]
+		ResourceLoader.load_threaded_request(path, "PackedScene")
+		extra_loadings[path] = key
+		loadings.append(path)
+		print("EXTRAS FOR: ", key, " IS LOADED!")
+		print(extra_loadings)
+
 func setup_active_room(key: int):
 	#some stuff will need to go here
 	if is_instance_valid(active_room):
 		active_room.active = false
-	
+	print("ON ROOM: ", key)
 	var already_loaded = false
 	for i in loaded_objects_keys.size():
 		var k = loaded_objects_keys[i]
@@ -95,6 +127,7 @@ func setup_active_room(key: int):
 		loaded_objects.append(inst)
 		loaded_objects_keys.append(key)
 		active_room = inst
+		load_room_extra(key)
 		print("RARE FIRST TIME LOAD HAS OCCURED!")
 	
 	#its a different room now

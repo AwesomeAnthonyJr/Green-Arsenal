@@ -17,4 +17,5 @@ func testing_check():
 		print("REMOVED ACTIVE! IN TESTING!")
 
 func _process(delta: float) -> void:
-	print(Engine.get_frames_per_second())
+	#print(Engine.get_frames_per_second())
+	pass
