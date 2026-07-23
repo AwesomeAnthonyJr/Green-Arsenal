@@ -11,8 +11,6 @@ radius = 0.05
 process_mode = 1
 
 [node name="Player" parent="." unique_id=278666006 node_paths=PackedStringArray("look_pivot", "hud", "aiming_target") instance=ExtResource("1_aaihd")]
-light_grav = 0.8
-heavy_grav = 2.0
 look_pivot = NodePath("../CameraRig/TwistPivot")
 hud = NodePath("../InGameHUD")
 aiming_target = NodePath("../AimingTarget")

@@ -1,15 +1,15 @@
 extends RigidBody3D
 class_name Player
 
-@export var jumpForce: float = 5.0;
+@export var jumpForce: float = 6.0;
 #guys feel free to tweak these this is just some random guesses
-@export var light_grav: float = 0.7
-@export var heavy_grav: float = 1.5
+@export var light_grav: float = 0.8
+@export var heavy_grav: float = 2.0
 #switched raycast to shapecast for more coverage
 @onready var groundCast: ShapeCast3D = $GroundCast;
 
 const walkSpeed = 1.5;
-const sprintSpeed = 2.5;
+const sprintSpeed = 2.0;
 var currentSpeed = walkSpeed;
 const max_speed_factor = 5.0
 
@@ -45,6 +45,14 @@ var iframes = false
 
 var interactable_obj: InteractArea
 var ground_normal: Vector3
+
+@onready var forward_step_cast: ShapeCast3D = $Pivot/Pivot2/Model/ForwardStepCast
+@onready var forward_step_cast_2: ShapeCast3D = $Pivot/Pivot2/Model/ForwardStepCast2
+@onready var ground_cast_2: ShapeCast3D = $GroundCast2
+var forward_steppable = false
+var forward_step_height = 0.0
+var currently_stepping = false
+
 
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
@@ -187,6 +195,30 @@ func _process(delta: float) -> void:
 				if p is SeekerFlower and p.has_bullet:
 					supress_shooting = true
 
+func check_steps(delta):
+	forward_steppable = false
+	if forward_step_cast.get_collision_count() > 0 and !forward_step_cast_2.is_colliding():
+		for i in forward_step_cast.get_collision_count():
+			var o = forward_step_cast.get_collider(i)
+			var temp_pos = forward_step_cast.global_position
+			temp_pos.y -= 0.5
+			var h = temp_pos.distance_to(forward_step_cast.get_collision_point(i))
+			if is_instance_valid(o) and !o.is_in_group("not_ground") and !o.is_in_group("player"):
+				var norm = forward_step_cast.get_collision_normal(i)
+				var how_groundy = Vector3.UP.dot(norm)
+				if o.is_in_group("springvine_ground") and linear_velocity.y < 0.1:
+					how_groundy = 0
+				if how_groundy > 0.9:
+					forward_steppable = true
+					#print(o)
+					forward_step_height = h
+					if is_nan(forward_step_height):
+						forward_step_height = 0.0
+	else:
+		forward_steppable = false
+		forward_step_height = 0.0
+		currently_stepping = false
+
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
 	#print(linear_velocity.y)
@@ -209,6 +241,10 @@ func _physics_process(delta: float) -> void:
 		g_norm = Vector3.UP
 	ground_normal = g_norm.normalized()
 	if !supress_movement:
+		if is_grounded or currently_stepping:
+			check_steps(delta)
+		else:
+			forward_steppable = false
 		physics_movement(delta)
 		physics_looking()
 		gun_rotation()
@@ -269,10 +305,28 @@ func physics_movement(delta:float) -> void:
 		ground_normal = Vector3.UP
 	if current_speed_in_dir < max_speed:
 		var temp = force.slide(ground_normal)
+	
 		#multiply the y force to better handle slopes
-		temp.y *= 1.5
-		
+		if forward_step_cast.is_colliding():
+			temp.y *= 1.5
+			if temp.y != 0:
+				print(temp.y)
 		apply_central_force(temp);
+	
+	###faux-gravity - also a sticking force
+	if is_grounded:
+		apply_central_force(ground_normal * -9.8 * delta)
+	elif ground_cast_2.is_colliding() and !is_jump_drifting:
+		var frac = ground_cast_2.get_closest_collision_safe_fraction()
+		apply_central_force(ground_normal * -9.8 * delta * gravity_scale * frac * 10.0)
+		#print("niche; snap to floor")
+	
+	if move_dir.x < 0 and forward_steppable and forward_step_height != 0:
+		currently_stepping = true
+		var temp = sqrt(2.0 * gravity_scale * forward_step_height) * Vector3.UP * 0.5
+		#print(temp.y)
+		apply_central_impulse(temp);
+		#position.y += forward_step_height + 0.05
 
 #handles the "air drift" for a better jump
 func apply_air_drift(delta) -> void:
@@ -291,7 +345,8 @@ func playerJump() -> void:
 		return
 	if is_grounded and !supress_movement:
 		#print()
-		var speed_mult = lerpf(1.0, 1.5, linear_velocity.slide(Vector3.UP).length() / 12.0)
+		var speed_mult = lerpf(1.0, 1.5, linear_velocity.slide(Vector3.UP).length() / 20.0)
+		print(speed_mult)
 		apply_central_impulse(Vector3.UP * jumpForce * speed_mult);
 		is_jump_drifting = true
 	#Applies jump force 

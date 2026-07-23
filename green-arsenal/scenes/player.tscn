@@ -297,6 +297,10 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_dqkch")
 nodes/TimeScale/position = Vector2(200, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"WalkState"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dqkch"]
+height = 0.1
+radius = 0.18
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g36yv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i20g8"]
@@ -718,6 +722,16 @@ settings/0/joints/1/limitation = null
 settings/0/joints/2/rotation_axis = 3
 settings/0/joints/2/limitation = null
 
+[node name="ForwardStepCast" type="ShapeCast3D" parent="Pivot/Pivot2/Model" unique_id=769190270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, -0.39)
+shape = SubResource("CylinderShape3D_dqkch")
+target_position = Vector3(0, -0.5, 0)
+
+[node name="ForwardStepCast2" type="ShapeCast3D" parent="Pivot/Pivot2/Model" unique_id=1016829833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, -0.39)
+shape = SubResource("CylinderShape3D_dqkch")
+target_position = Vector3(0, 0.1, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Pivot2" unique_id=1178222609]
 visible = false
 mesh = SubResource("CapsuleMesh_g36yv")
@@ -742,3 +756,8 @@ shape = SubResource("CapsuleShape3D_i20g8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
 shape = SubResource("CylinderShape3D_h45xw")
 target_position = Vector3(0, 0, 0)
+
+[node name="GroundCast2" type="ShapeCast3D" parent="." unique_id=1291512156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+shape = SubResource("CylinderShape3D_h45xw")
+target_position = Vector3(0, -4, 0)
