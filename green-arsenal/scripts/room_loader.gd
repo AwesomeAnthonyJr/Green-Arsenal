@@ -10,12 +10,12 @@ const room_dict = {
 	1: "res://scenes/rooms/room_b.tscn",
 	2: "res://scenes/rooms/room_c.tscn",
 	
-	4: "res://scenes/rooms/forest/forest_1.tscn",
-	5: "res://scenes/rooms/forest/forest_2.tscn",
-	6: "res://scenes/rooms/forest/forest_3.tscn",
-	7: "res://scenes/rooms/forest/forest_4.tscn",
+	4: "res://scenes/rooms/forest/forest_1_NEW.tscn",
+	5: "res://scenes/rooms/forest/forest_2_NEW.tscn",
+	6: "res://scenes/rooms/forest/forest_3_NEW.tscn",
+	7: "res://scenes/rooms/forest/forest_4_NEW.tscn",
 	8: "res://scenes/rooms/forest/blaze_seed_vault.tscn",
-	9: "res://scenes/rooms/forest/forest_5.tscn",
+	9: "res://scenes/rooms/forest/forest_5_NEW.tscn",
 }
 #must be the inverse of the first!!!
 const reverse_dict = {
@@ -23,12 +23,12 @@ const reverse_dict = {
 	"res://scenes/rooms/room_b.tscn": 1,
 	"res://scenes/rooms/room_c.tscn": 2,
 	
-	"res://scenes/rooms/forest/forest_1.tscn" : 4,
-	"res://scenes/rooms/forest/forest_2.tscn" : 5,
-	"res://scenes/rooms/forest/forest_3.tscn" : 6,
-	"res://scenes/rooms/forest/forest_4.tscn" : 7,
+	"res://scenes/rooms/forest/forest_1_NEW.tscn" : 4,
+	"res://scenes/rooms/forest/forest_2_NEW.tscn" : 5,
+	"res://scenes/rooms/forest/forest_3_NEW.tscn" : 6,
+	"res://scenes/rooms/forest/forest_4_NEW.tscn" : 7,
 	"res://scenes/rooms/forest/blaze_seed_vault.tscn" : 8,
-	"res://scenes/rooms/forest/forest_5.tscn" : 9,
+	"res://scenes/rooms/forest/forest_5_NEW.tscn" : 9,
 }
 
 #this is for secondary things - to load in stages if certain rooms are too large
