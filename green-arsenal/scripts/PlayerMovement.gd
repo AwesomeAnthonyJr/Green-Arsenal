@@ -1,7 +1,7 @@
 extends RigidBody3D
 class_name Player
 
-@export var jumpForce: float = 6.0;
+@export var jumpForce: float = 6.5;
 #guys feel free to tweak these this is just some random guesses
 @export var light_grav: float = 0.8
 @export var heavy_grav: float = 2.0
@@ -344,7 +344,7 @@ func playerJump() -> void:
 		return
 	if is_grounded and !supress_movement:
 		#print()
-		var speed_mult = lerpf(1.0, 1.5, linear_velocity.slide(Vector3.UP).length() / 20.0)
+		var speed_mult = lerpf(1.0, 1.2, linear_velocity.slide(Vector3.UP).length() / 20.0)
 		print(speed_mult)
 		apply_central_impulse(Vector3.UP * jumpForce * speed_mult);
 		is_jump_drifting = true

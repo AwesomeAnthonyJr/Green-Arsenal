@@ -108,9 +108,9 @@ size = Vector2(10, 10)
 subdivide_width = 30
 subdivide_depth = 30
 
-[node name="Room1" type="Node3D" unique_id=2108924292]
+[node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_8wjoc")
-adjacent_rooms = Array[int]([4, 6, 7])
+adjacent_rooms = Array[int]([4, 6, 7, 9])
 room_pos = Vector3(0, 0, -80)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
@@ -120,7 +120,7 @@ new_id = 4
 
 [node name="Exit5" parent="." unique_id=1592107762 instance=ExtResource("5_hem73")]
 transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, -12.5, 5.5, 7.5)
-new_id = 4
+new_id = 9
 
 [node name="Exit2" parent="." unique_id=229943428 instance=ExtResource("5_hem73")]
 transform = Transform3D(5, 0, 0, 0, 20, 0, 0, 0, 25, 62.5, 10, 0)
