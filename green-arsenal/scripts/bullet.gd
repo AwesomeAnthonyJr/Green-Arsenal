@@ -45,6 +45,8 @@ func _physics_process(delta: float) -> void:
 			enemy_cast.get_collider(0).get_parent().store(self)
 		elif enemy_cast.get_collider(0).is_in_group("roller"):
 			hit_roller(enemy_cast.get_collider(0))
+		elif enemy_cast.get_collider(0).is_in_group("target"):
+			hit_target(enemy_cast.get_collider(0))
 		else:
 			hit_enemy(enemy_cast.get_collider(0))
 			return
@@ -72,6 +74,10 @@ func hit_enemy(obj):
 func hit_roller(obj):
 	if obj.has_method("take_knockback"):
 		obj.take_knockback(35.00 * -global_transform.basis.z)
+	destroy_bullet()
+
+func hit_target(obj):
+	obj.get_parent().shot()
 	destroy_bullet()
 
 func _on_timer_timeout() -> void:

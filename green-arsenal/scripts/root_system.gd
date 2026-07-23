@@ -6,6 +6,8 @@ var branches = []
 @export var rebuild = false
 @export var auto_rebuild = false
 @export var sides = 16
+@export var build_collision = false
+var dont_collision = false
 #@export var radius = 0.5
 
 var frozen = false
@@ -14,6 +16,8 @@ var vertices: PackedVector3Array = []
 var normals: PackedVector3Array = []
 var indices: PackedInt32Array = []
 var uvs: PackedVector2Array = []
+
+signal roots_gone
 
 func _process(delta: float) -> void:
 	if rebuild:
@@ -50,6 +54,15 @@ func _process(delta: float) -> void:
 			rebuild = true
 		pass
 
+func delayed_setup():
+	await get_tree().process_frame
+	vertices.clear()
+	normals.clear()
+	indices.clear()
+	branches.clear()
+	uvs.clear()
+	setup()
+
 func setup():
 	for c in get_children():
 		if c is RootPoint:
@@ -58,8 +71,11 @@ func setup():
 	for b in branches:
 		generate_tube(b)
 	build_mesh()
-	if !Engine.is_editor_hint() or frozen:
-		generate_collision()
+	if !dont_collision:
+		if !Engine.is_editor_hint() or frozen or build_collision:
+			generate_collision()
+	if branches.size() <= 0:
+		roots_gone.emit()
 
 func _ready() -> void:
 	if !frozen:
@@ -88,8 +104,9 @@ func generate_tube(branch: Array):
 	var curve = Curve3D.new()
 	var radii = []
 	for p in branch:
-		curve.add_point(to_local(p.global_position))
-		radii.append(p.radius)
+		if is_instance_valid(p):
+			curve.add_point(to_local(p.global_position))
+			radii.append(p.radius)
 	#adding this extra one for some later radii shenaniganry; basically assumes roots end in a point
 	radii.append(0.01)
 	#could probably have been an @export variable but like who cares
@@ -127,11 +144,14 @@ func generate_tube(branch: Array):
 			var angle = TAU * float(j) / sides
 			var direction = (right * cos(angle) + up * sin(angle))
 			#basically a fancy way to interpolate between set radii
+			
 			var temp_ind = (float(i) / float(points.size()-1)) * float(radii.size()-2)
 			var temp_perc = temp_ind
 			temp_ind = int(temp_ind)
 			temp_perc -= temp_ind
-			var local_radius = lerp(radii[temp_ind], radii[temp_ind + 1], temp_perc)
+			var local_radius = 0.01
+			if radii.size() > 2:
+				local_radius = lerp(radii[temp_ind], radii[temp_ind + 1], temp_perc)
 			#adds a point offset by the circle direction and radius
 			vertices.append(point + direction * local_radius)
 			normals.append(direction)
@@ -155,6 +175,10 @@ func generate_tube(branch: Array):
 			indices.append(next_ring)
 
 func build_mesh():
+	var mesh := ArrayMesh.new()
+	if vertices.size() <= 0:
+		$MeshInstance3D.mesh = mesh
+		return
 	var arrays = []
 	arrays.resize(Mesh.ARRAY_MAX)
 	
@@ -163,7 +187,6 @@ func build_mesh():
 	arrays[Mesh.ARRAY_INDEX] = indices
 	arrays[Mesh.ARRAY_TEX_UV] = uvs
 	
-	var mesh := ArrayMesh.new()
 	mesh.add_surface_from_arrays(
 		Mesh.PRIMITIVE_TRIANGLES,
 		arrays
