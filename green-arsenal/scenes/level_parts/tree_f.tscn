@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://w2dwcxfs4ymw"]
+
+[ext_resource type="ArrayMesh" uid="uid://bh2rim5m2an6c" path="res://scenes/level_parts/baked_meshes/tree_a_upper.tres" id="1_2xf6m"]
+[ext_resource type="Material" uid="uid://blxh8itmv71oq" path="res://materials/tree_bark.tres" id="2_632xq"]
+[ext_resource type="Shape3D" uid="uid://hqj4ii5r4dwd" path="res://scenes/level_parts/baked_meshes/tree_a_upper_col1.res" id="3_tj1eu"]
+[ext_resource type="Shape3D" uid="uid://d05v3ptskw2uv" path="res://scenes/level_parts/baked_meshes/tree_a_upper_col2.res" id="4_r1tbc"]
+[ext_resource type="ArrayMesh" uid="uid://c2cgoerde6ce2" path="res://scenes/level_parts/baked_meshes/tree_a_lower.tres" id="5_52bax"]
+[ext_resource type="Shape3D" uid="uid://dejdtxk1t7beh" path="res://scenes/level_parts/baked_meshes/tree_a_lower_col1.res" id="6_ntldq"]
+[ext_resource type="Shape3D" uid="uid://8o3hvanj35a4" path="res://scenes/level_parts/baked_meshes/tree_a_lower_col2.res" id="7_hx23i"]
+[ext_resource type="Texture2D" uid="uid://c1ojh3se8fcg5" path="res://textures/bark_texture.png" id="8_tj1eu"]
+[ext_resource type="Texture2D" uid="uid://dggskctfylmgh" path="res://textures/bark_texture_dark.png" id="9_r1tbc"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h45xw"]
+top_radius = 1.5
+bottom_radius = 1.5
+height = 11.0
+radial_segments = 16
+
+[sub_resource type="Shader" id="Shader_3x08v"]
+code = "//shader by Anthony D. Salsbury; looks best without any ambient lighting!
+
+shader_type spatial;
+render_mode diffuse_lambert, cull_disabled;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_nearest, repeat_enable;
+uniform vec4 albedo_in_shadow : source_color;
+uniform sampler2D texture_albedo_in_shadow : source_color, filter_nearest, repeat_enable;
+uniform float shadow_threshold : hint_range(0.0, 1.0, 0.01) = 0.50;
+uniform float specular_threshold : hint_range(0.0, 1.0, 0.01) = 0.80;
+uniform float specular_strength : hint_range(0.0, 10.0, 0.1) = 1.0;
+uniform float fresnel_amount : hint_range(0.0, 10.0, 0.1) = 2.0;
+uniform float fresnel_strength : hint_range(0.0, 1.0, 0.01) = 1.0;
+
+
+uniform vec2 uv1_scale;
+uniform vec2 uv1_offset;
+
+varying vec3 lit_color;
+varying vec3 shadow_color;
+varying vec3 light_result;
+
+void vertex() {
+	UV = UV * uv1_scale + uv1_offset;
+}
+
+
+//this function from godot shaders dot com
+float fresnel(float amount, vec3 normal, vec3 view){
+	return pow((1.0 - clamp(dot(normal, view), 0.0, 1.0 )), amount);
+}
+
+void fragment() {
+	lit_color = texture(texture_albedo, UV).rgb * albedo.rgb;
+	shadow_color = texture(texture_albedo_in_shadow, UV).rgb * albedo_in_shadow.rgb;		
+	//ALPHA = 1.0;
+	ALBEDO = vec3(1.0);
+}
+
+vec3 diffuse_calc(vec3 color, vec3 fresnel) {
+	return (color - fresnel);
+}
+
+void light() {
+	//fresnel
+	float fres = fresnel(fresnel_amount, NORMAL, VIEW);
+	fres = step(0.5, fres);
+	vec3 fres2 = vec3(1.0, 1.0, 1.0) * fresnel_strength * fres;
+	//cel
+	float dot_prod = max(dot(NORMAL, LIGHT) * ATTENUATION * length(LIGHT_COLOR), 0.0) ;
+	if (dot_prod <= shadow_threshold){
+		if (DIFFUSE_LIGHT == diffuse_calc(lit_color, fres2)) {
+			DIFFUSE_LIGHT = diffuse_calc(lit_color, fres2);
+		} else {
+			DIFFUSE_LIGHT = diffuse_calc(shadow_color, fres2);
+		}
+	} else {
+		DIFFUSE_LIGHT = diffuse_calc(lit_color, fres2);
+	}
+	//specular
+	vec3 H = normalize(LIGHT + VIEW);
+	float spec = pow(max(dot(NORMAL, H), 0.0), 8.0);
+	spec = step(specular_threshold, spec);
+	if (DIFFUSE_LIGHT == diffuse_calc(lit_color, fres2)){
+		if (SPECULAR_LIGHT == vec3(0.0, 0.0, 0.0)){ 
+			SPECULAR_LIGHT = spec * lit_color * specular_strength;
+		}
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_52bax"]
+render_priority = 0
+shader = SubResource("Shader_3x08v")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("8_tj1eu")
+shader_parameter/albedo_in_shadow = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("9_r1tbc")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(1, 20)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tj1eu"]
+height = 11.0
+radius = 1.5
+
+[node name="Tree_F" type="Node3D" unique_id=47698065]
+
+[node name="TreeUpper" type="Node3D" parent="." unique_id=533968122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.193509, 12.853413, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TreeUpper" unique_id=847081476]
+mesh = ExtResource("1_2xf6m")
+surface_material_override/0 = ExtResource("2_632xq")
+
+[node name="StaticBody3D_L1" type="StaticBody3D" parent="TreeUpper" unique_id=1623906797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeUpper/StaticBody3D_L1" unique_id=463037770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+shape = ExtResource("3_tj1eu")
+
+[node name="StaticBody3D_L2" type="StaticBody3D" parent="TreeUpper" unique_id=1959193422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeUpper/StaticBody3D_L2" unique_id=1474413465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+shape = ExtResource("4_r1tbc")
+debug_color = Color(0.91899663, 6.670922e-05, 0.70196134, 0.41960785)
+
+[node name="TreeLower" type="Node3D" parent="." unique_id=59192113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.193509, 2.8534124, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TreeLower" unique_id=1846191707]
+mesh = ExtResource("5_52bax")
+surface_material_override/0 = ExtResource("2_632xq")
+
+[node name="StaticBody3D_L1" type="StaticBody3D" parent="TreeLower" unique_id=1078073576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeLower/StaticBody3D_L1" unique_id=874665891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+shape = ExtResource("6_ntldq")
+
+[node name="StaticBody3D_L2" type="StaticBody3D" parent="TreeLower" unique_id=1528940547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeLower/StaticBody3D_L2" unique_id=160668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+shape = ExtResource("7_hx23i")
+debug_color = Color(0.91899663, 6.670922e-05, 0.70196134, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=846437914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.117372, 8.135442, 0.866704)
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_52bax")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=965814998]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2042224809]
+shape = SubResource("CylinderShape3D_tj1eu")

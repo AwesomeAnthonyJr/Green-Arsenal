@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ly8d8rmkdyfw" path="res://scenes/level_parts/tree_d.tscn" id="10_egboh"]
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="10_inn5m"]
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="13_lspax"]
+[ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="15_4bcq1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -1045,3 +1046,9 @@ surface_material_override/0 = ExtResource("4_4e52g")
 transform = Transform3D(1, 9.973449e-08, 7.653716e-08, -4.8852954e-08, 0.5387305, -0.8754831, -1.3627573e-07, 0.5387306, 0.8754829, -35.641308, -13.200523, -2.7334266)
 mesh = SubResource("PlaneMesh_0bmar")
 surface_material_override/0 = ExtResource("5_lspax")
+
+[node name="Tree_F" parent="." unique_id=703137696 instance=ExtResource("15_4bcq1")]
+transform = Transform3D(-0.9659258, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, -0.9659258, 22.103125, 0.43843222, -4.7927094)
+
+[node name="Tree_F2" parent="." unique_id=502686035 instance=ExtResource("15_4bcq1")]
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, 18.103125, -0.09150505, 8.058451)

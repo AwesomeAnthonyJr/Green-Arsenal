@@ -108,7 +108,7 @@ subdivide_depth = 30
 
 [node name="Room1" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_8wjoc")
-adjacent_rooms = Array[int]([4, 6])
+adjacent_rooms = Array[int]([4, 6, 7])
 room_pos = Vector3(0, 0, -80)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
@@ -121,11 +121,11 @@ transform = Transform3D(5, 0, 0, 0, 20, 0, 0, 0, 25, 62.5, 10, 0)
 new_id = 6
 
 [node name="Exit3" parent="." unique_id=1654098174 instance=ExtResource("5_hem73")]
-transform = Transform3D(10, 0, 0, 0, 20, 0, 0, 0, 10, 50, 10, -40)
+transform = Transform3D(30, 0, 0, 0, 20, 0, 0, 0, 5, 50, 10, -42.5)
 new_id = 7
 
 [node name="Exit4" parent="." unique_id=1486808455 instance=ExtResource("5_hem73")]
-transform = Transform3D(10, 0, 0, 0, 20, 0, 0, 0, 10, 13, 19, -40)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 5, 13, 19, -42.5)
 new_id = 7
 
 [node name="Tree_E" parent="." unique_id=818354251 instance=ExtResource("9_d4ibr")]

@@ -13,6 +13,7 @@ const room_dict = {
 	4: "res://scenes/rooms/forest/forest_1.tscn",
 	5: "res://scenes/rooms/forest/forest_2.tscn",
 	6: "res://scenes/rooms/forest/forest_3.tscn",
+	7: "res://scenes/rooms/forest/forest_4.tscn",
 	8: "res://scenes/rooms/forest/blaze_seed_vault.tscn",
 }
 #must be the inverse of the first!!!
@@ -24,6 +25,7 @@ const reverse_dict = {
 	"res://scenes/rooms/forest/forest_1.tscn" : 4,
 	"res://scenes/rooms/forest/forest_2.tscn" : 5,
 	"res://scenes/rooms/forest/forest_3.tscn" : 6,
+	"res://scenes/rooms/forest/forest_4.tscn" : 7,
 	"res://scenes/rooms/forest/blaze_seed_vault.tscn" :8,
 }
 
@@ -58,9 +60,12 @@ func _process(delta):
 	for i in loaded_objects_keys.size():
 		var k = loaded_objects_keys[i]
 		var o = loaded_objects[i]
-		if !(k in active_room.adjacent_rooms) and !(k == active_key):
-			print("ROOM: ", k, " IS BEING REMOVED!!!")
-			o.queue_free()
+		if is_instance_valid(o):
+			if !(k in active_room.adjacent_rooms) and !(k == active_key):
+				print("ROOM: ", k, " IS BEING REMOVED!!!")
+				o.queue_free()
+				erase_arr.append(i)
+		else:
 			erase_arr.append(i)
 	if erase_arr.size() > 0:
 		for i in erase_arr:
