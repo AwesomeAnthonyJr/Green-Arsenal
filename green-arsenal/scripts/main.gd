@@ -15,3 +15,6 @@ func testing_check():
 	if testing.get_child_count() > 0:
 		active.queue_free()
 		print("REMOVED ACTIVE! IN TESTING!")
+
+func _process(delta: float) -> void:
+	print(Engine.get_frames_per_second())
