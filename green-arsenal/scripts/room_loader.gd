@@ -69,8 +69,10 @@ func _process(delta):
 			erase_arr.append(i)
 	if erase_arr.size() > 0:
 		for i in erase_arr:
-			loaded_objects_keys.remove_at(i)
-			loaded_objects.remove_at(i)
+			if i < loaded_objects_keys.size():
+				loaded_objects_keys.remove_at(i)
+			if i < loaded_objects.size():
+				loaded_objects.remove_at(i)
 			print("ERASED OBJECT ", i, " FROM ARRAYS.")
 			#var k = loaded_objects_keys[i]
 			#var o = loaded_objects[i]

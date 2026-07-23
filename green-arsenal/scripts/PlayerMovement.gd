@@ -317,8 +317,7 @@ func physics_movement(delta:float) -> void:
 	if is_grounded:
 		apply_central_force(ground_normal * -9.8 * delta)
 	elif ground_cast_2.is_colliding() and !is_jump_drifting:
-		var frac = ground_cast_2.get_closest_collision_safe_fraction()
-		apply_central_force(ground_normal * -9.8 * delta * gravity_scale * frac * 10.0)
+		apply_central_force(ground_normal * -9.8 * delta * gravity_scale)
 		#print("niche; snap to floor")
 	
 	if move_dir.x < 0 and forward_steppable and forward_step_height != 0:

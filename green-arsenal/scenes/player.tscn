@@ -760,4 +760,4 @@ target_position = Vector3(0, 0, 0)
 [node name="GroundCast2" type="ShapeCast3D" parent="." unique_id=1291512156]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
 shape = SubResource("CylinderShape3D_h45xw")
-target_position = Vector3(0, -4, 0)
+target_position = Vector3(0, -0.5, 0)
