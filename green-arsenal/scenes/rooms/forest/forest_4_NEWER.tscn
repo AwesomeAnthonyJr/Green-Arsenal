@@ -30,6 +30,12 @@ size = Vector2(10, 10)
 subdivide_width = 30
 subdivide_depth = 30
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_fd4my"]
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m34gi"]
+height = 1.0
+
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_5ln2c")
 adjacent_rooms = Array[int]([5])
@@ -896,3 +902,111 @@ transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50
 
 [node name="Tree_A2" parent="." unique_id=1279346802 instance=ExtResource("8_ngtr6")]
 transform = Transform3D(0.55252135, 0, -0.8334988, 0, 1, 0, 0.8334988, 0, 0.55252135, 20.952818, 0.56947803, -56.791054)
+
+[node name="NonSoilPlatform" type="StaticBody3D" parent="." unique_id=659884618]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, 27.907528, -3.5, -38.813282)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform" unique_id=1644859992]
+material_override = ExtResource("6_60nx5")
+mesh = SubResource("CylinderMesh_fd4my")
+surface_material_override/0 = ExtResource("6_60nx5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilPlatform" unique_id=297566893]
+shape = SubResource("CylinderShape3D_m34gi")
+
+[node name="NonSoilPlatform2" type="StaticBody3D" parent="." unique_id=1118972888]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, 28.907528, -2.5, -40.813282)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform2" unique_id=677721048]
+material_override = ExtResource("6_60nx5")
+mesh = SubResource("CylinderMesh_fd4my")
+surface_material_override/0 = ExtResource("6_60nx5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilPlatform2" unique_id=1430090448]
+shape = SubResource("CylinderShape3D_m34gi")
+
+[node name="NonSoilPlatform3" type="StaticBody3D" parent="." unique_id=1196318118]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, 27.907528, -1.5, -42.813282)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform3" unique_id=283660775]
+material_override = ExtResource("6_60nx5")
+mesh = SubResource("CylinderMesh_fd4my")
+surface_material_override/0 = ExtResource("6_60nx5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilPlatform3" unique_id=533056773]
+shape = SubResource("CylinderShape3D_m34gi")
+
+[node name="NonSoilPlatform4" type="StaticBody3D" parent="." unique_id=174203248]
+transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 29.907528, -0.5, -45.813282)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform4" unique_id=1438581068]
+material_override = ExtResource("6_60nx5")
+mesh = SubResource("CylinderMesh_fd4my")
+surface_material_override/0 = ExtResource("6_60nx5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilPlatform4" unique_id=732583271]
+shape = SubResource("CylinderShape3D_m34gi")
+
+[node name="NonSoilPlatform5" type="StaticBody3D" parent="." unique_id=679273070]
+transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 27.907528, 0.5, -48.813282)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform5" unique_id=2056659242]
+material_override = ExtResource("6_60nx5")
+mesh = SubResource("CylinderMesh_fd4my")
+surface_material_override/0 = ExtResource("6_60nx5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilPlatform5" unique_id=612256835]
+shape = SubResource("CylinderShape3D_m34gi")
+
+[node name="NonSoilPlatform6" type="StaticBody3D" parent="." unique_id=1232723463]
+transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 25.907528, 1.5, -51.813282)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform6" unique_id=1231407264]
+material_override = ExtResource("6_60nx5")
+mesh = SubResource("CylinderMesh_fd4my")
+surface_material_override/0 = ExtResource("6_60nx5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilPlatform6" unique_id=1191525623]
+shape = SubResource("CylinderShape3D_m34gi")
+
+[node name="NonSoilPlatform7" type="StaticBody3D" parent="." unique_id=236178429]
+transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 20.907528, 3.5, -54.813282)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform7" unique_id=1918045525]
+material_override = ExtResource("6_60nx5")
+mesh = SubResource("CylinderMesh_fd4my")
+surface_material_override/0 = ExtResource("6_60nx5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilPlatform7" unique_id=212249041]
+shape = SubResource("CylinderShape3D_m34gi")
+
+[node name="NonSoilPlatform9" type="StaticBody3D" parent="." unique_id=1359514845]
+transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 21.907528, 4.5, -51.813282)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform9" unique_id=1073444537]
+material_override = ExtResource("6_60nx5")
+mesh = SubResource("CylinderMesh_fd4my")
+surface_material_override/0 = ExtResource("6_60nx5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilPlatform9" unique_id=1199276246]
+shape = SubResource("CylinderShape3D_m34gi")
+
+[node name="NonSoilPlatform8" type="StaticBody3D" parent="." unique_id=85722488]
+transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 24.907528, 2.5, -55.813282)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform8" unique_id=1391555595]
+material_override = ExtResource("6_60nx5")
+mesh = SubResource("CylinderMesh_fd4my")
+surface_material_override/0 = ExtResource("6_60nx5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilPlatform8" unique_id=519699865]
+shape = SubResource("CylinderShape3D_m34gi")
