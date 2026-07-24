@@ -1,0 +1,1126 @@
+[gd_scene format=3 uid="uid://m8kgesenso4n"]
+
+[ext_resource type="Script" uid="uid://dngy88aglx0tr" path="res://scripts/room.gd" id="1_x6m5d"]
+[ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="2_iqkuq"]
+[ext_resource type="PackedScene" uid="uid://ly8d8rmkdyfw" path="res://scenes/level_parts/tree_d.tscn" id="4_1w2hs"]
+[ext_resource type="PackedScene" uid="uid://bfy3in2vvoxva" path="res://scenes/level_parts/tree_d_light.tscn" id="5_ybs8a"]
+[ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="6_qgcvf"]
+[ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="7_1mw2x"]
+[ext_resource type="Material" uid="uid://dvt47ul4pjcvl" path="res://materials/leaves_nearest.tres" id="19_pbrci"]
+[ext_resource type="Material" uid="uid://cqwygovsi155y" path="res://materials/leaves_between.tres" id="20_2st2w"]
+[ext_resource type="Material" uid="uid://b8f5nhjo3v8ex" path="res://materials/leaves_top.tres" id="21_2unlq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4viom"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_4fc3b"]
+left_to_right = -0.5
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4fc3b"]
+data = PackedVector3Array(-1, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -1, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -1, 0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fyu6q"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g8vif"]
+size = Vector2(10, 10)
+subdivide_width = 30
+subdivide_depth = 30
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pboi5"]
+size = Vector2(10, 10)
+subdivide_width = 30
+subdivide_depth = 30
+
+[node name="Room" type="Node3D" unique_id=2108924292]
+script = ExtResource("1_x6m5d")
+adjacent_rooms = Array[int]([5, 8])
+room_pos = Vector3(80, 0, -80)
+metadata/_custom_type_script = "uid://dngy88aglx0tr"
+
+[node name="Exit2" parent="." unique_id=229943428 instance=ExtResource("2_iqkuq")]
+transform = Transform3D(5, 0, 0, 0, 20, 0, 0, 0, 15, -32.5, 10, -1)
+new_id = 5
+
+[node name="Exit3" parent="." unique_id=702144204 instance=ExtResource("2_iqkuq")]
+transform = Transform3D(10, 0, 0, 0, 20, 0, 0, 0, 5, -7.5, 10, 35.5)
+new_id = 8
+
+[node name="Tree_D_light9" parent="." unique_id=671636544 instance=ExtResource("5_ybs8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.01752, 15.766621, 6.897171)
+
+[node name="Tree_D15" parent="." unique_id=1146703607 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.709747, 16.027842, 14.073044)
+
+[node name="Tree_D16" parent="." unique_id=893915965 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.709747, 16.027842, -12.2105255)
+
+[node name="Tree_D17" parent="." unique_id=118269589 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.709747, 16.027842, 10.7894745)
+
+[node name="Tree_D18" parent="." unique_id=1127760566 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.709747, 16.027842, 24.789474)
+
+[node name="Tree_D19" parent="." unique_id=860652376 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.709747, 16.027842, 33.789474)
+
+[node name="Tree_D20" parent="." unique_id=807487847 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.709747, 16.027842, 18.789474)
+
+[node name="Tree_D21" parent="." unique_id=113235755 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.290253, 16.027842, 32.789474)
+
+[node name="Tree_D22" parent="." unique_id=1871364981 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.290253, 16.027842, 24.789474)
+
+[node name="Tree_D23" parent="." unique_id=924601361 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.290253, 16.027842, 19.789474)
+
+[node name="Tree_D24" parent="." unique_id=1277558636 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.64949, 16.027842, -19.373646)
+
+[node name="Tree_D25" parent="." unique_id=1627273843 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5388565, 16.027842, -19.77184)
+
+[node name="Tree_D26" parent="." unique_id=1517912165 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.036621, 16.027842, -26.701244)
+
+[node name="Tree_D27" parent="." unique_id=449613758 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0794907, 16.027842, -22.811602)
+
+[node name="Tree_D28" parent="." unique_id=434236406 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.145424, 16.027842, -22.861128)
+
+[node name="Tree_D29" parent="." unique_id=914312338 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.629555, 16.027842, -17.649082)
+
+[node name="Tree_D30" parent="." unique_id=603759290 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.485718, 16.027842, -8.886238)
+
+[node name="Tree_D31" parent="." unique_id=1909188999 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.780823, 16.027842, -7.703656)
+
+[node name="Tree_D34" parent="." unique_id=1385326665 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.824036, 16.027842, 0.16565657)
+
+[node name="Tree_D32" parent="." unique_id=1770987098 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.097076, 16.027842, 5.4775543)
+
+[node name="Tree_D33" parent="." unique_id=1623731627 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.264091, 16.02784, 13.951728)
+
+[node name="Tree_D35" parent="." unique_id=136923708 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.709747, -11.972158, 10.7894745)
+
+[node name="Tree_D36" parent="." unique_id=812435211 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.709747, -11.972158, 24.789474)
+
+[node name="Tree_D37" parent="." unique_id=1721114062 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.709747, -11.972158, 33.789474)
+
+[node name="Tree_D38" parent="." unique_id=490378588 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.709747, -11.972158, 18.789474)
+
+[node name="Tree_D39" parent="." unique_id=206262345 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.290253, -11.972158, 32.789474)
+
+[node name="Tree_D40" parent="." unique_id=1134725579 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.290253, -11.972158, 24.789474)
+
+[node name="Tree_D41" parent="." unique_id=2115675220 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.290253, -11.972158, 19.789474)
+
+[node name="Tree_D42" parent="." unique_id=2131625666 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.64949, -11.972158, -19.373646)
+
+[node name="Tree_D43" parent="." unique_id=417451666 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5388565, -11.972158, -19.77184)
+
+[node name="Tree_D44" parent="." unique_id=140406547 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.036621, -11.972158, -26.701244)
+
+[node name="Tree_D45" parent="." unique_id=1941917273 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0794907, -11.972158, -22.811602)
+
+[node name="Tree_D46" parent="." unique_id=1120525801 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.145424, -11.972158, -22.861128)
+
+[node name="Tree_D47" parent="." unique_id=764099489 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.629555, -11.972158, -17.649082)
+
+[node name="Tree_D48" parent="." unique_id=514530764 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.485718, -11.972158, -8.886238)
+
+[node name="Tree_D49" parent="." unique_id=1937983709 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.780823, -11.972158, -7.703656)
+
+[node name="Tree_D50" parent="." unique_id=1458334027 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.824036, -11.972158, 0.16565657)
+
+[node name="Tree_D51" parent="." unique_id=839814699 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.097076, -11.972158, 5.4775543)
+
+[node name="Tree_D52" parent="." unique_id=535186646 instance=ExtResource("4_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.264091, -11.97216, 13.951728)
+
+[node name="NonSoilFloor58" type="StaticBody3D" parent="." unique_id=541995428]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -30, -4.5, -8)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor58" unique_id=1516605525]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor58" unique_id=1380111168]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor60" type="StaticBody3D" parent="." unique_id=1185517951]
+transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 1, -22.5, -4.5, -5)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor60" unique_id=305741465]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor60" unique_id=354121036]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor62" type="StaticBody3D" parent="." unique_id=196437896]
+transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 1, -17.5, -4.5, -5)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor62" unique_id=655988334]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor62" unique_id=1237027174]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor61" type="StaticBody3D" parent="." unique_id=1858875944]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 5, -24.5, -4.5, -11)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor61" unique_id=1691955421]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor61" unique_id=1838421803]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0.19999993)
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor80" type="StaticBody3D" parent="." unique_id=1856789016]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2.5, -24.5, -4.5, -7)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor80" unique_id=2060268854]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor80" unique_id=1083040828]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0.19999993)
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor63" type="StaticBody3D" parent="." unique_id=1146043604]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 5, -19.5, -4.5, 6)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor63" unique_id=2086687266]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor63" unique_id=773023881]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor64" type="StaticBody3D" parent="." unique_id=1505281794]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 5, -17.5, -4.5, 4)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor64" unique_id=1917984594]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor64" unique_id=1672588239]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor65" type="StaticBody3D" parent="." unique_id=1250659127]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 5, -15.5, -4.5, 3)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor65" unique_id=1733750159]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor65" unique_id=137359320]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor79" type="StaticBody3D" parent="." unique_id=631218221]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, -7, -4.5, 27.5)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor79" unique_id=2060430752]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor79" unique_id=1248635426]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor66" type="StaticBody3D" parent="." unique_id=1307454553]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 5, -15.5, -4.5, -2)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor66" unique_id=1361248450]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor66" unique_id=1958432156]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor59" type="StaticBody3D" parent="." unique_id=1260352132]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -30, -4.5, 7)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor59" unique_id=710336279]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor59" unique_id=39165222]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor67" type="StaticBody3D" parent="." unique_id=929455529]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -21, -4.5, 13)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor67" unique_id=458976402]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor67" unique_id=382852606]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor68" type="StaticBody3D" parent="." unique_id=543001188]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -17, -4.5, 23)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor68" unique_id=816967294]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor68" unique_id=102751560]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor69" type="StaticBody3D" parent="." unique_id=1989570856]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -15, -4.5, 33)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor69" unique_id=160605820]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor69" unique_id=1266079870]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor70" type="StaticBody3D" parent="." unique_id=443412937]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -4.5, 33)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor70" unique_id=1382585596]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor70" unique_id=1222097672]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor71" type="StaticBody3D" parent="." unique_id=465277208]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 8, -4.5, 23)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor71" unique_id=508844217]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor71" unique_id=867156031]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor72" type="StaticBody3D" parent="." unique_id=600288961]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 14, -4.5, 13)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor72" unique_id=1000638860]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor72" unique_id=1176336563]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor73" type="StaticBody3D" parent="." unique_id=965223555]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 17, -4.5, 3)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor73" unique_id=1977125998]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor73" unique_id=1781732532]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor74" type="StaticBody3D" parent="." unique_id=1236604233]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 17, -4.5, -7)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor74" unique_id=1163543675]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor74" unique_id=644605298]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor75" type="StaticBody3D" parent="." unique_id=906590934]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -19, -4.5, -17)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor75" unique_id=1316025819]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor75" unique_id=1335173916]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilRamp" type="StaticBody3D" parent="." unique_id=441240711]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 6.5, -13.5, -4.5, -8.7516575)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilRamp" unique_id=776972295]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("PrismMesh_4fc3b")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilRamp" unique_id=1575140972]
+shape = SubResource("ConcavePolygonShape3D_4fc3b")
+
+[node name="NonSoilRamp2TEMP_DELETELATER" type="StaticBody3D" parent="." unique_id=593403668]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 6.5, -0.5, -4.5, 24.248343)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilRamp2TEMP_DELETELATER" unique_id=1191570911]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("PrismMesh_4fc3b")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilRamp2TEMP_DELETELATER" unique_id=48491406]
+shape = SubResource("ConcavePolygonShape3D_4fc3b")
+
+[node name="NonSoilFloor76" type="StaticBody3D" parent="." unique_id=699374684]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -9, -4.5, -24)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor76" unique_id=2046324359]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor76" unique_id=852675846]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor77" type="StaticBody3D" parent="." unique_id=422746093]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 1, -4.5, -23)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor77" unique_id=2019301407]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor77" unique_id=673005044]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="NonSoilFloor78" type="StaticBody3D" parent="." unique_id=515095585]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 11, -4.5, -17)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor78" unique_id=681711021]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_1euve")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor78" unique_id=326383737]
+material_override = ExtResource("6_qgcvf")
+mesh = SubResource("BoxMesh_4viom")
+surface_material_override/0 = ExtResource("6_qgcvf")
+
+[node name="SoilPatch10x28" parent="." unique_id=361187496 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
+
+[node name="SoilPatch10x30" parent="." unique_id=1811302809 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+
+[node name="SoilPatch10x32" parent="." unique_id=71449099 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -9, -10)
+
+[node name="SoilPatch10x33" parent="." unique_id=2016706393 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -9, -10)
+
+[node name="SoilPatch10x34" parent="." unique_id=857639491 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -9, -20)
+
+[node name="SoilPatch10x35" parent="." unique_id=2061555394 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, -20)
+
+[node name="SoilPatch10x36" parent="." unique_id=680529220 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -9, -20)
+
+[node name="SoilPatch10x37" parent="." unique_id=1604998270 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -9, -10)
+
+[node name="SoilPatch10x38" parent="." unique_id=735736570 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, -10)
+
+[node name="SoilPatch10x39" parent="." unique_id=393811525 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 0)
+
+[node name="SoilPatch10x40" parent="." unique_id=93304025 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -9, 0)
+
+[node name="SoilPatch10x41" parent="." unique_id=392469083 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -9, 0)
+
+[node name="SoilPatch10x42" parent="." unique_id=1981618175 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -9, 10)
+
+[node name="SoilPatch10x43" parent="." unique_id=1422127814 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9, 10)
+
+[node name="SoilPatch10x44" parent="." unique_id=316279422 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -9, 10)
+
+[node name="SoilPatch10x45" parent="." unique_id=2130827179 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -9, 10)
+
+[node name="SoilPatch10x46" parent="." unique_id=343275033 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -9, 20)
+
+[node name="SoilPatch10x47" parent="." unique_id=971615556 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -9, 20)
+
+[node name="SoilPatch10x48" parent="." unique_id=574496866 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -9, 20)
+
+[node name="SoilPatch10x49" parent="." unique_id=1599021906 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -9, 30)
+
+[node name="SoilPatch10x50" parent="." unique_id=5478722 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -9, 30)
+
+[node name="SoilPatch10x51" parent="." unique_id=185787365 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -9, 30)
+
+[node name="SoilPatch10x31" parent="." unique_id=427912146 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 33)
+
+[node name="SoilPatch10x29" parent="." unique_id=269587633 instance=ExtResource("7_1mw2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
+
+[node name="Leaves" type="StaticBody3D" parent="." unique_id=952353244]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -170, 10, 160)
+collision_layer = 3
+
+[node name="CollisionShape3D125" type="CollisionShape3D" parent="Leaves" unique_id=1413336893]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -7.839777, -147.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D376" type="MeshInstance3D" parent="Leaves" unique_id=2132014855]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -143.6413, -7.839777, -147.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D377" type="MeshInstance3D" parent="Leaves" unique_id=1783764006]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -8.839775, -147.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D378" type="MeshInstance3D" parent="Leaves" unique_id=1245820098]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -9.839779, -147.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D128" type="CollisionShape3D" parent="Leaves" unique_id=771784728]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -7.839777, -147.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D385" type="MeshInstance3D" parent="Leaves" unique_id=1597180038]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -153.6413, -7.839777, -147.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D386" type="MeshInstance3D" parent="Leaves" unique_id=577362357]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -8.839777, -147.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D387" type="MeshInstance3D" parent="Leaves" unique_id=1123634323]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -9.839781, -147.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D147" type="CollisionShape3D" parent="Leaves" unique_id=1368094401]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -7.839777, -137.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D442" type="MeshInstance3D" parent="Leaves" unique_id=852499987]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -153.6413, -7.839777, -137.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D443" type="MeshInstance3D" parent="Leaves" unique_id=964630743]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -8.839777, -137.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D444" type="MeshInstance3D" parent="Leaves" unique_id=659080555]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -9.839781, -137.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D148" type="CollisionShape3D" parent="Leaves" unique_id=1323717778]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -7.839777, -137.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D445" type="MeshInstance3D" parent="Leaves" unique_id=1054321507]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -163.6413, -7.839777, -137.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D446" type="MeshInstance3D" parent="Leaves" unique_id=254805879]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -8.839777, -137.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D447" type="MeshInstance3D" parent="Leaves" unique_id=1783678436]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -9.839781, -137.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D149" type="CollisionShape3D" parent="Leaves" unique_id=1017170140]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -7.839779, -137.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D448" type="MeshInstance3D" parent="Leaves" unique_id=826245779]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -173.6413, -7.839779, -137.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D449" type="MeshInstance3D" parent="Leaves" unique_id=2004913043]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -8.839779, -137.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D450" type="MeshInstance3D" parent="Leaves" unique_id=572591119]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -9.839783, -137.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D150" type="CollisionShape3D" parent="Leaves" unique_id=1785861597]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -7.839779, -127.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D451" type="MeshInstance3D" parent="Leaves" unique_id=1751029963]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -173.6413, -7.839779, -127.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D452" type="MeshInstance3D" parent="Leaves" unique_id=706279875]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -8.839779, -127.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D453" type="MeshInstance3D" parent="Leaves" unique_id=1315816160]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -9.839783, -127.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D151" type="CollisionShape3D" parent="Leaves" unique_id=962360229]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -7.839777, -127.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D454" type="MeshInstance3D" parent="Leaves" unique_id=1336127800]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -163.6413, -7.839777, -127.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D455" type="MeshInstance3D" parent="Leaves" unique_id=1710914579]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -8.839777, -127.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D456" type="MeshInstance3D" parent="Leaves" unique_id=814388016]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -9.839781, -127.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D152" type="CollisionShape3D" parent="Leaves" unique_id=1665581968]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -7.839777, -127.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D457" type="MeshInstance3D" parent="Leaves" unique_id=452339696]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -153.6413, -7.839777, -127.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D458" type="MeshInstance3D" parent="Leaves" unique_id=1303058469]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -8.839777, -127.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D459" type="MeshInstance3D" parent="Leaves" unique_id=375289944]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -9.839781, -127.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D129" type="CollisionShape3D" parent="Leaves" unique_id=882028475]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -7.839777, -157.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D388" type="MeshInstance3D" parent="Leaves" unique_id=215099713]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -153.6413, -7.839777, -157.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D389" type="MeshInstance3D" parent="Leaves" unique_id=1837012094]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -8.839777, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D390" type="MeshInstance3D" parent="Leaves" unique_id=2104052991]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -9.839781, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D130" type="CollisionShape3D" parent="Leaves" unique_id=392711671]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -7.839777, -167.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D391" type="MeshInstance3D" parent="Leaves" unique_id=161382470]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -153.6413, -7.839777, -167.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D392" type="MeshInstance3D" parent="Leaves" unique_id=1425628695]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -8.839777, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D393" type="MeshInstance3D" parent="Leaves" unique_id=1331314768]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -9.839781, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D131" type="CollisionShape3D" parent="Leaves" unique_id=1646640472]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -7.839777, -177.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D394" type="MeshInstance3D" parent="Leaves" unique_id=1263160316]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -153.6413, -7.839777, -177.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D395" type="MeshInstance3D" parent="Leaves" unique_id=589564500]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -8.839777, -177.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D396" type="MeshInstance3D" parent="Leaves" unique_id=901804413]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -153.6413, -9.839781, -177.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D133" type="CollisionShape3D" parent="Leaves" unique_id=1212204090]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -7.839777, -147.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D400" type="MeshInstance3D" parent="Leaves" unique_id=187115889]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -163.6413, -7.839777, -147.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D401" type="MeshInstance3D" parent="Leaves" unique_id=1396924677]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -8.839777, -147.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D402" type="MeshInstance3D" parent="Leaves" unique_id=1368519514]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -9.839781, -147.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D134" type="CollisionShape3D" parent="Leaves" unique_id=155410933]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -7.839777, -157.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D403" type="MeshInstance3D" parent="Leaves" unique_id=942298209]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -163.6413, -7.839777, -157.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D404" type="MeshInstance3D" parent="Leaves" unique_id=1992316231]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -8.839777, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D405" type="MeshInstance3D" parent="Leaves" unique_id=169997144]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -9.839781, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D135" type="CollisionShape3D" parent="Leaves" unique_id=314024268]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -7.839777, -167.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D406" type="MeshInstance3D" parent="Leaves" unique_id=1801071931]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -163.6413, -7.839777, -167.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D407" type="MeshInstance3D" parent="Leaves" unique_id=1065093616]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -8.839777, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D408" type="MeshInstance3D" parent="Leaves" unique_id=2006996370]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -9.839781, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D136" type="CollisionShape3D" parent="Leaves" unique_id=1558229754]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -7.839777, -177.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D409" type="MeshInstance3D" parent="Leaves" unique_id=2121189127]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -163.6413, -7.839777, -177.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D410" type="MeshInstance3D" parent="Leaves" unique_id=1897222195]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -8.839777, -177.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D411" type="MeshInstance3D" parent="Leaves" unique_id=528637193]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -163.6413, -9.839781, -177.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D137" type="CollisionShape3D" parent="Leaves" unique_id=2095481688]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -7.839779, -147.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D412" type="MeshInstance3D" parent="Leaves" unique_id=1603177353]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -173.6413, -7.839779, -147.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D413" type="MeshInstance3D" parent="Leaves" unique_id=846591157]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -8.839779, -147.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D414" type="MeshInstance3D" parent="Leaves" unique_id=896123830]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -9.839783, -147.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D138" type="CollisionShape3D" parent="Leaves" unique_id=1889487386]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -7.839779, -157.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D415" type="MeshInstance3D" parent="Leaves" unique_id=1553079676]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -173.6413, -7.839779, -157.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D416" type="MeshInstance3D" parent="Leaves" unique_id=1045566396]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -8.839779, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D417" type="MeshInstance3D" parent="Leaves" unique_id=947868891]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -9.839783, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D139" type="CollisionShape3D" parent="Leaves" unique_id=2006733594]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -7.839779, -167.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D418" type="MeshInstance3D" parent="Leaves" unique_id=761201609]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -173.6413, -7.839779, -167.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D419" type="MeshInstance3D" parent="Leaves" unique_id=1713596350]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -8.839779, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D420" type="MeshInstance3D" parent="Leaves" unique_id=1341670976]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -9.839783, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D140" type="CollisionShape3D" parent="Leaves" unique_id=764117044]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -7.839779, -177.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D421" type="MeshInstance3D" parent="Leaves" unique_id=1589874444]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -173.6413, -7.839779, -177.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D422" type="MeshInstance3D" parent="Leaves" unique_id=549864024]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -8.839779, -177.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D423" type="MeshInstance3D" parent="Leaves" unique_id=43444855]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -173.6413, -9.839783, -177.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D141" type="CollisionShape3D" parent="Leaves" unique_id=1666841404]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -7.839779, -147.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D424" type="MeshInstance3D" parent="Leaves" unique_id=580279272]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -183.6413, -7.839779, -147.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D425" type="MeshInstance3D" parent="Leaves" unique_id=201885328]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -8.839779, -147.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D426" type="MeshInstance3D" parent="Leaves" unique_id=1055936407]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -9.839783, -147.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D142" type="CollisionShape3D" parent="Leaves" unique_id=1702816710]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -7.839779, -157.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D427" type="MeshInstance3D" parent="Leaves" unique_id=1501479849]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -183.6413, -7.839779, -157.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D428" type="MeshInstance3D" parent="Leaves" unique_id=815353093]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -8.839779, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D429" type="MeshInstance3D" parent="Leaves" unique_id=433241696]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -9.839783, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D143" type="CollisionShape3D" parent="Leaves" unique_id=561701498]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -7.839779, -167.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D430" type="MeshInstance3D" parent="Leaves" unique_id=695791628]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -183.6413, -7.839779, -167.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D431" type="MeshInstance3D" parent="Leaves" unique_id=1463102894]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -8.839779, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D432" type="MeshInstance3D" parent="Leaves" unique_id=1122628723]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -9.839783, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D145" type="CollisionShape3D" parent="Leaves" unique_id=1366374208]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -193.6413, -7.839781, -157.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D436" type="MeshInstance3D" parent="Leaves" unique_id=1983658763]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -193.6413, -7.839781, -157.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D437" type="MeshInstance3D" parent="Leaves" unique_id=1737537082]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -193.6413, -8.839781, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D438" type="MeshInstance3D" parent="Leaves" unique_id=1938102837]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -193.6413, -9.839785, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D146" type="CollisionShape3D" parent="Leaves" unique_id=180183789]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -193.6413, -7.839781, -167.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D439" type="MeshInstance3D" parent="Leaves" unique_id=242986537]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -193.6413, -7.839781, -167.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D440" type="MeshInstance3D" parent="Leaves" unique_id=670313464]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -193.6413, -8.839781, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D441" type="MeshInstance3D" parent="Leaves" unique_id=424914806]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -193.6413, -9.839785, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D144" type="CollisionShape3D" parent="Leaves" unique_id=2106654887]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -7.839779, -177.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D433" type="MeshInstance3D" parent="Leaves" unique_id=314407276]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -183.6413, -7.839779, -177.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D434" type="MeshInstance3D" parent="Leaves" unique_id=1842678256]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -8.839779, -177.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D435" type="MeshInstance3D" parent="Leaves" unique_id=1527276972]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -183.6413, -9.839783, -177.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D132" type="CollisionShape3D" parent="Leaves" unique_id=909691944]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -7.839775, -177.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D397" type="MeshInstance3D" parent="Leaves" unique_id=49795355]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -143.6413, -7.839775, -177.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D398" type="MeshInstance3D" parent="Leaves" unique_id=1825742199]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -8.839775, -177.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D399" type="MeshInstance3D" parent="Leaves" unique_id=1161808491]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -9.839779, -177.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D126" type="CollisionShape3D" parent="Leaves" unique_id=650869485]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -7.839775, -157.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D379" type="MeshInstance3D" parent="Leaves" unique_id=856346258]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -143.6413, -7.839775, -157.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D380" type="MeshInstance3D" parent="Leaves" unique_id=2019391590]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -8.839775, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D381" type="MeshInstance3D" parent="Leaves" unique_id=1269148004]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -9.839779, -157.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")
+
+[node name="CollisionShape3D127" type="CollisionShape3D" parent="Leaves" unique_id=727898122]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -7.839775, -167.03612)
+shape = SubResource("BoxShape3D_fyu6q")
+
+[node name="MeshInstance3D382" type="MeshInstance3D" parent="Leaves" unique_id=671286028]
+transform = Transform3D(-0.9999999, -4.371138e-08, -4.475012e-15, -4.371138e-08, 0.9999999, 5.9604645e-08, -1.5987212e-14, 5.9604645e-08, -0.99999994, -143.6413, -7.839775, -167.03612)
+cast_shadow = 2
+mesh = SubResource("PlaneMesh_g8vif")
+surface_material_override/0 = ExtResource("19_pbrci")
+
+[node name="MeshInstance3D383" type="MeshInstance3D" parent="Leaves" unique_id=200864431]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -8.839775, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("20_2st2w")
+
+[node name="MeshInstance3D384" type="MeshInstance3D" parent="Leaves" unique_id=698638276]
+transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -9.839779, -167.03612)
+mesh = SubResource("PlaneMesh_pboi5")
+surface_material_override/0 = ExtResource("21_2unlq")

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://3vfg6n44r7yp" path="res://scenes/rooms/room_c.tscn" id="3_ywuqi"]
 [ext_resource type="PackedScene" uid="uid://ste677rfmwpv" path="res://scenes/rooms/forest/forest_2.tscn" id="5_ywuqi"]
 [ext_resource type="PackedScene" uid="uid://bu0y6aj21jef1" path="res://scenes/rooms/forest/forest_3.tscn" id="6_c1nkc"]
+[ext_resource type="PackedScene" uid="uid://m8kgesenso4n" path="res://scenes/rooms/forest/forest_3_NEWER.tscn" id="6_i8rlb"]
 [ext_resource type="PackedScene" uid="uid://1v7ojwlt1dw4" path="res://scenes/rooms/forest/blaze_seed_vault.tscn" id="7_on1vc"]
 [ext_resource type="PackedScene" uid="uid://cg6oql8wxs1bu" path="res://scenes/rooms/forest/forest_4.tscn" id="7_rl1cp"]
 [ext_resource type="PackedScene" uid="uid://djxgnc148uiye" path="res://scenes/rooms/forest/forest_1_NEW.tscn" id="9_ysnsh"]
@@ -28,6 +29,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
 [node name="Forest2" parent="Forest" unique_id=114202016 instance=ExtResource("5_ywuqi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
+
+[node name="Room" parent="Forest" unique_id=2108924292 instance=ExtResource("6_i8rlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -80)
 
 [node name="Forest3" parent="Forest" unique_id=1971353675 instance=ExtResource("6_c1nkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, -80)
