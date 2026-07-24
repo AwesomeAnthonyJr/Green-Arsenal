@@ -309,8 +309,6 @@ func physics_movement(delta:float) -> void:
 		#multiply the y force to better handle slopes
 		if forward_step_cast.is_colliding():
 			temp.y *= 1.5
-			if temp.y != 0:
-				print(temp.y)
 		apply_central_force(temp);
 	
 	###faux-gravity - also a sticking force
@@ -345,7 +343,7 @@ func playerJump() -> void:
 	if is_grounded and !supress_movement:
 		#print()
 		var speed_mult = lerpf(1.0, 1.2, linear_velocity.slide(Vector3.UP).length() / 20.0)
-		print(speed_mult)
+		#print(speed_mult)
 		apply_central_impulse(Vector3.UP * jumpForce * speed_mult);
 		is_jump_drifting = true
 	#Applies jump force 
