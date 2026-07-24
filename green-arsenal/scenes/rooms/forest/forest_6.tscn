@@ -4,11 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="2_2eg72"]
 [ext_resource type="PackedScene" uid="uid://ly8d8rmkdyfw" path="res://scenes/level_parts/tree_d.tscn" id="4_objqm"]
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="5_snnob"]
+[ext_resource type="PackedScene" uid="uid://cr186n5f34odd" path="res://scenes/level_parts/tree_e.tscn" id="6_snnob"]
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="6_u2avg"]
 [ext_resource type="Material" uid="uid://dvt47ul4pjcvl" path="res://materials/leaves_nearest.tres" id="7_spp6l"]
 [ext_resource type="Material" uid="uid://cqwygovsi155y" path="res://materials/leaves_between.tres" id="8_vet8r"]
 [ext_resource type="Shader" uid="uid://bue2b34h86uxe" path="res://shaders/cel_shaded_two_sides.gdshader" id="9_0totm"]
 [ext_resource type="Material" uid="uid://b8f5nhjo3v8ex" path="res://materials/leaves_top.tres" id="9_3jria"]
+[ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="11_u2avg"]
+[ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="12_spp6l"]
+[ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="13_vet8r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4viom"]
 
@@ -235,6 +239,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 53)
 
 [node name="SoilPatch10x33" parent="." unique_id=1524988575 instance=ExtResource("6_u2avg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 43)
+
+[node name="Tree_E" parent="." unique_id=818354251 instance=ExtResource("6_snnob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.104082, 1.815784, 39.196335)
 
 [node name="Leaves" type="StaticBody3D" parent="." unique_id=952353244]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -170, 10, 160)
@@ -510,3 +517,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0o143")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.834177, 0)
 light_energy = 200.0
 omni_range = 9.610222
+
+[node name="Tree_A" parent="." unique_id=47698065 instance=ExtResource("11_u2avg")]
+transform = Transform3D(-0.96922493, 0, -0.24617673, 0, 1, 0, 0.24617673, 0, -0.96922493, -5.2886252, 0.06127262, 44.582195)
+
+[node name="Tree_B" parent="." unique_id=398900927 instance=ExtResource("12_spp6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.534573, 1.672648, 48.682358)
+
+[node name="Tree_F" parent="." unique_id=1654159249 instance=ExtResource("13_vet8r")]
+transform = Transform3D(-0.052344393, 0, 0.9986291, 0, 1, 0, -0.9986291, 0, -0.052344393, -3.7068224, 0.3725505, 46.90068)

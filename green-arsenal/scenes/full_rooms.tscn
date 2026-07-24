@@ -4,10 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://oryts8sm26u6" path="res://scenes/rooms/room_b.tscn" id="2_q2tb6"]
 [ext_resource type="PackedScene" uid="uid://3vfg6n44r7yp" path="res://scenes/rooms/room_c.tscn" id="3_ywuqi"]
 [ext_resource type="PackedScene" uid="uid://ste677rfmwpv" path="res://scenes/rooms/forest/forest_2.tscn" id="5_ywuqi"]
-[ext_resource type="PackedScene" uid="uid://bu0y6aj21jef1" path="res://scenes/rooms/forest/forest_3.tscn" id="6_c1nkc"]
 [ext_resource type="PackedScene" uid="uid://m8kgesenso4n" path="res://scenes/rooms/forest/forest_3_NEWER.tscn" id="6_i8rlb"]
-[ext_resource type="PackedScene" uid="uid://1v7ojwlt1dw4" path="res://scenes/rooms/forest/blaze_seed_vault.tscn" id="7_on1vc"]
-[ext_resource type="PackedScene" uid="uid://cg6oql8wxs1bu" path="res://scenes/rooms/forest/forest_4.tscn" id="7_rl1cp"]
+[ext_resource type="PackedScene" uid="uid://tuhuhhqw1daf" path="res://scenes/rooms/forest/forest_4_NEWER.tscn" id="7_on1vc"]
+[ext_resource type="PackedScene" uid="uid://pf54av2q2bpa" path="res://scenes/rooms/forest/forest_6.tscn" id="8_rl1cp"]
 [ext_resource type="PackedScene" uid="uid://djxgnc148uiye" path="res://scenes/rooms/forest/forest_1_NEW.tscn" id="9_ysnsh"]
 
 [node name="FullRooms" type="Node3D" unique_id=1444283235]
@@ -33,14 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
 [node name="Room" parent="Forest" unique_id=2108924292 instance=ExtResource("6_i8rlb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -80)
 
-[node name="Forest3" parent="Forest" unique_id=1971353675 instance=ExtResource("6_c1nkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, -80)
-visible = false
+[node name="Room2" parent="Forest" unique_id=1941891149 instance=ExtResource("7_on1vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
 
-[node name="Forest4" parent="Forest" unique_id=31336707 instance=ExtResource("7_rl1cp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -140)
-visible = false
-
-[node name="SeedVault" parent="Forest" unique_id=215069135 instance=ExtResource("7_on1vc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 0, 20)
-visible = false
+[node name="Room3" parent="Forest" unique_id=1207559813 instance=ExtResource("8_rl1cp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -80)
