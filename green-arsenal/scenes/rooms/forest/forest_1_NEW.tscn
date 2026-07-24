@@ -874,7 +874,6 @@ transform = Transform3D(6.728031e-10, -0.015391916, 0.9998815, -0.87755585, 0.47
 [node name="StranglerGate" type="Node3D" parent="." unique_id=1189347618]
 transform = Transform3D(0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071068, 7.6095953, 0, -15.715094)
 script = ExtResource("17_0xelp")
-auto_rebuild = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StranglerGate" unique_id=1004943791]
 material_override = ExtResource("18_fkrtn")
