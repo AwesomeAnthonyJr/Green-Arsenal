@@ -15,3 +15,6 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 /green-arsenal/builds/sprint_2
+
+# Mac DS Store
+**/.DS_Store

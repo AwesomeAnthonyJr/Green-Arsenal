@@ -352,6 +352,7 @@ func shoot():
 	#using the global "Preloads" script means it just preloads it once i think (less expensive?)
 	var bullet = Preloads.bullet_seed.instantiate()
 	var is_special = false
+	SoundManager.play_seed_shot(loaded_in_gun[current_bullet])
 	match loaded_in_gun[current_bullet]:
 		2:
 			bullet = Preloads.blaze_seed.instantiate()
