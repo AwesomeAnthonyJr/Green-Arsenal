@@ -11,7 +11,7 @@ const room_dict = {
 	2: "res://scenes/rooms/room_c.tscn",
 	
 	4: "res://scenes/rooms/forest/forest_1_NEW.tscn",
-	5: "res://scenes/rooms/forest/forest_2_NEW.tscn",
+	5: "res://scenes/rooms/forest/forest_2.tscn",
 	6: "res://scenes/rooms/forest/forest_3_NEW.tscn",
 	7: "res://scenes/rooms/forest/forest_4_NEW.tscn",
 	8: "res://scenes/rooms/forest/blaze_seed_vault.tscn",
@@ -24,7 +24,7 @@ const reverse_dict = {
 	"res://scenes/rooms/room_c.tscn": 2,
 	
 	"res://scenes/rooms/forest/forest_1_NEW.tscn" : 4,
-	"res://scenes/rooms/forest/forest_2_NEW.tscn" : 5,
+	"res://scenes/rooms/forest/forest_2.tscn" : 5,
 	"res://scenes/rooms/forest/forest_3_NEW.tscn" : 6,
 	"res://scenes/rooms/forest/forest_4_NEW.tscn" : 7,
 	"res://scenes/rooms/forest/blaze_seed_vault.tscn" : 8,

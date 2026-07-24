@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bu1hy8wl5w0ex" path="res://scenes/rooms/room_a.tscn" id="1_v1nq0"]
 [ext_resource type="PackedScene" uid="uid://oryts8sm26u6" path="res://scenes/rooms/room_b.tscn" id="2_q2tb6"]
 [ext_resource type="PackedScene" uid="uid://3vfg6n44r7yp" path="res://scenes/rooms/room_c.tscn" id="3_ywuqi"]
-[ext_resource type="PackedScene" uid="uid://dvwkrjq22kad7" path="res://scenes/rooms/forest/forest_1.tscn" id="4_q2tb6"]
 [ext_resource type="PackedScene" uid="uid://ste677rfmwpv" path="res://scenes/rooms/forest/forest_2.tscn" id="5_ywuqi"]
 [ext_resource type="PackedScene" uid="uid://bu0y6aj21jef1" path="res://scenes/rooms/forest/forest_3.tscn" id="6_c1nkc"]
 [ext_resource type="PackedScene" uid="uid://1v7ojwlt1dw4" path="res://scenes/rooms/forest/blaze_seed_vault.tscn" id="7_on1vc"]
 [ext_resource type="PackedScene" uid="uid://cg6oql8wxs1bu" path="res://scenes/rooms/forest/forest_4.tscn" id="7_rl1cp"]
+[ext_resource type="PackedScene" uid="uid://djxgnc148uiye" path="res://scenes/rooms/forest/forest_1_NEW.tscn" id="9_ysnsh"]
 
 [node name="FullRooms" type="Node3D" unique_id=1444283235]
 
@@ -24,16 +24,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
 [node name="Forest" type="Node3D" parent="." unique_id=1832296431]
 
-[node name="Forest1" parent="Forest" unique_id=2108924292 instance=ExtResource("4_q2tb6")]
+[node name="Room1" parent="Forest" unique_id=249863706 instance=ExtResource("9_ysnsh")]
 
 [node name="Forest2" parent="Forest" unique_id=114202016 instance=ExtResource("5_ywuqi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
 
 [node name="Forest3" parent="Forest" unique_id=1971353675 instance=ExtResource("6_c1nkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, -80)
+visible = false
 
 [node name="Forest4" parent="Forest" unique_id=31336707 instance=ExtResource("7_rl1cp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -140)
+visible = false
 
 [node name="SeedVault" parent="Forest" unique_id=215069135 instance=ExtResource("7_on1vc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 0, 20)
+visible = false

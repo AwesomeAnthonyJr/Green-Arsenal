@@ -31,7 +31,7 @@ adjacent_rooms = Array[int]([5])
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("2_fkrtn")]
-transform = Transform3D(30, 0, 0, 0, 20, 0, 0, 0, 5, 10, 10, -29.5)
+transform = Transform3D(30, 0, 0, 0, 20, 0, 0, 0, 5, 10, 10, -32.5)
 new_id = 5
 
 [node name="NonSoilFloor" type="StaticBody3D" parent="." unique_id=1945705810]
