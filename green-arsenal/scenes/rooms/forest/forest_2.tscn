@@ -102,7 +102,7 @@ subdivide_depth = 30
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_8wjoc")
-adjacent_rooms = Array[int]([4, 6, 7])
+adjacent_rooms = Array[int]([4, 6, 7, 9])
 room_pos = Vector3(0, 0, -80)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 

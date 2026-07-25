@@ -128,7 +128,7 @@ shader_parameter/uv1_scale = Vector2(0.5, 0.2)
 shader_parameter/uv1_offset = Vector2(0, 0)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1s8ne"]
-height = 0.1
+height = 0.13496093
 radius = 0.45
 
 [node name="StranglerTarget" type="Node3D" unique_id=1911808834]
@@ -162,5 +162,5 @@ surface_material_override/0 = SubResource("ShaderMaterial_xjw5i")
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=602241569]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.030414023, 0)
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, 0, 0.05016695, 0)
 shape = SubResource("CylinderShape3D_1s8ne")
