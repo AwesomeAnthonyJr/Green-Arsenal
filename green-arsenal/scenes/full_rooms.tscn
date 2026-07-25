@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://m8kgesenso4n" path="res://scenes/rooms/forest/forest_3_NEWER.tscn" id="6_i8rlb"]
 [ext_resource type="PackedScene" uid="uid://tuhuhhqw1daf" path="res://scenes/rooms/forest/forest_4_NEWER.tscn" id="7_on1vc"]
 [ext_resource type="PackedScene" uid="uid://pf54av2q2bpa" path="res://scenes/rooms/forest/forest_6.tscn" id="8_rl1cp"]
+[ext_resource type="PackedScene" uid="uid://bagh8pxhjactw" path="res://scenes/rooms/forest/forest_5_NEWER.tscn" id="9_58kq5"]
 [ext_resource type="PackedScene" uid="uid://djxgnc148uiye" path="res://scenes/rooms/forest/forest_1_NEW.tscn" id="9_ysnsh"]
+[ext_resource type="PackedScene" uid="uid://cf7274ew084m1" path="res://scenes/rooms/forest/life_seed.tscn" id="10_m6wx1"]
+[ext_resource type="PackedScene" uid="uid://hqdiwy6soj1s" path="res://scenes/rooms/forest/underground_entrance.tscn" id="11_jsvpm"]
 
 [node name="FullRooms" type="Node3D" unique_id=1444283235]
 
@@ -37,3 +40,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
 
 [node name="Room3" parent="Forest" unique_id=1207559813 instance=ExtResource("8_rl1cp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -80)
+
+[node name="Room4" parent="Forest" unique_id=1769352422 instance=ExtResource("9_58kq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -82)
+
+[node name="Room5" parent="Forest" unique_id=1016837898 instance=ExtResource("10_m6wx1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -82)
+
+[node name="Room6" parent="Forest" unique_id=823878989 instance=ExtResource("11_jsvpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -82)
