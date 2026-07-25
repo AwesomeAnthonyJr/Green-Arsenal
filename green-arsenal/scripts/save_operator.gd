@@ -13,7 +13,7 @@ var going_up = true
 var player_is_colliding = false
 
 func _ready() -> void:
-	Dialogic.timeline_ended.connect(_on_timeline_ended)
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _physics_process(delta: float) -> void:
 	#SPIN ICON
@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			going_up = true
 	
-	if player_is_colliding and Input.is_action_just_pressed("interact") and Dialogic.current_timeline == null:
+	if player_is_colliding and Input.is_action_just_pressed("interact") and Dialogic.current_timeline == null and animation_player.is_playing() == false:
 		abseleine.visible = true
 		animation_player.play("drop")
 		await animation_player.animation_finished
@@ -47,7 +47,15 @@ func _on_body_exited(body: Node3D) -> void:
 	if body is Player:
 		player_is_colliding = false
 
-func _on_timeline_ended():
-	animation_player.play_backwards("drop")
-	await animation_player.animation_finished
-	abseleine.visible = false
+#func _on_timeline_ended():
+	#animation_player.play_backwards("drop")
+	#await animation_player.animation_finished
+	#if Dialogic.current_timeline == null:
+		#abseleine.visible = false
+
+func _on_dialogic_signal(arg):
+	if arg == "scene_end":
+		animation_player.play_backwards("drop")
+		await animation_player.animation_finished
+		#if Dialogic.current_timeline == null:
+		abseleine.visible = false

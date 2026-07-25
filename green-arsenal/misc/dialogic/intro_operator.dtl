@@ -1,2 +1,3 @@
 operator: test test test
 operator: testy test test
+[signal arg="scene_end"]
