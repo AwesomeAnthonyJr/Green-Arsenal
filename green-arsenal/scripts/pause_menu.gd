@@ -167,33 +167,33 @@ func update_display():
 				StatusSelection.SEED_2:
 					if SaveManager.player_save.seed_types[1]:
 						if inspecting:
-							bar_text.display("Spring Vine. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
-						else:
-							bar_text.display("Bounce Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
-					else:
-						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
-				StatusSelection.SEED_3:
-					if SaveManager.player_save.seed_types[2]:
-						if inspecting:
 							bar_text.display("Life Fruit. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
 						else:
 							bar_text.display("Life Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
 					else:
 						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
+				StatusSelection.SEED_3:
+					if SaveManager.player_save.seed_types[2]:
+						if inspecting:
+							bar_text.display("Spring Vine. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+						else:
+							bar_text.display("Bounce Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+					else:
+						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
 				StatusSelection.SEED_4:
 					if SaveManager.player_save.seed_types[3]:
 						if inspecting:
-							bar_text.display("Platform Pad. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+							bar_text.display("Seeking Stalk. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
 						else:
-							bar_text.display("Platform Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+							bar_text.display("Seeker Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
 					else:
 						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
 				StatusSelection.SEED_5:
 					if SaveManager.player_save.seed_types[4]:
 						if inspecting:
-							bar_text.display("Seeking Stalk. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
+							bar_text.display("Platform Pad. Press [bgcolor=white][color=black][outline_color=white][b]{reload}[/b][/outline_color][/color][/bgcolor] to go back")
 						else:
-							bar_text.display("Seeker Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
+							bar_text.display("Platform Seed. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to inspect")
 					else:
 						bar_text.display("[center][color=#b4b4b4]Unknown Seed[/color][/center]")
 				StatusSelection.SEED_6:

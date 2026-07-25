@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="11_u2avg"]
 [ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="12_spp6l"]
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="13_vet8r"]
+[ext_resource type="PackedScene" uid="uid://d2xix6crf4q8" path="res://scenes/seed_vault.tscn" id="14_u2avg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4viom"]
 
@@ -526,3 +527,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.534573, 1.672648, 48.6823
 
 [node name="Tree_F" parent="." unique_id=1654159249 instance=ExtResource("13_vet8r")]
 transform = Transform3D(-0.052344393, 0, 0.9986291, 0, 1, 0, -0.9986291, 0, -0.052344393, -3.7068224, 0.3725505, 46.90068)
+
+[node name="SeedVault" parent="." unique_id=538589429 instance=ExtResource("14_u2avg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 1.0812213, 62)
