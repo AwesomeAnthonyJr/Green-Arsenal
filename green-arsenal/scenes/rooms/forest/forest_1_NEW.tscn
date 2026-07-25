@@ -23,6 +23,10 @@
 [ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="21_756fk"]
 [ext_resource type="Script" uid="uid://cad7j0as4e6rs" path="res://scripts/dialog_trigger.gd" id="22_fkrtn"]
 [ext_resource type="Resource" uid="uid://b2nbl2ga50q8d" path="res://misc/dialogic/intro.dtl" id="23_fy13a"]
+[ext_resource type="Script" uid="uid://djeqlb5oumh8w" path="res://scripts/save_operator.gd" id="24_uwn87"]
+[ext_resource type="Resource" uid="uid://c1f7fpffdls5" path="res://misc/dialogic/intro_operator.dtl" id="25_4jq4q"]
+[ext_resource type="Texture2D" uid="uid://cf5e2am45eger" path="res://misc/keyboard_e_outline.png" id="25_756fk"]
+[ext_resource type="Texture2D" uid="uid://bajtrea7i0r3x" path="res://misc/Abseilen_jumelle.jpg" id="26_756fk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -64,6 +68,45 @@ _surfaces = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8aque"]
 size = Vector3(50, 10, 5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8aque"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_4jq4q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Abseleine:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 22.992828, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_427am"]
+resource_name = "drop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Abseleine:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 22.992828, 0), Vector3(0, 3.4913454, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nnong"]
+_data = {
+&"RESET": SubResource("Animation_4jq4q"),
+&"drop": SubResource("Animation_427am")
+}
 
 [node name="Room1" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_0xelp")
@@ -1216,8 +1259,30 @@ dialogic_scene = ExtResource("23_fy13a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6133537, 0, 0)
 shape = SubResource("BoxShape3D_8aque")
 
+[node name="SaveOperator" type="Area3D" parent="." unique_id=149341750]
+transform = Transform3D(0.08324285, 0, -0.9965293, 0, 1, 0, 0.9965293, 0, 0.08324285, 20.282501, 2.7549667, -7.245957)
+script = ExtResource("24_uwn87")
+operator_scene = ExtResource("25_4jq4q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SaveOperator" unique_id=2076922981]
+shape = SubResource("SphereShape3D_8aque")
+
+[node name="Sprite3D" type="Sprite3D" parent="SaveOperator" unique_id=2095302327]
+texture = ExtResource("25_756fk")
+
+[node name="Abseleine" type="Sprite3D" parent="SaveOperator" unique_id=1549140278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.992828, 0)
+visible = false
+billboard = 2
+texture = ExtResource("26_756fk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveOperator" unique_id=280415811]
+libraries/ = SubResource("AnimationLibrary_nnong")
+
 [connection signal="roots_gone" from="StranglerGate" to="SaveFlagSetter" method="set_flag_true"]
 [connection signal="target_destroyed" from="StranglerTarget3" to="StranglerGate/RootPoint3/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint_Target3" method="destroy"]
 [connection signal="target_destroyed" from="StranglerTarget" to="StranglerGate/RootPoint/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint_Target1" method="destroy"]
 [connection signal="target_destroyed" from="StranglerTarget2" to="StranglerGate/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint2/RootPoint_Target2" method="destroy"]
 [connection signal="body_entered" from="DialogTrigger" to="DialogTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="SaveOperator" to="SaveOperator" method="_on_body_entered"]
+[connection signal="body_exited" from="SaveOperator" to="SaveOperator" method="_on_body_exited"]

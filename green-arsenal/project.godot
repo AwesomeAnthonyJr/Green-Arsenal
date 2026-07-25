@@ -30,10 +30,12 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 directories/dch_directory={
 "gardener": "res://misc/dialogic/gardener.dch",
-"mentor": "res://misc/dialogic/mentor.dch"
+"mentor": "res://misc/dialogic/mentor.dch",
+"operator": "res://misc/dialogic/operator.dch"
 }
 directories/dtl_directory={
-"intro": "res://misc/dialogic/intro.dtl"
+"intro": "res://misc/dialogic/intro.dtl",
+"intro_operator": "res://misc/dialogic/intro_operator.dtl"
 }
 layout/style_directory={
 "": "res://misc/dialogic/speaker_box.tres",
