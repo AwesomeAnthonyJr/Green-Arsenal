@@ -53,6 +53,7 @@ var forward_steppable = false
 var forward_step_height = 0.0
 var currently_stepping = false
 
+var paused = false
 
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
@@ -184,6 +185,8 @@ func find_main(x) -> Main:
 
 # going to just handle some flags here
 func _process(delta: float) -> void:
+	if paused:
+		return
 	if is_reloading and Input.is_action_just_pressed("close_reload"):
 		exit_reload_early()
 	supress_movement = is_reloading or supress_shooting
@@ -221,6 +224,8 @@ func check_steps(delta):
 
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
+	if paused:
+		return
 	#print(linear_velocity.y)
 	#print(gravity_scale)
 	#print(is_grounded, ", ", physics_material_override.friction)
