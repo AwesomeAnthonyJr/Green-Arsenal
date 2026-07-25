@@ -66,3 +66,10 @@ func _process(delta: float) -> void:
 	if model_attatchment.override_pose:
 		model_attatchment.global_position = pitch_pivot.global_position
 		model_attatchment.global_rotation = pitch_pivot.global_rotation
+
+func wither_self():
+	dead = true
+	model_attatchment.override_pose = false
+	anim.play("die")
+	await get_tree().create_timer(1.0).timeout
+	destroy_self()

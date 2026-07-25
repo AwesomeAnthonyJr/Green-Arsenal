@@ -383,7 +383,7 @@ func shoot():
 func check_special_plants():
 	var temp_plants = []
 	for p in active_plants:
-		if is_instance_valid(p):
+		if is_instance_valid(p) and !p.dead:
 			temp_plants.append(p)
 	active_plants = temp_plants
 	if active_plants.size() > plant_max:

@@ -11,8 +11,9 @@ var holding_jump = false
 var just_bounced = []
 
 func _physics_process(delta: float) -> void:
-	target_y = lerpf(-5.0, 0.0, shapecast.get_closest_collision_safe_fraction())
-	skeleton.position.y = lerpf(skeleton.position.y, target_y, 0.5)
+	if !dead:
+		target_y = lerpf(-5.0, 0.0, shapecast.get_closest_collision_safe_fraction())
+		skeleton.position.y = lerpf(skeleton.position.y, target_y, 0.5)
 
 func read_jump(b):
 	holding_jump = b
@@ -29,6 +30,8 @@ func find_main(x) -> Main:
 		return find_main(p)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
+	if dead:
+		return
 	if body is RigidBody3D:
 		if !body in just_bounced:
 			var imp = bounce_strength * global_transform.basis.y * body.mass
@@ -50,6 +53,11 @@ func grow():
 	anim.play("grow")
 	connect_inputs()
 
+func wither_self():
+	dead = true
+	anim.play("die")
+	await get_tree().create_timer(1.0).timeout
+	destroy_self()
 
 func _on_timer_timeout() -> void:
 	just_bounced.clear()

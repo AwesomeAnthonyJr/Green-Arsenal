@@ -117,6 +117,40 @@ tracks/2/keys = {
 "values": [Vector3(1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_qdh1h"]
+resource_name = "die"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FancyModel/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.03333336, 1, 1, 1, 1, 1, 1, 0.01, 0.01, 0.01)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FancyModel/Skeleton3D/BoneAttachment3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.99999994, 0.9999998, 0.99999994), Vector3(0.01, 0.01, 0.01)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.01, 0.01, 0.01)]
+}
+
 [sub_resource type="Animation" id="Animation_vj03d"]
 resource_name = "grow"
 tracks/0/type = "scale_3d"
@@ -154,6 +188,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6161"]
 _data = {
 &"RESET": SubResource("Animation_e6161"),
+&"die": SubResource("Animation_qdh1h"),
 &"grow": SubResource("Animation_vj03d")
 }
 
@@ -182,9 +217,9 @@ bones/2/name = "Bone.002"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1, 0, 3.0822253, 0)
 bones/2/enabled = true
-bones/2/position = Vector3(0, -4.1556497, 0)
+bones/2/position = Vector3(0, -155.35889, 0)
 bones/2/rotation = Quaternion(0, 7.105428e-15, 0, 1)
-bones/2/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
+bones/2/scale = Vector3(0.99999994, 1, 0.99999994)
 bones/3/name = "Bone.003"
 bones/3/parent = 2
 bones/3/rest = Transform3D(0, -1, -2.3841858e-07, 1, 0, 1.9470721e-07, -1.947072e-07, -2.384186e-07, 1, 0, 3.0019922, 0)

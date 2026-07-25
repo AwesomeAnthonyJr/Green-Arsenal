@@ -2,6 +2,12 @@ extends RigidBody3D
 
 var attatched = true
 @onready var boss = $"../../../.."
+var dead = false
+@onready var anim = $AnimationPlayer
+
+func die():
+	dead = true
+	anim.play("die")
 
 func find_room_loader(x: Node):
 	var p = x.get_parent()
