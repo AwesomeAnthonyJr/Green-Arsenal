@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="5_srkgu"]
 [ext_resource type="PackedScene" uid="uid://cr186n5f34odd" path="res://scenes/level_parts/tree_e.tscn" id="6_pkjfl"]
 [ext_resource type="PackedScene" uid="uid://cnwa7fcr5qsd7" path="res://scenes/torch.tscn" id="7_8p82u"]
+[ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="8_b8q16"]
 [ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="8_brsy2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
@@ -889,3 +890,6 @@ surface_material_override/0 = ExtResource("2_otbsp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilRamp4" unique_id=1937181982]
 shape = SubResource("ConcavePolygonShape3D_b8q16")
+
+[node name="Tree_A" parent="." unique_id=47698065 instance=ExtResource("8_b8q16")]
+transform = Transform3D(0.8040384, 0, -0.5945774, 0, 1, 0, 0.5945774, 0, 0.8040384, -104.94882, 0.8578043, -24.932184)
