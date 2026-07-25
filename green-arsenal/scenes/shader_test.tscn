@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://83pj3gfonoio"]
 
-[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_2.tres" id="1_3x27y"]
+[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_1.tres" id="1_3x27y"]
 [ext_resource type="Material" uid="uid://ct0tpf1wcbdkn" path="res://materials/cel_test_mat.tres" id="1_im7wb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_h45xw"]

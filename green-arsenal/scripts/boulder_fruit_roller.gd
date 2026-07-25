@@ -9,18 +9,11 @@ func die():
 	dead = true
 	anim.play("die")
 
-func find_room_loader(x: Node):
-	var p = x.get_parent()
-	if p is RoomLoader:
-		return p
-	else:
-		return find_room_loader(p)
-
 func detatch():
 	attatched = false
 	boss.detatch(self)
 	#this gets "room_loader"
-	var rl = find_room_loader(self)
+	var rl = Generics.find_room_loader(self)
 	var old_pos = global_position
 	get_parent().remove_child(self)
 	rl.add_child(self)

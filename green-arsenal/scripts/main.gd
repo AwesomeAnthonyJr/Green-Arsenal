@@ -8,6 +8,9 @@ class_name Main
 @onready var testing = $Testing
 @onready var active = $Active
 
+#a variable for whenever we want to not let the player control if the game is paused
+var override_pause: bool = false
+
 func _ready() -> void:
 	testing_check()
 

@@ -14,7 +14,7 @@ func _ready() -> void:
 	connect_inputs()
 
 func connect_inputs():
-	var manager = find_main(self).input_manager
+	var manager =  Generics.find_main(self).input_manager
 	manager.look.connect(read_look)
 	manager.shoot.connect(read_shoot)
 
@@ -40,13 +40,6 @@ func read_shoot():
 		anim.play("catch")
 		#await get_tree().create_timer(0.5).timeout
 		#anim.play("standard")
-
-func find_main(x) -> Main:
-	var p = x.get_parent()
-	if p is Main:
-		return p
-	else:
-		return find_main(p)
 
 func store(obj):
 	stored = obj

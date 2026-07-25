@@ -19,15 +19,9 @@ func read_jump(b):
 	holding_jump = b
 
 func connect_inputs():
-	var manager = find_main(self).input_manager
+	var manager =  Generics.find_main(self).input_manager
 	if not manager.jump_held.is_connected(read_jump):
 		manager.jump_held.connect(read_jump)
-func find_main(x) -> Main:
-	var p = x.get_parent()
-	if p is Main:
-		return p
-	else:
-		return find_main(p)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if dead:

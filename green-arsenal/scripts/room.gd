@@ -9,14 +9,7 @@ var room_loader: RoomLoader
 var active = false
 
 func _ready() -> void:
-	room_loader = find_main(self).room_loader
-
-func find_main(x) -> Main:
-	var p = x.get_parent()
-	if p is Main:
-		return p
-	else:
-		return find_main(p)
+	room_loader =  Generics.find_room_loader(self)
 
 func go_to_room(i):
 	if i in adjacent_rooms:

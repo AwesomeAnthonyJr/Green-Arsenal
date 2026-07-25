@@ -93,7 +93,7 @@ var suppress_next_input = false
 var in_menu = false
 
 func _ready() -> void:
-	main = find_main(self)
+	main =  Generics.find_main(self)
 	connect_inputs()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 func connect_inputs():
@@ -108,12 +108,6 @@ func connect_inputs():
 	#manager.shoot.connect(read_shoot)
 	manager.reload.connect(read_back)
 	manager.interact.connect(read_accept)
-func find_main(x) -> Main:
-	var p = x.get_parent()
-	if p is Main:
-		return p
-	else:
-		return find_main(p)
 func _process(delta: float) -> void:
 	if suppress_next_input:
 		suppress_next_input = false
