@@ -33,7 +33,7 @@ mentor: Describe the plant-life that's got you stuck, Gardener.
 					mentor: Nor comforting to say, Gardener.
 					jump cont3
 label cont3
-mentor: I'm going to need you to find a spot to call down your field Operator, Gardener.
+mentor: I'm going to need you to find a spot to call down your field Operator.
 mentor: If this is what I think it might be, your job's just gone up a few ranks in complexity.
 [signal arg="scene_end"]
 [end_timeline]

@@ -1,0 +1,69 @@
+operator: Hey! So I'm back.
+- That was quick!
+	operator: I mean, that's what I'm here for.
+	operator: You're boots on the ground, I'm eyes in the sky.
+	operator: But anyway, I have some strange news.
+	- What's up?
+		jump cont1
+label cont1
+operator: So these vines are a kind of strangler fig.
+operator: On it's own, that's not such a bad thing, despite the scary name.
+operator: A normal strangler fig in its native environment will still kill its host,
+operator: But before it does its host in, it can serve as a scaffold that strengthens and supports it.
+operator: Heck, they're even known to play host to some rare insect species and the birds that predate on them.
+operator: The problem is, someone made these strangler figs particularly aggressive.
+operator: They're growing too fast and too large, overtaking too much canopy and sucking up too much of the nitrogen in the soil in the process.
+- Someone *made* them?
+	operator: That's how it seems to me, yeah.
+	operator: Again, not a bad thing on its own.
+	operator: You can engineer a plant to fill the gaps in a population's vitamin intake, or to better capture carbon.
+	operator: But whoever made these strangler figs made them particularly vigorous, and that's destabilized this forest's ecology.
+	operator: So we're gonna need you to figure out who did this and why.
+	operator: In other words, our mission has gone from a find-and-preserve to an explore-and-investigate.
+	- What does that mean?
+		operator: For us? Two things, mostly.
+		operator: One\: you've been granted provisional permission to access the Green Arsenal in your investigation.
+		operator: I'll lend you my Pea Shooter to use as a focus towards that end.
+		operator: Two\: I'm to collect any reports and updates from you as you proceed.
+		operator: Basically, you can save the progress of your investigation by reporting to me at any drop-point.
+		jump any_questions
+label any_questions
+operator: Any other questions?
+- Green Arsenal?
+	operator: When the need arises, Gardeners and Operators like you and me are sometimes given access to a system of burgeoning magic ---
+	operator: It accelerates the growth and exaggerates the characteristics of plant types we encounter. We call this system the Green Arsenal.
+	operator: A lily pad grows large and strong enough to support a person's weight; a sweet pea or wood sorrel's exploding seed packs a bigger punch; a sacred lotus' heat generation becomes scalding.
+	operator: We sometimes have to use these qualities creatively to navigate a forest as heavily impacted as this one.
+	jump any_questions
+- Pea Shooter?
+	operator: My loyal six-shooter. It's been enchanted to have an infinite supply of partridge pea seeds as ammunition,
+	operator: But it can also be supplied with any useful seeds you find during your investigation for use with the Green Arsenal.
+	operator: Partridge peas are native to the area, and can help replenish the depleted nitrogen in the soil, so don't worry too much about spreading them around.
+	jump any_questions
+- Drop-point?
+	operator: A spot you can call me down like this! You'll know them when you see them.
+	jump any_questions
+- Not really.
+	jump questions_done
+label questions_done
+operator: Alright, before I send you off, there are a couple more things we should talk about.
+operator: Chiefly, the R button on that there Pea Shooter will open up its cylinder and let you reload it with your seeds.
+operator: From my observations, when the engineered strangler fig grows as large as it has here, its structure becomes more unstable and therefore more susceptible to collapse.
+operator: Look for weak points in its scaffold and give them a few shots with the Pea Shooter to proceed.
+operator: By my estimation, there should be about 3 in this area.
+operator: And finally, when I talk to you from now on, I'll ask you whether you want to record any progress in your investigation.
+operator: Let's practice\:
+operator: "Would you like to record any progress in your investigation?"
+- Yes
+	operator: Saving progress...
+	do SaveManager.write_save()
+	operator: Save complete.
+	jump save_done
+- No
+	operator: Roger dodger! I'll be here if you need to save progress in the future.
+	jump save_done
+label save_done
+operator: At that, I wish you the best of luck, Gardener.
+operator: See you on the flip side!
+[signal arg="scene_end_op"]
+[end_timeline]

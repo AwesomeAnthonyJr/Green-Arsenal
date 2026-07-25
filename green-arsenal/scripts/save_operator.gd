@@ -5,7 +5,8 @@ extends Area3D
 @onready var abseleine: Sprite3D = $Abseleine
 var player_reference
 
-@export var operator_scene : DialogicTimeline
+@export var operator_scenes : Array[DialogicTimeline]
+var scene_index : int = 0
 
 @export var spin_speed = 0.01
 var going_up = true
@@ -34,8 +35,11 @@ func _physics_process(delta: float) -> void:
 	if player_is_colliding and Input.is_action_just_pressed("interact") and Dialogic.current_timeline == null and animation_player.is_playing() == false:
 		abseleine.visible = true
 		animation_player.play("drop")
+		player_reference.paused = true
 		await animation_player.animation_finished
-		Dialogic.start(operator_scene)
+		Dialogic.start(operator_scenes[scene_index])
+		if scene_index + 1 < operator_scenes.size():
+			scene_index += 1
 
 
 func _on_body_entered(body: Node3D) -> void:
@@ -54,8 +58,9 @@ func _on_body_exited(body: Node3D) -> void:
 		#abseleine.visible = false
 
 func _on_dialogic_signal(arg):
-	if arg == "scene_end":
+	if arg == "scene_end_op":
 		animation_player.play_backwards("drop")
+		player_reference.paused = false
 		await animation_player.animation_finished
 		#if Dialogic.current_timeline == null:
 		abseleine.visible = false

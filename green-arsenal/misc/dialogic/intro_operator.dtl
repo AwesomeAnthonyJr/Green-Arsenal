@@ -1,3 +1,8 @@
-operator: test test test
-operator: testy test test
-[signal arg="scene_end"]
+operator: Howdy, Gardener.
+operator: What can I do ya for?
+- Mentor said something's strange with these vines.
+	operator: Did she now?
+	operator: Gimme a sec, I'll take some samples and check out the surrounding area.
+	operator: Call me down again and I'll report back.
+[signal arg="scene_end_op"]
+[end_timeline]
