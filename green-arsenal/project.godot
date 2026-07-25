@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://durk43shgquph"
 Preloads="*uid://c5n6qt55bpyrn"
 SaveManager="*uid://bd8wrv5ug7xbf"
 Constants="*uid://cjfdyywyi6tqs"
+SoundManager="*uid://cxkyfowaxnljm"
 
 [display]
 
