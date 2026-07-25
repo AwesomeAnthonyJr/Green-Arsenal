@@ -92,3 +92,13 @@ func interact_fruit_4(obj):
 		obj.heal_1()
 		fruit_count -= 1
 		fruit_4.hide()
+
+func wither_self():
+	dead = true
+	area_1.on = false
+	area_2.on = false
+	area_3.on = false
+	area_4.on = false
+	anim.play("die")
+	await get_tree().create_timer(1.0).timeout
+	destroy_self()

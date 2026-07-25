@@ -4,9 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="2_iqkuq"]
 [ext_resource type="PackedScene" uid="uid://cr186n5f34odd" path="res://scenes/level_parts/tree_e.tscn" id="3_w1shh"]
 [ext_resource type="PackedScene" uid="uid://ly8d8rmkdyfw" path="res://scenes/level_parts/tree_d.tscn" id="4_1w2hs"]
+[ext_resource type="Material" uid="uid://bh71pc87qivyy" path="res://materials/floor_leaves.tres" id="5_kl164"]
 [ext_resource type="PackedScene" uid="uid://bfy3in2vvoxva" path="res://scenes/level_parts/tree_d_light.tscn" id="5_ybs8a"]
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="6_qgcvf"]
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="7_1mw2x"]
+[ext_resource type="Material" uid="uid://dcpyv6dn0ogl2" path="res://materials/strangler_bark.tres" id="7_cmyqe"]
+[ext_resource type="Material" uid="uid://eh2x6l7fmwys" path="res://materials/gray_soil.tres" id="8_amlin"]
 [ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="8_honlr"]
 [ext_resource type="PackedScene" uid="uid://cj3xvugwergwm" path="res://scenes/level_parts/tree_c.tscn" id="9_jsyhx"]
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="14_a14lj"]
@@ -24,6 +27,8 @@ height = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4fc3b"]
 height = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_3qxvr"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_4fc3b"]
 left_to_right = -0.5
@@ -184,7 +189,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor58" unique_id=1380111168]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("5_kl164")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -193,7 +198,7 @@ transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, -9.092473, -4.5, 2.186719)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform" unique_id=882733042]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("7_cmyqe")
 mesh = SubResource("CylinderMesh_0xelp")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -205,7 +210,7 @@ transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, 0.90752697, -4.5, 12.186719)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform2" unique_id=1559811310]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("7_cmyqe")
 mesh = SubResource("CylinderMesh_0xelp")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -217,7 +222,7 @@ transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, -7.092473, -4.5, 14.186719)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform3" unique_id=638272043]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("7_cmyqe")
 mesh = SubResource("CylinderMesh_0xelp")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -229,7 +234,7 @@ transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, -6.092473, -4.5, 21.186718)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform4" unique_id=1548255362]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("7_cmyqe")
 mesh = SubResource("CylinderMesh_0xelp")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -241,7 +246,7 @@ transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, 0.90752697, -4.5, -0.813282)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform5" unique_id=2043843168]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("7_cmyqe")
 mesh = SubResource("CylinderMesh_0xelp")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -253,7 +258,7 @@ transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, -5.092473, -4.5, -3.813282)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform7" unique_id=287062950]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("7_cmyqe")
 mesh = SubResource("CylinderMesh_0xelp")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -265,7 +270,7 @@ transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 5, 3.907527, -4.5, 5.186718)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform6" unique_id=880081918]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("7_cmyqe")
 mesh = SubResource("CylinderMesh_0xelp")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -281,12 +286,12 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor60" unique_id=354121036]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
 [node name="NonSoilFloor62" type="StaticBody3D" parent="." unique_id=196437896]
-transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 1, -17.5, -4.5, -5)
+transform = Transform3D(5.5, 0, 0, 0, 10, 0, 0, 0, 1, -17.25, -4.5, -5)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor62" unique_id=655988334]
@@ -294,8 +299,8 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor62" unique_id=1237027174]
-material_override = ExtResource("6_qgcvf")
-mesh = SubResource("BoxMesh_4viom")
+material_override = ExtResource("8_amlin")
+mesh = SubResource("BoxMesh_3qxvr")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
 [node name="NonSoilFloor61" type="StaticBody3D" parent="." unique_id=1858875944]
@@ -308,7 +313,7 @@ shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor61" unique_id=1838421803]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0.19999993)
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -322,7 +327,7 @@ shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor80" unique_id=1083040828]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0.19999993)
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -335,7 +340,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor63" unique_id=773023881]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -348,7 +353,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor64" unique_id=1672588239]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -361,7 +366,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor65" unique_id=137359320]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -374,7 +379,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor79" unique_id=1248635426]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -387,7 +392,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor66" unique_id=1958432156]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -400,7 +405,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor59" unique_id=39165222]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("5_kl164")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -426,7 +431,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor68" unique_id=102751560]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -439,7 +444,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor69" unique_id=1266079870]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -452,7 +457,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor70" unique_id=1222097672]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -465,7 +470,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor71" unique_id=867156031]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -478,7 +483,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor72" unique_id=1176336563]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -491,7 +496,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor73" unique_id=1781732532]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -504,7 +509,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor74" unique_id=644605298]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -517,7 +522,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor75" unique_id=1335173916]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -526,7 +531,7 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 6.5, -13.5, -4.5, -8.7516575)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilRamp" unique_id=776972295]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("PrismMesh_4fc3b")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -542,7 +547,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor76" unique_id=852675846]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -555,7 +560,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor77" unique_id=673005044]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 
@@ -568,7 +573,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor78" unique_id=326383737]
-material_override = ExtResource("6_qgcvf")
+material_override = ExtResource("8_amlin")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_qgcvf")
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3vfg6n44r7yp"]
 
 [ext_resource type="Script" uid="uid://dngy88aglx0tr" path="res://scripts/room.gd" id="1_g8tuh"]
-[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_2.tres" id="2_nreii"]
+[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_1.tres" id="2_nreii"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="3_nreii"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h45xw"]

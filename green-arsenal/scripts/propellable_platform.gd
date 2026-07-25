@@ -55,7 +55,7 @@ func calc_propel_percentage():
 func check_propellers():
 	var temp_props = []
 	for p in propellers:
-		if is_instance_valid(p):
+		if is_instance_valid(p) and !p.dead:
 			temp_props.append(p)
 	propellers = temp_props
 	var temp_vals = []

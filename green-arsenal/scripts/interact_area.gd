@@ -5,6 +5,7 @@ var player: Player
 signal interact_sig(obj)
 @export var on = true
 @export var one_time = true
+@export var interaction_name = "Interaction"
 
 func interact():
 	print("INTERACT!!!!!!!!!")

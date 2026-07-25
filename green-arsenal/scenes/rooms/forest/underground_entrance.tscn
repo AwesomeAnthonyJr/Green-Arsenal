@@ -858,7 +858,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.136986, -10.190962, -36.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.136986, -10.190962, -36.16902)
 
 [node name="NonSoilRamp" type="StaticBody3D" parent="." unique_id=809008846]
-transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -85.85541, -4.81, -18)
+transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -85.85541, -4.9761086, -17.918837)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilRamp" unique_id=1618528710]
@@ -870,7 +870,7 @@ surface_material_override/0 = ExtResource("2_otbsp")
 shape = SubResource("ConcavePolygonShape3D_b8q16")
 
 [node name="NonSoilRamp5" type="StaticBody3D" parent="." unique_id=2134516304]
-transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -79.354, -4.81, -18)
+transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -79.354, -4.9761086, -17.918837)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilRamp5" unique_id=1091133868]
@@ -882,7 +882,7 @@ surface_material_override/0 = ExtResource("2_otbsp")
 shape = SubResource("ConcavePolygonShape3D_b8q16")
 
 [node name="NonSoilRamp2" type="StaticBody3D" parent="." unique_id=642694338]
-transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -92.3, -4.81, -18)
+transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -92.3, -4.9761086, -17.918837)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilRamp2" unique_id=177601753]
@@ -894,7 +894,7 @@ surface_material_override/0 = ExtResource("2_otbsp")
 shape = SubResource("ConcavePolygonShape3D_b8q16")
 
 [node name="NonSoilRamp3" type="StaticBody3D" parent="." unique_id=408326160]
-transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -98.7, -4.81, -18)
+transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -98.7, -4.9761086, -17.918837)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilRamp3" unique_id=1198512065]
@@ -906,7 +906,7 @@ surface_material_override/0 = ExtResource("2_otbsp")
 shape = SubResource("ConcavePolygonShape3D_b8q16")
 
 [node name="NonSoilRamp4" type="StaticBody3D" parent="." unique_id=1311330004]
-transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -105.2, -4.81, -18)
+transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -105.2, -4.9761086, -17.918837)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilRamp4" unique_id=1153319231]

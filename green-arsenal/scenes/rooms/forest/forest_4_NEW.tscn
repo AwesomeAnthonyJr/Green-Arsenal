@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dngy88aglx0tr" path="res://scripts/room.gd" id="1_62824"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="2_p3084"]
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="3_wvgwm"]
-[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_2.tres" id="4_h8ma2"]
+[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_1.tres" id="4_h8ma2"]
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="5_lpiku"]
 [ext_resource type="PackedScene" uid="uid://ly8d8rmkdyfw" path="res://scenes/level_parts/tree_d.tscn" id="6_mue0w"]
 [ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="7_2r48s"]

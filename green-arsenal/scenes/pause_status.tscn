@@ -684,37 +684,37 @@ texture = ExtResource("2_xn0vo")
 hframes = 11
 frame = 2
 
-[node name="SeedBounce" type="Sprite2D" parent="Control" unique_id=95842972]
+[node name="SeedLife" type="Sprite2D" parent="Control" unique_id=95842972]
 visibility_layer = 524288
 z_index = 1
 position = Vector2(219, 204)
 texture = ExtResource("2_xn0vo")
 hframes = 11
-frame = 3
+frame = 4
 
-[node name="SeedLife" type="Sprite2D" parent="Control" unique_id=1926504652]
+[node name="SeedBounce" type="Sprite2D" parent="Control" unique_id=1926504652]
 visibility_layer = 524288
 z_index = 1
 position = Vector2(284, 275)
 texture = ExtResource("2_xn0vo")
 hframes = 11
-frame = 4
+frame = 3
 
-[node name="SeedPlatform" type="Sprite2D" parent="Control" unique_id=856123227]
+[node name="SeedSeeker" type="Sprite2D" parent="Control" unique_id=856123227]
 modulate = Color(0, 0, 0, 1)
 visibility_layer = 524288
-position = Vector2(349, 204)
-texture = ExtResource("2_xn0vo")
-hframes = 11
-frame = 5
-
-[node name="SeedSeeker" type="Sprite2D" parent="Control" unique_id=348027026]
-modulate = Color(0, 0, 0, 1)
-visibility_layer = 524288
-position = Vector2(414, 275)
+position = Vector2(352, 204)
 texture = ExtResource("2_xn0vo")
 hframes = 11
 frame = 6
+
+[node name="SeedPlatform" type="Sprite2D" parent="Control" unique_id=348027026]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524288
+position = Vector2(416, 275)
+texture = ExtResource("2_xn0vo")
+hframes = 11
+frame = 5
 
 [node name="SeedPropeller" type="Sprite2D" parent="Control" unique_id=1440466741]
 modulate = Color(0, 0, 0, 1)
@@ -815,7 +815,7 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 visible = false
 
 [node name="BoulderFruit" parent="Control/Control/PlantDisplayer/SubViewport/Plants" unique_id=1479091050 instance=ExtResource("10_yrimf")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 visible = false
 
 [node name="PlantDescriber" type="RichTextLabel" parent="Control/Control" unique_id=1996662465]

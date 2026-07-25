@@ -2,7 +2,7 @@ extends Resource
 class_name SaveFile
 
 @export var seed_types: Array[bool] = [
-	false,
+	true,
 	false,
 	false,
 	false,
