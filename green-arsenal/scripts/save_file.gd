@@ -19,6 +19,10 @@ class_name SaveFile
 	false, #forest 2 - torch 1
 	false, #forest 2 - torch 2
 	false, #forest 2 - torch 3
+	false, #forest 2 - strangler gate
+	false, #forest 5 - strangler gate
+	false, #underground_entrance - torch 1
+	false, #underground_entrance - torch 2
 ]
 ###this is mostly for the map screen to hide certain layers until its time
 @export var farthest_floor: int = 2

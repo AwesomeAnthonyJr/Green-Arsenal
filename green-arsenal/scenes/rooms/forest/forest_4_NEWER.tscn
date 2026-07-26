@@ -10,8 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="7_2ktrq"]
 [ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="8_ngtr6"]
 [ext_resource type="PackedScene" uid="uid://cj3xvugwergwm" path="res://scenes/level_parts/tree_c.tscn" id="9_hu1g8"]
+[ext_resource type="PackedScene" uid="uid://ditkeytqpk223" path="res://scenes/level_parts/strangler_b.tscn" id="15_deyx2"]
 [ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="15_q3w4c"]
 [ext_resource type="Material" uid="uid://dcpyv6dn0ogl2" path="res://materials/strangler_bark.tres" id="15_rljh1"]
+[ext_resource type="PackedScene" uid="uid://tl4lg8ap4dm1" path="res://scenes/level_parts/strangler_a.tscn" id="17_c50kb"]
+[ext_resource type="PackedScene" uid="uid://ddexbsd7e36p3" path="res://scenes/level_parts/strangler_c.tscn" id="18_wiw6m"]
 [ext_resource type="Material" uid="uid://dvt47ul4pjcvl" path="res://materials/leaves_nearest.tres" id="19_cpare"]
 [ext_resource type="Material" uid="uid://cqwygovsi155y" path="res://materials/leaves_between.tres" id="20_xll8v"]
 [ext_resource type="Material" uid="uid://b8f5nhjo3v8ex" path="res://materials/leaves_top.tres" id="21_b7xsn"]
@@ -904,11 +907,22 @@ transform = Transform3D(-0.9659258, 0, -0.25881907, 0, 1, 0, 0.25881907, 0, -0.9
 [node name="Tree_C" parent="." unique_id=251064813 instance=ExtResource("9_hu1g8")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 31.329548, 1.3708258, -51.513474)
 
+[node name="Strangler_C" parent="Tree_C" unique_id=1437403629 instance=ExtResource("18_wiw6m")]
+
 [node name="Tree_A2" parent="." unique_id=1279346802 instance=ExtResource("8_ngtr6")]
 transform = Transform3D(0.55252135, 0, -0.8334988, 0, 1, 0, 0.8334988, 0, 0.55252135, 20.952818, 0.56947803, -56.791054)
 
+[node name="Strangler_B" parent="." unique_id=1174889370 instance=ExtResource("15_deyx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.626894, 0.8050103, -56.48469)
+
+[node name="Strangler_B3" parent="." unique_id=99955237 instance=ExtResource("15_deyx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.666183, -1.6006012, -49.36501)
+
+[node name="Strangler_B2" parent="." unique_id=1787755156 instance=ExtResource("15_deyx2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 18.98899, 0.8050113, -55.467087)
+
 [node name="NonSoilPlatform" type="StaticBody3D" parent="." unique_id=659884618]
-transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, 27.907528, -3.5, -38.813282)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 27.907528, 0.5, -38.813282)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform" unique_id=1644859992]
@@ -920,7 +934,7 @@ surface_material_override/0 = ExtResource("6_60nx5")
 shape = SubResource("CylinderShape3D_m34gi")
 
 [node name="NonSoilPlatform2" type="StaticBody3D" parent="." unique_id=1118972888]
-transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, 28.907528, -2.5, -40.813282)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 28.908, 1.5, -40.813)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform2" unique_id=677721048]
@@ -932,7 +946,7 @@ surface_material_override/0 = ExtResource("6_60nx5")
 shape = SubResource("CylinderShape3D_m34gi")
 
 [node name="NonSoilPlatform3" type="StaticBody3D" parent="." unique_id=1196318118]
-transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, 27.907528, -1.5, -42.813282)
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 27.908, 2.5, -42.813)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform3" unique_id=283660775]
@@ -944,7 +958,7 @@ surface_material_override/0 = ExtResource("6_60nx5")
 shape = SubResource("CylinderShape3D_m34gi")
 
 [node name="NonSoilPlatform4" type="StaticBody3D" parent="." unique_id=174203248]
-transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 29.907528, -0.5, -45.813282)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 29.908, 3.5, -45.813)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform4" unique_id=1438581068]
@@ -956,7 +970,7 @@ surface_material_override/0 = ExtResource("6_60nx5")
 shape = SubResource("CylinderShape3D_m34gi")
 
 [node name="NonSoilPlatform5" type="StaticBody3D" parent="." unique_id=679273070]
-transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 27.907528, 0.5, -48.813282)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 27.908, 4.5, -48.813)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform5" unique_id=2056659242]
@@ -968,7 +982,7 @@ surface_material_override/0 = ExtResource("6_60nx5")
 shape = SubResource("CylinderShape3D_m34gi")
 
 [node name="NonSoilPlatform6" type="StaticBody3D" parent="." unique_id=1232723463]
-transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 25.907528, 1.5, -51.813282)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 25.908, 5.5, -51.813)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform6" unique_id=1231407264]
@@ -980,7 +994,7 @@ surface_material_override/0 = ExtResource("6_60nx5")
 shape = SubResource("CylinderShape3D_m34gi")
 
 [node name="NonSoilPlatform7" type="StaticBody3D" parent="." unique_id=236178429]
-transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 20.907528, 3.5, -54.813282)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 20.908, 7.5, -54.813)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform7" unique_id=1918045525]
@@ -992,7 +1006,7 @@ surface_material_override/0 = ExtResource("6_60nx5")
 shape = SubResource("CylinderShape3D_m34gi")
 
 [node name="NonSoilPlatform9" type="StaticBody3D" parent="." unique_id=1359514845]
-transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 21.907528, 4.5, -51.813282)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 21.908, 8.5, -51.813)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform9" unique_id=1073444537]
@@ -1004,7 +1018,7 @@ surface_material_override/0 = ExtResource("6_60nx5")
 shape = SubResource("CylinderShape3D_m34gi")
 
 [node name="NonSoilPlatform8" type="StaticBody3D" parent="." unique_id=85722488]
-transform = Transform3D(3, 0, 0, 0, 10, 0, 0, 0, 3, 24.907528, 2.5, -55.813282)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 24.908, 6.5, -55.813)
 collision_layer = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilPlatform8" unique_id=1391555595]
@@ -1014,3 +1028,27 @@ surface_material_override/0 = ExtResource("6_60nx5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilPlatform8" unique_id=519699865]
 shape = SubResource("CylinderShape3D_m34gi")
+
+[node name="Strangler_A" parent="." unique_id=1312390667 instance=ExtResource("17_c50kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.83155, -4.69735, -46.74679)
+
+[node name="Strangler_A2" parent="." unique_id=13562336 instance=ExtResource("17_c50kb")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.423534, -3.8893003, -43.92274)
+
+[node name="Strangler_B4" parent="." unique_id=1819816502 instance=ExtResource("15_deyx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.016266, -1.949348, -44.611282)
+
+[node name="Strangler_C" parent="." unique_id=1710453241 instance=ExtResource("18_wiw6m")]
+transform = Transform3D(0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0, 1, 23.845633, -0.848361, -51.26168)
+
+[node name="Strangler_C2" parent="." unique_id=787235156 instance=ExtResource("18_wiw6m")]
+transform = Transform3D(-3.090862e-08, -3.090862e-08, 1, 0, 0.99999994, 3.090862e-08, -0.99999994, 0, -3.0908616e-08, 20.618868, -1.7959595, -61.748074)
+
+[node name="Strangler_C3" parent="." unique_id=1557780243 instance=ExtResource("18_wiw6m")]
+transform = Transform3D(-3.090862e-08, -3.090862e-08, 1, 0, 0.99999994, 3.090862e-08, -0.99999994, 0, -3.0908616e-08, 26.708725, -3.2311354, -58.272533)
+
+[node name="Strangler_C5" parent="." unique_id=1446124740 instance=ExtResource("18_wiw6m")]
+transform = Transform3D(-3.090862e-08, -3.090862e-08, 1, 0, 0.99999994, 3.090862e-08, -0.99999994, 0, -3.0908616e-08, 27.032263, -2.5381732, -47.55867)
+
+[node name="Strangler_C4" parent="." unique_id=1284848035 instance=ExtResource("18_wiw6m")]
+transform = Transform3D(0.8542209, -1.6069702e-08, 0.5199101, -3.215677e-22, 0.9999999, 3.090862e-08, -0.51991, -2.6402793e-08, 0.8542209, 32.265846, -3.2311354, -54.215134)
