@@ -2,7 +2,7 @@ extends Resource
 class_name SaveFile
 
 @export var seed_types: Array[bool] = [
-	true,
+	false,
 	false,
 	false,
 	false,
@@ -15,10 +15,14 @@ class_name SaveFile
 
 ###this is for like doors and stuff, depending on the rooms
 @export var game_flags: Array[bool] = [
-	true, #forest 1_NEW - strangler gate
-	true, #forest 2 - torch 1
-	true, #forest 2 - torch 2
-	true, #forest 2 - torch 3
+	false, #forest 1_NEW - strangler gate
+	false, #forest 2 - torch 1
+	false, #forest 2 - torch 2
+	false, #forest 2 - torch 3
+	false, #forest 2 - strangler gate
+	false, #forest 5 - strangler gate
+	false, #underground_entrance - torch 1
+	false, #underground_entrance - torch 2
 ]
 ###this is mostly for the map screen to hide certain layers until its time
 @export var farthest_floor: int = 2
