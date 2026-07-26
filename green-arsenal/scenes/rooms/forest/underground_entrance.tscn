@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="8_b8q16"]
 [ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="8_brsy2"]
 [ext_resource type="Texture2D" uid="uid://64y1uvyj5p0t" path="res://ui/Moonsanto Logo(1).png" id="11_01yxa"]
+[ext_resource type="Script" uid="uid://1yv3vtnelsid" path="res://scripts/torch_boss.gd" id="12_j217w"]
+[ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="13_2rric"]
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="14_brsy2"]
+[ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="15_vyxr3"]
+[ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="16_e55yu"]
+[ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="17_gyv3l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -26,6 +32,63 @@ data = PackedVector3Array(-1, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -1, 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgmwo"]
 shading_mode = 0
+
+[sub_resource type="Animation" id="Animation_ybq8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cm066"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0), Vector3(0, -5.697, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ovsj5"]
+_data = {
+&"RESET": SubResource("Animation_ybq8s"),
+&"open": SubResource("Animation_cm066")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_pqb1p"]
+size = Vector3(1, 12, 14)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvw0l"]
+render_priority = 0
+shader = ExtResource("14_brsy2")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("15_vyxr3")
+shader_parameter/albedo_in_shadow = Color(0.46008006, 0.30960003, 0.72, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("15_vyxr3")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.1999999955296
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j217w"]
+size = Vector3(1, 12, 14)
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_rgmwo")
@@ -833,12 +896,6 @@ transform = Transform3D(-0.88823104, 0, 0.45939702, 0, 1, 0, -0.45939702, 0, -0.
 [node name="Tree_E" parent="." unique_id=818354251 instance=ExtResource("6_pkjfl")]
 transform = Transform3D(0.1674852, 0, 0.9858746, 0, 1, 0, -0.9858746, 0, 0.1674852, -105.8599, 1.6666179, -5.6841545)
 
-[node name="Torch" parent="." unique_id=2026293210 instance=ExtResource("7_8p82u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.136986, -10.190962, -36.16902)
-
-[node name="Torch2" parent="." unique_id=601700733 instance=ExtResource("7_8p82u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.136986, -10.190962, -36.16902)
-
 [node name="NonSoilRamp" type="StaticBody3D" parent="." unique_id=809008846]
 transform = Transform3D(-4.371139e-07, 0, 6.5, 0, 10, 0, -10, 0, -2.84124e-07, -85.85541, -4.9761086, -17.918837)
 collision_layer = 3
@@ -900,7 +957,7 @@ surface_material_override/0 = ExtResource("2_otbsp")
 shape = SubResource("ConcavePolygonShape3D_b8q16")
 
 [node name="Tree_A" parent="." unique_id=47698065 instance=ExtResource("8_b8q16")]
-transform = Transform3D(0.8040384, 0, -0.5945774, 0, 1, 0, 0.5945774, 0, 0.8040384, -104.94882, 0.8578043, -24.932184)
+transform = Transform3D(0.8040384, 0, -0.5945774, 0, 1, 0, 0.5945774, 0, 0.8040384, -104.94882, 0.11073017, -24.932184)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=2023272875]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -93.887024, 5.1436567, -38.966496)
@@ -908,7 +965,7 @@ texture = ExtResource("11_01yxa")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=680778508]
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, -85, 9.5, -37)
-light_energy = 5.778
+light_energy = 16.0
 spot_range = 25.114965
 spot_angle = 44.70523
 
@@ -918,8 +975,8 @@ mesh = SubResource("SphereMesh_01yxa")
 surface_material_override/0 = SubResource("StandardMaterial3D_rgmwo")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=341923637]
-transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, -103, 9.5, -37)
-light_energy = 5.778
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, -104, 9.5, -37)
+light_energy = 16.0
 spot_range = 25.114965
 spot_angle = 44.70523
 
@@ -930,7 +987,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rgmwo")
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=1886205329]
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, -95, 9.5, -37)
-light_energy = 5.778
+light_energy = 16.0
 spot_range = 17.687784
 spot_angle = 44.70523
 
@@ -939,13 +996,51 @@ cast_shadow = 0
 mesh = SubResource("SphereMesh_01yxa")
 surface_material_override/0 = SubResource("StandardMaterial3D_rgmwo")
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="." unique_id=1985125081]
-transform = Transform3D(1, 0, 0, 0, -0.25881907, 0.9659258, 0, -0.9659258, -0.25881907, -95, 9.5, -37)
-light_energy = 5.778
-spot_range = 35.937603
-spot_angle = 23.495684
+[node name="TorchBoss" type="Node3D" parent="." unique_id=1206798423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 70)
+script = ExtResource("12_j217w")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SpotLight3D4" unique_id=1365599414]
-cast_shadow = 0
-mesh = SubResource("SphereMesh_01yxa")
-surface_material_override/0 = SubResource("StandardMaterial3D_rgmwo")
+[node name="Torch" parent="TorchBoss" unique_id=309922312 instance=ExtResource("7_8p82u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, -10, -106)
+
+[node name="Torch2" parent="TorchBoss" unique_id=1535490151 instance=ExtResource("7_8p82u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, -10, -106)
+
+[node name="PuzzleDoor" type="Node3D" parent="." unique_id=723954880]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -95, -11, -40.64017)
+script = ExtResource("13_2rric")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PuzzleDoor" unique_id=974189905]
+libraries/ = SubResource("AnimationLibrary_ovsj5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PuzzleDoor" unique_id=738827527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+mesh = SubResource("BoxMesh_pqb1p")
+surface_material_override/0 = SubResource("ShaderMaterial_kvw0l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PuzzleDoor/MeshInstance3D" unique_id=1757625629]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzleDoor/MeshInstance3D/StaticBody3D" unique_id=1263279775]
+shape = SubResource("BoxShape3D_j217w")
+
+[node name="SaveFlagSetter_006" type="Node" parent="." unique_id=1812710132]
+script = ExtResource("16_e55yu")
+flag_index = 6
+
+[node name="SaveFlagSetter_007" type="Node" parent="." unique_id=624505144]
+script = ExtResource("16_e55yu")
+flag_index = 7
+
+[node name="SaveFlagReaderLighter_006" type="Node" parent="." unique_id=160029009 node_paths=PackedStringArray("torch")]
+script = ExtResource("17_gyv3l")
+flag_index = 6
+torch = NodePath("../TorchBoss/Torch")
+
+[node name="SaveFlagReaderLighter_007" type="Node" parent="." unique_id=781194430 node_paths=PackedStringArray("torch")]
+script = ExtResource("17_gyv3l")
+flag_index = 7
+torch = NodePath("../TorchBoss/Torch2")
+
+[connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
+[connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_006" method="set_flag_true"]
+[connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_007" method="set_flag_true"]
