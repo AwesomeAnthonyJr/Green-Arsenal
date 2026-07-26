@@ -399,39 +399,6 @@ shape = SubResource("BoxShape3D_1euve")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor45" unique_id=1430572213]
 material_override = ExtResource("6_jxnwu")
 mesh = SubResource("BoxMesh_4viom")
-surface_material_override/0 = ExtResource("6_60nx5")
-
-[node name="NonSoilFloor46" type="StaticBody3D" parent="." unique_id=965177991]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 11.365, 2.776001, 21.5, -29.305107)
-collision_layer = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor46" unique_id=2132600988]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
-shape = SubResource("BoxShape3D_1euve")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor46" unique_id=1918104167]
-material_override = ExtResource("6_60nx5")
-mesh = SubResource("BoxMesh_4viom")
-surface_material_override/0 = ExtResource("6_60nx5")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="NonSoilFloor46" unique_id=1744921897]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.9702027, 0)
-material_override = ExtResource("6_jxnwu")
-mesh = SubResource("BoxMesh_4viom")
-surface_material_override/0 = ExtResource("6_60nx5")
-
-[node name="NonSoilFloor50" type="StaticBody3D" parent="." unique_id=421184347]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 11.365, 2.776001, 11.5, -29.305107)
-collision_layer = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor50" unique_id=730362210]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
-shape = SubResource("BoxShape3D_1euve")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor50" unique_id=1594840888]
-material_override = ExtResource("6_60nx5")
-mesh = SubResource("BoxMesh_4viom")
-surface_material_override/0 = ExtResource("6_60nx5")
 
 [node name="NonSoilFloor51" type="StaticBody3D" parent="." unique_id=1636317146]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 11.365, 2.776001, 21.5, -29.305107)
@@ -448,7 +415,7 @@ surface_material_override/0 = ExtResource("6_60nx5")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="NonSoilFloor51" unique_id=233139678]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.9702027, 0)
-material_override = ExtResource("6_60nx5")
+material_override = ExtResource("6_jxnwu")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("6_60nx5")
 
@@ -486,6 +453,7 @@ surface_material_override/0 = ExtResource("19_cpare")
 
 [node name="MeshInstance3D326" type="MeshInstance3D" parent="Leaves" unique_id=2041444526]
 transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -93.641304, -8.839771, -187.03612)
+material_override = ExtResource("6_jxnwu")
 mesh = SubResource("PlaneMesh_pboi5")
 surface_material_override/0 = ExtResource("20_xll8v")
 

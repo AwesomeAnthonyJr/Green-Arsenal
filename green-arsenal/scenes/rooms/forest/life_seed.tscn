@@ -36,7 +36,7 @@ room_pos = Vector3(-100, 0, -50)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
 [node name="SeedVault" parent="." unique_id=538589429 instance=ExtResource("2_df1yb")]
-transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 0.99999994, 0, -0.99999994, 0, -4.3711385e-08, -6.514904, 1.8573177, 7.134876)
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -7.9716454, 2.2225296, 7.134876)
 seed_index = 1
 
 [node name="NonSoilFloor51" type="StaticBody3D" parent="." unique_id=1474423926]
@@ -113,7 +113,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor77" unique_id=270442070]
-material_override = ExtResource("3_df1yb")
+material_override = ExtResource("2_datp6")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("3_df1yb")
 
@@ -126,7 +126,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor78" unique_id=2033356036]
-material_override = ExtResource("3_df1yb")
+material_override = ExtResource("2_datp6")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("3_df1yb")
 
@@ -139,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor79" unique_id=46170224]
-material_override = ExtResource("3_df1yb")
+material_override = ExtResource("2_datp6")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("3_df1yb")
 
@@ -152,7 +152,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor80" unique_id=638552115]
-material_override = ExtResource("3_df1yb")
+material_override = ExtResource("2_datp6")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("3_df1yb")
 
@@ -574,7 +574,7 @@ transform = Transform3D(-0.41845268, 3.322785, 0.7858743, -1.5616853, -0.8903376
 transform = Transform3D(0.2318653, 0, 0.9727479, 0, 1, 0, -0.9727479, 0, 0.2318653, 4.306343, 0.10514212, 9.148518)
 
 [node name="Strangler_A3" parent="." unique_id=2050958095 instance=ExtResource("13_ik53l")]
-transform = Transform3D(1.4076667, 9.287149e-08, 3.9092844, 3.7760782, 1.0753933, -1.3597015, -1.0117973, 4.013422, 0.36433086, -4.7774277, 25.509018, -5.7945538)
+transform = Transform3D(1.4076667, 9.287149e-08, 3.9092844, 3.7760782, 1.0753933, -1.3597015, -1.0117973, 4.013422, 0.36433086, -8.498751, 25.509018, -5.7945538)
 
 [node name="Tree_C2" parent="." unique_id=1091562444 instance=ExtResource("9_jf5a3")]
 transform = Transform3D(0.97112155, 0, 0.2385853, 0, 1, 0, -0.2385853, 0, 0.97112155, -12.217911, 1.8651886, 0.87672424)

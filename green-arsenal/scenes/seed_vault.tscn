@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://d2xix6crf4q8"]
 
-[ext_resource type="Material" uid="uid://ct0tpf1wcbdkn" path="res://materials/cel_test_mat.tres" id="1_gyepu"]
 [ext_resource type="Script" uid="uid://b6v6vw2x3fml2" path="res://scripts/seed_vault.gd" id="1_p1mso"]
+[ext_resource type="Material" uid="uid://ct5ogddtqndri" path="res://materials/white_material_2.tres" id="2_5s4xv"]
+[ext_resource type="Material" uid="uid://cgsnt031fmwnp" path="res://materials/white_material.tres" id="2_f8s6p"]
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="2_xmh2t"]
 [ext_resource type="PackedScene" uid="uid://c23cpjr70vnif" path="res://scenes/interact_area.tscn" id="4_f8s6p"]
 
@@ -136,7 +137,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35351956, 0, 0.39242455)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35351956, 0, -0.042074054)
 operation = 2
 size = Vector3(0.7, 0.9, 0.1)
-material = ExtResource("1_gyepu")
+material = ExtResource("2_5s4xv")
 
 [node name="Spinner" type="Node3D" parent="Hinge" unique_id=2050117888]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 0, 0)
@@ -146,6 +147,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.440892e-16, 0.099999994
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/Spinner/Node3D" unique_id=1569132005]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("2_f8s6p")
 mesh = SubResource("CylinderMesh_h45xw")
 
 [node name="Node3D2" type="Node3D" parent="Hinge/Spinner" unique_id=908878202]
@@ -153,6 +155,7 @@ transform = Transform3D(0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/Spinner/Node3D2" unique_id=300448354]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("2_f8s6p")
 mesh = SubResource("CylinderMesh_h45xw")
 
 [node name="Node3D3" type="Node3D" parent="Hinge/Spinner" unique_id=773068997]
@@ -160,6 +163,7 @@ transform = Transform3D(-0.5000001, 0.8660254, 0, -0.8660254, -0.5000001, 0, 0, 
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/Spinner/Node3D3" unique_id=1565356682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("2_f8s6p")
 mesh = SubResource("CylinderMesh_h45xw")
 
 [node name="Node3D4" type="Node3D" parent="Hinge/Spinner" unique_id=627339404]
@@ -167,6 +171,7 @@ transform = Transform3D(-1, -1.1920929e-07, 0, 1.1920929e-07, -1, 0, 0, 0, 1, 0,
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/Spinner/Node3D4" unique_id=750562580]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("2_f8s6p")
 mesh = SubResource("CylinderMesh_h45xw")
 
 [node name="Node3D5" type="Node3D" parent="Hinge/Spinner" unique_id=746233598]
@@ -174,6 +179,7 @@ transform = Transform3D(-0.49999988, -0.8660255, 0, 0.8660255, -0.49999988, 0, 0
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/Spinner/Node3D5" unique_id=1776731011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("2_f8s6p")
 mesh = SubResource("CylinderMesh_h45xw")
 
 [node name="Node3D6" type="Node3D" parent="Hinge/Spinner" unique_id=1214045700]
@@ -181,14 +187,16 @@ transform = Transform3D(0.5000002, -0.8660253, 0, 0.8660253, 0.5000002, 0, 0, 0,
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Hinge/Spinner/Node3D6" unique_id=1963006309]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+material_override = ExtResource("2_f8s6p")
 mesh = SubResource("CylinderMesh_h45xw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge" unique_id=1450903989]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.35, 0, 0.099999994)
+material_override = ExtResource("2_f8s6p")
 mesh = SubResource("CylinderMesh_f8s6p")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1034109015]
-material_override = ExtResource("1_gyepu")
+material_override = ExtResource("2_5s4xv")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1063303993]
 size = Vector3(0.8, 1, 0.8)
