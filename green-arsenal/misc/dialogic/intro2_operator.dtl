@@ -58,7 +58,6 @@ operator: Let's practice\:
 operator: "Would you like to record any progress in your investigation?"
 - Yes
 	operator: Saving progress...
-	do SaveManager.verify_directories()
 	do SaveManager.write_save()
 	operator: Save complete.
 	jump save_done
