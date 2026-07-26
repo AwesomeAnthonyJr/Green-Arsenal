@@ -42,10 +42,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -80)
 
 [node name="Room4" parent="Forest" unique_id=1116052732 instance=ExtResource("9_58kq5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -50)
 
 [node name="Room5" parent="Forest" unique_id=1266230963 instance=ExtResource("10_m6wx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
 
 [node name="Room6" parent="Forest" unique_id=355653372 instance=ExtResource("11_jsvpm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -80)
