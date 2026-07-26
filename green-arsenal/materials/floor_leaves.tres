@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bh71pc87qivyy"]
+
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="1_aiidd"]
+[ext_resource type="Texture2D" uid="uid://bso8wjjulyurq" path="res://textures/floor_leaves.png" id="2_aiidd"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_aiidd")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_aiidd")
+shader_parameter/albedo_in_shadow = Color(0.48768365, 0.48323053, 1, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("2_aiidd")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.96999997831856
+shader_parameter/specular_strength = 0.70000001043084
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.0499999988824
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)

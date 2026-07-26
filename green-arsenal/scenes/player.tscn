@@ -380,6 +380,7 @@ radius = 0.18
 physics_material_override = SubResource("PhysicsMaterial_dqkch")
 can_sleep = false
 lock_rotation = true
+max_contacts_reported = 4
 script = ExtResource("1_g2els")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=185476992]

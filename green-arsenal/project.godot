@@ -48,6 +48,8 @@ layout/style_list=["res://misc/dialogic/speaker_box.tres", "res://misc/dialogic/
 layout/default_style="res://misc/dialogic/speaker_box.tres"
 glossary/default_case_sensitive=true
 variables={}
+SoundManager="*uid://cxkyfowaxnljm"
+Generics="*uid://cb4njgqi3uf2o"
 
 [display]
 
@@ -189,4 +191,3 @@ dialogic_default_action={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="mobile"

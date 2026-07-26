@@ -85,3 +85,10 @@ func seek_surface():
 
 func grow():
 	anim.play("grow")
+
+func wither_self():
+	dead = true
+	#plat_collider.disabled = true
+	anim.play("die")
+	await get_tree().create_timer(1.0).timeout
+	destroy_self()

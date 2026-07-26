@@ -14,7 +14,7 @@ func _ready() -> void:
 	connect_inputs()
 
 func connect_inputs():
-	var manager = find_main(self).input_manager
+	var manager =  Generics.find_main(self).input_manager
 	manager.look.connect(read_look)
 	manager.shoot.connect(read_shoot)
 
@@ -41,13 +41,6 @@ func read_shoot():
 		#await get_tree().create_timer(0.5).timeout
 		#anim.play("standard")
 
-func find_main(x) -> Main:
-	var p = x.get_parent()
-	if p is Main:
-		return p
-	else:
-		return find_main(p)
-
 func store(obj):
 	stored = obj
 	has_bullet = true
@@ -66,3 +59,10 @@ func _process(delta: float) -> void:
 	if model_attatchment.override_pose:
 		model_attatchment.global_position = pitch_pivot.global_position
 		model_attatchment.global_rotation = pitch_pivot.global_rotation
+
+func wither_self():
+	dead = true
+	model_attatchment.override_pose = false
+	anim.play("die")
+	await get_tree().create_timer(1.0).timeout
+	destroy_self()

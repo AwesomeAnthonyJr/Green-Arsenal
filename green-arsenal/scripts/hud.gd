@@ -12,7 +12,7 @@ func _ready() -> void:
 	connect_inputs()
 
 func connect_inputs():
-	var manager = find_main(self).input_manager
+	var manager =  Generics.find_main(self).input_manager
 	manager.up.connect(read_up)
 	manager.down.connect(read_down)
 	#manager.sprint.connect(read_sprint)
@@ -41,13 +41,6 @@ func read_accept():
 		#await get_tree().process_frame
 		update_revolver(player.loaded_in_gun)
 		#print(revolver.get_selection())
-
-func find_main(x) -> Main:
-	var p = x.get_parent()
-	if p is Main:
-		return p
-	else:
-		return find_main(p)
 
 func update_petals(arr):
 	crosshair.petal_1_id = min(arr[0], 1)

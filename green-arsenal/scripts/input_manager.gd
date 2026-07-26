@@ -30,7 +30,8 @@ func _process(delta: float) -> void:
 	move_input()
 	sprint_input()
 	jump_input()
-	pause_input()
+	if !get_parent().override_pause:
+		pause_input()
 	shoot_input()
 	reload_input()
 	interact_input()

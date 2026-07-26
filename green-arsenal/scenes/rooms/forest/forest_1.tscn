@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dvwkrjq22kad7"]
 
 [ext_resource type="Script" uid="uid://dngy88aglx0tr" path="res://scripts/room.gd" id="1_jr2py"]
-[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_2.tres" id="2_egboh"]
+[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_1.tres" id="2_egboh"]
 [ext_resource type="Material" uid="uid://dvt47ul4pjcvl" path="res://materials/leaves_nearest.tres" id="3_gpi5a"]
 [ext_resource type="Material" uid="uid://cqwygovsi155y" path="res://materials/leaves_between.tres" id="4_4e52g"]
 [ext_resource type="Material" uid="uid://b8f5nhjo3v8ex" path="res://materials/leaves_top.tres" id="5_lspax"]

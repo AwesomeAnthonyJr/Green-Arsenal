@@ -13,8 +13,20 @@ extends Control
 @onready var load_5 = $Sprite2D/Control/Loaded5
 
 #TODO: read from save data instead! just assume we have all of them for now.
-var seeds = [2, 3, 4, 5, 6, 7, 8]
+var seeds = [2, 4, 3, 6, 5, 7, 8]
 var seed_select = 0
+
+func _ready() -> void:
+	setup_seeds()
+
+func setup_seeds():
+	var temp = []
+	var types = SaveManager.player_save.seed_types
+	for i in types.size():
+		if types[i]:
+			temp.append(Constants.seed_order[i])
+	seeds = temp
+	update_sprites()
 
 func select_increment(n):
 	var temp = n + 1
@@ -29,9 +41,14 @@ func select_decrement(n):
 	return temp
 
 func update_sprites():
-	curr_seed.frame = seeds[seed_select]
-	prev_seed.frame = seeds[select_decrement(seed_select)]
-	next_seed.frame = seeds[select_increment(seed_select)]
+	curr_seed.get_parent().visible = seeds.size() > 0
+	prev_seed.get_parent().visible = seeds.size() > 1
+	next_seed.get_parent().visible = seeds.size() > 1
+	if seeds.size() > 0:
+		curr_seed.frame = seeds[seed_select]
+		if seeds.size() > 1:
+			prev_seed.frame = seeds[select_decrement(seed_select)]
+			next_seed.frame = seeds[select_increment(seed_select)]
 
 func update_loaded_sprites(arr):
 	load_0.frame = arr[0]

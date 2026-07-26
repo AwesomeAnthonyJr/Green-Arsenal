@@ -22,10 +22,12 @@ const PITCH_OFFSET = Vector3(0, 0.6, 0)
 var supress_looking = false
 
 func connect_inputs():
-	var manager = find_main(self).input_manager
+	var manager = Generics.find_main(self).input_manager
 	manager.look.connect(read_look)
 
 func read_look(y, x):
+	if get_tree().paused:
+		return
 	if !supress_looking:
 		twist_pivot.rotate_y(y);
 		pitch_pivot.rotate_x(x);
@@ -35,14 +37,6 @@ func read_look(y, x):
 			deg_to_rad(75)
 		)
 	#Locks the camera so it doesn't go beyond boundaries
-	
-# simple recursive solution to find the main node.
-func find_main(x) -> Main:
-	var p = x.get_parent()
-	if p is Main:
-		return p
-	else:
-		return find_main(p)
 
 func _ready() -> void:
 	connect_inputs()

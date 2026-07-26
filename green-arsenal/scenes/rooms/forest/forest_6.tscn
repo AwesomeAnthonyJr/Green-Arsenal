@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dngy88aglx0tr" path="res://scripts/room.gd" id="1_0totm"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="2_2eg72"]
+[ext_resource type="Material" uid="uid://eh2x6l7fmwys" path="res://materials/gray_soil.tres" id="2_spp6l"]
 [ext_resource type="PackedScene" uid="uid://ly8d8rmkdyfw" path="res://scenes/level_parts/tree_d.tscn" id="4_objqm"]
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="5_snnob"]
 [ext_resource type="PackedScene" uid="uid://cr186n5f34odd" path="res://scenes/level_parts/tree_e.tscn" id="6_snnob"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="11_u2avg"]
 [ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="12_spp6l"]
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="13_vet8r"]
+[ext_resource type="PackedScene" uid="uid://d2xix6crf4q8" path="res://scenes/seed_vault.tscn" id="14_u2avg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4viom"]
 
@@ -57,7 +59,7 @@ metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=6842610]
 transform = Transform3D(30, 0, 0, 0, 10, 0, 0, 0, 10, -10, 19.5, 69)
-material_override = ExtResource("5_snnob")
+material_override = ExtResource("2_spp6l")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("5_snnob")
 
@@ -104,7 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor69" unique_id=1266079870]
-material_override = ExtResource("5_snnob")
+material_override = ExtResource("2_spp6l")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("5_snnob")
 
@@ -117,7 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor71" unique_id=2075778527]
-material_override = ExtResource("5_snnob")
+material_override = ExtResource("2_spp6l")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("5_snnob")
 
@@ -130,7 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor72" unique_id=1557176097]
-material_override = ExtResource("5_snnob")
+material_override = ExtResource("2_spp6l")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("5_snnob")
 
@@ -143,7 +145,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor70" unique_id=1222097672]
-material_override = ExtResource("5_snnob")
+material_override = ExtResource("2_spp6l")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("5_snnob")
 
@@ -156,7 +158,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor73" unique_id=584879115]
-material_override = ExtResource("5_snnob")
+material_override = ExtResource("2_spp6l")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("5_snnob")
 
@@ -169,7 +171,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor74" unique_id=1783820044]
-material_override = ExtResource("5_snnob")
+material_override = ExtResource("2_spp6l")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("5_snnob")
 
@@ -182,7 +184,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor75" unique_id=528306140]
-material_override = ExtResource("5_snnob")
+material_override = ExtResource("2_spp6l")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("5_snnob")
 
@@ -221,7 +223,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_1euve")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor76" unique_id=768451773]
-material_override = ExtResource("5_snnob")
+material_override = ExtResource("2_spp6l")
 mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("5_snnob")
 
@@ -526,3 +528,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.534573, 1.672648, 48.6823
 
 [node name="Tree_F" parent="." unique_id=1654159249 instance=ExtResource("13_vet8r")]
 transform = Transform3D(-0.052344393, 0, 0.9986291, 0, 1, 0, -0.9986291, 0, -0.052344393, -3.7068224, 0.3725505, 46.90068)
+
+[node name="SeedVault" parent="." unique_id=538589429 instance=ExtResource("14_u2avg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, 1.0812213, 62)

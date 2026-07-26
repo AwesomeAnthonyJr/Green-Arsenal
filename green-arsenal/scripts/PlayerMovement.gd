@@ -71,7 +71,7 @@ func connect_hud():
 	hud.load_special_seed.connect(reload_special_seed)
 
 func connect_inputs():
-	var manager = find_main(self).input_manager
+	var manager =  Generics.find_main(self).input_manager
 	manager.move_dir.connect(read_move_direction)
 	manager.move_stop.connect(read_move_stop)
 	manager.sprint.connect(read_sprint)
@@ -174,14 +174,6 @@ func reload_bullet_seed():
 		current_bullet = 0
 		hud.revolver.spin_to_bullet(current_bullet)
 	hud.update_petals(loaded_in_gun)
-
-# simple recursive solution to find the main node.
-func find_main(x) -> Main:
-	var p = x.get_parent()
-	if p is Main:
-		return p
-	else:
-		return find_main(p)
 
 # going to just handle some flags here
 func _process(delta: float) -> void:
@@ -357,6 +349,7 @@ func shoot():
 	#using the global "Preloads" script means it just preloads it once i think (less expensive?)
 	var bullet = Preloads.bullet_seed.instantiate()
 	var is_special = false
+	SoundManager.play_seed_shot(loaded_in_gun[current_bullet])
 	match loaded_in_gun[current_bullet]:
 		2:
 			bullet = Preloads.blaze_seed.instantiate()
@@ -387,7 +380,7 @@ func shoot():
 func check_special_plants():
 	var temp_plants = []
 	for p in active_plants:
-		if is_instance_valid(p):
+		if is_instance_valid(p) and !p.dead:
 			temp_plants.append(p)
 	active_plants = temp_plants
 	if active_plants.size() > plant_max:

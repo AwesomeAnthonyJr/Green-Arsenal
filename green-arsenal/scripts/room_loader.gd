@@ -15,7 +15,9 @@ const room_dict = {
 	6: "res://scenes/rooms/forest/forest_3_NEWER.tscn",
 	7: "res://scenes/rooms/forest/forest_4_NEWER.tscn",
 	8: "res://scenes/rooms/forest/forest_6.tscn",
-	9: "res://scenes/rooms/forest/forest_5_NEW.tscn",
+	9: "res://scenes/rooms/forest/forest_5_NEWER.tscn",
+	10: "res://scenes/rooms/forest/life_seed.tscn",
+	11: "res://scenes/rooms/forest/underground_entrance.tscn",
 }
 #must be the inverse of the first!!!
 const reverse_dict = {
@@ -28,7 +30,9 @@ const reverse_dict = {
 	"res://scenes/rooms/forest/forest_3_NEWER.tscn" : 6,
 	"res://scenes/rooms/forest/forest_4_NEWER.tscn" : 7,
 	"res://scenes/rooms/forest/forest_6.tscn" : 8,
-	"res://scenes/rooms/forest/forest_5_NEW.tscn" : 9,
+	"res://scenes/rooms/forest/forest_5_NEWER.tscn" : 9,
+	"res://scenes/rooms/forest/life_seed.tscn" : 10,
+	"res://scenes/rooms/forest/underground_entrance.tscn" : 11,
 }
 
 #this is for secondary things - to load in stages if certain rooms are too large
@@ -42,8 +46,11 @@ var extra_loadings = {}
 
 func get_floor():
 	#forest
-	if active_key > -1 and active_key < 999:
+	if active_key > -1 and active_key < 12:
 		return 1
+	#underground
+	elif active_key > 11 and active_key < 999:
+		return 2
 	return 0
 
 func _ready() -> void:
@@ -59,23 +66,26 @@ func _process(delta):
 			extra_loadings.erase(path)
 			loadings.erase(path)
 	var erase_arr = []
-	for i in loaded_objects_keys.size():
-		var k = loaded_objects_keys[i]
-		var o = loaded_objects[i]
-		if is_instance_valid(o):
-			if !(k in active_room.adjacent_rooms) and !(k == active_key):
-				print("ROOM: ", k, " IS BEING REMOVED!!!")
-				o.queue_free()
+	if is_instance_valid(active_room):
+		for i in loaded_objects_keys.size():
+			var k = loaded_objects_keys[i]
+			var o = loaded_objects[i]
+			if is_instance_valid(o) :
+				if !(k in active_room.adjacent_rooms) and !(k == active_key):
+					print("ROOM: ", k, " IS BEING REMOVED!!!")
+					o.queue_free()
+					erase_arr.append(i)
+			else:
 				erase_arr.append(i)
-		else:
-			erase_arr.append(i)
+	else:
+		print("yo why is active room null?")
 	if erase_arr.size() > 0:
 		for i in erase_arr:
 			if i < loaded_objects_keys.size():
 				loaded_objects_keys.remove_at(i)
 			if i < loaded_objects.size():
 				loaded_objects.remove_at(i)
-			print("ERASED OBJECT ", i, " FROM ARRAYS.")
+			#print("ERASED OBJECT ", i, " FROM ARRAYS.")
 			#var k = loaded_objects_keys[i]
 			#var o = loaded_objects[i]
 
