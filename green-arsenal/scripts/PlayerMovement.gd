@@ -283,7 +283,7 @@ func physics_movement(delta:float) -> void:
 	if !is_grounded:
 		#less control over in-air movement
 		ground_mult = 0.35
-	if is_sprinting:
+	if is_sprinting and is_grounded:
 		currentSpeed = sprintSpeed;
 	else:
 		currentSpeed = walkSpeed;
