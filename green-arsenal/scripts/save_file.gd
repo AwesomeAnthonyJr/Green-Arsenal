@@ -4,8 +4,8 @@ class_name SaveFile
 @export var seed_types: Array[bool] = [
 	true,
 	false,
-	false,
-	false,
+	true,
+	true,
 	false,
 	false,
 	false
@@ -26,6 +26,7 @@ class_name SaveFile
 	false, #underground_2 - torch 1
 	false, #underground_2 - torch 2
 	false, #bounce_seed - button
+	false, #combo_puzzle_1 - strangler gate
 ]
 ###this is mostly for the map screen to hide certain layers until its time
 @export var farthest_floor: int = 2

@@ -21,7 +21,7 @@
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_uj84s")
-adjacent_rooms = Array[int]([11, 13])
+adjacent_rooms = Array[int]([11, 13, 15])
 room_pos = Vector3(-80, 0, -210)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
