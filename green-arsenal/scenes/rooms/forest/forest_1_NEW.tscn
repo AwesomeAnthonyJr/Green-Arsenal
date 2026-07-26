@@ -23,7 +23,7 @@
 [ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="21_756fk"]
 [ext_resource type="Script" uid="uid://cad7j0as4e6rs" path="res://scripts/dialog_trigger.gd" id="22_fkrtn"]
 [ext_resource type="Resource" uid="uid://b2nbl2ga50q8d" path="res://misc/dialogic/intro.dtl" id="23_fy13a"]
-[ext_resource type="Script" uid="uid://djeqlb5oumh8w" path="res://scripts/save_operator.gd" id="24_uwn87"]
+[ext_resource type="Script" uid="uid://dynmk3xqoqf44" path="res://scripts/save_operator_forest1_extend.gd" id="24_n15qv"]
 [ext_resource type="Resource" uid="uid://c1f7fpffdls5" path="res://misc/dialogic/intro_operator.dtl" id="25_4jq4q"]
 [ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="25_427am"]
 [ext_resource type="Texture2D" uid="uid://cf5e2am45eger" path="res://misc/keyboard_e_outline.png" id="25_756fk"]
@@ -1264,7 +1264,7 @@ shape = SubResource("BoxShape3D_8aque")
 
 [node name="SaveOperator" type="Area3D" parent="." unique_id=149341750]
 transform = Transform3D(0.08324285, 0, -0.9965293, 0, 1, 0, 0.9965293, 0, 0.08324285, 20.282501, 2.7549667, -7.245957)
-script = ExtResource("24_uwn87")
+script = ExtResource("24_n15qv")
 operator_scenes = Array[ExtResource("25_427am")]([ExtResource("25_4jq4q"), ExtResource("27_n15qv"), ExtResource("28_0slfi")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SaveOperator" unique_id=2076922981]

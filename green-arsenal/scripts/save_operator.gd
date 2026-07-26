@@ -1,4 +1,5 @@
 extends Area3D
+class_name SaveOperator
 
 @onready var texture: Sprite3D = $Sprite3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
