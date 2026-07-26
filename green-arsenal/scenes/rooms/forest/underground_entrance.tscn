@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cnwa7fcr5qsd7" path="res://scenes/torch.tscn" id="7_8p82u"]
 [ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="8_b8q16"]
 [ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="8_brsy2"]
+[ext_resource type="Texture2D" uid="uid://64y1uvyj5p0t" path="res://ui/Moonsanto Logo(1).png" id="11_01yxa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -20,6 +21,11 @@ left_to_right = -0.5
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b8q16"]
 data = PackedVector3Array(-1, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -1, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -1, 0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_01yxa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgmwo"]
+shading_mode = 0
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_rgmwo")
@@ -600,7 +606,7 @@ mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("2_otbsp")
 
 [node name="NonSoilFloor130" type="StaticBody3D" parent="." unique_id=513481977]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -106, 14.5, -42)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -106, 14.5, -41)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor130" unique_id=1401381973]
@@ -613,7 +619,7 @@ mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("2_otbsp")
 
 [node name="NonSoilFloor131" type="StaticBody3D" parent="." unique_id=2102707340]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -96, 14.5, -42)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -96, 14.5, -41)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor131" unique_id=1305892686]
@@ -626,7 +632,7 @@ mesh = SubResource("BoxMesh_4viom")
 surface_material_override/0 = ExtResource("2_otbsp")
 
 [node name="NonSoilFloor132" type="StaticBody3D" parent="." unique_id=803284487]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -86, 14.5, -42)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -86, 14.5, -41)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor132" unique_id=1170960673]
@@ -895,3 +901,51 @@ shape = SubResource("ConcavePolygonShape3D_b8q16")
 
 [node name="Tree_A" parent="." unique_id=47698065 instance=ExtResource("8_b8q16")]
 transform = Transform3D(0.8040384, 0, -0.5945774, 0, 1, 0, 0.5945774, 0, 0.8040384, -104.94882, 0.8578043, -24.932184)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2023272875]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -93.887024, 5.1436567, -38.966496)
+texture = ExtResource("11_01yxa")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=680778508]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, -85, 9.5, -37)
+light_energy = 5.778
+spot_range = 25.114965
+spot_angle = 44.70523
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpotLight3D" unique_id=487439900]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_01yxa")
+surface_material_override/0 = SubResource("StandardMaterial3D_rgmwo")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=341923637]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, -103, 9.5, -37)
+light_energy = 5.778
+spot_range = 25.114965
+spot_angle = 44.70523
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpotLight3D2" unique_id=2078401069]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_01yxa")
+surface_material_override/0 = SubResource("StandardMaterial3D_rgmwo")
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=1886205329]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.8660254, 0, -0.8660254, 0.49999997, -95, 9.5, -37)
+light_energy = 5.778
+spot_range = 17.687784
+spot_angle = 44.70523
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpotLight3D3" unique_id=377085067]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_01yxa")
+surface_material_override/0 = SubResource("StandardMaterial3D_rgmwo")
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="." unique_id=1985125081]
+transform = Transform3D(1, 0, 0, 0, -0.25881907, 0.9659258, 0, -0.9659258, -0.25881907, -95, 9.5, -37)
+light_energy = 5.778
+spot_range = 35.937603
+spot_angle = 23.495684
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpotLight3D4" unique_id=1365599414]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_01yxa")
+surface_material_override/0 = SubResource("StandardMaterial3D_rgmwo")
