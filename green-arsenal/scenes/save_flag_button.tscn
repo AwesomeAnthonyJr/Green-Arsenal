@@ -1,0 +1,285 @@
+[gd_scene format=3 uid="uid://bn4hgnjgyoapc"]
+
+[ext_resource type="Material" uid="uid://ct5ogddtqndri" path="res://materials/white_material_2.tres" id="1_kirap"]
+[ext_resource type="Script" uid="uid://cxrnpbj2o46c8" path="res://scripts/save_flag_button.gd" id="1_wqrsr"]
+[ext_resource type="Material" uid="uid://crccc5ki7otll" path="res://materials/blue_material.tres" id="2_g0ucl"]
+[ext_resource type="Material" uid="uid://261r71cbnjxf" path="res://materials/player_glasses.tres" id="3_28dc5"]
+[ext_resource type="Shader" uid="uid://davgmikf7tisq" path="res://shaders/cel_shaded_transparent.gdshader" id="4_28dc5"]
+[ext_resource type="PackedScene" uid="uid://c23cpjr70vnif" path="res://scenes/interact_area.tscn" id="6_5j8ww"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h45xw"]
+size = Vector3(3, 3, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h45xw"]
+top_radius = 0.8
+bottom_radius = 0.8
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wqrsr"]
+top_radius = 0.9
+bottom_radius = 0.9
+height = 0.1
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h45xw"]
+radius = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0ucl"]
+render_priority = 0
+shader = ExtResource("4_28dc5")
+shader_parameter/albedo = Color(0.5132329, 0.5132329, 0.5132329, 1)
+shader_parameter/albedo_in_shadow = Color(0.39308554, 0.3930855, 0.39308548, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 1.0
+shader_parameter/transparency = 0.499999988824
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wqrsr"]
+radius = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28dc5"]
+shading_mode = 0
+albedo_color = Color(0.8862745, 0.21960784, 0.23137255, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5j8ww"]
+shading_mode = 0
+albedo_color = Color(0.26666668, 0.8980392, 0.21568628, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2m5py"]
+size = Vector3(3, 3, 1)
+
+[sub_resource type="Animation" id="Animation_5j8ww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.1855694e-08, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D4/MeshInstance3D6:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D5/MeshInstance3D6:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_onlge"]
+resource_name = "already_pressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.03)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D4/MeshInstance3D6:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D5/MeshInstance3D6:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2m5py"]
+resource_name = "not_pressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.1855694e-08, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D4/MeshInstance3D6:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D5/MeshInstance3D6:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_pere7"]
+resource_name = "press"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.1855694e-08, 0.5), Vector3(0, 0, 0.03)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D4/MeshInstance3D6:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D5/MeshInstance3D6:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"activate"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_onlge"]
+_data = {
+&"RESET": SubResource("Animation_5j8ww"),
+&"already_pressed": SubResource("Animation_onlge"),
+&"not_pressed": SubResource("Animation_2m5py"),
+&"press": SubResource("Animation_pere7")
+}
+
+[node name="SaveFlagButton" type="Node3D" unique_id=999110436]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_wqrsr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=405335592]
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = ExtResource("1_kirap")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1856678575]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -2.1855694e-08, 0.5)
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("2_g0ucl")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=866341131]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -2.1855694e-08, 0.4584545)
+mesh = SubResource("CylinderMesh_wqrsr")
+surface_material_override/0 = ExtResource("3_28dc5")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=663030930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5332098, 0)
+mesh = SubResource("CapsuleMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_g0ucl")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="MeshInstance3D4" unique_id=1757483915]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_wqrsr")
+surface_material_override/0 = SubResource("StandardMaterial3D_28dc5")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1560529301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5332098, 0)
+mesh = SubResource("CapsuleMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_g0ucl")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="MeshInstance3D5" unique_id=765043009]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_wqrsr")
+surface_material_override/0 = SubResource("StandardMaterial3D_5j8ww")
+
+[node name="InteractArea" parent="." unique_id=530012375 instance=ExtResource("6_5j8ww")]
+interaction_name = "open seed vault"
+
+[node name="CollisionShape3D" parent="InteractArea" index="0" unique_id=1289814683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0127244)
+shape = SubResource("BoxShape3D_2m5py")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2133946547]
+libraries/ = SubResource("AnimationLibrary_onlge")
+
+[connection signal="interact_sig" from="InteractArea" to="." method="press"]
+
+[editable path="InteractArea"]
