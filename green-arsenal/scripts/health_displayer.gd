@@ -13,5 +13,10 @@ func update_sprites(n):
 	for i in hearts.size():
 		if i < n:
 			hearts[i].get_child(0).visible = true
+			if i == n - 1:
+				hearts[i].get_child(1).play("beat")
+			else:
+				hearts[i].get_child(1).play("no_beat")
 		else:
 			hearts[i].get_child(0).visible = false
+			hearts[i].get_child(1).play("no_beat")
