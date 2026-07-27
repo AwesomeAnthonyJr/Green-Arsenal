@@ -38,7 +38,6 @@ var loaded_in_gun = [0, 0, 0, 0, 0, 0]
 var max_health = 3
 var current_health = max_health
 
-var plant_max = 3
 var active_plants = []
 
 var iframes = false
@@ -55,6 +54,8 @@ var currently_stepping = false
 
 var paused = false
 
+@onready var unstuck_area: Area3D = $UnstuckArea
+
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,6 +65,7 @@ func _ready() -> void:
 		hud.update_petals(loaded_in_gun)
 		connect_hud()
 		hud.update_health_display(max_health, current_health)
+		hud.update_growth_display(active_plants)
 	hand_looker.target_node = aiming_target.get_path()
 	
 
@@ -185,10 +187,16 @@ func _process(delta: float) -> void:
 	cameraRig.get_parent().get_parent().get_parent().supress_looking = is_reloading or supress_shooting
 	supress_shooting = false
 	for p in active_plants:
-		if is_instance_valid(p):
+		if is_instance_valid(p) and !p.dead:
 			if !supress_shooting:
 				if p is SeekerFlower and p.has_bullet:
 					supress_shooting = true
+	if interactable_obj != null:
+		hud.set_interact_active()
+		hud.set_interact_position(cameraRig.unproject_position(interactable_obj.global_position))
+		hud.set_interact_text(interactable_obj.interaction_name)
+	else:
+		hud.set_interact_inactive()
 
 func check_steps(delta):
 	forward_steppable = false
@@ -245,6 +253,7 @@ func _physics_process(delta: float) -> void:
 		physics_movement(delta)
 		physics_looking()
 		gun_rotation()
+		unstuck_routine(delta)
 	if !is_grounded:
 		apply_air_drift(delta)
 		#apply_central_force(Vector3.DOWN * 10 * gravity_scale)
@@ -260,7 +269,24 @@ func _physics_process(delta: float) -> void:
 	else:
 		model_anim_tree.set("parameters/TimeScale/scale", 1.0)
 		model_anim_tree["parameters/WalkState/playback"].travel("standing")
-	
+
+func unstuck_routine(delta: float):
+	if linear_velocity.is_zero_approx() and !move_dir.is_zero_approx():
+		var count = 0
+		for body in unstuck_area.get_overlapping_bodies():
+			if body != self:
+				count += 1
+		if count > 0:
+			###manual solution; could be speedrun tech?
+			#position += look_pivot.basis * Vector3(move_dir.x, 0, move_dir.y).normalized() * delta
+			###potential programmatic solution:
+			var avg = Vector3.ZERO
+			for body in unstuck_area.get_overlapping_bodies():
+				if body != self:
+					avg += global_position - body.global_position
+			if avg != Vector3.ZERO:
+				position += avg.normalized() * delta
+
 func gun_rotation():
 	var targetPoint = Vector3()
 	if aimRayCast.is_colliding():
@@ -371,11 +397,7 @@ func shoot():
 	bullet.global_rotation = shooter.global_rotation
 	bullet.player = self
 	
-	var temp_plants = []
-	for p in active_plants:
-		if is_instance_valid(p):
-			temp_plants.append(p)
-	active_plants = temp_plants
+	check_special_plants()
 
 func check_special_plants():
 	var temp_plants = []
@@ -383,8 +405,10 @@ func check_special_plants():
 		if is_instance_valid(p) and !p.dead:
 			temp_plants.append(p)
 	active_plants = temp_plants
-	if active_plants.size() > plant_max:
+	hud.update_growth_display(active_plants)
+	if active_plants.size() > SaveManager.player_save.growth_charges:
 		active_plants[0].wither_self()
+		check_special_plants()
 
 func heal_1():
 	current_health += 1

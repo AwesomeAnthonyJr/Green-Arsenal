@@ -5,6 +5,8 @@ class_name HUD
 @onready var crosshair = $Crosshair
 @onready var revolver = $Revolver
 @onready var health = $Health
+@onready var planted = $Planted
+@onready var interact_pos = $Interact_Position
 
 signal load_special_seed(n)
 
@@ -74,3 +76,19 @@ func reset_rot():
 func update_health_display(max, curr):
 	health.update_visibility(max)
 	health.update_sprites(curr)
+
+func update_growth_display(plants: Array):
+	planted.update_visibility(SaveManager.player_save.growth_charges)
+	planted.update_sprites(plants)
+
+func set_interact_position(pos: Vector2):
+	interact_pos.target_pos = pos
+
+func set_interact_active():
+	interact_pos.interact_active = true
+
+func set_interact_inactive():
+	interact_pos.interact_active = false
+
+func set_interact_text(str: String):
+	interact_pos.description = "[center]" + str + "[/center]"

@@ -11,6 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://c1hvqdoeaahjp" path="res://misc/Screenshot 2025-09-19 142504.png" id="7_h7j6q"]
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="7_srdg7"]
 [ext_resource type="PackedScene" uid="uid://ddexbsd7e36p3" path="res://scenes/level_parts/strangler_c.tscn" id="10_h7j6q"]
+[ext_resource type="PackedScene" uid="uid://c3xcgxgalv1wm" path="res://scenes/save_operator.tscn" id="10_ka2ef"]
+[ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="11_0gfbk"]
+[ext_resource type="PackedScene" uid="uid://tl4lg8ap4dm1" path="res://scenes/level_parts/strangler_a.tscn" id="12_0gfbk"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="12_5tfqg"]
+[ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="12_y7emq"]
+[ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="13_5mxhe"]
+[ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="14_ka2ef"]
+[ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="19_s4c6c"]
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="20_q0q13"]
+[ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="21_0ojy5"]
+[ext_resource type="Script" uid="uid://dh80vb7h4kma2" path="res://scripts/save_flag_button_responder.gd" id="22_q0q13"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -22,6 +33,63 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tfqg"]
 albedo_texture = ExtResource("7_h7j6q")
+
+[sub_resource type="Animation" id="Animation_ybq8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cm066"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0), Vector3(0, -5.697, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mwg54"]
+_data = {
+&"RESET": SubResource("Animation_ybq8s"),
+&"open": SubResource("Animation_cm066")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_xrbbx"]
+size = Vector3(1, 12, 11)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifriq"]
+render_priority = 0
+shader = ExtResource("20_q0q13")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("21_0ojy5")
+shader_parameter/albedo_in_shadow = Color(0.46008006, 0.30960003, 0.72, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("21_0ojy5")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.1999999955296
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4oj74"]
+size = Vector3(1, 12, 11)
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_uj84s")
@@ -1158,7 +1226,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("1_pirkp")
 
 [node name="NonSoilFloor178" type="StaticBody3D" parent="." unique_id=1486996096]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -45, -2.5, 3)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -44, -2.5, 3)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor178" unique_id=1170826413]
@@ -1861,7 +1929,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("1_pirkp")
 
 [node name="NonSoilFloor212" type="StaticBody3D" parent="." unique_id=252645072]
-transform = Transform3D(-10, 0, -8.742278e-07, 0, 10, 0, 8.742278e-07, 0, -10, 25, -3.5, -34)
+transform = Transform3D(-10, 0, -8.742278e-07, 0, 10, 0, 8.742278e-07, 0, -10, 24, -3.5, -34)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor212" unique_id=1096717897]
@@ -2602,7 +2670,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("1_pirkp")
 
 [node name="NonSoilFloor111" type="StaticBody3D" parent="." unique_id=743590728]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -34, 6.5, 16)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -32, 6.5, 16)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor111" unique_id=980377401]
@@ -2846,19 +2914,161 @@ transform = Transform3D(-2.1650634, 0, -1.2499998, 0, 2.5, 0, 1.2499998, 0, -2.1
 [node name="enemySpawner2" parent="." unique_id=1819161031 instance=ExtResource("6_otkpc")]
 transform = Transform3D(-1.7677667, 0, 1.767767, 0, 2.5, 0, -1.767767, 0, -1.7677667, -6, -6, 62)
 
+[node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("10_ka2ef")]
+transform = Transform3D(-0.95116216, 0, 0.30869162, 0, 1, 0, -0.30869162, 0, -0.95116216, -5.8609734, -5.977991, -8.890905)
+operator_scenes = Array[ExtResource("11_0gfbk")]([ExtResource("12_y7emq")])
+load_point = 4
+
 [node name="Tree_F" parent="." unique_id=47698065 instance=ExtResource("7_srdg7")]
 transform = Transform3D(-1.4060097, 0, -3.352068, 0, 3.6349998, 0, 3.352068, 0, -1.4060097, -7.8158875, -4.413373, 1.3989258)
 
 [node name="Strangler_C" parent="Tree_F" unique_id=1437403629 instance=ExtResource("10_h7j6q")]
 
+[node name="Strangler_A" parent="Tree_F" unique_id=1312390667 instance=ExtResource("12_0gfbk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.659226, 0, -0.26167703)
+
+[node name="Strangler_A2" parent="Tree_F" unique_id=55656383 instance=ExtResource("12_0gfbk")]
+transform = Transform3D(-1, 0, 1.1920929e-07, 0, 1, 0, -1.1920929e-07, 0, -1, -8.4717655, 0, 1.5918483)
+
 [node name="Exit2" parent="." unique_id=1513756477 instance=ExtResource("4_uj84s")]
-transform = Transform3D(1, 0, 0, 0, 13.5, 0, 0, 0, 13.2, -44.232132, -1.2014294, -8.444794)
+transform = Transform3D(2, 0, 0, 0, 13.5, 0, 0, 0, 13.2, -45.232132, -1.2014294, -8.444794)
 new_id = 13
 
 [node name="Exit3" parent="." unique_id=291038979 instance=ExtResource("4_uj84s")]
-transform = Transform3D(1, 0, 0, 0, 13.5, 0, 0, 0, 17.195, 36.767868, -1.2014294, -8.444794)
+transform = Transform3D(1, 0, 0, 0, 13.5, 0, 0, 0, 17.195, 37.767868, -1.2014294, -8.444794)
 new_id = 16
 
 [node name="Exit4" parent="." unique_id=1689601822 instance=ExtResource("4_uj84s")]
 transform = Transform3D(17.195, 0, 0, 0, 13.5, 0, 0, 0, 1, -2.232132, -1.2014294, -58.444794)
 new_id = 15
+
+[node name="Label3D" type="Label3D" parent="." unique_id=861949748]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -29.977068, -5, 6)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = ">>>>>>>>>>>>>>
+Bounce Seed
+Left Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 0
+
+[node name="Label3D8" type="Label3D" parent="." unique_id=1441537445]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.977068, -5, 26)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = ">>>>>>>>>>>>>>
+Bounce Seed
+Left Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 0
+
+[node name="Label3D5" type="Label3D" parent="." unique_id=1538581903]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.99391, -5, 6)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = "<<<<<<<<<<<<<<
+Seeker Seed
+Right Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 2
+
+[node name="Label3D7" type="Label3D" parent="." unique_id=1496879662]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.9939098, -5, 45)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = "<<<<<<<<<<<<<<
+Seeker Seed
+Right Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 2
+
+[node name="Label3D6" type="Label3D" parent="." unique_id=1122814071]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 23.99391, -5, 0.9357977)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = "<<<<<<<<<<<<<<
+Seeker Seed
+Right Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 2
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=1925063062]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -32, -5, 0.9518275)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = ">>>>>>>>>>>>>>
+Bounce Seed
+Left Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 0
+
+[node name="Label3D3" type="Label3D" parent="." unique_id=551776124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.565704, -4, -48.993416)
+modulate = Color(0.8862745, 0.21960784, 0.23137255, 1)
+text = "GATE REQUIRES
+OVERRIDE BUTTONS
+TO BE ACTIVATED"
+font = ExtResource("13_5mxhe")
+font_size = 96
+horizontal_alignment = 3
+
+[node name="Label3D4" type="Label3D" parent="." unique_id=1099639886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4342957, -4, -48.993416)
+modulate = Color(0.8862745, 0.21960784, 0.23137255, 1)
+text = "GATE REQUIRES
+OVERRIDE BUTTONS
+TO BE ACTIVATED"
+font = ExtResource("13_5mxhe")
+font_size = 96
+horizontal_alignment = 3
+
+[node name="FacilityLight" parent="." unique_id=846988860 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 2.4851942, 53)
+
+[node name="FacilityLight2" parent="." unique_id=994602867 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6, 15.608462, 26)
+spot_range = 32.335594
+
+[node name="FacilityLight3" parent="." unique_id=749130804 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17, 2.4851942, 62)
+
+[node name="FacilityLight4" parent="." unique_id=1161889383 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.034779, 7.3323936, 26)
+
+[node name="FacilityLight5" parent="." unique_id=823189508 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -35.03478, 11.421267, -8)
+
+[node name="FacilityLight6" parent="." unique_id=216250994 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.0347786, 4.593486, -45)
+
+[node name="FacilityLight7" parent="." unique_id=1839040026 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 21.965221, 1.3676734, 6)
+
+[node name="FacilityLight8" parent="." unique_id=769308791 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 26.639635, 6.513741, -3.309871)
+
+[node name="FacilityLight9" parent="." unique_id=783607829 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -28.876373, 2.4858344, 4.547537)
+
+[node name="PuzzleDoor" type="Node3D" parent="." unique_id=1592590212]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, -8, -50.64017)
+script = ExtResource("19_s4c6c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PuzzleDoor" unique_id=468082090]
+libraries/ = SubResource("AnimationLibrary_mwg54")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PuzzleDoor" unique_id=1773329769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+mesh = SubResource("BoxMesh_xrbbx")
+surface_material_override/0 = SubResource("ShaderMaterial_ifriq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PuzzleDoor/MeshInstance3D" unique_id=747576270]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzleDoor/MeshInstance3D/StaticBody3D" unique_id=2139185856]
+shape = SubResource("BoxShape3D_4oj74")
+
+[node name="SaveFlagButtonResponder" type="Node" parent="." unique_id=1071224606]
+script = ExtResource("22_q0q13")
+flag_indices = Array[int]([10, 13])
+
+[connection signal="flags_true" from="SaveFlagButtonResponder" to="PuzzleDoor" method="open_door"]

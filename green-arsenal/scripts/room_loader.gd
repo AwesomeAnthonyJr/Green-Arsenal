@@ -2,11 +2,31 @@ extends Node3D
 class_name RoomLoader
 
 #will not be export in final game!
-@export var active_room: Room
-@export var active_key = 4
+var active_room: Room
+var active_key = 4
 @export var player: Player
 
-@export var positions = PackedVector3Array()
+#@export var positions = PackedVector3Array()
+@export var test_position = Vector3()
+
+#for the load points
+const positions = [
+	Vector3(10.0, 1.2, 5.0),
+	Vector3(20.0, 1.55, -6.0),
+	Vector3(64.0, 3.0, -27.0),
+	Vector3(-100.0, 3.0, -52.0),
+	Vector3(-86.0, -1.0, -219.0),
+]
+
+#this tells it which room to start in basically; -1 for testing!
+const load_point_keys = {
+	-1: 12,
+	0: 4,
+	1: 4,
+	2: 8,
+	3: 10,
+	4: 12,
+}
 
 const room_dict = {
 	0: "res://scenes/rooms/room_a.tscn",
@@ -69,11 +89,18 @@ func get_floor():
 	return 0
 
 func initialize():
-	position_player(SaveManager.player_save.load_point)
+	var lp = SaveManager.player_save.load_point
+	active_key = load_point_keys[lp]
+	position_player(lp)
 	setup_active_room(active_key)
 
 func position_player(i: int):
-	player.global_position = positions[i]
+	if i >= 0:
+		player.global_position = positions[i]
+	else:
+		#print("USE TEST POS!")
+		#print(test_position)
+		player.global_position = test_position
 
 func _ready() -> void:
 	initialize()
@@ -82,9 +109,15 @@ func _process(delta):
 	for path in loadings:
 		var status = ResourceLoader.load_threaded_get_status(path)
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
-			var resource = ResourceLoader.load_threaded_get(path)
-			var is_extra = extra_loadings.has(path)
-			load_resource(resource, path, is_extra)
+			var already_loaded = false
+			var key = reverse_dict[path]
+			if key in loaded_objects_keys:
+				already_loaded = true
+				print("BUT IT ALREADY WAS LOADED!")
+			if !already_loaded:
+				var resource = ResourceLoader.load_threaded_get(path)
+				var is_extra = extra_loadings.has(path)
+				load_resource(resource, path, is_extra)
 			extra_loadings.erase(path)
 			loadings.erase(path)
 	var erase_arr = []
@@ -92,9 +125,10 @@ func _process(delta):
 		for i in loaded_objects_keys.size():
 			var k = loaded_objects_keys[i]
 			var o = loaded_objects[i]
-			if is_instance_valid(o) :
+			if is_instance_valid(o):
 				if !(k in active_room.adjacent_rooms) and !(k == active_key):
 					print("ROOM: ", k, " IS BEING REMOVED!!!")
+					#print(active_key)
 					o.queue_free()
 					erase_arr.append(i)
 			else:
@@ -168,8 +202,9 @@ func setup_active_room(key: int):
 		loaded_objects.append(inst)
 		loaded_objects_keys.append(key)
 		active_room = inst
+		active_key = key
 		load_room_extra(key)
-		print("RARE FIRST TIME LOAD HAS OCCURED!")
+		print("RARE FIRST TIME LOAD HAS OCCURED! ", key)
 	
 	#its a different room now
 	active_room.active = true

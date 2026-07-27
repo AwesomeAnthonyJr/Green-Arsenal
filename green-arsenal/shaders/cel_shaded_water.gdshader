@@ -21,6 +21,7 @@ uniform float height_scale = 0.15;
 uniform float edge_scale = 0.1;
 uniform float edge_near = 1.0;
 uniform float edge_far = 100.0;
+uniform float transparency : hint_range(0.0, 1.0, 0.01) = 0.5;
 
 varying float height;
 varying vec3 world_position;
@@ -54,7 +55,7 @@ void fragment() {
 	lit_color = texture(texture_albedo, UV).rgb * albedo.rgb;
 	shadow_color = texture(texture_albedo_in_shadow, UV).rgb * albedo_in_shadow.rgb;		
 	ALBEDO = vec3(1.0);
-	ALPHA = 0.5;
+	ALPHA = transparency;
 }
 
 vec3 diffuse_calc(vec3 color, vec3 fresnel, float edge_amount) {
@@ -93,5 +94,9 @@ void light() {
 		if (SPECULAR_LIGHT == vec3(0.0, 0.0, 0.0)){ 
 			SPECULAR_LIGHT = spec * vec3(1.0, 1.0, 1.0) * specular_strength;
 		}
+	}
+	
+	if (edge_amount < 0.9) {
+		ALPHA = 1.0;
 	}
 }

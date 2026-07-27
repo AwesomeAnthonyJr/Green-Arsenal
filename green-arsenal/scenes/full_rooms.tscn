@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://b77g4xue5k21w" path="res://scenes/rooms/underground/underground_1.tscn" id="12_m0xu6"]
 [ext_resource type="PackedScene" uid="uid://dcpsakofnhamg" path="res://scenes/rooms/underground/underground_2.tscn" id="13_d0mfp"]
 [ext_resource type="PackedScene" uid="uid://dbgch5rnyssxl" path="res://scenes/rooms/underground/bounce_seed.tscn" id="14_7o3jg"]
+[ext_resource type="PackedScene" uid="uid://qli1c6cnp6ry" path="res://scenes/rooms/underground/underground_3.tscn" id="15_6810n"]
 [ext_resource type="PackedScene" uid="uid://c1lny5vvu84qn" path="res://scenes/rooms/underground/combo_puzzle_1.tscn" id="15_d0mfp"]
+[ext_resource type="PackedScene" uid="uid://becoiienuhhxq" path="res://scenes/rooms/underground/underground_4.tscn" id="17_0leoc"]
 
 [node name="FullRooms" type="Node3D" unique_id=1444283235]
 
@@ -32,31 +34,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 [node name="Forest" type="Node3D" parent="." unique_id=1832296431]
 
 [node name="Forest1" parent="Forest" unique_id=249863706 instance=ExtResource("9_ysnsh")]
-visible = false
 
 [node name="Forest2" parent="Forest" unique_id=114202016 instance=ExtResource("5_ywuqi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
-visible = false
 
 [node name="Forest3" parent="Forest" unique_id=2108924292 instance=ExtResource("6_i8rlb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -80)
-visible = false
 
 [node name="Forest4" parent="Forest" unique_id=1941891149 instance=ExtResource("7_on1vc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
-visible = false
 
 [node name="Forest6" parent="Forest" unique_id=1207559813 instance=ExtResource("8_rl1cp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -80)
-visible = false
 
 [node name="Forest5" parent="Forest" unique_id=1116052732 instance=ExtResource("9_58kq5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -80)
-visible = false
 
 [node name="LifeVault" parent="Forest" unique_id=1266230963 instance=ExtResource("10_m6wx1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -50)
-visible = false
 
 [node name="UndergroundEntrance" parent="Forest" unique_id=355653372 instance=ExtResource("11_jsvpm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
@@ -72,5 +67,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, -230)
 [node name="BounceSeed" parent="Underground" unique_id=1831588952 instance=ExtResource("14_7o3jg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, -160)
 
-[node name="Room" parent="Underground" unique_id=263219685 instance=ExtResource("15_d0mfp")]
+[node name="Underground3" parent="Underground" unique_id=1586708749 instance=ExtResource("15_6810n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -210)
+
+[node name="ComboPuzzle" parent="Underground" unique_id=263219685 instance=ExtResource("15_d0mfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
+
+[node name="Underground4" parent="Underground" unique_id=2074374660 instance=ExtResource("17_0leoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)

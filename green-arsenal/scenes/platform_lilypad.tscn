@@ -194,6 +194,7 @@ _data = {
 
 [node name="PlatformPad" type="Node3D" unique_id=1252632312]
 script = ExtResource("1_bmp18")
+sprite_frame = 5
 
 [node name="FancyModel" type="Node3D" parent="." unique_id=1976101032]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
@@ -217,9 +218,9 @@ bones/2/name = "Bone.002"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 2.842171e-14, 0, 1, 0, -2.842171e-14, 0, 1, 0, 3.0822253, 0)
 bones/2/enabled = true
-bones/2/position = Vector3(0, -155.35889, 0)
+bones/2/position = Vector3(0, -4.1556497, 0)
 bones/2/rotation = Quaternion(0, 7.105428e-15, 0, 1)
-bones/2/scale = Vector3(0.99999994, 1, 0.99999994)
+bones/2/scale = Vector3(0.99999994, 0.99999994, 0.99999994)
 bones/3/name = "Bone.003"
 bones/3/parent = 2
 bones/3/rest = Transform3D(0, -1, -2.3841858e-07, 1, 0, 1.9470721e-07, -1.947072e-07, -2.384186e-07, 1, 0, 3.0019922, 0)

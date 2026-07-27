@@ -18,6 +18,7 @@ var seed_select = 0
 
 func _ready() -> void:
 	setup_seeds()
+	SaveManager.save_read.connect(setup_seeds)
 
 func setup_seeds():
 	var temp = []

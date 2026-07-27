@@ -1,0 +1,20 @@
+operator: Howdy, Gardener.
+operator: While you were exploring, I spotted a few of these vaults around the area.
+operator: Thought I'd head to the one closest to you so we can chat after you've opened it up.
+operator: We can look at whatever present they left you together!
+operator: So don't let me keep ya.
+operator: Oh, but real quick!
+operator: Would you like to record any progress in your investigation?
+- Yes
+	operator: Saving progress...
+	[signal arg="save_signal"]
+	operator: Save complete.
+	jump save_done
+- No
+	operator: Roger dodger! I'll be here if you need to save progress in the future.
+	jump save_done
+label save_done
+operator: At that, I wish you the best of luck, Gardener.
+operator: See you on the flip side!
+[signal arg="scene_end_op"]
+[end_timeline]

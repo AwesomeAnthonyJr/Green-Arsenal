@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="15_vyxr3"]
 [ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="16_e55yu"]
 [ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="17_gyv3l"]
+[ext_resource type="PackedScene" uid="uid://dogvlj5kbvoo3" path="res://scenes/level_parts/dialog_trigger.tscn" id="18_2rric"]
+[ext_resource type="Resource" uid="uid://dd6hvumb8wml2" path="res://misc/dialogic/underground_entrance_mentor.dtl" id="19_brsy2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -89,6 +91,9 @@ shader_parameter/uv1_offset = Vector2(0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j217w"]
 size = Vector3(1, 12, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_brsy2"]
+size = Vector3(50, 10, 5)
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_rgmwo")
@@ -879,6 +884,7 @@ new_id = 10
 
 [node name="Exit3" parent="." unique_id=702144204 instance=ExtResource("4_acup8")]
 transform = Transform3D(-8.742278e-08, 0, -12, 0, 10, 0, 2, 0, -5.2453663e-07, -95, -5.45, -48)
+visible = false
 new_id = 12
 
 [node name="Tree_B" parent="." unique_id=398900927 instance=ExtResource("8_brsy2")]
@@ -1032,6 +1038,18 @@ script = ExtResource("17_gyv3l")
 flag_index = 7
 torch = NodePath("../TorchBoss/Torch2")
 
+[node name="DialogTrigger" parent="." unique_id=451490337 instance=ExtResource("18_2rric")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.10597, 4.0677466, -8.27335)
+dialogic_scene = ExtResource("19_brsy2")
+flag_or_seed = 0
+fs_index = 7
+
+[node name="CollisionShape3D" parent="DialogTrigger" index="0" unique_id=1604652831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1073761, -0.69039583, 2.6890945)
+shape = SubResource("BoxShape3D_brsy2")
+
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_006" method="set_flag_true"]
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_007" method="set_flag_true"]
+
+[editable path="DialogTrigger"]

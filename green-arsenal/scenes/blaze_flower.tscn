@@ -1936,6 +1936,7 @@ _data = {
 
 [node name="BlazeFlower" type="Node3D" unique_id=1252632312]
 script = ExtResource("1_gg8c8")
+sprite_frame = 2
 
 [node name="FancyModel" type="Node3D" parent="." unique_id=1713825728]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.021462917, 0)

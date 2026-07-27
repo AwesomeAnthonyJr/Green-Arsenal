@@ -1,0 +1,31 @@
+...
+......
+mentor: Signal connection verified.
+mentor: Hello again, Gardener.
+mentor: Any updates to report?
+...
+- Operator says it's an artificially aggressive variant of a strangler fig.
+	mentor: ...
+	mentor: That's unfortunate.
+	mentor: I assume you know, then, that your priorities on this mission must be adjusted.
+	...
+	- Yes.
+		mentor: Good.
+		mentor: Onto hopefully better news ---
+		mentor: Have you un-stuck yourself from amidst the vines?
+		...
+		- Yes.
+			mentor: Excellent.
+			mentor: Proceed to investigate the cause of this strangler fig problem.
+			- About that...
+				- I noticed a locked door in the forest, but no handle or keypad.
+					- There were a few sconces around it, though.
+						- Any instinct what that's about?
+							mentor: Hmm...
+							mentor: Well whoever put it there, I'm sure they intended to have some means of opening it again in the future.
+							mentor: If it's opened through wireless communication, we might be out of luck.
+							mentor: But that seems unlikely given how inconsistent our own communication systems have been here.
+							mentor: And those sconces make me curious...
+							mentor: Continue exploring all available paths, and speak to Operator when the opportunity arises.
+							mentor: Perhaps she has further insights.
+							[signal arg="scene_end"]

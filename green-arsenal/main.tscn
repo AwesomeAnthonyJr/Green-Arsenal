@@ -1316,7 +1316,7 @@ process_mode = 1
 [node name="RoomLoader" type="Node3D" parent="Active" unique_id=481011108 node_paths=PackedStringArray("player")]
 script = ExtResource("3_1bvp3")
 player = NodePath("PlayerPackage/Player")
-positions = PackedVector3Array(10, 1.2, 5, 20, 1.55, -6)
+test_position = Vector3(-100, 0, -138)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Active/RoomLoader" unique_id=449614055]
 environment = SubResource("Environment_272bh")
@@ -1326,7 +1326,7 @@ transform = Transform3D(0.8660253, 0.43301287, -0.25000006, 0, 0.49999997, 0.866
 shadow_enabled = true
 
 [node name="PlayerPackage" parent="Active/RoomLoader" unique_id=1280539618 instance=ExtResource("5_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1.55, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99, 1.55, -138)
 
 [node name="PauseMenu" type="Node" parent="." unique_id=857073312]
 process_mode = 3
