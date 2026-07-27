@@ -1,7 +1,8 @@
 extends Area3D
 class_name SaveOperator
 
-@onready var texture: Sprite3D = $Sprite3D
+@onready var texture: Node3D = $Texture
+@onready var label = $Texture/Label3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var abseleine: Sprite3D = $Abseleine
 var player_reference
@@ -18,6 +19,7 @@ var player_is_colliding = false
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	label.text = SaveManager.player_settings.get_text("interact").to_upper()
 
 func _physics_process(delta: float) -> void:
 	#SPIN ICON

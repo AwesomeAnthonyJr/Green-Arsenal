@@ -18,6 +18,10 @@
 [ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="12_y7emq"]
 [ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="13_5mxhe"]
 [ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="14_ka2ef"]
+[ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="19_s4c6c"]
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="20_q0q13"]
+[ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="21_0ojy5"]
+[ext_resource type="Script" uid="uid://dh80vb7h4kma2" path="res://scripts/save_flag_button_responder.gd" id="22_q0q13"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -29,6 +33,63 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tfqg"]
 albedo_texture = ExtResource("7_h7j6q")
+
+[sub_resource type="Animation" id="Animation_ybq8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cm066"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0), Vector3(0, -5.697, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mwg54"]
+_data = {
+&"RESET": SubResource("Animation_ybq8s"),
+&"open": SubResource("Animation_cm066")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_xrbbx"]
+size = Vector3(1, 12, 11)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifriq"]
+render_priority = 0
+shader = ExtResource("20_q0q13")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("21_0ojy5")
+shader_parameter/albedo_in_shadow = Color(0.46008006, 0.30960003, 0.72, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("21_0ojy5")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.1999999955296
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4oj74"]
+size = Vector3(1, 12, 11)
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_uj84s")
@@ -2854,7 +2915,7 @@ transform = Transform3D(-2.1650634, 0, -1.2499998, 0, 2.5, 0, 1.2499998, 0, -2.1
 transform = Transform3D(-1.7677667, 0, 1.767767, 0, 2.5, 0, -1.767767, 0, -1.7677667, -6, -6, 62)
 
 [node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("10_ka2ef")]
-transform = Transform3D(-0.95116216, 0, 0.30869162, 0, 1, 0, -0.30869162, 0, -0.95116216, -5.8609734, -3.9779913, -8.890905)
+transform = Transform3D(-0.95116216, 0, 0.30869162, 0, 1, 0, -0.30869162, 0, -0.95116216, -5.8609734, -5.977991, -8.890905)
 operator_scenes = Array[ExtResource("11_0gfbk")]([ExtResource("12_y7emq")])
 load_point = 4
 
@@ -2988,3 +3049,26 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 26.6
 
 [node name="FacilityLight9" parent="." unique_id=783607829 instance=ExtResource("14_ka2ef")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -28.876373, 2.4858344, 4.547537)
+
+[node name="PuzzleDoor" type="Node3D" parent="." unique_id=1592590212]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, -8, -50.64017)
+script = ExtResource("19_s4c6c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PuzzleDoor" unique_id=468082090]
+libraries/ = SubResource("AnimationLibrary_mwg54")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PuzzleDoor" unique_id=1773329769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+mesh = SubResource("BoxMesh_xrbbx")
+surface_material_override/0 = SubResource("ShaderMaterial_ifriq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PuzzleDoor/MeshInstance3D" unique_id=747576270]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzleDoor/MeshInstance3D/StaticBody3D" unique_id=2139185856]
+shape = SubResource("BoxShape3D_4oj74")
+
+[node name="SaveFlagButtonResponder" type="Node" parent="." unique_id=1071224606]
+script = ExtResource("22_q0q13")
+flag_indices = Array[int]([10, 13])
+
+[connection signal="flags_true" from="SaveFlagButtonResponder" to="PuzzleDoor" method="open_door"]

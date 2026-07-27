@@ -831,3 +831,9 @@ target_position = Vector3(0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
 shape = SubResource("CylinderShape3D_h45xw")
 target_position = Vector3(0, -0.5, 0)
+
+[node name="UnstuckArea" type="Area3D" parent="." unique_id=1786133078]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UnstuckArea" unique_id=613166046]
+shape = SubResource("CapsuleShape3D_i20g8")

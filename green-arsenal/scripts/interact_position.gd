@@ -7,6 +7,7 @@ var description: String
 var modulation_count = 0.0
 
 @onready var desc_text = $BarText
+@onready var press_text = $BarText2
 @onready var sprite = $Sprite2D
 
 func _process(delta: float) -> void:
@@ -14,12 +15,14 @@ func _process(delta: float) -> void:
 		position = position.lerp(target_pos, 0.5)
 		if position.distance_to(target_pos) <= 5.0:
 			desc_text.display(description)
+			press_text.display("[center]{interact}[/center]")
 		modulation_count += delta * 4
 		modulation_count = min(1.0, modulation_count)
 	else:
 		position = position.lerp(inactive_pos, 0.5)
 		if position.distance_to(inactive_pos) <= 5.0:
 			desc_text.display("")
+			press_text.display("")
 		modulation_count -= delta * 6
 		modulation_count = max(0.0, modulation_count)
 	update_modulation()
@@ -28,3 +31,4 @@ func update_modulation():
 	var temp = Color(1.0, 1.0, 1.0, 0.8 * modulation_count)
 	sprite.modulate = temp
 	desc_text.modulate = temp
+	press_text.modulate = temp

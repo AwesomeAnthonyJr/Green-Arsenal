@@ -54,6 +54,8 @@ var currently_stepping = false
 
 var paused = false
 
+@onready var unstuck_area: Area3D = $UnstuckArea
+
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -251,6 +253,7 @@ func _physics_process(delta: float) -> void:
 		physics_movement(delta)
 		physics_looking()
 		gun_rotation()
+		unstuck_routine(delta)
 	if !is_grounded:
 		apply_air_drift(delta)
 		#apply_central_force(Vector3.DOWN * 10 * gravity_scale)
@@ -266,7 +269,24 @@ func _physics_process(delta: float) -> void:
 	else:
 		model_anim_tree.set("parameters/TimeScale/scale", 1.0)
 		model_anim_tree["parameters/WalkState/playback"].travel("standing")
-	
+
+func unstuck_routine(delta: float):
+	if linear_velocity.is_zero_approx() and !move_dir.is_zero_approx():
+		var count = 0
+		for body in unstuck_area.get_overlapping_bodies():
+			if body != self:
+				count += 1
+		if count > 0:
+			###manual solution; could be speedrun tech?
+			#position += look_pivot.basis * Vector3(move_dir.x, 0, move_dir.y).normalized() * delta
+			###potential programmatic solution:
+			var avg = Vector3.ZERO
+			for body in unstuck_area.get_overlapping_bodies():
+				if body != self:
+					avg += global_position - body.global_position
+			if avg != Vector3.ZERO:
+				position += avg.normalized() * delta
+
 func gun_rotation():
 	var targetPoint = Vector3()
 	if aimRayCast.is_colliding():

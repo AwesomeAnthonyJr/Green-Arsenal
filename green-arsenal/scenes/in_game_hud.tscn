@@ -1118,3 +1118,17 @@ theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
 text = "this is where a description goes"
 script = ExtResource("19_156o1")
+
+[node name="BarText2" type="RichTextLabel" parent="Interact_Position" unique_id=1341913861]
+layout_mode = 0
+offset_left = -180.0
+offset_top = 40.0
+offset_right = 180.0
+offset_bottom = 140.0
+theme_override_fonts/normal_font = ExtResource("17_sbl5u")
+theme_override_fonts/bold_font = ExtResource("18_edenc")
+theme_override_font_sizes/normal_font_size = 46
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "{interact}"
+script = ExtResource("19_156o1")

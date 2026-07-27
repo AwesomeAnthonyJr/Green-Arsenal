@@ -511,7 +511,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("2_jth1e")
 
 [node name="NonSoilFloor195" type="StaticBody3D" parent="." unique_id=2073470280]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -33, -2.5, 1)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -32, -2.5, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor195" unique_id=1457007523]
@@ -519,6 +519,19 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_otkpc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor195" unique_id=1240859869]
+material_override = ExtResource("4_ni0qs")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("2_jth1e")
+
+[node name="NonSoilFloor199" type="StaticBody3D" parent="." unique_id=1966759822]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -23, -9.5, 1)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor199" unique_id=1002477004]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor199" unique_id=1111396513]
 material_override = ExtResource("4_ni0qs")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("2_jth1e")
@@ -815,9 +828,6 @@ new_id = 12
 
 [node name="SoilPatch10x10" parent="." unique_id=361187496 instance=ExtResource("3_276he")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3975677, -4.5203924, 2.5258179)
-
-[node name="SoilPatch10x11" parent="." unique_id=1660048705 instance=ExtResource("3_276he")]
-transform = Transform3D(0.9999907, -0.0043109786, 0, 0.0043109786, 0.9999907, 0, 0, 0, 1, -22.397568, -4.5203924, 2.5258179)
 
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("4_wegms")]
 transform = Transform3D(10.01, 0, 0, 0, 10.5, 0, 0, 0, 2, 16.644592, -2.606697, 24.746475)

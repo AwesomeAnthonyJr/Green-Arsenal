@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://djeqlb5oumh8w" path="res://scripts/save_operator.gd" id="1_c772q"]
 [ext_resource type="Texture2D" uid="uid://cf5e2am45eger" path="res://misc/keyboard_e_outline.png" id="2_kku6r"]
 [ext_resource type="Texture2D" uid="uid://bajtrea7i0r3x" path="res://misc/Abseilen_jumelle.jpg" id="3_0wdn0"]
+[ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="3_kku6r"]
+[ext_resource type="Script" uid="uid://ddri8uyb6gpgo" path="res://scripts/interact_area.gd" id="5_0wdn0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8aque"]
 radius = 5.0
@@ -51,16 +53,35 @@ script = ExtResource("1_c772q")
 shape = SubResource("SphereShape3D_8aque")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=261834507]
+visible = false
 texture = ExtResource("2_kku6r")
+
+[node name="Texture" type="Node3D" parent="." unique_id=456318320]
+
+[node name="Label3D" type="Label3D" parent="Texture" unique_id=2080270543]
+modulate = Color(1, 1, 1, 0.8)
+text = "{interact}"
+font = ExtResource("3_kku6r")
+font_size = 120
+outline_size = 0
 
 [node name="Abseleine" type="Sprite3D" parent="." unique_id=1170693807]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.992828, 0)
-visible = false
 billboard = 2
 texture = ExtResource("3_0wdn0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1906049512]
 libraries/ = SubResource("AnimationLibrary_nnong")
 
+[node name="InteractArea" type="Area3D" parent="." unique_id=530012375]
+script = ExtResource("5_0wdn0")
+one_time = false
+interaction_name = "call the operator"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea" unique_id=1289814683]
+shape = SubResource("SphereShape3D_8aque")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="InteractArea" to="InteractArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="InteractArea" method="_on_body_exited"]
