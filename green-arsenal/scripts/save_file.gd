@@ -6,9 +6,9 @@ class_name SaveFile
 	true, #life
 	true, #bounce
 	true, #seeker
-	false, #platform
-	false, #propeller
-	false #heavy
+	true, #platform
+	true, #propeller
+	true #heavy
 ]
 @export var max_hp: int = 3
 @export var growth_charges: int = 1
@@ -25,10 +25,10 @@ class_name SaveFile
 	false, #underground_entrance - torch 2
 	false, #underground_2 - torch 1
 	false, #underground_2 - torch 2
-	true, #bounce_seed - button | 10
-	true, #combo_puzzle_1 - strangler gate
+	false, #bounce_seed - button | 10
+	false, #combo_puzzle_1 - strangler gate
 	false, #bounce_seed - strangler gate
-	true, #underground_3 - button
+	false, #underground_3 - button
 	false, #underground_3 - strangler gate
 	false, #underground_4 - growth pickup | 15
 	false, #underground_4 - health pickup
@@ -40,4 +40,4 @@ class_name SaveFile
 ###this is mostly for the map screen to hide certain layers until its time
 @export var farthest_floor: int = 2
 ###this is to set the player to load in different positions depending on their last save
-@export var load_point: int = -1
+@export var load_point: int = 0

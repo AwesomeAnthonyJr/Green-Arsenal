@@ -15,11 +15,11 @@ var not_gameplay: bool = true
 
 func _ready() -> void:
 	testing_check()
-
 func testing_check():
 	if testing.get_child_count() > 0:
 		active.queue_free()
 		print("REMOVED ACTIVE! IN TESTING!")
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 
 func _process(delta: float) -> void:
 	#print(Engine.get_frames_per_second())

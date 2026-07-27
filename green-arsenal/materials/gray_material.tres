@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cbhvgaasrpu0m"]
+
+[ext_resource type="Shader" uid="uid://bue2b34h86uxe" path="res://shaders/cel_shaded_two_sides.gdshader" id="1_yiwl2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yiwl2")
+shader_parameter/albedo = Color(0.5449743, 0.54497427, 0.5449743, 1)
+shader_parameter/albedo_in_shadow = Color(0.32544088, 0.3254409, 0.32544088, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.999999977648
+shader_parameter/specular_strength = 0.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
