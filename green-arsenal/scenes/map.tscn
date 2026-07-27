@@ -581,7 +581,7 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("4_2klcf")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[center]Something[/center]"
+text = "[center]U. Ground[/center]"
 
 [node name="MenuButton3" type="Sprite2D" parent="Control" unique_id=1983396122]
 position = Vector2(239, 280)

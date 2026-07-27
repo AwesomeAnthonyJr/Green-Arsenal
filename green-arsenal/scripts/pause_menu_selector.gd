@@ -24,6 +24,9 @@ func travel_fifth_position():
 func travel_sixth_position():
 	anim_tree["parameters/playback"].travel("sixth_position")
 
+func travel_seventh_position():
+	anim_tree["parameters/playback"].travel("seventh_position")
+
 func travel_shrunk_position():
 	anim_tree["parameters/playback"].travel("shrunk_position")
 

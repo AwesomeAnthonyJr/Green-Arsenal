@@ -1,10 +1,10 @@
-[gd_scene format=4 uid="uid://cnys260vhf7u2"]
+[gd_scene format=4 uid="uid://cd4lwde4ynq5h"]
 
-[ext_resource type="Script" uid="uid://bogcfngttlj0e" path="res://scripts/flyingEnemy.gd" id="1_nxu13"]
-[ext_resource type="Material" uid="uid://cbhvgaasrpu0m" path="res://materials/gray_material.tres" id="2_n6csa"]
-[ext_resource type="Material" uid="uid://cgsnt031fmwnp" path="res://materials/white_material.tres" id="3_nxu13"]
-[ext_resource type="Material" uid="uid://bpmfb68ai3ym6" path="res://materials/yellow_material.tres" id="4_mdlkp"]
-[ext_resource type="Material" uid="uid://dudf87vvmx1vx" path="res://materials/yellow_material_2.tres" id="5_mdlkp"]
+[ext_resource type="Script" uid="uid://bogcfngttlj0e" path="res://scripts/flyingEnemy.gd" id="1_vcpln"]
+[ext_resource type="Material" uid="uid://cbhvgaasrpu0m" path="res://materials/gray_material.tres" id="2_8crh0"]
+[ext_resource type="Material" uid="uid://cgsnt031fmwnp" path="res://materials/white_material.tres" id="3_yf7mo"]
+[ext_resource type="Material" uid="uid://crccc5ki7otll" path="res://materials/blue_material.tres" id="4_vcpln"]
+[ext_resource type="Material" uid="uid://261r71cbnjxf" path="res://materials/player_glasses.tres" id="5_8crh0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0o143"]
 
@@ -230,7 +230,9 @@ radius = 1.0
 collision_layer = 4
 collision_mask = 5
 motion_mode = 1
-script = ExtResource("1_nxu13")
+script = ExtResource("1_vcpln")
+speed = 1.5
+hunts_plants = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=429253756]
 shape = SubResource("SphereShape3D_0o143")
@@ -370,11 +372,11 @@ bones/17/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_xg308")
 skin = SubResource("Skin_ggv41")
 skeleton = NodePath("..")
-surface_material_override/0 = ExtResource("2_n6csa")
+surface_material_override/0 = ExtResource("2_8crh0")
 surface_material_override/1 = SubResource("StandardMaterial3D_c63ix")
-surface_material_override/2 = ExtResource("3_nxu13")
-surface_material_override/3 = ExtResource("4_mdlkp")
-surface_material_override/4 = ExtResource("5_mdlkp")
+surface_material_override/2 = ExtResource("3_yf7mo")
+surface_material_override/3 = ExtResource("4_vcpln")
+surface_material_override/4 = ExtResource("5_8crh0")
 
 [node name="CCDIK3D" type="CCDIK3D" parent="FancyModel/Skeleton3D" unique_id=1307846196]
 setting_count = 1
