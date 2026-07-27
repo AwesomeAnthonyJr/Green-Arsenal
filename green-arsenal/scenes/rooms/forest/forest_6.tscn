@@ -20,6 +20,9 @@
 [ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="16_07f27"]
 [ext_resource type="Material" uid="uid://cgsnt031fmwnp" path="res://materials/white_material.tres" id="17_csvwr"]
 [ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="17_p3p10"]
+[ext_resource type="Script" uid="uid://buqh2wyj315bm" path="res://scenes/save_operator.gd" id="19_07f27"]
+[ext_resource type="Resource" uid="uid://b44wp0udj1n5c" path="res://misc/dialogic/fire_seed_operator.dtl" id="21_p3p10"]
+[ext_resource type="Resource" uid="uid://clk706sj582bd" path="res://misc/dialogic/fire_seed_operator2.dtl" id="22_kapag"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4viom"]
 
@@ -546,11 +549,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.534573, 1.672648, 48.6823
 
 [node name="Tree_F" parent="." unique_id=1654159249 instance=ExtResource("13_vet8r")]
 transform = Transform3D(-0.052344393, 0, 0.9986291, 0, 1, 0, -0.9986291, 0, -0.052344393, -3.7068224, 0.3725505, 46.90068)
-
-[node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("15_ci4ib")]
-transform = Transform3D(-0.1248645, 0, 1.4947939, 0, 1.5, 0, -1.4947939, 0, -0.1248645, -16.199017, 3.2727523, 53.396275)
-operator_scenes = Array[ExtResource("16_07f27")]([null, ExtResource("17_p3p10")])
-load_point = 2
 
 [node name="SeedVault" parent="." unique_id=538589429 instance=ExtResource("14_u2avg")]
 transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, -10, 1.2999067, 62)
@@ -1404,3 +1402,9 @@ size = Vector3(0.7, 0.9, 0.75734866)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SeedVault11/StaticBody3D" unique_id=711979654]
 shape = SubResource("BoxShape3D_h45xw")
+
+[node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("15_ci4ib")]
+transform = Transform3D(-0.1248645, 0, 1.4947939, 0, 1.5, 0, -1.4947939, 0, -0.1248645, -16.199017, 3.2727523, 53.396275)
+script = ExtResource("19_07f27")
+operator_scenes = Array[ExtResource("16_07f27")]([ExtResource("21_p3p10"), ExtResource("22_kapag"), ExtResource("17_p3p10")])
+load_point = 2

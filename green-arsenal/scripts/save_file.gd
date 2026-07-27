@@ -3,12 +3,12 @@ class_name SaveFile
 
 @export var seed_types: Array[bool] = [
 	true, #blaze
-	true, #life
-	true, #bounce
-	true, #seeker
-	true, #platform
-	true, #propeller
-	true #heavy
+	false, #life
+	false, #bounce
+	false, #seeker
+	false, #platform
+	false, #propeller
+	false #heavy
 ]
 @export var max_hp: int = 3
 @export var growth_charges: int = 2
@@ -20,11 +20,11 @@ class_name SaveFile
 	true, #forest 2 - torch 2
 	true, #forest 2 - torch 3
 	true, #forest 2 - strangler gate
-	true, #forest 5 - strangler gate | 5
-	true, #underground_entrance - torch 1
-	true, #underground_entrance - torch 2
-	true, #underground_2 - torch 1
-	true, #underground_2 - torch 2
+	false, #forest 5 - strangler gate | 5
+	false, #underground_entrance - torch 1
+	false, #underground_entrance - torch 2
+	false, #underground_2 - torch 1
+	false, #underground_2 - torch 2
 	false, #bounce_seed - button | 10
 	false, #combo_puzzle_1 - strangler gate
 	false, #bounce_seed - strangler gate

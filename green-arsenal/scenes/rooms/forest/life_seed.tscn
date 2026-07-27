@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="12_5f7ty"]
 [ext_resource type="PackedScene" uid="uid://tl4lg8ap4dm1" path="res://scenes/level_parts/strangler_a.tscn" id="13_ik53l"]
 [ext_resource type="PackedScene" uid="uid://ddexbsd7e36p3" path="res://scenes/level_parts/strangler_c.tscn" id="15_df1yb"]
+[ext_resource type="PackedScene" uid="uid://c3xcgxgalv1wm" path="res://scenes/save_operator.tscn" id="17_l3tdk"]
+[ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="18_rgm4s"]
+[ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="19_aebqk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -596,3 +599,8 @@ transform = Transform3D(0.1419532, 0, 0.275589, 0, 0.31000003, 0, -0.275589, 0, 
 [node name="Exit2" parent="." unique_id=1524665141 instance=ExtResource("2_3c3sf")]
 transform = Transform3D(-4.371139e-08, 0, -10.515, 0, 13.075, 0, 1, 0, -4.5962526e-07, 5.277008, 4.25239, -27.681234)
 new_id = 11
+
+[node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("17_l3tdk")]
+transform = Transform3D(0.08324285, 0, -0.9965293, 0, 1, 0, 0.9965293, 0, 0.08324285, 0, 3.3017807, -1.8480124)
+operator_scenes = Array[ExtResource("18_rgm4s")]([ExtResource("19_aebqk")])
+load_point = 3
