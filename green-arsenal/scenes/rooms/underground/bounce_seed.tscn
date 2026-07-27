@@ -1567,7 +1567,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("2_gd85e")
 
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("3_jlxbb")]
-transform = Transform3D(10.01, 0, 0, 0, 10.5, 0, 0, 0, 1, -3.3554077, -2.606697, -52.253525)
+transform = Transform3D(10.01, 0, 0, 0, 10.5, 0, 0, 0, 2, -3.3554077, -2.606697, -50.253525)
 new_id = 13
 
 [node name="SoilPatch10x10" parent="." unique_id=361187496 instance=ExtResource("4_qx4yw")]
@@ -1644,7 +1644,7 @@ flag_index = 10
 transform = Transform3D(-0.40165284, -0.6880931, -0.6043201, 0.863634, -0.50411934, 0, -0.30464944, -0.5219114, 0.7967416, 10.694762, 14.929597, 36.498253)
 
 [node name="StranglerTarget2" parent="." unique_id=1025808142 instance=ExtResource("8_esqix")]
-transform = Transform3D(0.1835123, -0.3869441, 0.903658, 0.32667, -0.8430216, -0.42731893, 0.92715156, 0.37361616, -0.028301924, 10.694762, 18.929596, 13.498253)
+transform = Transform3D(0.18351229, -0.38694406, 0.9036579, -0.8011235, -0.5915972, -0.09063046, 0.56967044, -0.70730966, -0.41855532, 3.6947622, 25.929596, 13.498253)
 
 [node name="StranglerTarget3" parent="." unique_id=626467556 instance=ExtResource("8_esqix")]
 transform = Transform3D(-0.1911484, 0.5366061, 0.821898, 0.32226124, -0.7566142, 0.56893134, 0.92715144, 0.37361616, -0.028301904, -17.305237, 18.929596, 27.498253)

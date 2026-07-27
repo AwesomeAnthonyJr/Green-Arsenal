@@ -103,9 +103,15 @@ func _process(delta):
 	for path in loadings:
 		var status = ResourceLoader.load_threaded_get_status(path)
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
-			var resource = ResourceLoader.load_threaded_get(path)
-			var is_extra = extra_loadings.has(path)
-			load_resource(resource, path, is_extra)
+			var already_loaded = false
+			var key = reverse_dict[path]
+			if key in loaded_objects_keys:
+				already_loaded = true
+				print("BUT IT ALREADY WAS LOADED!")
+			if !already_loaded:
+				var resource = ResourceLoader.load_threaded_get(path)
+				var is_extra = extra_loadings.has(path)
+				load_resource(resource, path, is_extra)
 			extra_loadings.erase(path)
 			loadings.erase(path)
 	var erase_arr = []
@@ -113,9 +119,10 @@ func _process(delta):
 		for i in loaded_objects_keys.size():
 			var k = loaded_objects_keys[i]
 			var o = loaded_objects[i]
-			if is_instance_valid(o) :
+			if is_instance_valid(o):
 				if !(k in active_room.adjacent_rooms) and !(k == active_key):
 					print("ROOM: ", k, " IS BEING REMOVED!!!")
+					#print(active_key)
 					o.queue_free()
 					erase_arr.append(i)
 			else:
@@ -189,8 +196,9 @@ func setup_active_room(key: int):
 		loaded_objects.append(inst)
 		loaded_objects_keys.append(key)
 		active_room = inst
+		active_key = key
 		load_room_extra(key)
-		print("RARE FIRST TIME LOAD HAS OCCURED!")
+		print("RARE FIRST TIME LOAD HAS OCCURED! ", key)
 	
 	#its a different room now
 	active_room.active = true
