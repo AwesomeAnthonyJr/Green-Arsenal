@@ -185,7 +185,7 @@ func _process(delta: float) -> void:
 	cameraRig.get_parent().get_parent().get_parent().supress_looking = is_reloading or supress_shooting
 	supress_shooting = false
 	for p in active_plants:
-		if is_instance_valid(p):
+		if is_instance_valid(p) and !p.dead:
 			if !supress_shooting:
 				if p is SeekerFlower and p.has_bullet:
 					supress_shooting = true
