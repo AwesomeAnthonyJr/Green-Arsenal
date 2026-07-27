@@ -2,7 +2,7 @@ operator: Nothing new to report on my end, Gardener.
 operator: How 'bout you, would you like to record any progress in your investigation?
 - Yes
 	operator: Saving progress...
-	do SaveManager.write_save()
+	[signal arg="save_signal"]
 	operator: Save complete.
 	jump save_done
 - No

@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://ddexbsd7e36p3" path="res://scenes/level_parts/strangler_c.tscn" id="22_fy13a"]
 [ext_resource type="Resource" uid="uid://b2nbl2ga50q8d" path="res://misc/dialogic/intro.dtl" id="23_fy13a"]
 [ext_resource type="Script" uid="uid://dynmk3xqoqf44" path="res://scripts/save_operator_forest1_extend.gd" id="24_n15qv"]
+[ext_resource type="Resource" uid="uid://c1f7fpffdls5" path="res://misc/dialogic/intro_operator.dtl" id="25_4jq4q"]
+[ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="25_427am"]
 [ext_resource type="Texture2D" uid="uid://cf5e2am45eger" path="res://misc/keyboard_e_outline.png" id="25_756fk"]
 [ext_resource type="Texture2D" uid="uid://bajtrea7i0r3x" path="res://misc/Abseilen_jumelle.jpg" id="26_756fk"]
 [ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="28_cgk6m"]
@@ -1275,24 +1277,25 @@ dialogic_scene = ExtResource("23_fy13a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6133537, 0, 0)
 shape = SubResource("BoxShape3D_8aque")
 
-[node name="SaveOperator" type="Area3D" parent="." unique_id=149341750]
+[node name="SaveOperator" type="Area3D" parent="." unique_id=137866287]
 transform = Transform3D(0.08324285, 0, -0.9965293, 0, 1, 0, 0.9965293, 0, 0.08324285, 20.282501, 2.7549667, -7.245957)
 script = ExtResource("24_n15qv")
-operator_scenes = Array[ExtResource("28_cgk6m")]([ExtResource("29_2sx52"), ExtResource("30_iywef"), ExtResource("31_sl1ou")])
+operator_scenes = Array[ExtResource("25_427am")]([ExtResource("25_4jq4q"), ExtResource("27_n15qv"), ExtResource("28_0slfi")])
+load_point = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SaveOperator" unique_id=2076922981]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SaveOperator" unique_id=1299433326]
 shape = SubResource("SphereShape3D_8aque")
 
-[node name="Sprite3D" type="Sprite3D" parent="SaveOperator" unique_id=2095302327]
+[node name="Sprite3D" type="Sprite3D" parent="SaveOperator" unique_id=261834507]
 texture = ExtResource("25_756fk")
 
-[node name="Abseleine" type="Sprite3D" parent="SaveOperator" unique_id=1549140278]
+[node name="Abseleine" type="Sprite3D" parent="SaveOperator" unique_id=1170693807]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.992828, 0)
 visible = false
 billboard = 2
 texture = ExtResource("26_756fk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveOperator" unique_id=280415811]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SaveOperator" unique_id=1906049512]
 libraries/ = SubResource("AnimationLibrary_nnong")
 
 [connection signal="roots_gone" from="StranglerGate" to="SaveFlagSetter" method="set_flag_true"]
