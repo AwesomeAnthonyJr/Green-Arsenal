@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://eh2x6l7fmwys" path="res://materials/gray_soil.tres" id="4_ebx8a"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="4_qhwcv"]
 [ext_resource type="PackedScene" uid="uid://cj3xvugwergwm" path="res://scenes/level_parts/tree_c.tscn" id="6_tx3s2"]
+[ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="7_tx3s2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -17,9 +18,11 @@ left_to_right = -0.5
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b8q16"]
 data = PackedVector3Array(-1, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -1, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -1, 0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g36yv"]
+
 [node name="Room2" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_lebfi")
-adjacent_rooms = Array[int]([18])
+adjacent_rooms = Array[int]([18, 20])
 room_pos = Vector3(-80, 0, -280)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
@@ -1124,3 +1127,23 @@ transform = Transform3D(0.10725967, -0.008518458, 0.99419445, 0.0656916, -0.9977
 
 [node name="Exit" parent="." unique_id=2039153543 instance=ExtResource("4_qhwcv")]
 transform = Transform3D(24.62, 0, 0, 0, 20.12, 0, 0, 0, 1, 150.2972, -80.85526, 30.740753)
+
+[node name="FacilityLight" parent="." unique_id=846988860 instance=ExtResource("7_tx3s2")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 150.5, -7, 50)
+
+[node name="FacilityLight2" parent="." unique_id=1302082917 instance=ExtResource("7_tx3s2")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 150.5, -7, 40)
+
+[node name="FacilityLight3" parent="." unique_id=904707886 instance=ExtResource("7_tx3s2")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 150.5, -7, 30)
+
+[node name="NoMore!" type="StaticBody3D" parent="." unique_id=2102164622]
+transform = Transform3D(30.565, 0, 0, 0, 23.67, 0, 0, 0, 1, 150, -81, 38)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoMore!" unique_id=1313483264]
+shape = SubResource("BoxShape3D_g36yv")
+
+[node name="Label3D" type="Label3D" parent="NoMore!" unique_id=736169425]
+transform = Transform3D(0.03271716, 0, 0, 0, 0.04224757, 0, 0, 0, 1, 0.025107384, -0.11439443, 0.0011291504)
+text = "That's all for now! Thanks for playing this demo and check back another day to see what's coming next!"
+font_size = 82
