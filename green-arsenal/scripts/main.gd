@@ -11,6 +11,8 @@ class_name Main
 #a variable for whenever we want to not let the player control if the game is paused
 var override_pause: bool = false
 
+var not_gameplay: bool = true
+
 func _ready() -> void:
 	testing_check()
 

@@ -9,8 +9,8 @@ signal save_read
 
 func _ready() -> void:
 	verify_directories()
-	#read_save()
-	reset_save()
+	read_save()
+	#reset_save()
 
 func set_load_point(i: int):
 	player_save.load_point = i

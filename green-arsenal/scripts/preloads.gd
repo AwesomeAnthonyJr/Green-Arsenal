@@ -1,5 +1,9 @@
 extends Node
 
+var player_package = preload("res://scenes/player_package.tscn")
+var room_loader = preload("res://scenes/room_loader.tscn")
+var main_menu = preload("res://scenes/main_menu.tscn")
+
 const bullet_base = preload("res://scenes/Bullet.tscn")
 const bullet_seed = preload("res://scenes/bullet_seed.tscn")
 const blaze_seed = preload("res://scenes/blaze_seed.tscn")

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bqsx2hglgfolr" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://i5pjehi8mq60" path="res://scripts/input_manager.gd" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://cr7ch745a207w" path="res://scripts/room_loader.gd" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://bes4hymed4oow" path="res://scenes/player_package.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://ccthvopkyorf4" path="res://scripts/active.gd" id="3_074og"]
+[ext_resource type="PackedScene" uid="uid://cf4ivcue51ciw" path="res://scenes/main_menu.tscn" id="4_yaehf"]
 [ext_resource type="Script" uid="uid://bnmd5aw0ol2pp" path="res://scripts/pause_menu.gd" id="5_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://b2hy7nwf61v0w" path="res://scenes/pause_status.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://vfwgi73yjqyr" path="res://scenes/controls.tscn" id="6_272bh"]
@@ -17,19 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://b5wiv7bym1arx" path="res://scenes/controls_text.tscn" id="12_dg77c"]
 [ext_resource type="FontFile" uid="uid://i3l17i8ifdhk" path="res://fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" id="12_yaehf"]
 [ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="17_yaehf"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7mycd"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_5vw27"]
-sky_material = SubResource("ProceduralSkyMaterial_7mycd")
-
-[sub_resource type="Environment" id="Environment_272bh"]
-background_mode = 2
-sky = SubResource("Sky_5vw27")
-ambient_light_source = 1
-glow_enabled = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_h45xw"]
 size = Vector2(1280, 720)
@@ -1030,7 +1017,7 @@ states/status>controls/position = Vector2(317, 5)
 states/status>map/node = SubResource("AnimationNodeAnimation_1u8w0")
 states/status>map/position = Vector2(317, 192)
 transitions = ["on_status", "status>controls", SubResource("AnimationNodeStateMachineTransition_0odxb"), "on_status", "status>map", SubResource("AnimationNodeStateMachineTransition_lswn8"), "on_controls", "controls>status", SubResource("AnimationNodeStateMachineTransition_a6jrf"), "on_controls", "controls>config", SubResource("AnimationNodeStateMachineTransition_xuqvo"), "on_config", "config>controls", SubResource("AnimationNodeStateMachineTransition_qsp4k"), "on_config", "config>map", SubResource("AnimationNodeStateMachineTransition_kq58d"), "on_map", "map>status", SubResource("AnimationNodeStateMachineTransition_seu75"), "on_map", "map>config", SubResource("AnimationNodeStateMachineTransition_htxhm"), "controls>status", "on_status", SubResource("AnimationNodeStateMachineTransition_4k2k6"), "controls>config", "on_config", SubResource("AnimationNodeStateMachineTransition_0rl1p"), "status>controls", "on_controls", SubResource("AnimationNodeStateMachineTransition_ok6jj"), "config>controls", "on_controls", SubResource("AnimationNodeStateMachineTransition_facbu"), "map>config", "on_config", SubResource("AnimationNodeStateMachineTransition_b1qrp"), "map>status", "on_status", SubResource("AnimationNodeStateMachineTransition_come4"), "status>map", "on_map", SubResource("AnimationNodeStateMachineTransition_h8e4i"), "config>map", "on_map", SubResource("AnimationNodeStateMachineTransition_4lmeg"), "open_menu", "on_status", SubResource("AnimationNodeStateMachineTransition_0cbny"), "on_config", "close_menu_config", SubResource("AnimationNodeStateMachineTransition_hrvbo"), "on_status", "close_menu_status", SubResource("AnimationNodeStateMachineTransition_uypp3"), "on_controls", "close_menu_controls", SubResource("AnimationNodeStateMachineTransition_blkrb"), "on_map", "close_menu_map", SubResource("AnimationNodeStateMachineTransition_abqjc"), "Start", "closed", SubResource("AnimationNodeStateMachineTransition_vke2r"), "closed", "open_menu", SubResource("AnimationNodeStateMachineTransition_uit24"), "close_menu_status", "closed", SubResource("AnimationNodeStateMachineTransition_074og"), "close_menu_config", "closed", SubResource("AnimationNodeStateMachineTransition_82xsv"), "close_menu_map", "closed", SubResource("AnimationNodeStateMachineTransition_getpj"), "close_menu_controls", "closed", SubResource("AnimationNodeStateMachineTransition_ryguw")]
-graph_offset = Vector2(-357, 25)
+graph_offset = Vector2(-265, -1)
 
 [sub_resource type="Animation" id="Animation_lswn8"]
 length = 0.001
@@ -1297,12 +1284,11 @@ states/select_big_left/position = Vector2(613, -29)
 states/select_big_right/node = SubResource("AnimationNodeAnimation_qsp4k")
 states/select_big_right/position = Vector2(613, 242)
 transitions = ["Start", "hide_selector", SubResource("AnimationNodeStateMachineTransition_0cp0l"), "hide_on_left", "select_big_left", SubResource("AnimationNodeStateMachineTransition_d2t1y"), "select_big_left", "hide_on_left", SubResource("AnimationNodeStateMachineTransition_gngh3"), "hide_selector", "hide_on_left", SubResource("AnimationNodeStateMachineTransition_cegan"), "hide_on_left", "hide_selector", SubResource("AnimationNodeStateMachineTransition_yaehf"), "select_big_right", "hide_on_right", SubResource("AnimationNodeStateMachineTransition_0n3wm"), "hide_on_right", "select_big_right", SubResource("AnimationNodeStateMachineTransition_qnost"), "hide_on_right", "hide_selector", SubResource("AnimationNodeStateMachineTransition_wnkbs"), "hide_selector", "hide_on_right", SubResource("AnimationNodeStateMachineTransition_f6a44")]
-graph_offset = Vector2(44, -56)
+graph_offset = Vector2(60, -17)
 
-[node name="Main" type="Node" unique_id=383612433 node_paths=PackedStringArray("input_manager", "room_loader")]
+[node name="Main" type="Node" unique_id=383612433 node_paths=PackedStringArray("input_manager")]
 script = ExtResource("1_h2yge")
 input_manager = NodePath("InputManager")
-room_loader = NodePath("Active/RoomLoader")
 
 [node name="Testing" type="Node" parent="." unique_id=798207614]
 
@@ -1312,21 +1298,9 @@ script = ExtResource("2_0xm2m")
 
 [node name="Active" type="Node" parent="." unique_id=1560057200]
 process_mode = 1
+script = ExtResource("3_074og")
 
-[node name="RoomLoader" type="Node3D" parent="Active" unique_id=481011108 node_paths=PackedStringArray("player")]
-script = ExtResource("3_1bvp3")
-player = NodePath("PlayerPackage/Player")
-test_position = Vector3(-100, 0, -138)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Active/RoomLoader" unique_id=449614055]
-environment = SubResource("Environment_272bh")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Active/RoomLoader" unique_id=111573551]
-transform = Transform3D(0.8660253, 0.43301287, -0.25000006, 0, 0.49999997, 0.86602545, 0.5000002, -0.75, 0.43301263, 0, 0, 0)
-shadow_enabled = true
-
-[node name="PlayerPackage" parent="Active/RoomLoader" unique_id=1280539618 instance=ExtResource("5_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99, 1.55, -138)
+[node name="MainMenu" parent="Active" unique_id=691027116 instance=ExtResource("4_yaehf")]
 
 [node name="PauseMenu" type="Node" parent="." unique_id=857073312]
 process_mode = 3
@@ -1515,5 +1489,4 @@ libraries/ = SubResource("AnimationLibrary_xuqvo")
 tree_root = SubResource("AnimationNodeStateMachine_kq58d")
 anim_player = NodePath("../AnimationPlayer")
 
-[editable path="Active/RoomLoader/PlayerPackage"]
 [editable path="PauseMenu/CanvasLayer/Selector"]

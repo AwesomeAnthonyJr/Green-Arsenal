@@ -53,7 +53,10 @@ enum ConfigSelection {
 	SOUND_HOVER,
 	SOUND_SLIDER,
 	MOUSE_HOVER,
-	MOUSE_SLIDER
+	MOUSE_SLIDER,
+	TO_TITLE_1,
+	TO_TITLE_2,
+	TO_TITLE_3
 }
 
 enum MapSelection {
@@ -93,7 +96,7 @@ var suppress_next_input = false
 var in_menu = false
 
 func _ready() -> void:
-	main =  Generics.find_main(self)
+	main = Generics.find_main(self)
 	connect_inputs()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 func connect_inputs():
@@ -114,6 +117,8 @@ func _process(delta: float) -> void:
 
 #this is where the game handles pausing.
 func read_pause():
+	if main.not_gameplay:
+		return
 	var p = get_tree().paused
 	if !p:
 		get_tree().paused = true
@@ -125,21 +130,24 @@ func read_pause():
 		await get_tree().create_timer(0.2).timeout
 		in_menu = true
 	else:
-		get_tree().paused = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
-		in_menu = false
-		var playback = main_anim_tree["parameters/playback"]
-		match current_menu:
-			MenuSelection.STATUS:
-				playback.travel("close_menu_status")
-			MenuSelection.CONTROLS:
-				playback.travel("close_menu_controls")
-			MenuSelection.CONFIG:
-				playback.travel("close_menu_config")
-			MenuSelection.MAP:
-				playback.travel("close_menu_map")
-		playback = select_anim_tree["parameters/playback"]
-		playback.travel("hide_selector")
+		close_pause_menu()
+
+func close_pause_menu():
+	get_tree().paused = false
+	in_menu = false
+	var playback = main_anim_tree["parameters/playback"]
+	match current_menu:
+		MenuSelection.STATUS:
+			playback.travel("close_menu_status")
+		MenuSelection.CONTROLS:
+			playback.travel("close_menu_controls")
+		MenuSelection.CONFIG:
+			playback.travel("close_menu_config")
+		MenuSelection.MAP:
+			playback.travel("close_menu_map")
+	playback = select_anim_tree["parameters/playback"]
+	playback.travel("hide_selector")
 
 func update_display():
 	match current_menu:
@@ -267,6 +275,12 @@ func update_display():
 					bar_text.display("Mouse Sensitivity. Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to modify")
 				ConfigSelection.MOUSE_SLIDER:
 					bar_text.display("[center][bgcolor=white][color=black][outline_color=white][b]{move_left}[/b][/outline_color][/color][/bgcolor]      < {mouse_sense} >      [bgcolor=white][color=black][outline_color=white][b]{move_right}[/b][/outline_color][/color][/bgcolor][/center]")
+				ConfigSelection.TO_TITLE_1:
+					bar_text.display("Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to return to title")
+				ConfigSelection.TO_TITLE_2:
+					bar_text.display("Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to go back")
+				ConfigSelection.TO_TITLE_3:
+					bar_text.display("Press [bgcolor=white][color=black][outline_color=white][b]{interact}[/b][/outline_color][/color][/bgcolor] to actually return to title")
 		MenuSelection.MAP:
 			match current_menu_2:
 				MapSelection.BIG_LEFT:
@@ -408,10 +422,16 @@ func update_visually():
 					playback.travel("on_MOUSE_HOVER")
 				ConfigSelection.MOUSE_SLIDER:
 					playback.travel("on_MOUSE_SLIDER")
+				ConfigSelection.TO_TITLE_1:
+					playback.travel("on_TO_TITLE_1")
+				ConfigSelection.TO_TITLE_2:
+					playback.travel("on_TO_TITLE_2")
+				ConfigSelection.TO_TITLE_3:
+					playback.travel("on_TO_TITLE_3")
 		MenuSelection.MAP:
 			playback.travel("on_map")
 			playback = map_menu.anim_tree["parameters/playback"]
-			map_menu.match_map_buttons(find_current_floor() - 2)
+			#map_menu.match_map_buttons(find_current_floor() - 2)
 			match current_menu_2:
 				MapSelection.BIG_LEFT:
 					playback.travel("on_BIG_LEFT")
@@ -554,6 +574,13 @@ func read_up():
 					pass
 				ConfigSelection.MOUSE_SLIDER:
 					pass
+				ConfigSelection.TO_TITLE_1:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MOUSE_HOVER
+				ConfigSelection.TO_TITLE_2:
+					pass
+				ConfigSelection.TO_TITLE_3:
+					pass
 		MenuSelection.MAP:
 			match current_menu_2:
 				MapSelection.BIG_LEFT:
@@ -687,8 +714,15 @@ func read_down():
 				ConfigSelection.SOUND_SLIDER:
 					pass
 				ConfigSelection.MOUSE_HOVER:
-					pass#TODO: stuff later though!!!
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.TO_TITLE_1
 				ConfigSelection.MOUSE_SLIDER:
+					pass
+				ConfigSelection.TO_TITLE_1:
+					pass
+				ConfigSelection.TO_TITLE_2:
+					pass
+				ConfigSelection.TO_TITLE_3:
 					pass
 		MenuSelection.MAP:
 			match current_menu_2:
@@ -837,6 +871,14 @@ func read_left():
 					current_menu_2 = ConfigSelection.MASTER_HOVER
 				ConfigSelection.MOUSE_SLIDER:
 					SaveManager.player_settings.increment_sense(-0.05)
+				ConfigSelection.TO_TITLE_1:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.MUSIC_HOVER
+				ConfigSelection.TO_TITLE_2:
+					pass
+				ConfigSelection.TO_TITLE_3:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.TO_TITLE_2
 		MenuSelection.MAP:
 			match current_menu_2:
 				MapSelection.BIG_LEFT:
@@ -975,7 +1017,8 @@ func read_right():
 				ConfigSelection.MASTER_SLIDER:
 					SaveManager.player_settings.increment_volume(0, 5)
 				ConfigSelection.MUSIC_HOVER:
-					pass
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.TO_TITLE_1
 				ConfigSelection.MUSIC_SLIDER:
 					SaveManager.player_settings.increment_volume(1, 5)
 				ConfigSelection.SOUND_HOVER:
@@ -986,6 +1029,13 @@ func read_right():
 					current_menu_2 = ConfigSelection.BIG_RIGHT
 				ConfigSelection.MOUSE_SLIDER:
 					SaveManager.player_settings.increment_sense(0.05)
+				ConfigSelection.TO_TITLE_1:
+					current_menu_2 = ConfigSelection.BIG_RIGHT
+				ConfigSelection.TO_TITLE_2:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.TO_TITLE_3
+				ConfigSelection.TO_TITLE_3:
+					pass
 		MenuSelection.MAP:
 			match current_menu_2:
 				MapSelection.BIG_LEFT:
@@ -1054,6 +1104,7 @@ func read_accept():
 					pass
 				StatusSelection.GROWTH_3:
 					pass
+			update_visually()
 		MenuSelection.CONTROLS:
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:
@@ -1105,28 +1156,50 @@ func read_accept():
 					await get_tree().process_frame
 					remapping = true
 			controls_menu.hide_controls_text(action_to_remap)
+			update_visually()
 		MenuSelection.CONFIG:
 			match current_menu_2:
 				ConfigSelection.BIG_LEFT:
 					read_big_left()
+					update_visually()
 				ConfigSelection.BIG_RIGHT:
 					read_big_right()
+					update_visually()
 				ConfigSelection.MASTER_HOVER:
 					current_menu_2 = ConfigSelection.MASTER_SLIDER
+					update_visually()
 				ConfigSelection.MASTER_SLIDER:
 					current_menu_2 = ConfigSelection.MASTER_HOVER
+					update_visually()
 				ConfigSelection.MUSIC_HOVER:
 					current_menu_2 = ConfigSelection.MUSIC_SLIDER
+					update_visually()
 				ConfigSelection.MUSIC_SLIDER:
 					current_menu_2 = ConfigSelection.MUSIC_HOVER
+					update_visually()
 				ConfigSelection.SOUND_HOVER:
 					current_menu_2 = ConfigSelection.SOUND_SLIDER
+					update_visually()
 				ConfigSelection.SOUND_SLIDER:
 					current_menu_2 = ConfigSelection.SOUND_HOVER
+					update_visually()
 				ConfigSelection.MOUSE_HOVER:
 					current_menu_2 = ConfigSelection.MOUSE_SLIDER
+					update_visually()
 				ConfigSelection.MOUSE_SLIDER:
 					current_menu_2 = ConfigSelection.MOUSE_HOVER
+					update_visually()
+				ConfigSelection.TO_TITLE_1:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.TO_TITLE_2
+					update_visually()
+				ConfigSelection.TO_TITLE_2:
+					config_menu.selector.travel_shrunk_position()
+					current_menu_2 = ConfigSelection.TO_TITLE_1
+					update_visually()
+				ConfigSelection.TO_TITLE_3:
+					main.active.load_main_menu()
+					close_pause_menu()
 		MenuSelection.MAP:
 			match current_menu_2:
 				MapSelection.BIG_LEFT:
@@ -1151,7 +1224,7 @@ func read_accept():
 					map_menu.match_map_frame(7)
 				MapSelection.BUTTON_9:
 					map_menu.match_map_frame(8)
-	update_visually()
+			update_visually()
 
 func read_back():
 	if suppress_next_input:

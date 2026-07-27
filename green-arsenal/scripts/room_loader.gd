@@ -4,7 +4,8 @@ class_name RoomLoader
 #will not be export in final game!
 var active_room: Room
 var active_key = 4
-@export var player: Player
+@export var player: Node3D
+var main: Main
 
 #@export var positions = PackedVector3Array()
 @export var test_position = Vector3()
@@ -93,6 +94,9 @@ func get_floor():
 func initialize():
 	var lp = SaveManager.player_save.load_point
 	active_key = load_point_keys[lp]
+	var inst = Preloads.player_package.instantiate()
+	add_child(inst)
+	player = inst
 	position_player(lp)
 	setup_active_room(active_key)
 
@@ -105,9 +109,12 @@ func position_player(i: int):
 		player.global_position = test_position
 
 func _ready() -> void:
-	initialize()
+	main = Generics.find_main(self)
+	pass
 
 func _process(delta):
+	if main.not_gameplay:
+		return 
 	for path in loadings:
 		var status = ResourceLoader.load_threaded_get_status(path)
 		if status == ResourceLoader.THREAD_LOAD_LOADED:

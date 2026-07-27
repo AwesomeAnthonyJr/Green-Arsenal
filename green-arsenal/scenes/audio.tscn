@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://d3uu4ytrq3ykg" path="res://ui/ui_little_rectangle.png" id="4_3g2y6"]
 [ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="4_hlm5c"]
 [ext_resource type="Script" uid="uid://di5rnietukg8x" path="res://scripts/sense_slider.gd" id="5_lpqkh"]
+[ext_resource type="Texture2D" uid="uid://d37g2vofbuaic" path="res://ui/pause_menu_button1-Sheet.png" id="8_3g2y6"]
+[ext_resource type="FontFile" uid="uid://i3l17i8ifdhk" path="res://fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" id="8_lpqkh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kkbo"]
 bg_color = Color(0.09803922, 0.30980393, 1, 1)
@@ -41,6 +43,54 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(140, 205)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/QuitToTile:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/MenuButton1:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/QuitToTile/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/QuitToTile/MenuButton2:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_3g2y6"]
 resource_name = "on_BIG_LEFT"
@@ -70,6 +120,30 @@ tracks/1/keys = {
 "args": [],
 "method": &"travel_expanded_position"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_lpqkh"]
@@ -101,6 +175,30 @@ tracks/1/keys = {
 "method": &"travel_expanded_position"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_wdljl"]
 resource_name = "on_MASTER_HOVER"
@@ -130,6 +228,18 @@ tracks/1/keys = {
 "args": [],
 "method": &"travel_first_position"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_lymfh"]
@@ -161,6 +271,30 @@ tracks/1/keys = {
 "method": &"travel_third_position"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_8ou3m"]
 resource_name = "on_MOUSE_HOVER"
@@ -190,6 +324,30 @@ tracks/1/keys = {
 "args": [],
 "method": &"travel_first_position"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_iynmv"]
@@ -221,6 +379,30 @@ tracks/1/keys = {
 "method": &"travel_fifth_position"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_dl6it"]
 resource_name = "on_MUSIC_HOVER"
@@ -250,6 +432,30 @@ tracks/1/keys = {
 "args": [],
 "method": &"travel_first_position"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_p5uep"]
@@ -281,6 +487,30 @@ tracks/1/keys = {
 "method": &"travel_third_position"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_8kkbo"]
 resource_name = "on_SOUND_HOVER"
@@ -310,6 +540,30 @@ tracks/1/keys = {
 "args": [],
 "method": &"travel_first_position"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_dn6px"]
@@ -341,6 +595,240 @@ tracks/1/keys = {
 "method": &"travel_third_position"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ggveo"]
+resource_name = "on_TO_TITLE_1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(890, 315)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_sixth_position"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_nwc8s"]
+resource_name = "on_TO_TITLE_2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(440, 400)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_sixth_position"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MenuButton1:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/QuitToTile/MenuButton1:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/QuitToTile/MenuButton2:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bf4yj"]
+resource_name = "on_TO_TITLE_3"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(840, 400)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Selector")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"travel_sixth_position"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/QuitToTile:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/QuitToTile/MenuButton2:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/QuitToTile/MenuButton1:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/MenuButton1:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dl6it"]
 _data = {
@@ -354,7 +842,10 @@ _data = {
 &"on_MUSIC_HOVER": SubResource("Animation_dl6it"),
 &"on_MUSIC_SLIDER": SubResource("Animation_p5uep"),
 &"on_SOUND_HOVER": SubResource("Animation_8kkbo"),
-&"on_SOUND_SLIDER": SubResource("Animation_dn6px")
+&"on_SOUND_SLIDER": SubResource("Animation_dn6px"),
+&"on_TO_TITLE_1": SubResource("Animation_ggveo"),
+&"on_TO_TITLE_2": SubResource("Animation_nwc8s"),
+&"on_TO_TITLE_3": SubResource("Animation_bf4yj")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hlm5c"]
@@ -386,6 +877,15 @@ animation = &"on_SOUND_HOVER"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p5uep"]
 animation = &"on_SOUND_SLIDER"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iynmv"]
+animation = &"on_TO_TITLE_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ggveo"]
+animation = &"on_TO_TITLE_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nwc8s"]
+animation = &"on_TO_TITLE_3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lpqkh"]
 xfade_time = 0.1
@@ -442,6 +942,36 @@ xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ab7u"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cy4hn"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tnaq4"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_77t5w"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mqlij"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0qlvm"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nomo1"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kgeci"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1cumw"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0vrus"]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c33hk"]
+xfade_time = 0.1
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hlm5c"]
 states/End/position = Vector2(1029, 100)
 states/on_BIG_LEFT/node = SubResource("AnimationNodeAnimation_hlm5c")
@@ -464,8 +994,14 @@ states/on_SOUND_HOVER/node = SubResource("AnimationNodeAnimation_3g2y6")
 states/on_SOUND_HOVER/position = Vector2(523, 216)
 states/on_SOUND_SLIDER/node = SubResource("AnimationNodeAnimation_p5uep")
 states/on_SOUND_SLIDER/position = Vector2(710, 216)
-transitions = ["on_BIG_LEFT", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_lpqkh"), "on_MASTER_HOVER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_lymfh"), "on_MUSIC_HOVER", "on_SOUND_HOVER", SubResource("AnimationNodeStateMachineTransition_p5uep"), "on_SOUND_HOVER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_dn6px"), "on_MUSIC_HOVER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_8ou3m"), "on_MASTER_HOVER", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_nwc8s"), "Start", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_bf4yj"), "on_MASTER_SLIDER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_xrc4d"), "on_MASTER_HOVER", "on_MASTER_SLIDER", SubResource("AnimationNodeStateMachineTransition_j2csl"), "on_MUSIC_SLIDER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_vg0yf"), "on_MUSIC_HOVER", "on_MUSIC_SLIDER", SubResource("AnimationNodeStateMachineTransition_8g2a7"), "on_SOUND_SLIDER", "on_SOUND_HOVER", SubResource("AnimationNodeStateMachineTransition_rc0tf"), "on_SOUND_HOVER", "on_SOUND_SLIDER", SubResource("AnimationNodeStateMachineTransition_mgily"), "on_MUSIC_HOVER", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_iynmv"), "on_SOUND_HOVER", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_ggveo"), "on_MASTER_HOVER", "on_MOUSE_HOVER", SubResource("AnimationNodeStateMachineTransition_ol1yi"), "on_MOUSE_HOVER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_7qyse"), "on_BIG_RIGHT", "on_MOUSE_HOVER", SubResource("AnimationNodeStateMachineTransition_i5ndw"), "on_MOUSE_HOVER", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_m8t7n"), "on_MOUSE_SLIDER", "on_MOUSE_HOVER", SubResource("AnimationNodeStateMachineTransition_g0r51"), "on_MOUSE_HOVER", "on_MOUSE_SLIDER", SubResource("AnimationNodeStateMachineTransition_6ab7u")]
-graph_offset = Vector2(128, -125)
+states/on_TO_TITLE_1/node = SubResource("AnimationNodeAnimation_iynmv")
+states/on_TO_TITLE_1/position = Vector2(304, -33)
+states/on_TO_TITLE_2/node = SubResource("AnimationNodeAnimation_ggveo")
+states/on_TO_TITLE_2/position = Vector2(116, -132)
+states/on_TO_TITLE_3/node = SubResource("AnimationNodeAnimation_nwc8s")
+states/on_TO_TITLE_3/position = Vector2(304, -132)
+transitions = ["on_BIG_LEFT", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_lpqkh"), "on_MASTER_HOVER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_lymfh"), "on_MUSIC_HOVER", "on_SOUND_HOVER", SubResource("AnimationNodeStateMachineTransition_p5uep"), "on_SOUND_HOVER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_dn6px"), "on_MUSIC_HOVER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_8ou3m"), "on_MASTER_HOVER", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_nwc8s"), "Start", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_bf4yj"), "on_MASTER_SLIDER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_xrc4d"), "on_MASTER_HOVER", "on_MASTER_SLIDER", SubResource("AnimationNodeStateMachineTransition_j2csl"), "on_MUSIC_SLIDER", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_vg0yf"), "on_MUSIC_HOVER", "on_MUSIC_SLIDER", SubResource("AnimationNodeStateMachineTransition_8g2a7"), "on_SOUND_SLIDER", "on_SOUND_HOVER", SubResource("AnimationNodeStateMachineTransition_rc0tf"), "on_SOUND_HOVER", "on_SOUND_SLIDER", SubResource("AnimationNodeStateMachineTransition_mgily"), "on_MUSIC_HOVER", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_iynmv"), "on_SOUND_HOVER", "on_BIG_LEFT", SubResource("AnimationNodeStateMachineTransition_ggveo"), "on_MASTER_HOVER", "on_MOUSE_HOVER", SubResource("AnimationNodeStateMachineTransition_ol1yi"), "on_MOUSE_HOVER", "on_MASTER_HOVER", SubResource("AnimationNodeStateMachineTransition_7qyse"), "on_BIG_RIGHT", "on_MOUSE_HOVER", SubResource("AnimationNodeStateMachineTransition_i5ndw"), "on_MOUSE_HOVER", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_m8t7n"), "on_MOUSE_SLIDER", "on_MOUSE_HOVER", SubResource("AnimationNodeStateMachineTransition_g0r51"), "on_MOUSE_HOVER", "on_MOUSE_SLIDER", SubResource("AnimationNodeStateMachineTransition_6ab7u"), "on_MOUSE_HOVER", "on_TO_TITLE_1", SubResource("AnimationNodeStateMachineTransition_cy4hn"), "on_TO_TITLE_1", "on_MOUSE_HOVER", SubResource("AnimationNodeStateMachineTransition_tnaq4"), "on_TO_TITLE_1", "on_TO_TITLE_2", SubResource("AnimationNodeStateMachineTransition_77t5w"), "on_TO_TITLE_2", "on_TO_TITLE_3", SubResource("AnimationNodeStateMachineTransition_mqlij"), "on_TO_TITLE_3", "on_TO_TITLE_2", SubResource("AnimationNodeStateMachineTransition_0qlvm"), "on_TO_TITLE_2", "on_TO_TITLE_1", SubResource("AnimationNodeStateMachineTransition_nomo1"), "on_TO_TITLE_3", "on_TO_TITLE_1", SubResource("AnimationNodeStateMachineTransition_kgeci"), "on_TO_TITLE_1", "on_BIG_RIGHT", SubResource("AnimationNodeStateMachineTransition_1cumw"), "on_TO_TITLE_1", "on_MUSIC_HOVER", SubResource("AnimationNodeStateMachineTransition_0vrus"), "on_MUSIC_HOVER", "on_TO_TITLE_1", SubResource("AnimationNodeStateMachineTransition_c33hk")]
+graph_offset = Vector2(-104, -252)
 
 [node name="Audio" type="CanvasLayer" unique_id=1930912985]
 script = ExtResource("1_f5a2e")
@@ -517,6 +1053,83 @@ offset_top = 430.0
 offset_right = 590.0
 offset_bottom = 460.0
 bus_index = 2
+
+[node name="MenuButton1" type="Sprite2D" parent="Control" unique_id=1470123493]
+position = Vector2(890, 315)
+texture = ExtResource("8_3g2y6")
+hframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MenuButton1" unique_id=1388557498]
+offset_left = -91.0
+offset_top = -20.0
+offset_right = 91.0
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("8_lpqkh")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]To Title[/center]"
+
+[node name="QuitToTile" type="ColorRect" parent="Control" unique_id=1728261335]
+visible = false
+layout_mode = 0
+offset_left = 90.0
+offset_top = 40.0
+offset_right = 1190.0
+offset_bottom = 680.0
+mouse_filter = 1
+color = Color(0, 0, 0, 0.70000005)
+
+[node name="MenuButton1" type="Sprite2D" parent="Control/QuitToTile" unique_id=744078311]
+position = Vector2(350, 360)
+texture = ExtResource("8_3g2y6")
+hframes = 2
+frame = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/QuitToTile/MenuButton1" unique_id=608452785]
+offset_left = -91.0
+offset_top = -20.0
+offset_right = 91.0
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("8_lpqkh")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]NO[/center]"
+
+[node name="MenuButton2" type="Sprite2D" parent="Control/QuitToTile" unique_id=1702327350]
+position = Vector2(750, 360)
+texture = ExtResource("8_3g2y6")
+hframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/QuitToTile/MenuButton2" unique_id=100551424]
+offset_left = -91.0
+offset_top = -20.0
+offset_right = 91.0
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("8_lpqkh")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]YES[/center]"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/QuitToTile" unique_id=353850475]
+layout_mode = 0
+offset_top = 180.0
+offset_right = 1100.0
+offset_bottom = 460.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("8_lpqkh")
+theme_override_font_sizes/normal_font_size = 96
+bbcode_enabled = true
+text = "[center]Are You Sure?[/center]"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=855484125]
 libraries/ = SubResource("AnimationLibrary_dl6it")
