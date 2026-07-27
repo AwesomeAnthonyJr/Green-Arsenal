@@ -6,9 +6,9 @@ class_name SaveFile
 	true, #life
 	true, #bounce
 	true, #seeker
-	false,
-	false,
-	false
+	true, #platform
+	true, #propeller
+	true #heavy
 ]
 @export var max_hp: int = 3
 @export var growth_charges: int = 1
