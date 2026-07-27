@@ -6,8 +6,14 @@ var active_room: Room
 var active_key = 4
 @export var player: Player
 
-@export var positions = PackedVector3Array()
+#@export var positions = PackedVector3Array()
 @export var test_position = Vector3()
+
+#for the load points
+const positions = [
+	Vector3(10.0, 1.2, 5.0),
+	Vector3(20.0, 1.55, -6.0),
+]
 
 #this tells it which room to start in basically; -1 for testing!
 const load_point_keys = {

@@ -172,7 +172,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_pere7"]
 resource_name = "press"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -271,7 +271,7 @@ mesh = SubResource("CapsuleMesh_wqrsr")
 surface_material_override/0 = SubResource("StandardMaterial3D_5j8ww")
 
 [node name="InteractArea" parent="." unique_id=530012375 instance=ExtResource("6_5j8ww")]
-interaction_name = "open seed vault"
+interaction_name = "push button"
 
 [node name="CollisionShape3D" parent="InteractArea" index="0" unique_id=1289814683]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0127244)
