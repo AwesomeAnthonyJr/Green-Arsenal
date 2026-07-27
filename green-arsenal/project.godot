@@ -36,6 +36,7 @@ directories/dch_directory={
 "operator": "res://misc/dialogic/operator.dch"
 }
 directories/dtl_directory={
+"forest3_mentor": "res://misc/dialogic/forest3_mentor.dtl",
 "generic_operator": "res://misc/dialogic/generic_operator.dtl",
 "intro": "res://misc/dialogic/intro.dtl",
 "intro2_operator": "res://misc/dialogic/intro2_operator.dtl",

@@ -15,8 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="12_spp6l"]
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="13_vet8r"]
 [ext_resource type="PackedScene" uid="uid://d2xix6crf4q8" path="res://scenes/seed_vault.tscn" id="14_u2avg"]
+[ext_resource type="PackedScene" uid="uid://c3xcgxgalv1wm" path="res://scenes/save_operator.tscn" id="15_ci4ib"]
 [ext_resource type="Material" uid="uid://ct5ogddtqndri" path="res://materials/white_material_2.tres" id="16_3jria"]
+[ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="16_07f27"]
 [ext_resource type="Material" uid="uid://cgsnt031fmwnp" path="res://materials/white_material.tres" id="17_csvwr"]
+[ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="17_p3p10"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4viom"]
 
@@ -543,6 +546,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.534573, 1.672648, 48.6823
 
 [node name="Tree_F" parent="." unique_id=1654159249 instance=ExtResource("13_vet8r")]
 transform = Transform3D(-0.052344393, 0, 0.9986291, 0, 1, 0, -0.9986291, 0, -0.052344393, -3.7068224, 0.3725505, 46.90068)
+
+[node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("15_ci4ib")]
+transform = Transform3D(-0.1248645, 0, 1.4947939, 0, 1.5, 0, -1.4947939, 0, -0.1248645, -16.199017, 3.2727523, 53.396275)
+operator_scenes = Array[ExtResource("16_07f27")]([null, ExtResource("17_p3p10")])
+load_point = 2
 
 [node name="SeedVault" parent="." unique_id=538589429 instance=ExtResource("14_u2avg")]
 transform = Transform3D(-1.5, 0, -2.2649371e-07, 0, 1.5, 0, 2.2649371e-07, 0, -1.5, -10, 1.2999067, 62)

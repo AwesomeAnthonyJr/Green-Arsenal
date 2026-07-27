@@ -14,6 +14,7 @@ const load_point_keys = {
 	-1: 12,
 	0: 4,
 	1: 4,
+	2: 8,
 }
 
 const room_dict = {

@@ -1316,7 +1316,7 @@ process_mode = 1
 [node name="RoomLoader" type="Node3D" parent="Active" unique_id=481011108 node_paths=PackedStringArray("player")]
 script = ExtResource("3_1bvp3")
 player = NodePath("PlayerPackage/Player")
-positions = PackedVector3Array(10, 1.2, 5, 20, 1.55, -6)
+positions = PackedVector3Array(10, 1.2, 5, 20, 1.55, -6, 0, 0, 0)
 test_position = Vector3(-100, 0, -138)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Active/RoomLoader" unique_id=449614055]
