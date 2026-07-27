@@ -25,5 +25,6 @@ shader_parameter/height_scale = 0.05
 shader_parameter/edge_scale = 1.0
 shader_parameter/edge_near = 1.0
 shader_parameter/edge_far = 100.0
+shader_parameter/transparency = 0.5
 shader_parameter/uv1_scale = Vector2(0, 0)
 shader_parameter/uv1_offset = Vector2(0, 0)
