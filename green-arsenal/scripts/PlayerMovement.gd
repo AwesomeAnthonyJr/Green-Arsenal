@@ -265,8 +265,8 @@ func _physics_process(delta: float) -> void:
 	
 	#just going to use the walk animation to convey all movement for now...
 	if move_dir.length() > 0 and !supress_movement:
-		var move_speed = lerpf(1.0, 2.5, Vector2(linear_velocity.x, linear_velocity.z).length() / 12.0)
-		model_anim_tree.set("parameters/TimeScale/scale", move_speed)
+		var move_speed = lerpf(1.0, 2.5, Vector2(linear_velocity.x, linear_velocity.z).length() / 18.0)
+		model_anim_tree.set("parameters/TimeScale/scale", move_speed * 0.5)
 		model_anim_tree["parameters/WalkState/playback"].travel("left_step")
 	else:
 		model_anim_tree.set("parameters/TimeScale/scale", 1.0)
