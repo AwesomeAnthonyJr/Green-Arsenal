@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="10_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://1u1klsx5x1q4" path="res://ui/status_ui_growth_charge.png" id="11_lgwnu"]
 [ext_resource type="Script" uid="uid://d3e7tcoai48st" path="res://scripts/load_game_box.gd" id="12_flqon"]
+[ext_resource type="AudioStream" uid="uid://b14voe73kk2v6" path="res://sound/music/theme.mp3" id="14_1ajci"]
 [ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="14_7b55j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8ln24"]
@@ -792,7 +793,7 @@ script = ExtResource("1_1ajci")
 environment = SubResource("Environment_rtw2f")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=520725089]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -4)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, -4)
 cull_mask = 524287
 
 [node name="Armature_001" type="Node3D" parent="." unique_id=1223854156]
@@ -1124,7 +1125,7 @@ settings/0/joints/2/limitation/right_axis = 0
 settings/0/joints/2/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature_001/Skeleton3D" unique_id=1146164239]
-transform = Transform3D(-0.9871021, 0.14876279, -0.05914621, -0.15019822, -0.98844147, 0.020587312, -0.055399932, 0.029205387, 0.99803644, -0.4172267, 0.060498737, -0.0105293915)
+transform = Transform3D(-0.9871294, 0.1487602, -0.058696967, -0.15019532, -0.988437, 0.020820448, -0.054921, 0.029368445, 0.99805814, -0.41722628, 0.06051594, -0.010045137)
 bone_name = "Palm R"
 bone_idx = 19
 
@@ -1803,5 +1804,11 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1536368690]
 libraries/ = SubResource("AnimationLibrary_a8gd2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1884693104]
+stream = ExtResource("14_1ajci")
+bus = &"Music"
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 
 [editable path="CanvasLayer/Selector"]

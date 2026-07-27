@@ -98,7 +98,6 @@ var in_menu = false
 func _ready() -> void:
 	main = Generics.find_main(self)
 	connect_inputs()
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 func connect_inputs():
 	var manager = main.input_manager
 	manager.up.connect(read_up)

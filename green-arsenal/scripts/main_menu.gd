@@ -6,6 +6,7 @@ extends Node3D
 @onready var canvas_layer = $CanvasLayer
 
 @onready var anim = $AnimationTree
+@onready var music = $AudioStreamPlayer
 var menu_position = 0
 #0 - starting
 #1 - box
@@ -15,6 +16,7 @@ var menu_position = 0
 var new_game: bool = true
 var can_load_game: bool = true
 var supress_next_input: bool = false
+var loop_count: int = 0
 
 func _ready() -> void:
 	connect_inputs()
@@ -27,6 +29,11 @@ func menu_startup():
 	else:
 		new_game = false
 		can_load_game = true
+	music.play()
+	loop_count = 1
+	music.volume_db = -3.0
+	music.pitch_scale = 1.0
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 	update_visuals()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -169,6 +176,7 @@ func start_game():
 	var m: Main = Generics.find_main(self)
 	m.not_gameplay = false
 	get_parent().load_room_loader()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 
 func read_back():
 	pass
@@ -185,3 +193,13 @@ func connect_inputs():
 	manager.pause.connect(read_back)
 	manager.reload.connect(read_back)
 	manager.interact.connect(read_accept)
+
+
+func _on_audio_stream_player_finished() -> void:
+	#print(loop_count)
+	###this makes it get weird as it loops which i think is kind of fun :)
+	music.play()
+	loop_count += 1
+	music.pitch_scale -= 0.05
+	if loop_count > 1:
+		music.volume_db -= 2.0
