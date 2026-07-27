@@ -74,11 +74,13 @@ void light() {
 	vec3 fres2 = vec3(1.0, 1.0, 1.0) * fresnel_strength * fres;
 	//cel
 	float dot_prod = max(dot(NORMAL, LIGHT) * ATTENUATION * length(LIGHT_COLOR), 0.0) ;
+	bool in_shadow = false;
 	if (dot_prod <= shadow_threshold){
 		if (DIFFUSE_LIGHT == diffuse_calc(lit_color, fres2)) {
 			DIFFUSE_LIGHT = diffuse_calc(lit_color, fres2);
 		} else {
 			DIFFUSE_LIGHT = diffuse_calc(shadow_color, fres2);
+			in_shadow = true;
 		}
 	} else {
 		DIFFUSE_LIGHT = diffuse_calc(lit_color, fres2);
@@ -87,7 +89,7 @@ void light() {
 	vec3 H = normalize(LIGHT + VIEW);
 	float spec = pow(max(dot(NORMAL, H), 0.0), 8.0);
 	spec = step(specular_threshold, spec);
-	if (DIFFUSE_LIGHT == diffuse_calc(lit_color, fres2)){
+	if (!in_shadow){
 		if (SPECULAR_LIGHT == vec3(0.0, 0.0, 0.0)){ 
 			SPECULAR_LIGHT = spec * lit_color * specular_strength;
 		}

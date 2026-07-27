@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://c1hvqdoeaahjp" path="res://misc/Screenshot 2025-09-19 142504.png" id="7_h7j6q"]
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="7_srdg7"]
 [ext_resource type="PackedScene" uid="uid://ddexbsd7e36p3" path="res://scenes/level_parts/strangler_c.tscn" id="10_h7j6q"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="12_5tfqg"]
+[ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="13_5mxhe"]
+[ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="14_ka2ef"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -2856,9 +2859,117 @@ transform = Transform3D(2, 0, 0, 0, 13.5, 0, 0, 0, 13.2, -45.232132, -1.2014294,
 new_id = 13
 
 [node name="Exit3" parent="." unique_id=291038979 instance=ExtResource("4_uj84s")]
-transform = Transform3D(1, 0, 0, 0, 13.5, 0, 0, 0, 17.195, 41.767868, -1.2014294, -8.444794)
+transform = Transform3D(1, 0, 0, 0, 13.5, 0, 0, 0, 17.195, 37.767868, -1.2014294, -8.444794)
 new_id = 16
 
 [node name="Exit4" parent="." unique_id=1689601822 instance=ExtResource("4_uj84s")]
 transform = Transform3D(17.195, 0, 0, 0, 13.5, 0, 0, 0, 1, -2.232132, -1.2014294, -58.444794)
 new_id = 15
+
+[node name="Label3D" type="Label3D" parent="." unique_id=861949748]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -29.977068, -5, 6)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = ">>>>>>>>>>>>>>
+Bounce Seed
+Left Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 0
+
+[node name="Label3D8" type="Label3D" parent="." unique_id=1441537445]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.977068, -5, 26)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = ">>>>>>>>>>>>>>
+Bounce Seed
+Left Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 0
+
+[node name="Label3D5" type="Label3D" parent="." unique_id=1538581903]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.99391, -5, 6)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = "<<<<<<<<<<<<<<
+Seeker Seed
+Right Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 2
+
+[node name="Label3D7" type="Label3D" parent="." unique_id=1496879662]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.9939098, -5, 45)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = "<<<<<<<<<<<<<<
+Seeker Seed
+Right Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 2
+
+[node name="Label3D6" type="Label3D" parent="." unique_id=1122814071]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 23.99391, -5, 0.9357977)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = "<<<<<<<<<<<<<<
+Seeker Seed
+Right Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 2
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=1925063062]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -32, -5, 0.9518275)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = ">>>>>>>>>>>>>>
+Bounce Seed
+Left Button"
+font = ExtResource("12_5tfqg")
+font_size = 96
+horizontal_alignment = 0
+
+[node name="Label3D3" type="Label3D" parent="." unique_id=551776124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.565704, -4, -48.993416)
+modulate = Color(0.8862745, 0.21960784, 0.23137255, 1)
+text = "GATE REQUIRES
+OVERRIDE BUTTONS
+TO BE ACTIVATED"
+font = ExtResource("13_5mxhe")
+font_size = 96
+horizontal_alignment = 3
+
+[node name="Label3D4" type="Label3D" parent="." unique_id=1099639886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4342957, -4, -48.993416)
+modulate = Color(0.8862745, 0.21960784, 0.23137255, 1)
+text = "GATE REQUIRES
+OVERRIDE BUTTONS
+TO BE ACTIVATED"
+font = ExtResource("13_5mxhe")
+font_size = 96
+horizontal_alignment = 3
+
+[node name="FacilityLight" parent="." unique_id=846988860 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 2.4851942, 53)
+
+[node name="FacilityLight2" parent="." unique_id=994602867 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -6, 15.608462, 26)
+spot_range = 32.335594
+
+[node name="FacilityLight3" parent="." unique_id=749130804 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -17, 2.4851942, 62)
+
+[node name="FacilityLight4" parent="." unique_id=1161889383 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.034779, 7.3323936, 26)
+
+[node name="FacilityLight5" parent="." unique_id=823189508 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -35.03478, 11.421267, -8)
+
+[node name="FacilityLight6" parent="." unique_id=216250994 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.0347786, 4.593486, -45)
+
+[node name="FacilityLight7" parent="." unique_id=1839040026 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 21.965221, 1.3676734, 6)
+
+[node name="FacilityLight8" parent="." unique_id=769308791 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 26.639635, 6.513741, -3.309871)
+
+[node name="FacilityLight9" parent="." unique_id=783607829 instance=ExtResource("14_ka2ef")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -28.876373, 2.4858344, 4.547537)
