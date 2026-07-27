@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="17_gyv3l"]
 [ext_resource type="PackedScene" uid="uid://dogvlj5kbvoo3" path="res://scenes/level_parts/dialog_trigger.tscn" id="18_2rric"]
 [ext_resource type="Resource" uid="uid://dd6hvumb8wml2" path="res://misc/dialogic/underground_entrance_mentor.dtl" id="19_brsy2"]
-[ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="20_vyxr3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -98,7 +97,7 @@ size = Vector3(50, 10, 5)
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_rgmwo")
-adjacent_rooms = Array[int]([10])
+adjacent_rooms = Array[int]([10, 12])
 room_pos = Vector3(0, 0, -80)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
@@ -1048,15 +1047,6 @@ fs_index = 7
 [node name="CollisionShape3D" parent="DialogTrigger" index="0" unique_id=1604652831]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1073761, -0.69039583, 2.6890945)
 shape = SubResource("BoxShape3D_brsy2")
-
-[node name="ENDOFDEMO" type="Label3D" parent="." unique_id=1926874952]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95, -6, -44)
-billboard = 1
-fixed_size = true
-modulate = Color(1, 0, 0, 1)
-text = "END OF DEMO"
-font = ExtResource("20_vyxr3")
-font_size = 64
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_006" method="set_flag_true"]
