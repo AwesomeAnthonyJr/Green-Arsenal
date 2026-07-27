@@ -7,6 +7,7 @@ extends Node3D
 
 @onready var anim = $AnimationTree
 @onready var music = $AudioStreamPlayer
+@onready var cam = $Camera3D
 var menu_position = 0
 #0 - starting
 #1 - box
@@ -17,6 +18,7 @@ var new_game: bool = true
 var can_load_game: bool = true
 var supress_next_input: bool = false
 var loop_count: int = 0
+var target_rot = Vector2.ZERO
 
 func _ready() -> void:
 	connect_inputs()
@@ -193,7 +195,17 @@ func connect_inputs():
 	manager.pause.connect(read_back)
 	manager.reload.connect(read_back)
 	manager.interact.connect(read_accept)
+	manager.look_2.connect(read_look)
 
+func read_look(y, x):
+	target_rot.x += x * 0.1
+	target_rot.y += y * 0.1
+	target_rot.x = clampf(target_rot.x, -0.1, 0.1)
+	target_rot.y = clampf(target_rot.y, -0.1, 0.1)
+
+func _process(delta: float) -> void:
+	cam.rotation.x = lerpf(cam.rotation.x, target_rot.x, 0.5)
+	cam.rotation.y = lerpf(cam.rotation.y, target_rot.y + deg_to_rad(-180.0), 0.5)
 
 func _on_audio_stream_player_finished() -> void:
 	#print(loop_count)

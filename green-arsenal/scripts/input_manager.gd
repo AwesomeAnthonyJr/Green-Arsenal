@@ -15,6 +15,7 @@ signal shoot
 signal reload
 signal interact
 signal look(x, y)
+signal look_2(x, y)
 signal up
 signal down
 signal left
@@ -94,9 +95,11 @@ func right_input():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
+		var look_x = -1 * event.relative.x * mouse_sensitivity;
+		var look_y = -1 * event.relative.y * mouse_sensitivity;
+		look_x *= SaveManager.player_settings.mouse_sense
+		look_y *= SaveManager.player_settings.mouse_sense
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			var look_x = -1 * event.relative.x * mouse_sensitivity;
-			var look_y = -1 * event.relative.y * mouse_sensitivity;
-			look_x *= SaveManager.player_settings.mouse_sense
-			look_y *= SaveManager.player_settings.mouse_sense
 			look.emit(look_x, look_y)
+		else:
+			look_2.emit(look_x, look_y)
