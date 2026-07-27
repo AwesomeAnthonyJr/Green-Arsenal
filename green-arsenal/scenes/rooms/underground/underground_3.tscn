@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://chgbgevootvag" path="res://scripts/save_flag_reader_destroyer.gd" id="12_w4uld"]
 [ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="13_md7am"]
 [ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="15_025sc"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="16_mqq8b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1502,6 +1503,25 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 64, 
 
 [node name="FacilityLight4" parent="." unique_id=764184767 instance=ExtResource("15_025sc")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 66, 37.485195, -2)
+
+[node name="Label3D7" type="Label3D" parent="." unique_id=1064990449]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, 43.99391, -5, 2.9927845)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = "<<<<<<<<<<<<<<
+Seeker Seed
+"
+font = ExtResource("16_mqq8b")
+font_size = 96
+horizontal_alignment = 2
+
+[node name="Label3D8" type="Label3D" parent="." unique_id=289550676]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 68.99391, 4, -0.0072155)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = "<<<<<<<<<<<<<<
+Right Button"
+font = ExtResource("16_mqq8b")
+font_size = 96
+horizontal_alignment = 2
 
 [connection signal="target_destroyed" from="StranglerTarget" to="StranglerGate/RootPoint3/RootPoint3/RootPoint3/RootPoint3/RootPoint3/RootPoint3/RootPoint3/RootPoint3/RootPoint3/RootPoint3/RootPoint3/RootPoint3/RootPoint3/RootPoint3_Target1" method="destroy"]
 [connection signal="target_destroyed" from="StranglerTarget2" to="StranglerGate/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint_Target2" method="destroy"]
