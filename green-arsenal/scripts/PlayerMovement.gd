@@ -60,6 +60,8 @@ var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_inputs()
+	max_health = SaveManager.player_save.max_hp
+	current_health = max_health
 	await get_tree().process_frame
 	if HUD != null:
 		hud.update_petals(loaded_in_gun)
@@ -411,6 +413,13 @@ func check_special_plants():
 		check_special_plants()
 
 func heal_1():
+	current_health += 1
+	if current_health > max_health:
+		current_health = max_health
+	hud.update_health_display(max_health, current_health)
+
+func max_1():
+	max_health = SaveManager.player_save.max_hp
 	current_health += 1
 	if current_health > max_health:
 		current_health = max_health

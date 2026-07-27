@@ -26,6 +26,8 @@ func _physics_process(delta: float) -> void:
 			hit_enemy(enemy_cast.get_collider(0))
 	if puzzle_cast.is_colliding():
 		#print("HIT FLOOR?")
+		if puzzle_cast.get_collider().is_in_group("torch"):
+			puzzle_cast.get_collider().get_parent().light_torch()
 		destroy_bullet()
 	
 	
