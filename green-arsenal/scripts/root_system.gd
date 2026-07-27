@@ -176,7 +176,7 @@ func generate_tube(branch: Array):
 
 func build_mesh():
 	var mesh := ArrayMesh.new()
-	if vertices.size() <= 0:
+	if vertices.size() <= sides:
 		$MeshInstance3D.mesh = mesh
 		return
 	var arrays = []
@@ -197,6 +197,11 @@ func build_mesh():
 func generate_collision():
 	var shape = ConcavePolygonShape3D.new()
 	var faces = PackedVector3Array()
+	
+	if vertices.size() <= sides:
+		$StaticBody3D_L1/CollisionShape3D.shape = shape
+		$StaticBody3D_L2/CollisionShape3D.shape = $MeshInstance3D.mesh.create_convex_shape()
+		return
 	
 	for i in range(0, indices.size(), 3):
 		var a = vertices[indices[i]]

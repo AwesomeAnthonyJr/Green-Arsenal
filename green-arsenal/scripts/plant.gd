@@ -1,6 +1,7 @@
 extends Node3D
 class_name Plant
 
+@export var sprite_frame: int
 var dead = false
 
 func destroy_self():

@@ -15,9 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://doje8a0avc0ah" path="res://ui/revolver_ui_circle_small.png" id="13_4f0tj"]
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="13_ywslq"]
 [ext_resource type="Texture2D" uid="uid://cu62pj1efch37" path="res://ui/heart_ui_1_take_2_flat.png" id="14_40yl3"]
+[ext_resource type="Script" uid="uid://gf01xkqe06kj" path="res://scripts/planted.gd" id="16_2k0n8"]
 [ext_resource type="Script" uid="uid://b3uc3k1ofckag" path="res://scripts/interact_position.gd" id="16_4f0tj"]
+[ext_resource type="Texture2D" uid="uid://cjgf2l4pe0big" path="res://ui/plant_renders_nonindexed-Sheet.png" id="16_156o1"]
 [ext_resource type="Texture2D" uid="uid://bt5pgejxb6g4y" path="res://ui/pause_menu_ui_selector_1.png" id="17_edenc"]
+[ext_resource type="Texture2D" uid="uid://dxywdyv4k3k36" path="res://ui/growth_ui_circle.png" id="17_qnwhp"]
 [ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="17_sbl5u"]
+[ext_resource type="Texture2D" uid="uid://dm42akc1ijltg" path="res://ui/no_plant_img.png" id="17_wkm38"]
 [ext_resource type="FontFile" uid="uid://i3l17i8ifdhk" path="res://fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" id="18_edenc"]
 [ext_resource type="Script" uid="uid://b6a5tb4hbvnyb" path="res://scripts/description_text.gd" id="19_156o1"]
 
@@ -1041,30 +1045,52 @@ texture = ExtResource("14_40yl3")
 libraries/ = SubResource("AnimationLibrary_2k0n8")
 
 [node name="Planted" type="Control" parent="." unique_id=1714290456]
-visible = false
 layout_mode = 3
 anchors_preset = 0
+offset_left = 1280.0
+offset_right = 1280.0
+script = ExtResource("16_2k0n8")
 
 [node name="Node2D" type="Node2D" parent="Planted" unique_id=2080348092]
-position = Vector2(-4, 22)
 
-[node name="Growth1" type="Sprite2D" parent="Planted/Node2D" unique_id=416457149]
-position = Vector2(48, 70)
-texture = ExtResource("13_ywslq")
+[node name="Grown1" type="Sprite2D" parent="Planted/Node2D" unique_id=416457149]
+position = Vector2(-50, 50)
+texture = ExtResource("17_qnwhp")
+
+[node name="Sprite" type="Sprite2D" parent="Planted/Node2D/Grown1" unique_id=785112574]
+texture = ExtResource("16_156o1")
 hframes = 11
 frame = 2
 
-[node name="Growth2" type="Sprite2D" parent="Planted/Node2D" unique_id=812675480]
-position = Vector2(116, 70)
-texture = ExtResource("13_ywslq")
-hframes = 11
-frame = 2
+[node name="NoSprite" type="Sprite2D" parent="Planted/Node2D/Grown1" unique_id=434062733]
+modulate = Color(1, 1, 1, 0.50980395)
+texture = ExtResource("17_wkm38")
 
-[node name="Growth3" type="Sprite2D" parent="Planted/Node2D" unique_id=216114360]
-position = Vector2(184, 70)
-texture = ExtResource("13_ywslq")
+[node name="Grown2" type="Sprite2D" parent="Planted/Node2D" unique_id=1378738561]
+position = Vector2(-140, 50)
+texture = ExtResource("17_qnwhp")
+
+[node name="Sprite" type="Sprite2D" parent="Planted/Node2D/Grown2" unique_id=312427037]
+texture = ExtResource("16_156o1")
 hframes = 11
-frame = 2
+frame = 3
+
+[node name="NoSprite" type="Sprite2D" parent="Planted/Node2D/Grown2" unique_id=1392768983]
+modulate = Color(1, 1, 1, 0.50980395)
+texture = ExtResource("17_wkm38")
+
+[node name="Grown3" type="Sprite2D" parent="Planted/Node2D" unique_id=624606873]
+position = Vector2(-230, 50)
+texture = ExtResource("17_qnwhp")
+
+[node name="Sprite" type="Sprite2D" parent="Planted/Node2D/Grown3" unique_id=586179800]
+texture = ExtResource("16_156o1")
+hframes = 11
+frame = 4
+
+[node name="NoSprite" type="Sprite2D" parent="Planted/Node2D/Grown3" unique_id=464013376]
+modulate = Color(1, 1, 1, 0.50980395)
+texture = ExtResource("17_wkm38")
 
 [node name="Interact_Position" type="Control" parent="." unique_id=1010596435]
 process_mode = 3

@@ -38,7 +38,6 @@ var loaded_in_gun = [0, 0, 0, 0, 0, 0]
 var max_health = 3
 var current_health = max_health
 
-var plant_max = 3
 var active_plants = []
 
 var iframes = false
@@ -64,6 +63,7 @@ func _ready() -> void:
 		hud.update_petals(loaded_in_gun)
 		connect_hud()
 		hud.update_health_display(max_health, current_health)
+		hud.update_growth_display(active_plants)
 	hand_looker.target_node = aiming_target.get_path()
 	
 
@@ -185,7 +185,7 @@ func _process(delta: float) -> void:
 	cameraRig.get_parent().get_parent().get_parent().supress_looking = is_reloading or supress_shooting
 	supress_shooting = false
 	for p in active_plants:
-		if is_instance_valid(p):
+		if is_instance_valid(p) and !p.dead:
 			if !supress_shooting:
 				if p is SeekerFlower and p.has_bullet:
 					supress_shooting = true
@@ -377,11 +377,7 @@ func shoot():
 	bullet.global_rotation = shooter.global_rotation
 	bullet.player = self
 	
-	var temp_plants = []
-	for p in active_plants:
-		if is_instance_valid(p):
-			temp_plants.append(p)
-	active_plants = temp_plants
+	check_special_plants()
 
 func check_special_plants():
 	var temp_plants = []
@@ -389,8 +385,10 @@ func check_special_plants():
 		if is_instance_valid(p) and !p.dead:
 			temp_plants.append(p)
 	active_plants = temp_plants
-	if active_plants.size() > plant_max:
+	hud.update_growth_display(active_plants)
+	if active_plants.size() > SaveManager.player_save.growth_charges:
 		active_plants[0].wither_self()
+		check_special_plants()
 
 func heal_1():
 	current_health += 1
