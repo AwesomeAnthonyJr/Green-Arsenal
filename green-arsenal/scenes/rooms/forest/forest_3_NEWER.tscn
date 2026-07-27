@@ -19,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://ditkeytqpk223" path="res://scenes/level_parts/strangler_b.tscn" id="19_iqkuq"]
 [ext_resource type="Material" uid="uid://dvt47ul4pjcvl" path="res://materials/leaves_nearest.tres" id="19_pbrci"]
 [ext_resource type="Material" uid="uid://cqwygovsi155y" path="res://materials/leaves_between.tres" id="20_2st2w"]
+[ext_resource type="PackedScene" uid="uid://dogvlj5kbvoo3" path="res://scenes/level_parts/dialog_trigger.tscn" id="21_1w2hs"]
 [ext_resource type="Material" uid="uid://b8f5nhjo3v8ex" path="res://materials/leaves_top.tres" id="21_2unlq"]
+[ext_resource type="Resource" uid="uid://crsguhkt23e8a" path="res://misc/dialogic/forest3_mentor.dtl" id="22_iqkuq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -57,6 +59,9 @@ subdivide_depth = 30
 size = Vector2(10, 10)
 subdivide_width = 30
 subdivide_depth = 30
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_honlr"]
+size = Vector3(5, 10, 16.94165)
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_x6m5d")
@@ -1302,3 +1307,14 @@ transform = Transform3D(-0.7190633, 0, 0.6949447, 0, 1, 0, -0.6949447, 0, -0.719
 
 [node name="Tree_F" parent="." unique_id=323133602 instance=ExtResource("14_a14lj")]
 transform = Transform3D(0.739982, 0, 0.6726266, 0, 1, 0, -0.6726266, 0, 0.739982, -0.017895699, -9.04427, 1.5521731)
+
+[node name="DialogTrigger" parent="." unique_id=451490337 instance=ExtResource("21_1w2hs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.578976, 4.820411, 0)
+dialogic_scene = ExtResource("22_iqkuq")
+flag_or_seed = 1
+
+[node name="CollisionShape3D" parent="DialogTrigger" index="0" unique_id=1604652831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34196568, 0.9263916)
+shape = SubResource("BoxShape3D_honlr")
+
+[editable path="DialogTrigger"]

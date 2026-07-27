@@ -36,10 +36,14 @@ directories/dch_directory={
 "operator": "res://misc/dialogic/operator.dch"
 }
 directories/dtl_directory={
+"fire_seed_operator": "res://misc/dialogic/fire_seed_operator.dtl",
+"fire_seed_operator2": "res://misc/dialogic/fire_seed_operator2.dtl",
+"forest3_mentor": "res://misc/dialogic/forest3_mentor.dtl",
 "generic_operator": "res://misc/dialogic/generic_operator.dtl",
 "intro": "res://misc/dialogic/intro.dtl",
 "intro2_operator": "res://misc/dialogic/intro2_operator.dtl",
-"intro_operator": "res://misc/dialogic/intro_operator.dtl"
+"intro_operator": "res://misc/dialogic/intro_operator.dtl",
+"underground_entrance_mentor": "res://misc/dialogic/underground_entrance_mentor.dtl"
 }
 layout/style_directory={
 "": "res://misc/dialogic/speaker_box.tres",

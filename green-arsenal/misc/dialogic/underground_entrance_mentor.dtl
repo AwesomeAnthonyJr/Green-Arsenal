@@ -1,0 +1,59 @@
+...
+......
+.........
+...in, Gardener, I re...
+mentor: ...come in, Gardener...
+mentor: ...come in, Gardener, I repeat\: come in, Gardener.
+...
+- I read you, Mentor.
+	mentor: Connection confirmed.
+	mentor: Gardener, we are beginning to have more difficulty finding your signal. Please explain your situation.
+	...
+	- I'm underground.
+		- There was a seed in a vault,
+			- It let me light the sconces and open the door.
+				- I'm approaching another door now.
+					- It's emblazoned with Moonsanto's logo, ma'am.
+						mentor: ...
+						mentor: Damn.
+						jump cont1
+label cont1
+mentor: Looks like Operator was right, Gardener.
+mentor: Moonsanto's a major supplier to large scale farms around the world.
+mentor: They're also famously litigious ---
+mentor: If they were the ones who made this forest-choking strangler fig, you might find yourself in court for tracking its seeds out of here on your shoes.
+mentor: Patented...
+mentor: Everything's goddamn patented.
+mentor: But this doesn't make any sense...
+mentor: They make herbicide resistant beans, not parasitic epiphytes.
+mentor: What reason could they possibly have to let this thing loose out here?
+mentor: ...
+mentor: If I know them, they're creating a problem to sell the solution.
+mentor: But this...
+mentor: They turned a goddamn keystone species into a threat of mass-deforestation.
+mentor: If the solution they're selling is a *stronger* herbicide again, I swear...
+...
+- Ma'am?
+	mentor: Sorry, gardener.
+	mentor: I lost my composure for a moment.
+	mentor: Proceed with your investigation.
+	mentor: It is likely that my ability to contact you will be further hindered as you delve further underground,
+	mentor: But I will speak with you as often as I can.
+	mentor: In the meantime, Operator will provide support wherever possible.
+	mentor: Lean on each other.
+	mentor: It is important work you're doing...
+	mentor: More important with every passing minute, it seems.
+	mentor: And stay vigilant.
+	mentor: By all appearances, you are entering their base now.
+	mentor: They will not take kindly to that, nor will whatever security they have erected.
+	mentor: Fight if you must, but remember that running is always an option.
+	...
+	- Yes, ma'am.
+		mentor: Very good.
+		mentor: I'll see what I can dig up on Moonsanto activity in the area on my end.
+		mentor: We'll figure this out, together.
+		mentor: And Gardener?
+		- Ma'am?
+			[signal arg="scene_end"]
+			mentor: May the wind be always at your back.
+			[end_timeline]

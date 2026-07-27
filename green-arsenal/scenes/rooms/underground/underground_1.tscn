@@ -11,8 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://c1hvqdoeaahjp" path="res://misc/Screenshot 2025-09-19 142504.png" id="7_h7j6q"]
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="7_srdg7"]
 [ext_resource type="PackedScene" uid="uid://ddexbsd7e36p3" path="res://scenes/level_parts/strangler_c.tscn" id="10_h7j6q"]
+[ext_resource type="PackedScene" uid="uid://c3xcgxgalv1wm" path="res://scenes/save_operator.tscn" id="10_ka2ef"]
+[ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="11_0gfbk"]
 [ext_resource type="PackedScene" uid="uid://tl4lg8ap4dm1" path="res://scenes/level_parts/strangler_a.tscn" id="12_0gfbk"]
 [ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="12_5tfqg"]
+[ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="12_y7emq"]
 [ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="13_5mxhe"]
 [ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="14_ka2ef"]
 
@@ -2849,6 +2852,11 @@ transform = Transform3D(-2.1650634, 0, -1.2499998, 0, 2.5, 0, 1.2499998, 0, -2.1
 
 [node name="enemySpawner2" parent="." unique_id=1819161031 instance=ExtResource("6_otkpc")]
 transform = Transform3D(-1.7677667, 0, 1.767767, 0, 2.5, 0, -1.767767, 0, -1.7677667, -6, -6, 62)
+
+[node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("10_ka2ef")]
+transform = Transform3D(-0.95116216, 0, 0.30869162, 0, 1, 0, -0.30869162, 0, -0.95116216, -5.8609734, -3.9779913, -8.890905)
+operator_scenes = Array[ExtResource("11_0gfbk")]([ExtResource("12_y7emq")])
+load_point = 4
 
 [node name="Tree_F" parent="." unique_id=47698065 instance=ExtResource("7_srdg7")]
 transform = Transform3D(-1.4060097, 0, -3.352068, 0, 3.6349998, 0, 3.352068, 0, -1.4060097, -7.8158875, -4.413373, 1.3989258)

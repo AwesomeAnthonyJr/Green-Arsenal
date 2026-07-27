@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 			going_up = true
 	
 	if player_is_colliding and Input.is_action_just_pressed("interact") and Dialogic.current_timeline == null and animation_player.is_playing() == false and !player_reference.is_reloading:
+		extra_stuff_in_physics_process()
 		abseleine.visible = true
 		animation_player.play("drop")
 		player_reference.paused = true
@@ -44,6 +45,11 @@ func _physics_process(delta: float) -> void:
 		if scene_index + 1 < operator_scenes.size():
 			scene_index += 1
 
+func extra_stuff_in_signal_func(arg):
+	pass
+
+func extra_stuff_in_physics_process():
+	pass
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
@@ -61,6 +67,7 @@ func _on_body_exited(body: Node3D) -> void:
 		#abseleine.visible = false
 
 func _on_dialogic_signal(arg):
+	extra_stuff_in_signal_func(arg)
 	if arg == "scene_end_op":
 		animation_player.play_backwards("drop")
 		player_reference.paused = false

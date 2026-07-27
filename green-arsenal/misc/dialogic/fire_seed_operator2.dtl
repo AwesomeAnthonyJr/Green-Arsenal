@@ -1,0 +1,22 @@
+operator: Lemme see that new seed a moment.
+operator: Huh...
+operator: Sacred lotus.
+operator: These things tend to run warm.
+operator: But with the Green Arsenal active, I'll bet they're downright *incandescent*.
+operator: Shooting a seed through its flower oughta make it *burning* hot.
+operator: And I suppose it could also be used for illumination in a pinch?
+operator: Hopefully that helps you on your way, Gardener.
+operator: Would you like to record any progress in your investigation?
+- Yes
+	operator: Saving progress...
+	[signal arg="save_signal"]
+	operator: Save complete.
+	jump save_done
+- No
+	operator: Roger dodger! I'll be here if you need to save progress in the future.
+	jump save_done
+label save_done
+operator: At that, I wish you the best of luck, Gardener.
+And don't forget to keep an eye out for weak points!
+[signal arg="scene_end_op"]
+[end_timeline]
