@@ -1,0 +1,39 @@
+audio "res://sound/effects/simple-shot.wav" [volume="0.0"]
+...
+...will continue monitoring channel...
+...awaiting Gardener respo...
+- I'm here, ma'am.
+	jump cont1
+label cont1
+audio "res://sound/effects/simple-shot.wav" [volume="0.0"]
+...tuning to new frequency...
+mentor: ...
+mentor: I've got you, Gardener.
+mentor: Thank you for your swift response upon touchdown.
+mentor: What's it looking like on the ground?
+- Dense, ma'am.
+	- I'm a bit boxed in.
+		jump cont2
+label cont2
+mentor: Hmmm... that's strange...
+mentor: Describe the plant-life that's got you stuck, Gardener.
+- It looks like thick vines.
+	mentor: That could be a problem. Green or brown, Gardener?
+	- Brown, ma'am.
+		mentor: Not arrowroot, then...
+		mentor: Could be strangler fig.
+		mentor: Are they clinging to a host plant, like a tree?
+		- Sort of?
+			- They seem to be reaching out from one tree to another.
+				mentor: ...
+				mentor: Huh.
+				mentor: That's...
+				mentor: Unusual.
+				- Not a comforting word to hear, ma'am.
+					mentor: Nor comforting to say, Gardener.
+					jump cont3
+label cont3
+mentor: I'm going to need you to find a spot to call down your field Operator.
+mentor: If this is what I think it might be, your job's just gone up a few ranks in complexity.
+[signal arg="scene_end"]
+[end_timeline]

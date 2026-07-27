@@ -5,6 +5,10 @@ var save_settings_name = "GreenArsenal_settings.tres"
 var player_save = SaveFile.new()
 var player_settings = Settings.new()
 
+func _ready() -> void:
+	verify_directories()
+	read_save()
+
 func get_seed_types():
 	return player_save.seed_types
 
