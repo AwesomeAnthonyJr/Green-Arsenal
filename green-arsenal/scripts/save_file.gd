@@ -2,10 +2,10 @@ extends Resource
 class_name SaveFile
 
 @export var seed_types: Array[bool] = [
-	false, #blaze
-	false, #life
-	false, #bounce
-	false, #seeker
+	true, #blaze
+	true, #life
+	true, #bounce
+	true, #seeker
 	false, #platform
 	false, #propeller
 	false #heavy
@@ -25,13 +25,14 @@ class_name SaveFile
 	false, #underground_entrance - torch 2
 	false, #underground_2 - torch 1
 	false, #underground_2 - torch 2
-	false, #bounce_seed - button | 10
+	true, #bounce_seed - button | 10
 	false, #combo_puzzle_1 - strangler gate
 	false, #bounce_seed - strangler gate
-	false, #underground_3 - button
+	true, #underground_3 - button
 	false, #underground_3 - strangler gate
+	false, #underground_4 - growth pickup | 15
 ]
 ###this is mostly for the map screen to hide certain layers until its time
 @export var farthest_floor: int = 1
 ###this is to set the player to load in different positions depending on their last save
-@export var load_point: int = 0
+@export var load_point: int = -1

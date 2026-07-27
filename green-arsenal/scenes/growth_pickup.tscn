@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dfs3yqx8dhbl"]
 
 [ext_resource type="Shader" uid="uid://davgmikf7tisq" path="res://shaders/cel_shaded_transparent.gdshader" id="1_nh1vm"]
+[ext_resource type="Script" uid="uid://b6kmiswdylhfa" path="res://scripts/growth_pickup.gd" id="1_o15pm"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="2_ro30r"]
+[ext_resource type="Script" uid="uid://ddri8uyb6gpgo" path="res://scripts/interact_area.gd" id="3_sv0vv"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_h45xw"]
 
@@ -19,6 +21,8 @@ shader_parameter/transparency = 0.499999988824
 shader_parameter/uv1_scale = Vector2(5, 5)
 shader_parameter/uv1_offset = Vector2(0, 0)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_0legs"]
+
 [sub_resource type="SphereMesh" id="SphereMesh_nh1vm"]
 flip_faces = true
 
@@ -35,12 +39,32 @@ shader_parameter/fresnel_strength = 0.1999999955296
 shader_parameter/uv1_scale = Vector2(5, 5)
 shader_parameter/uv1_offset = Vector2(0, 0)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_o15pm"]
+radius = 1.0
+
 [node name="GrowthPickup" type="Node3D" unique_id=255482846]
+script = ExtResource("1_o15pm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1305793892]
 mesh = SubResource("SphereMesh_h45xw")
 surface_material_override/0 = SubResource("ShaderMaterial_ro30r")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1501673707]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1109680216]
+shape = SubResource("SphereShape3D_0legs")
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1656693643]
 mesh = SubResource("SphereMesh_nh1vm")
 surface_material_override/0 = SubResource("ShaderMaterial_sv0vv")
+
+[node name="InteractArea" type="Area3D" parent="." unique_id=530012375]
+script = ExtResource("3_sv0vv")
+interaction_name = "gain growth charge"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea" unique_id=1289814683]
+shape = SubResource("SphereShape3D_o15pm")
+
+[connection signal="body_entered" from="InteractArea" to="InteractArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="InteractArea" method="_on_body_exited"]
+[connection signal="interact_sig" from="InteractArea" to="." method="interact_pickup"]

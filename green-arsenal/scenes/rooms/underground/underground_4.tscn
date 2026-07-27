@@ -5,8 +5,10 @@
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="3_jvhfb"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="5_xl6hi"]
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="6_8iwpr"]
-[ext_resource type="PackedScene" uid="uid://2qu2xc4rf2hd" path="res://scenes/enemySpawner.tscn" id="7_w1oqg"]
+[ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="7_7osom"]
+[ext_resource type="PackedScene" uid="uid://dfs3yqx8dhbl" path="res://scenes/growth_pickup.tscn" id="8_5swon"]
 [ext_resource type="PackedScene" uid="uid://cnwa7fcr5qsd7" path="res://scenes/torch.tscn" id="9_jx5ui"]
+[ext_resource type="Script" uid="uid://chgbgevootvag" path="res://scripts/save_flag_reader_destroyer.gd" id="9_w1oqg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -642,6 +644,19 @@ material_override = ExtResource("2_mwlq6")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_jvhfb")
 
+[node name="NonSoilFloor57" type="StaticBody3D" parent="." unique_id=452370813]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 2, 0, 1.509958e-07, 0, -1, 51, -7.5, -26.5)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor57" unique_id=1201584416]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor57" unique_id=1167154826]
+material_override = ExtResource("2_mwlq6")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("3_jvhfb")
+
 [node name="NonSoilFloor49" type="StaticBody3D" parent="." unique_id=808752866]
 transform = Transform3D(-10, 0, -8.742278e-07, 0, 10, 0, 8.742278e-07, 0, -10, 51, -2.5, -36)
 collision_layer = 3
@@ -1231,12 +1246,6 @@ surface_material_override/0 = ExtResource("3_jvhfb")
 transform = Transform3D(1, 0, 0, 0, 11, 0, 0, 0, 10, 19.767868, -2.8541124, -5.4447937)
 new_id = 15
 
-[node name="enemySpawner" parent="." unique_id=553297755 instance=ExtResource("7_w1oqg")]
-transform = Transform3D(-2.5, 0, 2.1855695e-07, 0, 2.5, 0, -2.1855695e-07, 0, -2.5, 50.87024, -5.711605, -25.655197)
-
-[node name="enemySpawner2" parent="." unique_id=185158219 instance=ExtResource("7_w1oqg")]
-transform = Transform3D(2.5, 0, -4.371139e-07, 0, 2.5, 0, 4.371139e-07, 0, 2.5, 50.87024, -5.711605, 12.344803)
-
 [node name="SoilPatch10x10" parent="." unique_id=361187496 instance=ExtResource("6_8iwpr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.2, 90.21183, -8.500001, -5.939602)
 
@@ -1251,3 +1260,30 @@ transform = Transform3D(1, 0, 0, 0, -4.371138e-08, 1, 0, -1, -4.371138e-08, 90.5
 
 [node name="Exit" parent="." unique_id=215822746 instance=ExtResource("5_xl6hi")]
 transform = Transform3D(1, 0, 0, 0, 13.82, 0, 0, 0, 13.15, 113.852905, -1.5000014, -6.667295)
+
+[node name="FacilityLight" parent="." unique_id=846988860 instance=ExtResource("7_7osom")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 19, 2.5, -5.5)
+
+[node name="FacilityLight5" parent="." unique_id=664628105 instance=ExtResource("7_7osom")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 51, 2.5, -26.5)
+
+[node name="FacilityLight6" parent="." unique_id=889420483 instance=ExtResource("7_7osom")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 51, 2.5, 13.5)
+
+[node name="FacilityLight2" parent="." unique_id=817328803 instance=ExtResource("7_7osom")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 42, 12.5, -5.5)
+
+[node name="FacilityLight3" parent="." unique_id=483579705 instance=ExtResource("7_7osom")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 58, 12.5, -5.5)
+
+[node name="FacilityLight4" parent="." unique_id=655380556 instance=ExtResource("7_7osom")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 101, 8.95661, -5.5)
+
+[node name="GrowthPickup" parent="." unique_id=255482846 instance=ExtResource("8_5swon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, -6, -26.5)
+flag_index = 15
+
+[node name="SaveFlagReaderDestroyer" type="Node" parent="." unique_id=1013325323 node_paths=PackedStringArray("destroy_if_true")]
+script = ExtResource("9_w1oqg")
+flag_index = 15
+destroy_if_true = [NodePath("../GrowthPickup")]

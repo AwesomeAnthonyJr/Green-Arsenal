@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://qli1c6cnp6ry" path="res://scenes/rooms/underground/underground_3.tscn" id="15_6810n"]
 [ext_resource type="PackedScene" uid="uid://c1lny5vvu84qn" path="res://scenes/rooms/underground/combo_puzzle_1.tscn" id="15_d0mfp"]
 [ext_resource type="PackedScene" uid="uid://becoiienuhhxq" path="res://scenes/rooms/underground/underground_4.tscn" id="17_0leoc"]
+[ext_resource type="PackedScene" uid="uid://5svgg8ybpah8" path="res://scenes/rooms/underground/underground_5.tscn" id="18_0leoc"]
 
 [node name="FullRooms" type="Node3D" unique_id=1444283235]
 
@@ -32,6 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
 [node name="Forest" type="Node3D" parent="." unique_id=1832296431]
+visible = false
 
 [node name="Forest1" parent="Forest" unique_id=249863706 instance=ExtResource("9_ysnsh")]
 
@@ -74,4 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -210)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
 
 [node name="Underground4" parent="Underground" unique_id=2074374660 instance=ExtResource("17_0leoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
+
+[node name="Underground5" parent="Underground" unique_id=1659142888 instance=ExtResource("18_0leoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
