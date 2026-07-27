@@ -1,0 +1,15 @@
+operator: Nothing new to report on my end, Gardener.
+operator: How 'bout you, would you like to record any progress in your investigation?
+- Yes
+	operator: Saving progress...
+	[signal arg="save_signal"]
+	operator: Save complete.
+	jump save_done
+- No
+	operator: Roger dodger! I'll be here if you need to save progress in the future.
+	jump save_done
+label save_done
+operator: At that, I wish you the best of luck, Gardener.
+operator: See you on the flip side!
+[signal arg="scene_end_op"]
+[end_timeline]

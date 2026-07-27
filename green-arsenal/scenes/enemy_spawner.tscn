@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bh7nac0th5846"]
+
+[ext_resource type="Script" uid="uid://kx1kbqgaqf3q" path="res://scripts/enemy_spawner.gd" id="1_ks1gq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g36yv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g36yv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68ckq"]
+
+[node name="enemySpawner" type="CharacterBody3D" unique_id=1065698318]
+script = ExtResource("1_ks1gq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=83931986]
+transform = Transform3D(2.505, 0, 0, 0, 2.505, 0, 0, 0, 2.505, 0, 0, 0)
+shape = SubResource("BoxShape3D_g36yv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1380844124]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_g36yv")
+
+[node name="Timer" type="Timer" parent="." unique_id=420007077]
+wait_time = 3.0
+autostart = true
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=334147640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4291297, 0, -0.034356833)
+
+[node name="Hurtbox" type="Area3D" parent="." unique_id=2046643619]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=1435641629]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_68ckq")

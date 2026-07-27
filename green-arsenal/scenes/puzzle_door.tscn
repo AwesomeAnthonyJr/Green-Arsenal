@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cklg1aheqhbk"]
+
+[ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="1_m7ebb"]
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="2_acphe"]
+[ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="3_5u4n6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h45xw"]
+size = Vector3(3, 6, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hhbv0"]
+render_priority = 0
+shader = ExtResource("2_acphe")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("3_5u4n6")
+shader_parameter/albedo_in_shadow = Color(0.46008006, 0.30960003, 0.72, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("3_5u4n6")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.1999999955296
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m7ebb"]
+size = Vector3(3, 6, 1)
+
+[node name="PuzzleDoor" type="Node3D" unique_id=600167188]
+script = ExtResource("1_m7ebb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1706398233]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=968861808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = SubResource("ShaderMaterial_hhbv0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=589025629]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=311929720]
+shape = SubResource("BoxShape3D_m7ebb")

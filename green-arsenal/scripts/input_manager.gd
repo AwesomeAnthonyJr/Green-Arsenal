@@ -15,18 +15,30 @@ signal shoot
 signal reload
 signal interact
 signal look(x, y)
+signal up
+signal down
+signal left
+signal right
+signal sprint_burst
+signal jump_held(b)
 
-var mouse_sensitivity = 0.001
+#counter-intuitively, not the actual sensitivity
+const mouse_sensitivity = 0.001
 
 #here calls all the smaller functions for each input
 func _process(delta: float) -> void:
 	move_input()
 	sprint_input()
 	jump_input()
-	pause_input()
+	if !get_parent().override_pause:
+		pause_input()
 	shoot_input()
 	reload_input()
 	interact_input()
+	up_input()
+	down_input()
+	left_input()
+	right_input()
 
 func move_input():
 	if Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
@@ -38,12 +50,15 @@ func move_input():
 
 func sprint_input():
 	sprint.emit(Input.is_action_pressed("sprint"))
+	if Input.is_action_just_pressed("sprint"):
+		sprint_burst.emit()
 
 func jump_input():
 	if Input.is_action_just_pressed("jump"):
 		jump.emit()
 	elif Input.is_action_just_released("jump"):
 		end_jump.emit()
+	jump_held.emit(Input.is_action_pressed("jump"))
 
 func pause_input():
 	if Input.is_action_just_pressed("pause"):
@@ -61,9 +76,27 @@ func interact_input():
 	if Input.is_action_just_pressed("interact"):
 		interact.emit()
 
+func up_input():
+	if Input.is_action_just_pressed("move_forward"):
+		up.emit()
+
+func down_input():
+	if Input.is_action_just_pressed("move_back"):
+		down.emit()
+
+func left_input():
+	if Input.is_action_just_pressed("move_left"):
+		left.emit()
+
+func right_input():
+	if Input.is_action_just_pressed("move_right"):
+		right.emit()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			var look_x = -1 * event.relative.x * mouse_sensitivity;
 			var look_y = -1 * event.relative.y * mouse_sensitivity;
+			look_x *= SaveManager.player_settings.mouse_sense
+			look_y *= SaveManager.player_settings.mouse_sense
 			look.emit(look_x, look_y)

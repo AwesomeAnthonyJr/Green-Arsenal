@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://doiuat84x0eiv"]
+
+[ext_resource type="Shader" uid="uid://84ir2flpho32" path="res://shaders/cel_shaded_water.gdshader" id="1_7ce36"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pewrh"]
+noise_type = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pewrh"]
+noise = SubResource("FastNoiseLite_pewrh")
+seamless = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7ce36")
+shader_parameter/albedo = Color(0.21960784, 0.85490197, 0.8666667, 1)
+shader_parameter/albedo_in_shadow = Color(0.023529412, 0.65882355, 0.67058825, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.82999998144784
+shader_parameter/specular_strength = 1.0000000149012
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.1999999955296
+shader_parameter/wave = SubResource("NoiseTexture2D_pewrh")
+shader_parameter/noise_scale = 10.0
+shader_parameter/height_scale = 0.05
+shader_parameter/edge_scale = 1.0
+shader_parameter/edge_near = 1.0
+shader_parameter/edge_far = 100.0
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)

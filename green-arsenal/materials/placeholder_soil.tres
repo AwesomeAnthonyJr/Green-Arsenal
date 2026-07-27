@@ -16,5 +16,5 @@ shader_parameter/specular_threshold = 0.96999997831856
 shader_parameter/specular_strength = 0.70000001043084
 shader_parameter/fresnel_amount = 2.0
 shader_parameter/fresnel_strength = 0.0499999988824
-shader_parameter/uv1_scale = Vector2(10, 10)
+shader_parameter/uv1_scale = Vector2(-10, 10)
 shader_parameter/uv1_offset = Vector2(0, 0)

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b73yjfqguqfmn"]
+
+[ext_resource type="ArrayMesh" uid="uid://b7ga2dbrhuxno" path="res://scenes/level_parts/baked_meshes/tree_b_upper.tres" id="1_div83"]
+[ext_resource type="Material" uid="uid://blxh8itmv71oq" path="res://materials/tree_bark.tres" id="2_jqow7"]
+[ext_resource type="Shape3D" uid="uid://dqofojhfmtmpq" path="res://scenes/level_parts/baked_meshes/tree_b_upper_col1.res" id="3_div83"]
+[ext_resource type="Shape3D" uid="uid://jibxyme0c5ip" path="res://scenes/level_parts/baked_meshes/tree_b_upper_col2.res" id="4_08amk"]
+[ext_resource type="ArrayMesh" uid="uid://cd6887umiaql7" path="res://scenes/level_parts/baked_meshes/tree_b_lower.tres" id="5_dglii"]
+[ext_resource type="Shape3D" uid="uid://cmm4aelagtqwb" path="res://scenes/level_parts/baked_meshes/tree_b_lower_col1.res" id="6_div83"]
+[ext_resource type="Shape3D" uid="uid://dgilrpq631ipq" path="res://scenes/level_parts/baked_meshes/tree_b_lower_col2.res" id="7_08amk"]
+
+[node name="Tree_B" type="Node3D" unique_id=398900927]
+
+[node name="TreeUpper" type="Node3D" parent="." unique_id=1397178869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.193509, 2.8534124, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TreeUpper" unique_id=569208194]
+mesh = ExtResource("1_div83")
+surface_material_override/0 = ExtResource("2_jqow7")
+
+[node name="StaticBody3D_L1" type="StaticBody3D" parent="TreeUpper" unique_id=359892415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeUpper/StaticBody3D_L1" unique_id=1624166166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+shape = ExtResource("3_div83")
+
+[node name="StaticBody3D_L2" type="StaticBody3D" parent="TreeUpper" unique_id=207474588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeUpper/StaticBody3D_L2" unique_id=2089695971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+shape = ExtResource("4_08amk")
+debug_color = Color(0.91899663, 6.670922e-05, 0.70196134, 0.41960785)
+
+[node name="TreeLower" type="Node3D" parent="." unique_id=239582512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.193509, 2.8534124, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TreeLower" unique_id=1551582121]
+mesh = ExtResource("5_dglii")
+surface_material_override/0 = ExtResource("2_jqow7")
+
+[node name="StaticBody3D_L1" type="StaticBody3D" parent="TreeLower" unique_id=235361172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeLower/StaticBody3D_L1" unique_id=1645605697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+shape = ExtResource("6_div83")
+
+[node name="StaticBody3D_L2" type="StaticBody3D" parent="TreeLower" unique_id=2118311035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreeLower/StaticBody3D_L2" unique_id=261535309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+shape = ExtResource("7_08amk")
+debug_color = Color(0.91899663, 6.670922e-05, 0.70196134, 0.41960785)

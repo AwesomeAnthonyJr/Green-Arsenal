@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b5wiv7bym1arx"]
+
+[ext_resource type="Script" uid="uid://cmfkan1bxowh5" path="res://scripts/controls_text.gd" id="1_1pqcn"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="2_4pmwj"]
+
+[node name="ControlsText" type="Control" unique_id=1465305487]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 205.0
+offset_top = 315.0
+offset_right = 205.0
+offset_bottom = 315.0
+script = ExtResource("1_1pqcn")
+code = "move_left"
+
+[node name="Control" type="Control" parent="." unique_id=901988588]
+anchors_preset = 0
+scale = Vector2(0.57, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1802607519]
+layout_mode = 0
+offset_left = -120.0
+offset_top = -35.0
+offset_right = 360.0
+offset_bottom = 105.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("2_4pmwj")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]BBBB[/center]"

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dbbnqi2obp5s4"]
+
+[ext_resource type="Material" uid="uid://oo177hw72h6" path="res://materials/player_skin.tres" id="1_b8dqf"]
+[ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="2_42e8k"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h45xw"]
+top_radius = 0.1
+bottom_radius = 0.06
+height = 0.5
+
+[node name="BulletSprout" type="Node3D" unique_id=1252632312]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=48345425]
+mesh = SubResource("CylinderMesh_h45xw")
+surface_material_override/0 = ExtResource("1_b8dqf")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=660400107]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, 0.25, 0, -0.25, -1.0927847e-08, 0, 0.24152243, 0)
+texture = ExtResource("2_42e8k")
