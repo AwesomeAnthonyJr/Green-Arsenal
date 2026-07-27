@@ -15,6 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://doje8a0avc0ah" path="res://ui/revolver_ui_circle_small.png" id="13_4f0tj"]
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="13_ywslq"]
 [ext_resource type="Texture2D" uid="uid://cu62pj1efch37" path="res://ui/heart_ui_1_take_2_flat.png" id="14_40yl3"]
+[ext_resource type="Script" uid="uid://b3uc3k1ofckag" path="res://scripts/interact_position.gd" id="16_4f0tj"]
+[ext_resource type="Texture2D" uid="uid://bt5pgejxb6g4y" path="res://ui/pause_menu_ui_selector_1.png" id="17_edenc"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="17_sbl5u"]
+[ext_resource type="FontFile" uid="uid://i3l17i8ifdhk" path="res://fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" id="18_edenc"]
+[ext_resource type="Script" uid="uid://b6a5tb4hbvnyb" path="res://scripts/description_text.gd" id="19_156o1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_eyt8w")
@@ -955,6 +960,7 @@ texture = ExtResource("14_40yl3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Health/Node2D/Heart1" unique_id=1248794240]
 libraries/ = SubResource("AnimationLibrary_2k0n8")
+speed_scale = 2.0
 
 [node name="Heart2" type="Sprite2D" parent="Health/Node2D" unique_id=1342717979]
 self_modulate = Color(0, 0, 0, 1)
@@ -1059,3 +1065,30 @@ position = Vector2(184, 70)
 texture = ExtResource("13_ywslq")
 hframes = 11
 frame = 2
+
+[node name="Interact_Position" type="Control" parent="." unique_id=1010596435]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("16_4f0tj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interact_Position" unique_id=413482642]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("17_edenc")
+
+[node name="BarText" type="RichTextLabel" parent="Interact_Position" unique_id=418764165]
+layout_mode = 0
+offset_left = -180.0
+offset_top = -100.0
+offset_right = 180.0
+theme_override_fonts/normal_font = ExtResource("17_sbl5u")
+theme_override_fonts/bold_font = ExtResource("18_edenc")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "this is where a description goes"
+script = ExtResource("19_156o1")

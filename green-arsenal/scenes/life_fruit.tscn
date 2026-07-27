@@ -6802,15 +6802,19 @@ script = ExtResource("1_hvcur")
 
 [node name="InteractArea1" parent="." unique_id=530012375 instance=ExtResource("2_45dsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6377958, 1.1449103, -0.23529643)
+interaction_name = "eat life fruit"
 
 [node name="InteractArea2" parent="." unique_id=47223732 instance=ExtResource("2_45dsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62466353, 1.2330402, 0.32038406)
+interaction_name = "eat life fruit"
 
 [node name="InteractArea3" parent="." unique_id=2118637753 instance=ExtResource("2_45dsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6563326, 1.135448, 0.07696171)
+interaction_name = "eat life fruit"
 
 [node name="InteractArea4" parent="." unique_id=2012422895 instance=ExtResource("2_45dsc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70009726, 1.1875422, 0.2057609)
+interaction_name = "eat life fruit"
 
 [node name="FancyModel" type="Node3D" parent="." unique_id=594689896]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

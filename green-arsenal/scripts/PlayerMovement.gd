@@ -189,6 +189,12 @@ func _process(delta: float) -> void:
 			if !supress_shooting:
 				if p is SeekerFlower and p.has_bullet:
 					supress_shooting = true
+	if interactable_obj != null:
+		hud.set_interact_active()
+		hud.set_interact_position(cameraRig.unproject_position(interactable_obj.global_position))
+		hud.set_interact_text(interactable_obj.interaction_name)
+	else:
+		hud.set_interact_inactive()
 
 func check_steps(delta):
 	forward_steppable = false

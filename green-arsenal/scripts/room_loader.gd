@@ -2,11 +2,19 @@ extends Node3D
 class_name RoomLoader
 
 #will not be export in final game!
-@export var active_room: Room
-@export var active_key = 4
+var active_room: Room
+var active_key = 4
 @export var player: Player
 
 @export var positions = PackedVector3Array()
+@export var test_position = Vector3()
+
+#this tells it which room to start in basically; -1 for testing!
+const load_point_keys = {
+	-1: 12,
+	0: 4,
+	1: 4,
+}
 
 const room_dict = {
 	0: "res://scenes/rooms/room_a.tscn",
@@ -69,11 +77,18 @@ func get_floor():
 	return 0
 
 func initialize():
-	position_player(SaveManager.player_save.load_point)
+	var lp = SaveManager.player_save.load_point
+	active_key = load_point_keys[lp]
+	position_player(lp)
 	setup_active_room(active_key)
 
 func position_player(i: int):
-	player.global_position = positions[i]
+	if i >= 0:
+		player.global_position = positions[i]
+	else:
+		#print("USE TEST POS!")
+		#print(test_position)
+		player.global_position = test_position
 
 func _ready() -> void:
 	initialize()
