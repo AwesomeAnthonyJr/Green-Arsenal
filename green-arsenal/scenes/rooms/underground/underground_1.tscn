@@ -2870,7 +2870,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -8, -8)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.666664, -8, -8)
 
 [node name="SoilPatch10x24" parent="." unique_id=1175925843 instance=ExtResource("2_1qs23")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -23.667, -8, 2)
+transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 1, -24.5, -8, 2)
 
 [node name="SoilPatch10x20" parent="." unique_id=1229282249 instance=ExtResource("2_1qs23")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.666664, -8, -18)

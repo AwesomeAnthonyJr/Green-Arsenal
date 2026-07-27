@@ -242,6 +242,35 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0.109, -0.961, 0.033)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../IKOffset2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.18359867, -0.00024712086, -0.07590565)]
+}
+
+[sub_resource type="Animation" id="Animation_smehm"]
+resource_name = "arm_swing"
+length = 0.39999999999999997
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../IKOffset2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.18359867, -0.00024712086, -0.07590565), Vector3(-0.184, 0, 0.924), Vector3(-0.184, 0, -0.924)]
+}
 
 [sub_resource type="Animation" id="Animation_tuyoq"]
 resource_name = "left_step"
@@ -256,7 +285,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 0.5, 1, 1),
 "update": 0,
-"values": [Vector3(-0.108593866, -0.9607407, 0.03304644), Vector3(-0.109, -0.692, 0.5), Vector3(-0.109, -0.62, -0.5), Vector3(-0.108593866, -0.9607407, 0.03304644), Vector3(-0.108593866, -0.9607407, 0.03304644)]
+"values": [Vector3(-0.109, -0.961, -0.5), Vector3(-0.109, -0.692, 0.5), Vector3(-0.109, -0.62, 0), Vector3(-0.109, -0.961, -0.5), Vector3(-0.108593866, -0.9607407, 0.03304644)]
 }
 
 [sub_resource type="Animation" id="Animation_fjrip"]
@@ -269,10 +298,10 @@ tracks/0/path = NodePath("../../../IKOffset4:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 0.5, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.109, -0.961, 0.033), Vector3(0.109, -0.692, 0.5), Vector3(0.109, -0.62, -0.5), Vector3(0.109, -0.961, 0.033), Vector3(0.109, -0.961, 0.033)]
+"values": [Vector3(0.109, -0.7, 0.5), Vector3(0.109, -0.692, 0.5), Vector3(0.109, -0.62, 0), Vector3(0.109, -0.961, 0.5)]
 }
 
 [sub_resource type="Animation" id="Animation_dqkch"]
@@ -306,6 +335,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
 _data = {
 &"RESET": SubResource("Animation_qlg0r"),
+&"arm_swing": SubResource("Animation_smehm"),
 &"left_step": SubResource("Animation_tuyoq"),
 &"right_step": SubResource("Animation_fjrip"),
 &"standing": SubResource("Animation_dqkch")
@@ -329,10 +359,12 @@ advance_mode = 2
 xfade_time = 0.05
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ur7pv"]
+xfade_time = 0.2
 switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y4r1p"]
+xfade_time = 0.2
 switch_mode = 2
 advance_mode = 2
 
@@ -347,15 +379,16 @@ xfade_time = 0.5
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f1ej7"]
 states/left_step/node = SubResource("AnimationNodeAnimation_dqkch")
-states/left_step/position = Vector2(654, 89)
+states/left_step/position = Vector2(671, 14)
 states/right_step/node = SubResource("AnimationNodeAnimation_qlg0r")
 states/right_step/position = Vector2(671, 146)
 states/standing/node = SubResource("AnimationNodeAnimation_tuyoq")
 states/standing/position = Vector2(350, 100)
 transitions = ["Start", "standing", SubResource("AnimationNodeStateMachineTransition_fjrip"), "standing", "left_step", SubResource("AnimationNodeStateMachineTransition_smehm"), "left_step", "right_step", SubResource("AnimationNodeStateMachineTransition_ur7pv"), "right_step", "left_step", SubResource("AnimationNodeStateMachineTransition_y4r1p"), "right_step", "standing", SubResource("AnimationNodeStateMachineTransition_d2wvv"), "left_step", "standing", SubResource("AnimationNodeStateMachineTransition_3v2ag"), "standing", "right_step", SubResource("AnimationNodeStateMachineTransition_jej6c")]
-graph_offset = Vector2(20, -43)
+graph_offset = Vector2(23, -69)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h3b12"]
+graph_offset = Vector2(-510.90002, -62)
 nodes/output/position = Vector2(360, 160)
 nodes/WalkState/node = SubResource("AnimationNodeStateMachine_f1ej7")
 nodes/WalkState/position = Vector2(-80, 140)
@@ -717,7 +750,7 @@ settings/0/joints/2/limitation/right_axis = 0
 settings/0/joints/2/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Pivot/Pivot2/Model/Armature_001/Skeleton3D" unique_id=2081248552]
-transform = Transform3D(-0.9834596, 0.114190295, 0.14059588, 0.13211885, -0.078724995, 0.9881025, 0.12390014, 0.9903346, 0.062336132, -1.1504844, 1.5020546, 0.88824064)
+transform = Transform3D(-0.9225854, -0.18255584, 0.33986533, 0.32776964, 0.09372858, 0.94009656, -0.20347519, 0.97871745, -0.026636325, -0.7742175, 1.6343833, 1.5806174)
 bone_name = "Palm R"
 bone_idx = 19
 
@@ -808,7 +841,7 @@ mesh = SubResource("CapsuleMesh_g36yv")
 surface_material_override/0 = ExtResource("2_qhqgy")
 
 [node name="IKOffset" type="Node3D" parent="Pivot/Pivot2" unique_id=1526248992]
-transform = Transform3D(0.014123129, -0.96158993, -0.2741267, -0.10133316, -0.27411902, 0.9563421, -0.99475217, 0.014271578, -0.10131237, 0.3950024, 0.5130702, -0.26159143)
+transform = Transform3D(0.014123129, -0.96158993, -0.2741267, -0.10133316, -0.27411902, 0.9563421, -0.99475217, 0.014271578, -0.10131237, 0.3950024, 0.5130702, -1.2615914)
 
 [node name="IKOffset2" type="Node3D" parent="Pivot/Pivot2" unique_id=1409358566]
 transform = Transform3D(0.014123129, -0.96158993, -0.2741267, -0.10133316, -0.27411902, 0.9563421, -0.99475217, 0.014271578, -0.10131237, -0.18359867, -0.00024712086, -0.07590565)
