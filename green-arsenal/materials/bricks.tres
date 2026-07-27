@@ -15,6 +15,6 @@ shader_parameter/shadow_threshold = 0.5
 shader_parameter/specular_threshold = 0.96999997831856
 shader_parameter/specular_strength = 0.70000001043084
 shader_parameter/fresnel_amount = 2.0
-shader_parameter/fresnel_strength = 0.0499999988824
+shader_parameter/fresnel_strength = 0.0
 shader_parameter/texture_scale = 7.0
 shader_parameter/rotated = true

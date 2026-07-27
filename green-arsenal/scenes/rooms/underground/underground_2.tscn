@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="14_0jhpw"]
 [ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="15_b11qw"]
 [ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="16_mok8q"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="18_0jhpw"]
+[ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="19_b11qw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -85,7 +87,7 @@ left_to_right = -0.5
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0jhpw"]
 data = PackedVector3Array(-1, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -1, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -1, 0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[node name="Room" type="Node3D" unique_id=2108924292]
+[node name="Room2" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_hpits")
 adjacent_rooms = Array[int]([12, 14])
 room_pos = Vector3(-150, 0, -230)
@@ -808,7 +810,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("2_jth1e")
 
 [node name="Exit2" parent="." unique_id=1513756477 instance=ExtResource("4_wegms")]
-transform = Transform3D(1, 0, 0, 0, 13.5, 0, 0, 0, 13.2, 29.767868, -1.2014294, 11.555206)
+transform = Transform3D(2, 0, 0, 0, 13.5, 0, 0, 0, 13.2, 30.767868, -1.2014294, 11.555206)
 new_id = 12
 
 [node name="SoilPatch10x10" parent="." unique_id=361187496 instance=ExtResource("3_276he")]
@@ -818,7 +820,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3975677, -4.5203924, 2.525
 transform = Transform3D(0.9999907, -0.0043109786, 0, 0.0043109786, 0.9999907, 0, 0, 0, 1, -22.397568, -4.5203924, 2.5258179)
 
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("4_wegms")]
-transform = Transform3D(10.01, 0, 0, 0, 10.5, 0, 0, 0, 1, 16.644592, -2.606697, 21.746475)
+transform = Transform3D(10.01, 0, 0, 0, 10.5, 0, 0, 0, 2, 16.644592, -2.606697, 24.746475)
 new_id = 14
 
 [node name="Tree_B" parent="." unique_id=398900927 instance=ExtResource("5_ni0qs")]
@@ -889,6 +891,40 @@ surface_material_override/0 = ExtResource("2_jth1e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilRamp" unique_id=1727955655]
 shape = SubResource("ConcavePolygonShape3D_0jhpw")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=212577345]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.022932, -5, 15.925663)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = "<<<<<<<<<<<<<<
+Left Button"
+font = ExtResource("18_0jhpw")
+font_size = 96
+horizontal_alignment = 2
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=873499143]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.095737, -5, 12.925663)
+modulate = Color(0, 0.09803922, 0.8039216, 1)
+text = ">>>>>>>>>>>>>>
+Bounce Seed
+"
+font = ExtResource("18_0jhpw")
+font_size = 96
+horizontal_alignment = 0
+
+[node name="FacilityLight" parent="." unique_id=846988860 instance=ExtResource("19_b11qw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 9.485194, -9)
+
+[node name="FacilityLight5" parent="." unique_id=1871266791 instance=ExtResource("19_b11qw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, 0.4851942, -20)
+
+[node name="FacilityLight2" parent="." unique_id=2129308919 instance=ExtResource("19_b11qw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 16, 4.485194, -9)
+
+[node name="FacilityLight3" parent="." unique_id=84298938 instance=ExtResource("19_b11qw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.9259214, 7.485194, 13.968176)
+
+[node name="FacilityLight4" parent="." unique_id=1894704431 instance=ExtResource("19_b11qw")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.528241, 0.5012903, 2.5587716)
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_008" method="set_flag_true"]

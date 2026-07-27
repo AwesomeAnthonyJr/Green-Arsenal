@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://brwrex0uwtmra"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ttp1t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q0bs7"]
+shading_mode = 0
+
+[node name="FacilityLight" type="SpotLight3D" unique_id=846988860]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+light_energy = 16.0
+spot_range = 25.114965
+spot_angle = 44.70523
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1046584304]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_ttp1t")
+surface_material_override/0 = SubResource("StandardMaterial3D_q0bs7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2103736811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8784558e-08, -0.4297406)
