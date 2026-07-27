@@ -29,12 +29,14 @@ var target_obj: Node3D
 @onready var right_default = $FancyModel/Skeleton3D/RightDefault
 @onready var left_default = $FancyModel/Skeleton3D/LeftDefault
 var home_override = 0.0
+var original_speed: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if player == null:
 		find_player()
 	home = global_position
+	original_speed = speed
 
 func find_player():
 	var players = get_tree().get_nodes_in_group("player")
@@ -66,6 +68,7 @@ func _physics_process(delta: float) -> void:
 			move_velocity.y = direction.y * speed
 			move_velocity.z = direction.z * speed
 			home_override = 0.0
+			print(name, " actively searching: ", target_pos, "; speed: ", speed)
 		else:
 			var home_dist = global_position.distance_to(home)
 			if home_dist < 16.0 and (home_override > randf_range(5.0, 10.0) or home_override == 0.0):
@@ -75,6 +78,7 @@ func _physics_process(delta: float) -> void:
 				move_velocity.y = direction.y * speed
 				move_velocity.z = direction.z * speed
 				home_override = 0.0
+				print(name, " still near home")
 			else:
 				if !home.is_equal_approx(global_position):
 					look_at(home, Vector3.UP)
@@ -83,6 +87,7 @@ func _physics_process(delta: float) -> void:
 				move_velocity.y = direction.y * speed * 0.75
 				move_velocity.z = direction.z * speed * 0.75
 				home_override += delta
+				print(name, " going home ", home_override)
 	else:
 		move_velocity.x = 0
 		move_velocity.z = 0
@@ -96,11 +101,12 @@ func _physics_process(delta: float) -> void:
 		if target_routine < 3.0:
 			speed = lerpf(speed, 0.0, 0.8)
 		elif target_routine < 4.0:
-			speed = lerpf(speed, 8.0, 0.5)
+			speed = lerpf(speed, original_speed + 6.0, 0.5)
 		elif target_routine < 5.5:
-			speed = 2.0
+			speed = original_speed
 			targeting = false
 	else:
+		speed = original_speed
 		attack_detection()
 func take_damage(amount: int) -> void:
 	currHealth -= amount
@@ -157,5 +163,7 @@ func _on_hurtbox_body_entered(body: Node3D) -> void:
 			take_knockback(5.0 * global_basis.z)
 	elif body.is_in_group("plant"):
 		body.get_parent().wither_self()
+		if player is Player:
+			player.check_special_plants()
 	else:
 		take_knockback(1.0 * global_basis.z)
