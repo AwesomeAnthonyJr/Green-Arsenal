@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c3xcgxgalv1wm"]
+
+[ext_resource type="Script" uid="uid://djeqlb5oumh8w" path="res://scripts/save_operator.gd" id="1_c772q"]
+[ext_resource type="Texture2D" uid="uid://cf5e2am45eger" path="res://misc/keyboard_e_outline.png" id="2_kku6r"]
+[ext_resource type="Texture2D" uid="uid://bajtrea7i0r3x" path="res://misc/Abseilen_jumelle.jpg" id="3_0wdn0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8aque"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_4jq4q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Abseleine:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 22.992828, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_427am"]
+resource_name = "drop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Abseleine:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 22.992828, 0), Vector3(0, 3.4913454, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nnong"]
+_data = {
+&"RESET": SubResource("Animation_4jq4q"),
+&"drop": SubResource("Animation_427am")
+}
+
+[node name="SaveOperator" type="Area3D" unique_id=137866287]
+transform = Transform3D(0.08324285, 0, -0.9965293, 0, 1, 0, 0.9965293, 0, 0.08324285, 0, 0, 0)
+script = ExtResource("1_c772q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1299433326]
+shape = SubResource("SphereShape3D_8aque")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=261834507]
+texture = ExtResource("2_kku6r")
+
+[node name="Abseleine" type="Sprite3D" parent="." unique_id=1170693807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.992828, 0)
+visible = false
+billboard = 2
+texture = ExtResource("3_0wdn0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1906049512]
+libraries/ = SubResource("AnimationLibrary_nnong")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

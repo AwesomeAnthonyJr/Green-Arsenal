@@ -4,6 +4,9 @@ class_name RoomLoader
 #will not be export in final game!
 @export var active_room: Room
 @export var active_key = 4
+@export var player: Player
+
+@export var positions = PackedVector3Array()
 
 const room_dict = {
 	0: "res://scenes/rooms/room_a.tscn",
@@ -65,8 +68,15 @@ func get_floor():
 		return 2
 	return 0
 
-func _ready() -> void:
+func initialize():
+	position_player(SaveManager.player_save.load_point)
 	setup_active_room(active_key)
+
+func position_player(i: int):
+	player.global_position = positions[i]
+
+func _ready() -> void:
+	initialize()
 
 func _process(delta):
 	for path in loadings:
