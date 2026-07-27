@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="4_uj84s"]
 [ext_resource type="Material" uid="uid://eh2x6l7fmwys" path="res://materials/gray_soil.tres" id="6_gtk21"]
 [ext_resource type="PackedScene" uid="uid://2qu2xc4rf2hd" path="res://scenes/enemySpawner.tscn" id="6_otkpc"]
+[ext_resource type="Texture2D" uid="uid://c1hvqdoeaahjp" path="res://misc/Screenshot 2025-09-19 142504.png" id="7_h7j6q"]
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="7_srdg7"]
 [ext_resource type="PackedScene" uid="uid://ddexbsd7e36p3" path="res://scenes/level_parts/strangler_c.tscn" id="10_h7j6q"]
 
@@ -19,9 +20,12 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_dimcy"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tfqg"]
+albedo_texture = ExtResource("7_h7j6q")
+
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_uj84s")
-adjacent_rooms = Array[int]([11, 13, 15])
+adjacent_rooms = Array[int]([11, 13, 15, 16])
 room_pos = Vector3(-80, 0, -210)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
@@ -1921,6 +1925,19 @@ material_override = ExtResource("2_srdg7")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("1_pirkp")
 
+[node name="NonSoilFloor**" type="StaticBody3D" parent="." unique_id=832811205]
+transform = Transform3D(-1.4555893e-07, 0, -3.3300004, 0, 3.3300004, 0, 3.3300004, 0, -1.4555893e-07, -1.4106922, 15.090118, -22.222689)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor**" unique_id=1898363792]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor**" unique_id=98306149]
+material_override = SubResource("StandardMaterial3D_5tfqg")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("1_pirkp")
+
 [node name="NonSoilFloor125" type="StaticBody3D" parent="." unique_id=1800593575]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 24, -12.5, 2)
 collision_layer = 3
@@ -2840,6 +2857,8 @@ new_id = 13
 
 [node name="Exit3" parent="." unique_id=291038979 instance=ExtResource("4_uj84s")]
 transform = Transform3D(1, 0, 0, 0, 13.5, 0, 0, 0, 17.195, 36.767868, -1.2014294, -8.444794)
+new_id = 16
 
 [node name="Exit4" parent="." unique_id=1689601822 instance=ExtResource("4_uj84s")]
 transform = Transform3D(17.195, 0, 0, 0, 13.5, 0, 0, 0, 1, -2.232132, -1.2014294, -58.444794)
+new_id = 15

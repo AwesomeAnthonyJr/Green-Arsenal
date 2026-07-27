@@ -32,7 +32,7 @@ _surfaces = [{
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_itu0i")
-adjacent_rooms = Array[int]([12])
+adjacent_rooms = Array[int]([12, 17])
 room_pos = Vector3(-80, 0, -280)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
@@ -614,6 +614,7 @@ new_id = 12
 
 [node name="Exit5" parent="." unique_id=702144204 instance=ExtResource("5_6h134")]
 transform = Transform3D(1, 0, 0, 0, 11, 0, 0, 0, 10, 24.767868, -2.8541124, -5.4447937)
+new_id = 17
 
 [node name="SoilPatch10x10" parent="." unique_id=361187496 instance=ExtResource("6_kyr3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -8, -2)

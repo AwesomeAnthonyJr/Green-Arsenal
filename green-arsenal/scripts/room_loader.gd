@@ -22,6 +22,8 @@ const room_dict = {
 	13: "res://scenes/rooms/underground/underground_2.tscn",
 	14: "res://scenes/rooms/underground/bounce_seed.tscn",
 	15: "res://scenes/rooms/underground/combo_puzzle_1.tscn",
+	16: "res://scenes/rooms/underground/underground_3.tscn",
+	17: "res://scenes/rooms/underground/underground_4.tscn",
 }
 #must be the inverse of the first!!!
 const reverse_dict = {
@@ -41,6 +43,8 @@ const reverse_dict = {
 	"res://scenes/rooms/underground/underground_2.tscn": 13,
 	"res://scenes/rooms/underground/bounce_seed.tscn": 14,
 	"res://scenes/rooms/underground/combo_puzzle_1.tscn": 15,
+	"res://scenes/rooms/underground/underground_3.tscn": 16,
+	"res://scenes/rooms/underground/underground_4.tscn": 17,
 }
 
 #this is for secondary things - to load in stages if certain rooms are too large
