@@ -1279,6 +1279,8 @@ shape = SubResource("BoxShape3D_8aque")
 transform = Transform3D(0.08324285, 0, -0.9965293, 0, 1, 0, 0.9965293, 0, 0.08324285, 20.282501, 2.7549667, -7.245957)
 script = ExtResource("24_n15qv")
 operator_scenes = Array[ExtResource("25_427am")]([ExtResource("25_4jq4q"), ExtResource("27_n15qv"), ExtResource("28_0slfi")])
+spin_speed = null
+load_point = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SaveOperator" unique_id=1299433326]
 shape = SubResource("SphereShape3D_8aque")

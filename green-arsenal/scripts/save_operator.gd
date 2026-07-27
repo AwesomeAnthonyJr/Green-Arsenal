@@ -12,6 +12,8 @@ var scene_index : int = 0
 @export var spin_speed = 0.01
 var going_up = true
 
+@export var load_point: int
+
 var player_is_colliding = false
 
 func _ready() -> void:
@@ -33,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			going_up = true
 	
-	if player_is_colliding and Input.is_action_just_pressed("interact") and Dialogic.current_timeline == null and animation_player.is_playing() == false:
+	if player_is_colliding and Input.is_action_just_pressed("interact") and Dialogic.current_timeline == null and animation_player.is_playing() == false and !player_reference.is_reloading:
 		abseleine.visible = true
 		animation_player.play("drop")
 		player_reference.paused = true
@@ -65,3 +67,7 @@ func _on_dialogic_signal(arg):
 		await animation_player.animation_finished
 		#if Dialogic.current_timeline == null:
 		abseleine.visible = false
+	elif arg == "save_signal":
+		SaveManager.set_load_point(load_point)
+		SaveManager.write_save()
+		SaveManager.read_save()

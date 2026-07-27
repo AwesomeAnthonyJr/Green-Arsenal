@@ -7,8 +7,11 @@ var player_settings = Settings.new()
 
 func _ready() -> void:
 	verify_directories()
-	#read_save()
 	read_save()
+	#reset_save()
+
+func set_load_point(i: int):
+	player_save.load_point = i
 
 func reset_save():
 	player_save = SaveFile.new()
@@ -31,7 +34,7 @@ func verify_directories():
 
 func read_save():
 	print("WE ARE READING A SAVE!!!")
-	print_stack() 
+	print_stack()
 	player_save = SaveFile.new()
 	if (ResourceLoader.exists(save_file_path + save_file_name)):
 		player_save = ResourceLoader.load(save_file_path + save_file_name)
