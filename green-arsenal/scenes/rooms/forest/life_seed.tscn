@@ -601,6 +601,6 @@ transform = Transform3D(-4.371139e-08, 0, -10.515, 0, 13.075, 0, 1, 0, -4.596252
 new_id = 11
 
 [node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("17_l3tdk")]
-transform = Transform3D(0.08324285, 0, -0.9965293, 0, 1, 0, 0.9965293, 0, 0.08324285, 0, 3.3017807, -1.8480124)
+transform = Transform3D(0.08324285, 0, -0.9965293, 0, 1, 0, 0.9965293, 0, 0.08324285, 0, 2.5934076, -1.8480124)
 operator_scenes = Array[ExtResource("18_rgm4s")]([ExtResource("19_aebqk")])
 load_point = 3
