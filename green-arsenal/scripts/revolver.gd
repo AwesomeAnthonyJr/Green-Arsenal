@@ -40,6 +40,9 @@ func select_decrement(n):
 		temp = seeds.size() - 1
 	return temp
 
+func loadable():
+	return seeds.size() > 0
+
 func update_sprites():
 	curr_seed.get_parent().visible = seeds.size() > 0
 	prev_seed.get_parent().visible = seeds.size() > 1

@@ -37,10 +37,11 @@ func read_back():
 
 func read_accept():
 	if player.is_reloading:
-		load_special_seed.emit(revolver.get_selection())
-		#await get_tree().process_frame
-		update_revolver(player.loaded_in_gun)
-		#print(revolver.get_selection())
+		if revolver.loadable():
+			load_special_seed.emit(revolver.get_selection())
+			#await get_tree().process_frame
+			update_revolver(player.loaded_in_gun)
+			#print(revolver.get_selection())
 
 func update_petals(arr):
 	crosshair.petal_1_id = min(arr[0], 1)

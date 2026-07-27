@@ -7,7 +7,14 @@ var player_settings = Settings.new()
 
 func _ready() -> void:
 	verify_directories()
-	read_save()
+	#read_save()
+	reset_save()
+
+func reset_save():
+	player_save = SaveFile.new()
+	player_settings = Settings.new()
+	write_save()
+	write_settings()
 
 func get_seed_types():
 	return player_save.seed_types

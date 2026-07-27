@@ -3,7 +3,7 @@ class_name SaveFile
 
 @export var seed_types: Array[bool] = [
 	false, #blaze
-	false,
+	false, #life
 	false, #bounce
 	false, #seeker
 	false,
