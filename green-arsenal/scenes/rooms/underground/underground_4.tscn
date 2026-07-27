@@ -150,7 +150,7 @@ _data = {
 }
 
 [sub_resource type="BoxMesh" id="BoxMesh_qbhu5"]
-size = Vector3(1, 12, 14)
+size = Vector3(1, 13, 14)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c64bj"]
 render_priority = 0
@@ -167,12 +167,12 @@ shader_parameter/fresnel_strength = 0.1999999955296
 shader_parameter/uv1_scale = Vector2(5, 5)
 shader_parameter/uv1_offset = Vector2(0, 0)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pn525"]
-size = Vector3(1, 12, 14)
+[sub_resource type="BoxShape3D" id="BoxShape3D_23i6h"]
+size = Vector3(1, 13, 14)
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_oxlpk")
-adjacent_rooms = Array[int]([15])
+adjacent_rooms = Array[int]([15, 18])
 room_pos = Vector3(-80, 0, -280)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
@@ -1561,6 +1561,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371138e-08, 1, 0, -1, -4.371138e-08, 90.5
 
 [node name="Exit" parent="." unique_id=215822746 instance=ExtResource("5_xl6hi")]
 transform = Transform3D(1, 0, 0, 0, 13.82, 0, 0, 0, 13.15, 113.852905, -1.5000014, -6.667295)
+new_id = 18
 
 [node name="FacilityLight" parent="." unique_id=846988860 instance=ExtResource("7_7osom")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 19, 2.5, -5.5)
@@ -1634,7 +1635,7 @@ flag_index = 18
 torch = NodePath("../TorchBoss/Torch2")
 
 [node name="PuzzleDoor" type="Node3D" parent="." unique_id=883631457]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, -6, -5.640171)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108, -8, -5.640171)
 script = ExtResource("19_23i6h")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PuzzleDoor" unique_id=676869834]
@@ -1645,10 +1646,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
 mesh = SubResource("BoxMesh_qbhu5")
 surface_material_override/0 = SubResource("ShaderMaterial_c64bj")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PuzzleDoor/MeshInstance3D" unique_id=1096340949]
+[node name="StaticBody3D" type="StaticBody3D" parent="PuzzleDoor/MeshInstance3D" unique_id=1542375545]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzleDoor/MeshInstance3D/StaticBody3D" unique_id=515342218]
-shape = SubResource("BoxShape3D_pn525")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzleDoor/MeshInstance3D/StaticBody3D" unique_id=285512749]
+shape = SubResource("BoxShape3D_23i6h")
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_017" method="set_flag_true"]

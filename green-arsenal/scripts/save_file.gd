@@ -26,7 +26,7 @@ class_name SaveFile
 	false, #underground_2 - torch 1
 	false, #underground_2 - torch 2
 	true, #bounce_seed - button | 10
-	false, #combo_puzzle_1 - strangler gate
+	true, #combo_puzzle_1 - strangler gate
 	false, #bounce_seed - strangler gate
 	true, #underground_3 - button
 	false, #underground_3 - strangler gate
@@ -34,6 +34,8 @@ class_name SaveFile
 	false, #underground_4 - health pickup
 	false, #underground_4 - torch 1
 	false, #underground_4 - torch 2
+	false, #underground_5 - torch 1
+	false, #underground_5 - torch 2 | 20
 ]
 ###this is mostly for the map screen to hide certain layers until its time
 @export var farthest_floor: int = 1
