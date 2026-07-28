@@ -132,6 +132,7 @@ func read_reload():
 		is_reloading = true
 		hud.update_petals(loaded_in_gun)
 		hud.reset_rot()
+		SoundManager.play_revolver_open()
 		current_bullet = 0
 
 func read_interact():
@@ -155,28 +156,33 @@ func exit_reload_early():
 			current_bullet = i
 			break 
 	hud.revolver.spin_to_bullet(current_bullet)
+	SoundManager.play_revolver_close(false)
 func reload_special_seed(n):
 	if loaded_in_gun[current_bullet] == 0:
 		loaded_in_gun[current_bullet] = n
 		current_bullet += 1
+		SoundManager.play_reload(current_bullet)
 	while current_bullet < 6 and loaded_in_gun[current_bullet] != 0:
 		current_bullet += 1
 	if current_bullet > 5:
 			is_reloading = false
 			current_bullet = 0
 			hud.revolver.spin_to_bullet(current_bullet)
+			SoundManager.play_revolver_close()
 	hud.update_petals(loaded_in_gun)
 
 func reload_bullet_seed():
 	if loaded_in_gun[current_bullet] == 0:
 		loaded_in_gun[current_bullet] = 1
 		current_bullet += 1
+		SoundManager.play_reload(current_bullet)
 	while current_bullet < 6 and loaded_in_gun[current_bullet] != 0:
 		current_bullet += 1
 	if current_bullet > 5:
 		is_reloading = false
 		current_bullet = 0
 		hud.revolver.spin_to_bullet(current_bullet)
+		SoundManager.play_revolver_close()
 	hud.update_petals(loaded_in_gun)
 
 # going to just handle some flags here
@@ -227,6 +233,8 @@ func check_steps(delta):
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
 	if paused:
+		model_anim_tree.set("parameters/TimeScale/scale", 1.0)
+		model_anim_tree["parameters/WalkState/playback"].travel("standing")
 		return
 	#print(linear_velocity.y)
 	#print(gravity_scale)
@@ -266,7 +274,7 @@ func _physics_process(delta: float) -> void:
 	#just going to use the walk animation to convey all movement for now...
 	if move_dir.length() > 0 and !supress_movement:
 		var move_speed = lerpf(1.0, 2.5, Vector2(linear_velocity.x, linear_velocity.z).length() / 18.0)
-		model_anim_tree.set("parameters/TimeScale/scale", move_speed * 0.5)
+		model_anim_tree.set("parameters/TimeScale/scale", move_speed * 0.8)
 		model_anim_tree["parameters/WalkState/playback"].travel("left_step")
 	else:
 		model_anim_tree.set("parameters/TimeScale/scale", 1.0)
@@ -371,6 +379,7 @@ func playerJump() -> void:
 		#print(speed_mult)
 		apply_central_impulse(Vector3.UP * jumpForce * speed_mult);
 		is_jump_drifting = true
+		SoundManager.play_jump()
 	#Applies jump force 
 
 func shoot():
@@ -426,16 +435,23 @@ func max_1():
 	hud.update_health_display(max_health, current_health)
 
 func take_damage(n):
-	print(current_health)
-	current_health -= n
-	#TODO: make player death actually reload the game and stuff not just resetting position (obviously)
-	if current_health <= 0:
-		print("PLAYER DIES!!")
-		Generics.find_main(self).active.reload_in_game()
-		#current_health = max_health
-		#global_position = get_parent().global_position
-		
-	iframes = true
-	hud.update_health_display(max_health, current_health)
-	await get_tree().create_timer(0.1).timeout
-	iframes = false
+	if !paused:
+		print(current_health)
+		current_health -= n
+		SoundManager.play_hurt()
+		#TODO: make player death actually reload the game and stuff not just resetting position (obviously)
+		#this happens now but without a transition...
+		if current_health <= 0:
+			print("PLAYER DIES!!")
+			Generics.find_main(self).active.reload_in_game()
+			#current_health = max_health
+			#global_position = get_parent().global_position
+			
+		iframes = true
+		hud.update_health_display(max_health, current_health)
+		await get_tree().create_timer(0.1).timeout
+		iframes = false
+
+func make_footstep_sound():
+	if is_grounded:
+		SoundManager.play_footstep()

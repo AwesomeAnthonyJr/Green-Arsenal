@@ -445,6 +445,9 @@ transform = Transform3D(1, 0, 0, 0, 0.85, 0, 0, 0, 1, 23.23843, 15.027842, 15.32
 [node name="Tree_D7" parent="." unique_id=115034123 instance=ExtResource("6_4jq4q")]
 transform = Transform3D(1, 0, 0, 0, 0.85, 0, 0, 0, 1, 31.23843, 15.027842, 9.329727)
 
+[node name="Tree_D18" parent="." unique_id=372387549 instance=ExtResource("6_4jq4q")]
+transform = Transform3D(1, 0, 0, 0, 0.85, 0, 0, 0, 1, 28.957525, 15.027842, 15.702816)
+
 [node name="Tree_D8" parent="." unique_id=899922747 instance=ExtResource("6_4jq4q")]
 transform = Transform3D(1, 0, 0, 0, 0.85, 0, 0, 0, 1, 36.23843, 15.027842, 4.329727)
 

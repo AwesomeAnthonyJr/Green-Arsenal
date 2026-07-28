@@ -12,6 +12,11 @@ extends Control
 @onready var load_4 = $Sprite2D/Control/Loaded4
 @onready var load_5 = $Sprite2D/Control/Loaded5
 
+@onready var label_interact = $InteractMenu/SeedCircle/Label1
+@onready var label_up = $InteractMenu/SeedCircleW/Label2
+@onready var label_down = $InteractMenu/SeedCircleS/Label3
+@onready var label_reload = $InteractMenu/SeedCircle2/Label4
+
 #TODO: read from save data instead! just assume we have all of them for now.
 var seeds = [2, 4, 3, 6, 5, 7, 8]
 var seed_select = 0
@@ -19,6 +24,14 @@ var seed_select = 0
 func _ready() -> void:
 	setup_seeds()
 	SaveManager.save_read.connect(setup_seeds)
+	update_all_labels()
+	SaveManager.input_changed.connect(update_all_labels)
+
+func update_all_labels():
+	label_interact.text = "[bgcolor=black][color=white] " + SaveManager.player_settings.get_text("interact").to_upper() + " [/color][/bgcolor]"
+	label_up.text = "[bgcolor=black][color=white] " + SaveManager.player_settings.get_text("move_forward").to_upper() + " [/color][/bgcolor]"
+	label_down.text = "[bgcolor=black][color=white] " + SaveManager.player_settings.get_text("move_back").to_upper() + " [/color][/bgcolor]"
+	label_reload.text = "[right][bgcolor=black][color=white] " + SaveManager.player_settings.get_text("reload").to_upper() + " [/color][/bgcolor][/right]"
 
 func setup_seeds():
 	var temp = []
@@ -65,10 +78,14 @@ func update_loaded_sprites(arr):
 func pick_next():
 	seed_select = select_increment(seed_select)
 	update_sprites()
+	if seeds.size() > 1:
+		SoundManager.play_menu_tick()
 
 func pick_prev():
 	seed_select = select_decrement(seed_select)
 	update_sprites()
+	if seeds.size() > 1:
+		SoundManager.play_menu_tick()
 
 func get_selection():
 	return seeds[seed_select]

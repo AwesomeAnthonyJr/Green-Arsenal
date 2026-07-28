@@ -114,6 +114,7 @@ func rebindAction(n: String, event):
 	action_dict[n] = event
 	InputMap.action_erase_events(n)
 	InputMap.action_add_event(n, event)
+	#print("INPUT CHANGED!!!")
 	input_changed.emit()
 
 func get_text(code):
