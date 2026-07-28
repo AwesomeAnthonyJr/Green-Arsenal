@@ -19,4 +19,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if !activated_already:
-		check_flags()
+		if check_flags():
+			activated_already = true
+			flags_true.emit()
