@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c0jmfange4rgy"]
+
+[ext_resource type="Script" uid="uid://ddri8uyb6gpgo" path="res://scripts/interact_area.gd" id="1_0rf2p"]
+[ext_resource type="Script" uid="uid://bctkfdijrt3po" path="res://scripts/game_ender.gd" id="1_8vh84"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h45xw"]
+radius = 2.5
+
+[node name="GameEnder" type="Node3D" unique_id=443161518]
+script = ExtResource("1_8vh84")
+
+[node name="InteractArea" type="Area3D" parent="." unique_id=530012375]
+script = ExtResource("1_0rf2p")
+interaction_name = "end the game"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea" unique_id=1289814683]
+shape = SubResource("SphereShape3D_h45xw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1094086922]
+
+[connection signal="body_entered" from="InteractArea" to="InteractArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="InteractArea" method="_on_body_exited"]
+[connection signal="interact_sig" from="InteractArea" to="." method="end_the_game"]

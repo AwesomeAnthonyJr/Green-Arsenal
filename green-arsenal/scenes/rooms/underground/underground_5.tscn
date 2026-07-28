@@ -107,7 +107,7 @@ size = Vector3(1, 23, 10.3927)
 
 [node name="Room2" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_0223q")
-adjacent_rooms = Array[int]([17, 19])
+adjacent_rooms = Array[int]([17, 99])
 room_pos = Vector3(-80, 0, -280)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
@@ -1399,7 +1399,7 @@ shape = SubResource("BoxShape3D_t048l")
 
 [node name="Exit2" parent="." unique_id=702144204 instance=ExtResource("4_vwrge")]
 transform = Transform3D(11.815, 0, 0, 0, 14.245, 0, 0, 0, 1, 150.86264, -12.016807, 22.056438)
-new_id = 19
+new_id = 99
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_019" method="set_flag_true"]

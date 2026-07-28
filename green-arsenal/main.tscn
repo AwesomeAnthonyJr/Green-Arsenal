@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bqsx2hglgfolr" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://i5pjehi8mq60" path="res://scripts/input_manager.gd" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bhaffqlwgnwei" path="res://scenes/Playground.tscn" id="2_074og"]
 [ext_resource type="Script" uid="uid://ccthvopkyorf4" path="res://scripts/active.gd" id="3_074og"]
 [ext_resource type="PackedScene" uid="uid://cf4ivcue51ciw" path="res://scenes/main_menu.tscn" id="4_yaehf"]
 [ext_resource type="Script" uid="uid://bnmd5aw0ol2pp" path="res://scripts/pause_menu.gd" id="5_ycdy4"]
@@ -1292,8 +1291,6 @@ script = ExtResource("1_h2yge")
 input_manager = NodePath("InputManager")
 
 [node name="Testing" type="Node" parent="." unique_id=798207614]
-
-[node name="Playground" parent="Testing" unique_id=798919202 instance=ExtResource("2_074og")]
 
 [node name="InputManager" type="Node" parent="." unique_id=106243138]
 process_mode = 3

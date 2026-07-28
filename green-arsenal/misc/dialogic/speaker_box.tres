@@ -18,6 +18,9 @@ scene = ExtResource("1_377i1")
 [sub_resource type="Resource" id="Resource_2cobd"]
 script = ExtResource("2_lmrgw")
 scene = ExtResource("3_1ot8r")
+overrides = {
+"bg_texture_filter": "0"
+}
 
 [sub_resource type="Resource" id="Resource_i6ybh"]
 script = ExtResource("2_lmrgw")
@@ -26,14 +29,27 @@ scene = ExtResource("4_33qo0")
 [sub_resource type="Resource" id="Resource_nr3vb"]
 script = ExtResource("2_lmrgw")
 scene = ExtResource("5_vb54j")
+overrides = {
+"custom_bold_font": "\"res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf\"",
+"custom_bold_italic_font": "\"res://fonts/Roboto_Mono/static/RobotoMono-BoldItalic.ttf\"",
+"custom_italic_font": "\"res://fonts/Roboto_Mono/static/RobotoMono-MediumItalic.ttf\"",
+"custom_normal_font": "\"res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf\"",
+"name_label_customfont": "\"res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf\""
+}
 
 [sub_resource type="Resource" id="Resource_f6d6b"]
 script = ExtResource("2_lmrgw")
 scene = ExtResource("6_3uil6")
+overrides = {
+"font_custom": "\"res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf\""
+}
 
 [sub_resource type="Resource" id="Resource_msxwm"]
 script = ExtResource("2_lmrgw")
 scene = ExtResource("7_l418s")
+overrides = {
+"font_custom": "\"res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf\""
+}
 
 [sub_resource type="Resource" id="Resource_je8wl"]
 script = ExtResource("2_lmrgw")
@@ -57,4 +73,4 @@ layer_info = {
 "15": SubResource("Resource_je8wl"),
 "16": SubResource("Resource_n155x")
 }
-metadata/_latest_layer = "14"
+metadata/_latest_layer = "10"

@@ -2,13 +2,13 @@ extends Resource
 class_name SaveFile
 
 @export var seed_types: Array[bool] = [
-	true, #blaze
-	true, #life
-	true, #bounce
-	true, #seeker
-	true, #platform
-	true, #propeller
-	true #heavy
+	false, #blaze
+	false, #life
+	false, #bounce
+	false, #seeker
+	false, #platform
+	false, #propeller
+	false #heavy
 ]
 @export var max_hp: int = 3
 @export var growth_charges: int = 1
