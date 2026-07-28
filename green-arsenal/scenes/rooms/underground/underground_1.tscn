@@ -11,11 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="7_srdg7"]
 [ext_resource type="PackedScene" uid="uid://ddexbsd7e36p3" path="res://scenes/level_parts/strangler_c.tscn" id="10_h7j6q"]
 [ext_resource type="PackedScene" uid="uid://c3xcgxgalv1wm" path="res://scenes/save_operator.tscn" id="10_ka2ef"]
-[ext_resource type="Script" uid="uid://dgj4ooxldro68" path="res://scripts/save_operator_underground.gd" id="10_mwg54"]
 [ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="11_0gfbk"]
 [ext_resource type="PackedScene" uid="uid://tl4lg8ap4dm1" path="res://scenes/level_parts/strangler_a.tscn" id="12_0gfbk"]
 [ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="12_5tfqg"]
-[ext_resource type="Resource" uid="uid://dadoabjua5ltb" path="res://misc/dialogic/underground_operator.dtl" id="12_xrbbx"]
 [ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="12_y7emq"]
 [ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="13_5mxhe"]
 [ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="14_ka2ef"]
@@ -2912,8 +2910,7 @@ transform = Transform3D(0.74503946, -3.683823e-09, -0.6670203, 8.311749e-08, 1, 
 
 [node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("10_ka2ef")]
 transform = Transform3D(-0.95116216, 0, 0.30869162, 0, 1, 0, -0.30869162, 0, -0.95116216, -5.8609734, -5.977991, -8.890905)
-script = ExtResource("10_mwg54")
-operator_scenes = Array[ExtResource("11_0gfbk")]([ExtResource("12_xrbbx"), ExtResource("12_y7emq")])
+operator_scenes = Array[ExtResource("11_0gfbk")]([ExtResource("12_y7emq")])
 load_point = 4
 
 [node name="Tree_F" parent="." unique_id=47698065 instance=ExtResource("7_srdg7")]

@@ -61,8 +61,8 @@ size = Vector2(10, 10)
 subdivide_width = 30
 subdivide_depth = 30
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_w1shh"]
-size = Vector3(5, 10, 29.075134)
+[sub_resource type="BoxShape3D" id="BoxShape3D_honlr"]
+size = Vector3(5, 10, 16.94165)
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_x6m5d")
@@ -1309,16 +1309,16 @@ transform = Transform3D(-0.7190633, 0, 0.6949447, 0, 1, 0, -0.6949447, 0, -0.719
 [node name="Tree_F" parent="." unique_id=323133602 instance=ExtResource("14_a14lj")]
 transform = Transform3D(0.739982, 0, 0.6726266, 0, 1, 0, -0.6726266, 0, 0.739982, -0.017895699, -9.04427, 1.5521731)
 
-[node name="Enemy" parent="." unique_id=553297755 instance=ExtResource("23_w1shh")]
-transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0.8688488, 2.1632345, -0.23867702)
-
 [node name="DialogTrigger" parent="." unique_id=451490337 instance=ExtResource("21_1w2hs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.285799, 4.820411, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.578976, 4.820411, 0)
 dialogic_scene = ExtResource("22_iqkuq")
 flag_or_seed = 1
 
 [node name="CollisionShape3D" parent="DialogTrigger" index="0" unique_id=1604652831]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34196568, -1.6473694)
-shape = SubResource("BoxShape3D_w1shh")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34196568, 0.9263916)
+shape = SubResource("BoxShape3D_honlr")
+
+[node name="Enemy" parent="." unique_id=553297755 instance=ExtResource("23_w1shh")]
+transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, 0.8688488, 2.1632345, -0.23867702)
 
 [editable path="DialogTrigger"]

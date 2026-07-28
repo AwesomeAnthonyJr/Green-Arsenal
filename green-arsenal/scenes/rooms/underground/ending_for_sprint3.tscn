@@ -5,9 +5,7 @@
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="3_ypgpr"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="4_gtur1"]
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="5_ph5xr"]
-[ext_resource type="PackedScene" uid="uid://dogvlj5kbvoo3" path="res://scenes/level_parts/dialog_trigger.tscn" id="6_s3r5c"]
 [ext_resource type="PackedScene" uid="uid://tl4lg8ap4dm1" path="res://scenes/level_parts/strangler_a.tscn" id="6_se43f"]
-[ext_resource type="Resource" uid="uid://djrjpdpdiwceu" path="res://misc/dialogic/final_mentor.dtl" id="7_geoem"]
 [ext_resource type="PackedScene" uid="uid://ditkeytqpk223" path="res://scenes/level_parts/strangler_b.tscn" id="7_x30c5"]
 [ext_resource type="PackedScene" uid="uid://ddexbsd7e36p3" path="res://scenes/level_parts/strangler_c.tscn" id="8_ysg7k"]
 [ext_resource type="PackedScene" uid="uid://c0jmfange4rgy" path="res://scenes/game_ender.tscn" id="9_ysg7k"]
@@ -325,10 +323,6 @@ new_id = 18
 [node name="SoilPatch10x10" parent="." unique_id=361187496 instance=ExtResource("5_ph5xr")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 150.42307, -17.5, 74.5524)
 
-[node name="DialogTrigger" parent="." unique_id=451490337 instance=ExtResource("6_s3r5c")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 169.31963, -12.436204, 40.168404)
-dialogic_scene = ExtResource("7_geoem")
-
 [node name="Strangler_A" parent="." unique_id=1312390667 instance=ExtResource("6_se43f")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 148.92307, -17, 76.46179)
 
@@ -340,5 +334,3 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 144.
 
 [node name="GameEnder" parent="." unique_id=443161518 instance=ExtResource("9_ysg7k")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 150.42307, -16, 71.5524)
-
-[editable path="DialogTrigger"]
