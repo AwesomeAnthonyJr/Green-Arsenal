@@ -11,7 +11,7 @@ func _ready() -> void:
 	SaveManager.input_changed.connect(update_text)
 
 func update_text():
-	print("UPDATING TEXT!")
+	#print("UPDATING TEXT!")
 	var val = SaveManager.player_settings.get_text(code)
 	var length = val.length()
 	var scale_x = 1.0

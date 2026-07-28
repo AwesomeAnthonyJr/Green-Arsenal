@@ -60,7 +60,7 @@ func play_menu_next():
 func play_menu_tick():
 	_play(menu_click, 0, 0, 1.5)
 func play_menu_accept():
-	_play(menu_accept, -2)
+	_play(menu_accept, -4)
 
 func play_reload(current_bullet: int):
 	_play(reject, -6, 0, 1.0 + current_bullet * 0.1)
