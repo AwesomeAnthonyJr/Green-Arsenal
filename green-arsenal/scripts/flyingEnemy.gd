@@ -31,6 +31,7 @@ var target_obj: Node3D
 var home_override = 0.0
 var original_speed: float = 0.0
 var activated: bool = false
+@onready var hunting_audio = $AudioStreamPlayer3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -143,6 +144,7 @@ func attack_detection():
 				target_obj = obj
 				target_pos = shapecast.get_collision_point(i)
 	if found_a_player:
+		hunting_audio.play()
 		target_found_left = true
 		anim.play("snap_left")
 		left_arm_position = target_pos
