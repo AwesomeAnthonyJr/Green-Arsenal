@@ -257,7 +257,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_smehm"]
 resource_name = "arm_swing"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -388,7 +388,6 @@ transitions = ["Start", "standing", SubResource("AnimationNodeStateMachineTransi
 graph_offset = Vector2(23, -69)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h3b12"]
-graph_offset = Vector2(-510.90002, -62)
 nodes/output/position = Vector2(360, 160)
 nodes/WalkState/node = SubResource("AnimationNodeStateMachine_f1ej7")
 nodes/WalkState/position = Vector2(-80, 140)
@@ -750,7 +749,7 @@ settings/0/joints/2/limitation/right_axis = 0
 settings/0/joints/2/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Pivot/Pivot2/Model/Armature_001/Skeleton3D" unique_id=2081248552]
-transform = Transform3D(-0.9225854, -0.18255584, 0.33986533, 0.32776964, 0.09372858, 0.94009656, -0.20347519, 0.97871745, -0.026636325, -0.7742175, 1.6343833, 1.5806174)
+transform = Transform3D(-0.9225432, -0.18253718, 0.33999002, 0.32797283, 0.09336492, 0.9400619, -0.20333928, 0.9787558, -0.026265956, -0.7742151, 1.6343185, 1.5806222)
 bone_name = "Palm R"
 bone_idx = 19
 
