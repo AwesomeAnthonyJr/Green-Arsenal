@@ -16,6 +16,8 @@ data_*/
 mono_crash.*.json
 /green-arsenal/builds/sprint_2
 /green-arsenal/builds/sprint_3_demo
+/green-arsenal/builds/sprint_3_introless
+/green-arsenal/builds/sprint_3_introfull
 /green-arsenal/scenes/full_rooms.tscn
 
 # Mac DS Store
