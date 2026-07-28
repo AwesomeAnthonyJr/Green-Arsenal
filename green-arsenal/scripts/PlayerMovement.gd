@@ -233,6 +233,8 @@ func check_steps(delta):
 #like process but called in the physics thread, uses a consistent framerate
 func _physics_process(delta: float) -> void:
 	if paused:
+		model_anim_tree.set("parameters/TimeScale/scale", 1.0)
+		model_anim_tree["parameters/WalkState/playback"].travel("standing")
 		return
 	#print(linear_velocity.y)
 	#print(gravity_scale)
@@ -377,6 +379,7 @@ func playerJump() -> void:
 		#print(speed_mult)
 		apply_central_impulse(Vector3.UP * jumpForce * speed_mult);
 		is_jump_drifting = true
+		SoundManager.play_jump()
 	#Applies jump force 
 
 func shoot():

@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://doje8a0avc0ah" path="res://ui/revolver_ui_circle_small.png" id="13_4f0tj"]
 [ext_resource type="Texture2D" uid="uid://do2lgjdrol4xd" path="res://ui/seeds1_take2-Sheet.png" id="13_ywslq"]
 [ext_resource type="Texture2D" uid="uid://cu62pj1efch37" path="res://ui/heart_ui_1_take_2_flat.png" id="14_40yl3"]
+[ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="14_cawb2"]
 [ext_resource type="Script" uid="uid://gf01xkqe06kj" path="res://scripts/planted.gd" id="16_2k0n8"]
 [ext_resource type="Script" uid="uid://b3uc3k1ofckag" path="res://scripts/interact_position.gd" id="16_4f0tj"]
 [ext_resource type="Texture2D" uid="uid://cjgf2l4pe0big" path="res://ui/plant_renders_nonindexed-Sheet.png" id="16_156o1"]
@@ -855,12 +856,32 @@ texture = ExtResource("13_ywslq")
 hframes = 11
 frame = 2
 
+[node name="Label1" type="RichTextLabel" parent="Revolver/InteractMenu/SeedCircle" unique_id=1717291146]
+offset_left = 47.0
+offset_top = -31.0
+offset_right = 389.0
+offset_bottom = 111.0
+theme_override_fonts/normal_font = ExtResource("14_cawb2")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[bgcolor=black][color=white]E[/color][/bgcolor]"
+
 [node name="SeedCircle2" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=780994671]
 position = Vector2(-180, 0)
 texture = ExtResource("10_ywslq")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Revolver/InteractMenu/SeedCircle2" unique_id=253623783]
 texture = ExtResource("12_40yl3")
+
+[node name="Label4" type="RichTextLabel" parent="Revolver/InteractMenu/SeedCircle2" unique_id=1859213723]
+offset_left = -296.0
+offset_top = -81.0
+offset_right = 46.0
+offset_bottom = 61.0
+theme_override_fonts/normal_font = ExtResource("14_cawb2")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[bgcolor=black][color=white]E[/color][/bgcolor]"
 
 [node name="SeedCircleS" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=1173893162]
 position = Vector2(165, 85)
@@ -872,6 +893,16 @@ texture = ExtResource("13_ywslq")
 hframes = 11
 frame = 3
 
+[node name="Label3" type="RichTextLabel" parent="Revolver/InteractMenu/SeedCircleS" unique_id=457176976]
+offset_left = 39.0
+offset_top = -20.0
+offset_right = 381.0
+offset_bottom = 122.0
+theme_override_fonts/normal_font = ExtResource("14_cawb2")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[bgcolor=black][color=white]S[/color][/bgcolor]"
+
 [node name="SeedCircleW" type="Sprite2D" parent="Revolver/InteractMenu" unique_id=1339314390]
 position = Vector2(165, -85)
 texture = ExtResource("13_4f0tj")
@@ -882,60 +913,15 @@ texture = ExtResource("13_ywslq")
 hframes = 11
 frame = 5
 
-[node name="Label" type="Label" parent="Revolver/InteractMenu" unique_id=1863959460]
-layout_mode = 0
-offset_left = 227.0
-offset_top = -28.0
-offset_right = 267.0
-offset_bottom = 27.0
-theme_override_font_sizes/font_size = 40
-text = "E"
-
-[node name="Label2" type="Label" parent="Revolver/InteractMenu" unique_id=1938432236]
-layout_mode = 0
-offset_left = 198.0
-offset_top = -79.0
-offset_right = 238.0
-offset_bottom = -24.0
-theme_override_font_sizes/font_size = 20
-text = "W"
-
-[node name="Label3" type="Label" parent="Revolver/InteractMenu" unique_id=1511330556]
-layout_mode = 0
-offset_left = 203.0
-offset_top = 47.0
-offset_right = 243.0
-offset_bottom = 102.0
-theme_override_font_sizes/font_size = 20
-text = "S"
-
-[node name="Label5" type="Label" parent="Revolver/InteractMenu" unique_id=194432766]
-layout_mode = 0
-offset_left = 165.0
-offset_top = 55.0
-offset_right = 205.0
-offset_bottom = 110.0
-rotation = -1.5707964
-theme_override_font_sizes/font_size = 20
-text = "<"
-
-[node name="Label6" type="Label" parent="Revolver/InteractMenu" unique_id=395750875]
-layout_mode = 0
-offset_left = 195.0
-offset_top = -55.0
-offset_right = 235.0
-rotation = -4.712389
-theme_override_font_sizes/font_size = 20
-text = "<"
-
-[node name="Label4" type="Label" parent="Revolver/InteractMenu" unique_id=1609501840]
-layout_mode = 0
-offset_left = -192.0
-offset_top = 41.0
-offset_right = -152.0
-offset_bottom = 96.0
-theme_override_font_sizes/font_size = 40
-text = "R"
+[node name="Label2" type="RichTextLabel" parent="Revolver/InteractMenu/SeedCircleW" unique_id=966052752]
+offset_left = 39.0
+offset_top = -20.0
+offset_right = 381.0
+offset_bottom = 122.0
+theme_override_fonts/normal_font = ExtResource("14_cawb2")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[bgcolor=black][color=white]W[/color][/bgcolor]"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Revolver" unique_id=2035205259]
 libraries/ = SubResource("AnimationLibrary_4f0tj")

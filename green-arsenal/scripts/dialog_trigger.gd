@@ -9,12 +9,16 @@ var player_ref
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	
+func _process(delta: float) -> void:
 	if flag_or_seed == 0:
 		if SaveManager.player_save.game_flags[fs_index] == true:
 			queue_free()
 	elif flag_or_seed == 1:
 		if SaveManager.player_save.seed_types[fs_index] == true:
 			queue_free()
+	else:
+		return
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and scene_played == false:
