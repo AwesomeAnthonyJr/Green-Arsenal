@@ -43,10 +43,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventKey && event.pressed:
 			supress_next_input = true
 			menu_position = 1
+			SoundManager.play_menu_tick()
 		elif event is InputEventMouseButton && event.pressed:
 			supress_next_input = true
 			menu_position = 1
+			SoundManager.play_menu_tick()
 	update_visuals()
+	
 
 func update_visuals():
 	var playback = anim["parameters/playback"]
@@ -102,12 +105,14 @@ func read_up():
 	match menu_position:
 		1:
 			menu_position = 2
+			SoundManager.play_menu_next()
 		2:
 			pass
 		3:
 			pass
 		4:
 			menu_position = 1
+			SoundManager.play_menu_next()
 	update_visuals()
 
 func read_down():
@@ -117,10 +122,13 @@ func read_down():
 	match menu_position:
 		1:
 			menu_position = 4
+			SoundManager.play_menu_next()
 		2:
 			menu_position = 1
+			SoundManager.play_menu_next()
 		3:
 			menu_position = 1
+			SoundManager.play_menu_next()
 		4:
 			pass
 	update_visuals()
@@ -136,6 +144,7 @@ func read_left():
 			pass
 		3:
 			menu_position = 2
+			SoundManager.play_menu_next()
 		4:
 			pass
 	update_visuals()
@@ -150,6 +159,7 @@ func read_right():
 		2:
 			if can_load_game:
 				menu_position = 3
+				SoundManager.play_menu_next()
 		3:
 			pass
 		4:
@@ -164,12 +174,15 @@ func read_accept():
 		1:
 			if new_game:
 				SaveManager.reset_save()
+			SoundManager.play_menu_accept()
 			await get_tree().create_timer(0.1).timeout
 			start_game()
 		2:
 			new_game = true
+			SoundManager.play_menu_accept()
 		3:
 			new_game = false
+			SoundManager.play_menu_accept()
 		4:
 			get_tree().quit()
 	update_visuals()

@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://cgsnt031fmwnp" path="res://materials/white_material.tres" id="3_yf7mo"]
 [ext_resource type="Material" uid="uid://crccc5ki7otll" path="res://materials/blue_material.tres" id="4_vcpln"]
 [ext_resource type="Material" uid="uid://261r71cbnjxf" path="res://materials/player_glasses.tres" id="5_8crh0"]
+[ext_resource type="AudioStream" uid="uid://bia1o1pmnp443" path="res://sound/imported_from_old_projects/xcvb_stars.wav" id="6_8crh0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0o143"]
 
@@ -456,6 +457,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.712, -0.686, -0.104)
 shape = SubResource("SphereShape3D_80iay")
 target_position = Vector3(0, 0, -1)
 collision_mask = 9
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1145426831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("6_8crh0")
+attenuation_model = 1
+max_db = -1.0
+bus = &"Sound"
 
 [connection signal="body_entered" from="FancyModel/Skeleton3D/LeftArm/Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="FancyModel/Skeleton3D/RightArm/Hurtbox" to="." method="_on_hurtbox_body_entered"]
