@@ -49,7 +49,7 @@ func play_revolver_open():
 	_play(revolver_open)
 
 func play_jump():
-	_play(jump, -2)
+	_play(jump, -8, 0, randf_range(0.9, 1.1))
 
 func play_menu_open():
 	_play(menu_open, -4)

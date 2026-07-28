@@ -43,11 +43,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventKey && event.pressed:
 			supress_next_input = true
 			menu_position = 1
+			SoundManager.play_menu_tick()
 		elif event is InputEventMouseButton && event.pressed:
 			supress_next_input = true
 			menu_position = 1
+			SoundManager.play_menu_tick()
 	update_visuals()
-	SoundManager.play_menu_tick()
+	
 
 func update_visuals():
 	var playback = anim["parameters/playback"]
