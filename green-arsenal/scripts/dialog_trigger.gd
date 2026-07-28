@@ -9,6 +9,8 @@ var player_ref
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	
+func _process(delta: float) -> void:
 	if flag_or_seed == 0:
 		if SaveManager.player_save.game_flags[fs_index] == true:
 			queue_free()
