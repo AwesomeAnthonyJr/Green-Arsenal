@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="2_i2l1n"]
 [ext_resource type="AudioStream" uid="uid://b14voe73kk2v6" path="res://sound/music/theme.mp3" id="2_yjqpq"]
 [ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="3_wfs7u"]
+[ext_resource type="Shader" uid="uid://ci7n4r15ymo5h" path="res://shaders/color_invert.gdshader" id="6_es01l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vapy"]
 
@@ -88,9 +89,372 @@ sky = SubResource("Sky_yaehf")
 ambient_light_source = 1
 glow_enabled = true
 
+[sub_resource type="Animation" id="Animation_i2l1n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("plant_revolver2/Barrel/Sprite3D/Label3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.05479373, 0.8188783, 0.42805052)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("plant_revolver2/Barrel/Sprite3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.574, 0.226, 0.425)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("plant_revolver2/Barrel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.582529, 6.206087, 5.5671754)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("plant_revolver2/Barrel:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("plant_revolver2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Label3D2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Label3D2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Label3D2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.785, 2.57, -7)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Label3D2:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.26179942)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Label3D3:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Label3D3:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.295, 1.05, -7.085)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Label3D3:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.28972465)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Label3D3:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.99999994, 0.99999994, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Label3D4:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Label3D4:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.855, -1.94, -7.085)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Label3D4:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Label3D4:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.99999994, 0.99999994, 1)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Label3D5:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Label3D5:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-6.145, -3.94, -6.085)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Label3D5:rotation")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.26179937)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Label3D5:scale")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.9999998, 0.9999998, 1)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Label3D6:visible")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Label3D6:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.855, -3.94, -6.085)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Label3D6:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.2617994)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Label3D6:scale")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.99999976, 0.99999976, 1)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("plant_revolver2:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.177652, 0.5580148, 0.09943354)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Label3D7:visible")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_4bx60"]
 resource_name = "intro"
-length = 5.0
+length = 10.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -106,16 +470,387 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("plant_revolver2/Barrel/Sprite3D/Label3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 2.5000002, 4.3333335, 5, 8.3, 8.433333, 8.633334, 8.900001, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.055, 0.819, 0.417), Vector3(0.05479373, 0.8188783, 0.42805052), Vector3(0.05479373, 0.8188783, 0.42805052), Vector3(0.05479373, 0.8188783, 0.42805052), Vector3(1.142, 1.444, 2.1420002), Vector3(-4.9617057, 1.2585238, -0.43238592), Vector3(-0.89733773, 0.120519996, 1.9213858), Vector3(2.6255107, 1.2585238, 1.8510933), Vector3(-1.5221968, 1.70806, 3.523479), Vector3(-3.5821319, 0.64173824, 7.360718)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("plant_revolver2/Barrel/Sprite3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.454, 0.578, 1.081), Vector3(0.574, 0.226, 0.425)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("plant_revolver2/Barrel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4, 4.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-2.582529, 6.206087, 5.5671754), Vector3(-2.582529, 6.206087, -0.48711395)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("plant_revolver2/Barrel:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4, 4.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.1415927, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera3D:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4.3333335, 5, 8.3, 8.433333, 8.633334, 8.900001, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.017453292, 0.08726646, 0), Vector3(0.008726645, -0.8857528, 0), Vector3(0.17016964, -0.20507461, 0), Vector3(0.008726647, 0.30107093, 0), Vector3(-0.2923426, -0.20943767, 0), Vector3(-0.030543145, -0.13089785, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("plant_revolver2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(4.9000006, 4.966667, 5.133333, 8.366667, 8.433333, 8.533334, 8.6, 8.8, 8.866667, 9.033334, 9.2, 9.3, 9.466666, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.5235988), Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.5235988), Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.5235988), Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.5235988), Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.5235988), Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, -3.2637658)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Label3D2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 4.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Label3D2:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(4.9666667, 5.1000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Label3D2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(4.9666667, 5.1000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.18682986, 1.5582931, -1.2136531), Vector3(-3.785, 2.57, -7)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Label3D2:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(4.9666667, 5.1000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.0723766e-15, 1.5707964, 0.2617994), Vector3(0, 0, 0.26179942)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Label3D3:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 8.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Label3D3:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(8.433333, 8.533334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.15790638, 1.4929068, -1.085), Vector3(3.295, 1.05, -7.085)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Label3D3:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(8.433333, 8.533334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.0475946e-16, -1.5707964, -0.28972465), Vector3(0, 0, -0.28972465)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Label3D3:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(8.433333, 8.533334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.099999994, 0.09999999, 0.09999999), Vector3(0.99999994, 0.99999994, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Label3D4:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 8.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Label3D4:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(8.6, 8.700001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.13436937, 1.4296095, -1.136789), Vector3(0.855, -1.94, -7.085)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Label3D4:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(8.6, 8.700001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.733112, 0), Vector3(0, 0, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Label3D4:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(8.6, 8.700001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(0.99999994, 0.99999994, 1)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 8.433333, 9.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Label3D5:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 8.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Label3D5:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(8.866667, 8.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.10788071, 1.579906, -0.90869), Vector3(-6.145, -3.94, -6.085)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Label3D5:rotation")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(8.866667, 8.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.0908623e-08, 1.5707964, 0.52359885), Vector3(0, 0, -0.26179937)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Label3D5:scale")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(8.866667, 8.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(0.9999998, 0.9999998, 1)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Label3D6:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 9.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Label3D6:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(9.3, 9.400001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.19530118, 1.4131963, -0.92896926), Vector3(2.855, -3.94, -6.085)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Label3D6:rotation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(9.3, 9.400001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.2489712e-09, 1.6532553, 0.2617994), Vector3(0, 0, 0.2617994)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Label3D6:scale")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(9.3, 9.400001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(0.99999976, 0.99999976, 1)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("plant_revolver2:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(9.500001, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.177652, 0.5580148, 0.09943354), Vector3(-0.177652, -10.264119, 9.196025)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Label3D7:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2l1n"]
 _data = {
+&"RESET": SubResource("Animation_i2l1n"),
 &"intro": SubResource("Animation_4bx60")
 }
+
+[sub_resource type="BoxMesh" id="BoxMesh_h45xw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_es01l"]
+shading_mode = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h45xw"]
+shader = ExtResource("6_es01l")
 
 [node name="Intro" type="Node3D" unique_id=408763940]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2142479412]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05479373, 0.8188783, 0.42805052)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0.05479373, 0.8188783, 0.42805052)
+cull_mask = 524287
+current = true
 
 [node name="plant_revolver2" type="Node3D" parent="." unique_id=1414922883]
 transform = Transform3D(-1.7484562e-09, 0, 0.039999995, 0, 0.04000002, 0, -0.040000014, 0, -1.7484554e-09, -0.177652, 0.5580148, 0.09943354)
@@ -126,7 +861,7 @@ mesh = SubResource("ArrayMesh_yjqpq")
 surface_material_override/0 = ExtResource("1_ioskq")
 
 [node name="Barrel" type="MeshInstance3D" parent="plant_revolver2" unique_id=1016481913]
-transform = Transform3D(2.5274277, 0, 0, 0, 4.79781, 0, 0, 0, 1.871768, -2.582529, 6.206087, 5.5671754)
+transform = Transform3D(2.5274277, 0, 0, 0, 4.7978096, 0, 0, 0, 1.871768, -2.582529, 6.206087, 5.5671754)
 mesh = SubResource("ArrayMesh_4bx60")
 surface_material_override/0 = ExtResource("1_ioskq")
 
@@ -136,13 +871,17 @@ modulate = Color(0.37254903, 0.4627451, 0.8784314, 1)
 texture = ExtResource("2_i2l1n")
 
 [node name="Label3D" type="Label3D" parent="plant_revolver2/Barrel/Sprite3D" unique_id=2144592646]
-transform = Transform3D(1.38, 0, 0, 0, 1.38, 0, -7.1054274e-15, 0, 1.3799998, -0.11078894, 0, 0.034061432)
+transform = Transform3D(0.93, 0, 5.9855507e-15, 0, 0.93, 0, -5.9855507e-15, 0, 0.93, -0.591, 0, 0.034)
+visible = false
 sorting_offset = 1.0
 outline_modulate = Color(0.37254903, 0.4627451, 0.8784314, 1)
 text = "Team Blue Dot"
 font = ExtResource("3_wfs7u")
 font_size = 64
 outline_size = 20
+
+[node name="Node3D" type="Node3D" parent="plant_revolver2/Barrel" unique_id=1396086114]
+transform = Transform3D(0.99999994, -5.9604645e-08, 3.5527137e-15, -1.4901161e-08, 1, -1.7763568e-15, 0, 0, 1, 11.704144, -0.46558428, -4.7683716e-07)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2097294640]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2047397)
@@ -152,5 +891,90 @@ environment = SubResource("Environment_wfs7u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1693763460]
 libraries/ = SubResource("AnimationLibrary_i2l1n")
+autoplay = &"intro"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1208913815]
+
+[node name="Label3D" type="Label3D" parent="." unique_id=296167155]
+transform = Transform3D(0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0, 0, 1, -4.37, 4, -7)
+render_priority = 1
+outline_render_priority = 1
+modulate = Color(0.26666668, 0.8980392, 0.21568628, 1)
+text = "a:"
+font = ExtResource("3_wfs7u")
+font_size = 160
+outline_size = 20
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=1857857562]
+transform = Transform3D(0.09659258, -0.025881907, 0, 0.025881907, 0.09659258, 0, 0, 0, 0.1, -3.785, 2.57, -7)
+render_priority = 1
+outline_render_priority = 1
+modulate = Color(0.98039216, 0.8156863, 0.09803922, 1)
+text = "Anthony D. Salsbury"
+font = ExtResource("3_wfs7u")
+font_size = 240
+outline_size = 20
+
+[node name="Label3D3" type="Label3D" parent="." unique_id=1006386919]
+transform = Transform3D(0.9583225, 0.28568834, 0, -0.28568834, 0.9583225, 0, 0, 0, 1, 3.295, 1.05, -7.085)
+visible = false
+render_priority = 1
+outline_render_priority = 1
+modulate = Color(0.21960784, 0.85490197, 0.8666667, 1)
+text = "Jack Schaeffer"
+font = ExtResource("3_wfs7u")
+font_size = 240
+outline_size = 20
+
+[node name="Label3D4" type="Label3D" parent="." unique_id=2011876771]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0.855, -1.94, -7.085)
+visible = false
+render_priority = 1
+outline_render_priority = 1
+modulate = Color(0.8666667, 0.21960784, 0.5803922, 1)
+text = "Alexander Hanover"
+font = ExtResource("3_wfs7u")
+font_size = 240
+outline_size = 20
+
+[node name="Label3D5" type="Label3D" parent="." unique_id=420639858]
+transform = Transform3D(0.96592563, 0.25881895, 0, -0.25881895, 0.96592563, 0, 0, 0, 1, -6.145, -3.94, -6.085)
+render_priority = 1
+outline_render_priority = 1
+modulate = Color(0.9254902, 0.5058824, 0.23137255, 1)
+text = "trainspotter"
+font = ExtResource("3_wfs7u")
+font_size = 240
+outline_size = 20
+
+[node name="Label3D6" type="Label3D" parent="." unique_id=1940091575]
+transform = Transform3D(0.9659256, -0.25881898, 0, 0.25881898, 0.9659256, 0, 0, 0, 1, 2.855, -3.94, -6.085)
+render_priority = 1
+outline_render_priority = 1
+modulate = Color(0.23921569, 0.36862746, 0.8235294, 1)
+text = "Nate Pepper"
+font = ExtResource("3_wfs7u")
+font_size = 240
+outline_size = 20
+
+[node name="Label3D7" type="Label3D" parent="." unique_id=921492464]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 1, -1.61, -1.2, -7.6)
+modulate = Color(0.8862745, 0.21960784, 0.23137255, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "GAME"
+font = ExtResource("3_wfs7u")
+font_size = 1600
+outline_size = 80
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1896889202]
+transform = Transform3D(35.515, 0, 0, 0, 27.58, 0, 0, 0, 8.875, 0, 0, -12.05)
+mesh = SubResource("BoxMesh_h45xw")
+surface_material_override/0 = SubResource("StandardMaterial3D_es01l")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=890747417]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=698359742]
+visible = false
+material = SubResource("ShaderMaterial_h45xw")
+offset_right = 1280.0
+offset_bottom = 720.0

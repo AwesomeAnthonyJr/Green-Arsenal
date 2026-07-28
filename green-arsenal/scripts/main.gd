@@ -12,6 +12,7 @@ class_name Main
 var override_pause: bool = false
 
 var not_gameplay: bool = true
+var first_time: bool = true
 
 func _ready() -> void:
 	testing_check()
