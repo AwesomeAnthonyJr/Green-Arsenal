@@ -6,18 +6,24 @@ var player_save = SaveFile.new()
 var player_settings = Settings.new()
 
 signal save_read
+signal input_changed
 
 func _ready() -> void:
 	verify_directories()
 	read_save()
+	read_settings()
 	#reset_save()
 
 func set_load_point(i: int):
 	player_save.load_point = i
 
+func broadcast_input_changed():
+	input_changed.emit()
+
 func reset_save():
 	player_save = SaveFile.new()
 	player_settings = Settings.new()
+	player_settings.input_changed.connect(broadcast_input_changed)
 	write_save()
 	write_settings()
 
@@ -49,6 +55,7 @@ func read_settings():
 	player_settings = Settings.new()
 	if (ResourceLoader.exists(save_file_path + save_settings_name)):
 		player_settings = ResourceLoader.load(save_file_path + save_settings_name)
+	player_settings.input_changed.connect(broadcast_input_changed)
 
 func write_settings():
 	ResourceSaver.save(player_settings, save_file_path + save_settings_name)

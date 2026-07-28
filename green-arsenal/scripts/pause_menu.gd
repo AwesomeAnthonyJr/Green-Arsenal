@@ -149,6 +149,7 @@ func close_pause_menu():
 			playback.travel("close_menu_map")
 	playback = select_anim_tree["parameters/playback"]
 	playback.travel("hide_selector")
+	SaveManager.write_settings()
 
 func update_display():
 	match current_menu:
@@ -1435,6 +1436,7 @@ func read_big_left():
 		return
 	if !in_menu:
 		return
+	SoundManager.play_menu_tick()
 	match current_menu:
 		MenuSelection.STATUS:
 			current_menu = MenuSelection.MAP
@@ -1454,6 +1456,7 @@ func read_big_right():
 		return
 	if !in_menu:
 		return
+	SoundManager.play_menu_tick()
 	match current_menu:
 		MenuSelection.STATUS:
 			current_menu = MenuSelection.CONTROLS

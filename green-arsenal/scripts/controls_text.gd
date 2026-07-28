@@ -8,9 +8,10 @@ class_name ControlsText
 func _ready() -> void:
 	await get_tree().process_frame
 	update_text()
-	SaveManager.player_settings.input_changed.connect(update_text)
+	SaveManager.input_changed.connect(update_text)
 
 func update_text():
+	print("UPDATING TEXT!")
 	var val = SaveManager.player_settings.get_text(code)
 	var length = val.length()
 	var scale_x = 1.0
