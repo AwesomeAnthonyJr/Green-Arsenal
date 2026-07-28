@@ -5,6 +5,10 @@ func clear_active():
 		if is_instance_valid(c):
 			c.queue_free()
 
+func reload_in_game():
+	SaveManager.read_save()
+	load_room_loader()
+
 func load_main_menu():
 	clear_active()
 	var inst = Preloads.main_menu.instantiate()

@@ -431,8 +431,10 @@ func take_damage(n):
 	#TODO: make player death actually reload the game and stuff not just resetting position (obviously)
 	if current_health <= 0:
 		print("PLAYER DIES!!")
-		current_health = max_health
-		global_position = get_parent().global_position
+		Generics.find_main(self).active.reload_in_game()
+		#current_health = max_health
+		#global_position = get_parent().global_position
+		
 	iframes = true
 	hud.update_health_display(max_health, current_health)
 	await get_tree().create_timer(0.1).timeout

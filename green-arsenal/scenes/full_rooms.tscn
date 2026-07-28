@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c1lny5vvu84qn" path="res://scenes/rooms/underground/combo_puzzle_1.tscn" id="15_d0mfp"]
 [ext_resource type="PackedScene" uid="uid://becoiienuhhxq" path="res://scenes/rooms/underground/underground_4.tscn" id="17_0leoc"]
 [ext_resource type="PackedScene" uid="uid://5svgg8ybpah8" path="res://scenes/rooms/underground/underground_5.tscn" id="18_0leoc"]
+[ext_resource type="PackedScene" uid="uid://5utfgxuuqvei" path="res://scenes/rooms/underground/ending_for_sprint3.tscn" id="19_pkr76"]
 
 [node name="FullRooms" type="Node3D" unique_id=1444283235]
 
@@ -79,4 +80,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
 
 [node name="Underground5" parent="Underground" unique_id=1659142888 instance=ExtResource("18_0leoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
+
+[node name="Room2" parent="Underground" unique_id=447011960 instance=ExtResource("19_pkr76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
