@@ -778,7 +778,7 @@ settings/0/joints/2/limitation/right_axis = 0
 settings/0/joints/2/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Pivot/Pivot2/Model/Armature_001/Skeleton3D" unique_id=2081248552]
-transform = Transform3D(-0.92247796, -0.18250829, 0.34018254, 0.32825094, 0.092974044, 0.94000363, -0.20318642, 0.9787982, -0.025857992, -0.77421135, 1.6343169, 1.5806305)
+transform = Transform3D(-0.9226027, -0.18256369, 0.33981436, 0.327713, 0.09375003, 0.94011414, -0.20348823, 0.9787139, -0.026665546, -0.7742189, 1.6343361, 1.5806146)
 bone_name = "Palm R"
 bone_idx = 19
 
