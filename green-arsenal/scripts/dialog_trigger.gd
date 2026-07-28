@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 	elif flag_or_seed == 1:
 		if SaveManager.player_save.seed_types[fs_index] == true:
 			queue_free()
+	else:
+		return
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and scene_played == false:
