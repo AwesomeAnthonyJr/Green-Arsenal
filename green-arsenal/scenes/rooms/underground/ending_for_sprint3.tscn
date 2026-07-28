@@ -22,7 +22,7 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
-[node name="Room2" type="Node3D" unique_id=2108924292]
+[node name="Room3" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_ad6at")
 adjacent_rooms = Array[int]([18])
 room_pos = Vector3(-80, 0, -280)
