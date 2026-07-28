@@ -3,6 +3,7 @@ class_name Torch
 
 var lit = false
 @onready var flame = $Sprite3D
+@onready var sound = $AudioStreamPlayer3D
 
 signal torch_lit
 
@@ -12,3 +13,4 @@ func _process(delta: float) -> void:
 func light_torch():
 	lit = true
 	torch_lit.emit()
+	sound.play()

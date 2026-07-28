@@ -5,6 +5,17 @@ const blaze_shot = preload("res://sound/effects/blaze_shot.wav")
 const life_shot = preload("res://sound/effects/life_shot.wav")
 const seeker_shot = preload("res://sound/effects/seeker_shot.wav")
 
+const player_hurt = preload("res://sound/imported_from_old_projects/enemydeath.wav")
+const player_hurt_2 = preload("res://sound/imported_from_old_projects/melee.wav")
+
+const revolver_open = preload("res://sound/imported_from_old_projects/revolveropen.wav")
+const revolver_close = preload("res://sound/imported_from_old_projects/revolverclose.wav")
+const schwing = preload("res://sound/imported_from_old_projects/xcvb_schwing.wav")
+
+const reject = preload("res://sound/imported_from_old_projects/reject.wav")
+
+const footstep = preload("res://sound/imported_from_old_projects/footsteps_sound_short.wav")
+
 #pool of players so rapid/overlapping shots don't cut each other off
 const pool_size = 8
 var players: Array[AudioStreamPlayer] = []
@@ -16,6 +27,24 @@ func _ready() -> void:
 		p.bus = "Sound"
 		add_child(p)
 		players.append(p)
+
+func play_hurt():
+	_play(player_hurt, -2)
+	_play(player_hurt_2)
+
+func play_revolver_open():
+	_play(revolver_open)
+
+func play_reload(current_bullet: int):
+	_play(reject, -6, 0, 1.0 + current_bullet * 0.1)
+
+func play_revolver_close(include_schwing: bool = true):
+	_play(revolver_close, 1, 0.25)
+	if include_schwing:
+		_play(schwing, 5)
+
+func play_footstep():
+	_play(footstep, -2, 0, randf_range(1.3, 1.5))
 
 #seed_id matches Player.loaded_in_gun's ammo ids (see Constants.seed_order / Player.shoot())
 func play_seed_shot(seed_id: int) -> void:
@@ -32,8 +61,10 @@ func play_seed_shot(seed_id: int) -> void:
 			pass
 			#no shot sound yet for bounce(3) / platform(5) / propeller(7) / heavy(8) seeds
 
-func _play(stream: AudioStream) -> void:
+func _play(stream: AudioStream, db_offset: float = 0, start_offset: float = 0, pitch_scale: float = 1.0) -> void:
 	var p = players[next_player]
 	next_player = (next_player + 1) % players.size()
 	p.stream = stream
-	p.play()
+	p.volume_db = db_offset
+	p.pitch_scale = pitch_scale
+	p.play(start_offset)
