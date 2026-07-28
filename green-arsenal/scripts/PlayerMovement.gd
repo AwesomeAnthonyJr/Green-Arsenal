@@ -377,6 +377,7 @@ func playerJump() -> void:
 		#print(speed_mult)
 		apply_central_impulse(Vector3.UP * jumpForce * speed_mult);
 		is_jump_drifting = true
+		SoundManager.play_jump()
 	#Applies jump force 
 
 func shoot():

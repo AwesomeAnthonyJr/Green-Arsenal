@@ -128,9 +128,11 @@ func read_pause():
 		initialize_map_frame()
 		await get_tree().create_timer(0.2).timeout
 		in_menu = true
+		SoundManager.play_menu_open()
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 		close_pause_menu()
+		SoundManager.play_menu_close()
 
 func close_pause_menu():
 	get_tree().paused = false
@@ -470,7 +472,10 @@ func find_current_floor():
 		return 2
 
 func limit_map_selection(n: int):
+	if n - 1 <= SaveManager.player_save.farthest_floor:
+		SoundManager.play_menu_next()
 	return min(n - 1, SaveManager.player_save.farthest_floor) + 1
+	
 
 func read_up():
 	if suppress_next_input:
@@ -502,16 +507,20 @@ func read_up():
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_1
 					status_menu.update_status_plants(SaveManager.get_seed_types()[0], Constants.seed_order[0])
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_1:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_5
 					status_menu.update_status_plants(SaveManager.get_seed_types()[4], Constants.seed_order[4])
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_3:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_2
+					SoundManager.play_menu_next()
 		MenuSelection.CONTROLS:
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:
@@ -523,18 +532,23 @@ func read_up():
 				ControlsSelection.MOVE_BACK:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_FORWARD
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_LEFT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_FORWARD
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_RIGHT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_FORWARD
+					SoundManager.play_menu_next()
 				ControlsSelection.SPRINT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_LEFT
+					SoundManager.play_menu_next()
 				ControlsSelection.JUMP:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_RIGHT
+					SoundManager.play_menu_next()
 				ControlsSelection.PAUSE:
 					pass
 				ControlsSelection.RELOAD:
@@ -544,9 +558,11 @@ func read_up():
 				ControlsSelection.SHOOT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.PUT_AWAY
+					SoundManager.play_menu_next()
 				ControlsSelection.PUT_AWAY:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.RELOAD
+					SoundManager.play_menu_next()
 		MenuSelection.CONFIG:
 			match current_menu_2:
 				ConfigSelection.BIG_LEFT:
@@ -560,15 +576,19 @@ func read_up():
 				ConfigSelection.MUSIC_HOVER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MASTER_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.MUSIC_SLIDER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MASTER_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.SOUND_HOVER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MUSIC_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.SOUND_SLIDER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MUSIC_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.MOUSE_HOVER:
 					pass
 				ConfigSelection.MOUSE_SLIDER:
@@ -576,6 +596,7 @@ func read_up():
 				ConfigSelection.TO_TITLE_1:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MOUSE_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.TO_TITLE_2:
 					pass
 				ConfigSelection.TO_TITLE_3:
@@ -622,38 +643,47 @@ func read_down():
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.HEART
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.HEART
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_3:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.HEART
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_4:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.HEART
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_5:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_6:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_7:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.HEART:
 					pass
 				StatusSelection.GROWTH_1:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_2
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_3
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_3:
 					pass
 		MenuSelection.CONTROLS:
@@ -665,15 +695,19 @@ func read_down():
 				ControlsSelection.MOVE_FORWARD:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_BACK
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_BACK:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.SPRINT
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_LEFT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_BACK
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_RIGHT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_BACK
+					SoundManager.play_menu_next()
 				ControlsSelection.SPRINT:
 					pass
 				ControlsSelection.JUMP:
@@ -683,9 +717,11 @@ func read_down():
 				ControlsSelection.RELOAD:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.PUT_AWAY
+					SoundManager.play_menu_next()
 				ControlsSelection.INTERACT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.PUT_AWAY
+					SoundManager.play_menu_next()
 				ControlsSelection.SHOOT:
 					pass
 				ControlsSelection.PUT_AWAY:
@@ -699,15 +735,19 @@ func read_down():
 				ConfigSelection.MASTER_HOVER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MUSIC_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.MASTER_SLIDER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MUSIC_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.MUSIC_HOVER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.SOUND_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.MUSIC_SLIDER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.SOUND_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.SOUND_HOVER:
 					pass
 				ConfigSelection.SOUND_SLIDER:
@@ -715,6 +755,7 @@ func read_down():
 				ConfigSelection.MOUSE_HOVER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.TO_TITLE_1
+					SoundManager.play_menu_next()
 				ConfigSelection.MOUSE_SLIDER:
 					pass
 				ConfigSelection.TO_TITLE_1:
@@ -764,50 +805,62 @@ func read_left():
 					current_menu_2 = StatusSelection.SEED_7
 					status_menu.update_status_plants(SaveManager.get_seed_types()[6], Constants.seed_order[6])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_1:
 					current_menu_2 = StatusSelection.BIG_LEFT
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_1
 					status_menu.update_status_plants(SaveManager.get_seed_types()[0], Constants.seed_order[0])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_3:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_2
 					status_menu.update_status_plants(SaveManager.get_seed_types()[1], Constants.seed_order[1])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_4:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_3
 					status_menu.update_status_plants(SaveManager.get_seed_types()[2], Constants.seed_order[2])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_5:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_4
 					status_menu.update_status_plants(SaveManager.get_seed_types()[3], Constants.seed_order[3])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_6:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_5
 					status_menu.update_status_plants(SaveManager.get_seed_types()[4], Constants.seed_order[4])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_7:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_6
 					status_menu.update_status_plants(SaveManager.get_seed_types()[5], Constants.seed_order[5])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.HEART:
 					current_menu_2 = StatusSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_1:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.HEART
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_3:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_2
+					SoundManager.play_menu_next()
 		MenuSelection.CONTROLS:
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:
@@ -815,37 +868,49 @@ func read_left():
 				ControlsSelection.BIG_RIGHT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.INTERACT
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_FORWARD:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_LEFT
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_BACK:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_LEFT
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_LEFT:
 					current_menu_2 = ControlsSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_RIGHT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_LEFT
+					SoundManager.play_menu_next()
 				ControlsSelection.SPRINT:
 					current_menu_2 = ControlsSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				ControlsSelection.JUMP:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.SPRINT
+					SoundManager.play_menu_next()
 				ControlsSelection.PAUSE:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.JUMP
+					SoundManager.play_menu_next()
 				ControlsSelection.RELOAD:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_RIGHT
+					SoundManager.play_menu_next()
 				ControlsSelection.INTERACT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.RELOAD
+					SoundManager.play_menu_next()
 				ControlsSelection.SHOOT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.PAUSE
+					SoundManager.play_menu_next()
 				ControlsSelection.PUT_AWAY:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.SHOOT
+					SoundManager.play_menu_next()
 		MenuSelection.CONFIG:
 			match current_menu_2:
 				ConfigSelection.BIG_LEFT:
@@ -853,31 +918,42 @@ func read_left():
 				ConfigSelection.BIG_RIGHT:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MOUSE_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.MASTER_HOVER:
 					current_menu_2 = ConfigSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				ConfigSelection.MASTER_SLIDER:
 					SaveManager.player_settings.increment_volume(0, -5)
+					SoundManager.play_menu_tick()
 				ConfigSelection.MUSIC_HOVER:
 					current_menu_2 = ConfigSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				ConfigSelection.MUSIC_SLIDER:
 					SaveManager.player_settings.increment_volume(1, -5)
+					SoundManager.play_menu_tick()
 				ConfigSelection.SOUND_HOVER:
 					current_menu_2 = ConfigSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				ConfigSelection.SOUND_SLIDER:
 					SaveManager.player_settings.increment_volume(2, -5)
+					SoundManager.play_menu_tick()
 				ConfigSelection.MOUSE_HOVER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MASTER_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.MOUSE_SLIDER:
 					SaveManager.player_settings.increment_sense(-0.05)
+					SoundManager.play_menu_tick()
 				ConfigSelection.TO_TITLE_1:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MUSIC_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.TO_TITLE_2:
 					pass
 				ConfigSelection.TO_TITLE_3:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.TO_TITLE_2
+					SoundManager.play_menu_next()
 		MenuSelection.MAP:
 			match current_menu_2:
 				MapSelection.BIG_LEFT:
@@ -885,24 +961,34 @@ func read_left():
 				MapSelection.BIG_RIGHT:
 					map_menu.selector.travel_shrunk_position()
 					current_menu_2 = find_current_floor()
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_1:
 					current_menu_2 = MapSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_2:
 					current_menu_2 = MapSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_3:
 					current_menu_2 = MapSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_4:
 					current_menu_2 = MapSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_5:
 					current_menu_2 = MapSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_6:
 					current_menu_2 = MapSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_7:
 					current_menu_2 = MapSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_8:
 					current_menu_2 = MapSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_9:
 					current_menu_2 = MapSelection.BIG_LEFT
+					SoundManager.play_menu_next()
 	update_visually()
 
 func read_right():
@@ -918,6 +1004,7 @@ func read_right():
 					current_menu_2 = StatusSelection.SEED_1
 					status_menu.update_status_plants(SaveManager.get_seed_types()[0], Constants.seed_order[0])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.BIG_RIGHT:
 					pass
 				StatusSelection.SEED_1:
@@ -925,114 +1012,147 @@ func read_right():
 					current_menu_2 = StatusSelection.SEED_2
 					status_menu.update_status_plants(SaveManager.get_seed_types()[1], Constants.seed_order[1])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_3
 					status_menu.update_status_plants(SaveManager.get_seed_types()[2], Constants.seed_order[2])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_3:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_4
 					status_menu.update_status_plants(SaveManager.get_seed_types()[3], Constants.seed_order[3])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_4:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_5
 					status_menu.update_status_plants(SaveManager.get_seed_types()[4], Constants.seed_order[4])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_5:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_6
 					status_menu.update_status_plants(SaveManager.get_seed_types()[5], Constants.seed_order[5])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_6:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.SEED_7
 					status_menu.update_status_plants(SaveManager.get_seed_types()[6], Constants.seed_order[6])
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.SEED_7:
 					current_menu_2 = StatusSelection.BIG_RIGHT
 					inspecting = false
+					SoundManager.play_menu_next()
 				StatusSelection.HEART:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_1
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_1:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_2
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_2:
 					status_menu.selector.travel_shrunk_position()
 					current_menu_2 = StatusSelection.GROWTH_3
+					SoundManager.play_menu_next()
 				StatusSelection.GROWTH_3:
 					current_menu_2 = StatusSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 		MenuSelection.CONTROLS:
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_LEFT
+					SoundManager.play_menu_next()
 				ControlsSelection.BIG_RIGHT:
 					pass
 				ControlsSelection.MOVE_FORWARD:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_RIGHT
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_BACK:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_RIGHT
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_LEFT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.MOVE_RIGHT
+					SoundManager.play_menu_next()
 				ControlsSelection.MOVE_RIGHT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.RELOAD
+					SoundManager.play_menu_next()
 				ControlsSelection.SPRINT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.JUMP
+					SoundManager.play_menu_next()
 				ControlsSelection.JUMP:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.PAUSE
+					SoundManager.play_menu_next()
 				ControlsSelection.PAUSE:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.SHOOT
+					SoundManager.play_menu_next()
 				ControlsSelection.RELOAD:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.INTERACT
+					SoundManager.play_menu_next()
 				ControlsSelection.INTERACT:
 					current_menu_2 = ControlsSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				ControlsSelection.SHOOT:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.PUT_AWAY
+					SoundManager.play_menu_next()
 				ControlsSelection.PUT_AWAY:
 					controls_menu.selector.travel_shrunk_position()
 					current_menu_2 = ControlsSelection.INTERACT
+					SoundManager.play_menu_next()
 		MenuSelection.CONFIG:
 			match current_menu_2:
 				ConfigSelection.BIG_LEFT:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MASTER_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.BIG_RIGHT:
 					pass
 				ConfigSelection.MASTER_HOVER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.MOUSE_HOVER
+					SoundManager.play_menu_next()
 				ConfigSelection.MASTER_SLIDER:
 					SaveManager.player_settings.increment_volume(0, 5)
+					SoundManager.play_menu_tick()
 				ConfigSelection.MUSIC_HOVER:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.TO_TITLE_1
+					SoundManager.play_menu_next()
 				ConfigSelection.MUSIC_SLIDER:
 					SaveManager.player_settings.increment_volume(1, 5)
+					SoundManager.play_menu_tick()
 				ConfigSelection.SOUND_HOVER:
 					pass
 				ConfigSelection.SOUND_SLIDER:
 					SaveManager.player_settings.increment_volume(2, 5)
+					SoundManager.play_menu_tick()
 				ConfigSelection.MOUSE_HOVER:
 					current_menu_2 = ConfigSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				ConfigSelection.MOUSE_SLIDER:
 					SaveManager.player_settings.increment_sense(0.05)
+					SoundManager.play_menu_tick()
 				ConfigSelection.TO_TITLE_1:
 					current_menu_2 = ConfigSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				ConfigSelection.TO_TITLE_2:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.TO_TITLE_3
+					SoundManager.play_menu_next()
 				ConfigSelection.TO_TITLE_3:
 					pass
 		MenuSelection.MAP:
@@ -1040,26 +1160,36 @@ func read_right():
 				MapSelection.BIG_LEFT:
 					map_menu.selector.travel_shrunk_position()
 					current_menu_2 = find_current_floor()
+					SoundManager.play_menu_next()
 				MapSelection.BIG_RIGHT:
 					pass
 				MapSelection.BUTTON_1:
 					current_menu_2 = MapSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_2:
 					current_menu_2 = MapSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_3:
 					current_menu_2 = MapSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_4:
 					current_menu_2 = MapSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_5:
 					current_menu_2 = MapSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_6:
 					current_menu_2 = MapSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_7:
 					current_menu_2 = MapSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_8:
 					current_menu_2 = MapSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 				MapSelection.BUTTON_9:
 					current_menu_2 = MapSelection.BIG_RIGHT
+					SoundManager.play_menu_next()
 	update_visually()
 
 func read_accept():
@@ -1072,29 +1202,38 @@ func read_accept():
 			match current_menu_2:
 				StatusSelection.BIG_LEFT:
 					read_big_left()
+					SoundManager.play_menu_accept()
 				StatusSelection.BIG_RIGHT:
 					read_big_right()
+					SoundManager.play_menu_accept()
 				StatusSelection.SEED_1:
 					if !inspecting and SaveManager.player_save.seed_types[0]:
 						inspecting = true
+						SoundManager.play_seed_shot(2)
 				StatusSelection.SEED_2:
 					if !inspecting and SaveManager.player_save.seed_types[1]:
 						inspecting = true
+						SoundManager.play_seed_shot(4)
 				StatusSelection.SEED_3:
 					if !inspecting and SaveManager.player_save.seed_types[2]:
 						inspecting = true
+						SoundManager.play_seed_shot(3)
 				StatusSelection.SEED_4:
 					if !inspecting and SaveManager.player_save.seed_types[3]:
 						inspecting = true
+						SoundManager.play_seed_shot(6)
 				StatusSelection.SEED_5:
 					if !inspecting and SaveManager.player_save.seed_types[4]:
 						inspecting = true
+						SoundManager.play_seed_shot(5)
 				StatusSelection.SEED_6:
 					if !inspecting and SaveManager.player_save.seed_types[5]:
 						inspecting = true
+						SoundManager.play_seed_shot(7)
 				StatusSelection.SEED_7:
 					if !inspecting and SaveManager.player_save.seed_types[6]:
 						inspecting = true
+						SoundManager.play_seed_shot(8)
 				StatusSelection.HEART:
 					pass
 				StatusSelection.GROWTH_1:
@@ -1108,52 +1247,65 @@ func read_accept():
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:
 					read_big_left()
+					SoundManager.play_menu_accept()
 				ControlsSelection.BIG_RIGHT:
 					read_big_right()
+					SoundManager.play_menu_accept()
 				ControlsSelection.MOVE_FORWARD:
 					action_to_remap = "move_forward"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 				ControlsSelection.MOVE_BACK:
 					action_to_remap = "move_back"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 				ControlsSelection.MOVE_LEFT:
 					action_to_remap = "move_left"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 				ControlsSelection.MOVE_RIGHT:
 					action_to_remap = "move_right"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 				ControlsSelection.SPRINT:
 					action_to_remap = "sprint"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 				ControlsSelection.JUMP:
 					action_to_remap = "jump"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 				ControlsSelection.PAUSE:
 					action_to_remap = "pause"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 				ControlsSelection.RELOAD:
 					action_to_remap = "reload"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 				ControlsSelection.INTERACT:
 					action_to_remap = "interact"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 				ControlsSelection.SHOOT:
 					action_to_remap = "shoot"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 				ControlsSelection.PUT_AWAY:
 					action_to_remap = "close_reload"
 					await get_tree().process_frame
 					remapping = true
+					SoundManager.play_menu_accept()
 			controls_menu.hide_controls_text(action_to_remap)
 			update_visually()
 		MenuSelection.CONFIG:
@@ -1161,68 +1313,92 @@ func read_accept():
 				ConfigSelection.BIG_LEFT:
 					read_big_left()
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.BIG_RIGHT:
 					read_big_right()
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.MASTER_HOVER:
 					current_menu_2 = ConfigSelection.MASTER_SLIDER
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.MASTER_SLIDER:
 					current_menu_2 = ConfigSelection.MASTER_HOVER
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.MUSIC_HOVER:
 					current_menu_2 = ConfigSelection.MUSIC_SLIDER
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.MUSIC_SLIDER:
 					current_menu_2 = ConfigSelection.MUSIC_HOVER
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.SOUND_HOVER:
 					current_menu_2 = ConfigSelection.SOUND_SLIDER
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.SOUND_SLIDER:
 					current_menu_2 = ConfigSelection.SOUND_HOVER
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.MOUSE_HOVER:
 					current_menu_2 = ConfigSelection.MOUSE_SLIDER
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.MOUSE_SLIDER:
 					current_menu_2 = ConfigSelection.MOUSE_HOVER
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.TO_TITLE_1:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.TO_TITLE_2
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.TO_TITLE_2:
 					config_menu.selector.travel_shrunk_position()
 					current_menu_2 = ConfigSelection.TO_TITLE_1
 					update_visually()
+					SoundManager.play_menu_accept()
 				ConfigSelection.TO_TITLE_3:
 					main.active.load_main_menu()
 					close_pause_menu()
+					SoundManager.play_menu_accept()
 		MenuSelection.MAP:
 			match current_menu_2:
 				MapSelection.BIG_LEFT:
 					read_big_left()
+					SoundManager.play_menu_accept()
 				MapSelection.BIG_RIGHT:
 					read_big_right()
+					SoundManager.play_menu_accept()
 				MapSelection.BUTTON_1:
 					map_menu.match_map_frame(0)
+					SoundManager.play_menu_accept()
 				MapSelection.BUTTON_2:
 					map_menu.match_map_frame(1)
+					SoundManager.play_menu_accept()
 				MapSelection.BUTTON_3:
 					map_menu.match_map_frame(2)
+					SoundManager.play_menu_accept()
 				MapSelection.BUTTON_4:
 					map_menu.match_map_frame(3)
+					SoundManager.play_menu_accept()
 				MapSelection.BUTTON_5:
 					map_menu.match_map_frame(4)
+					SoundManager.play_menu_accept()
 				MapSelection.BUTTON_6:
 					map_menu.match_map_frame(5)
+					SoundManager.play_menu_accept()
 				MapSelection.BUTTON_7:
 					map_menu.match_map_frame(6)
+					SoundManager.play_menu_accept()
 				MapSelection.BUTTON_8:
 					map_menu.match_map_frame(7)
+					SoundManager.play_menu_accept()
 				MapSelection.BUTTON_9:
 					map_menu.match_map_frame(8)
+					SoundManager.play_menu_accept()
 			update_visually()
 
 func read_back():

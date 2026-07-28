@@ -5,6 +5,8 @@ const blaze_shot = preload("res://sound/effects/blaze_shot.wav")
 const life_shot = preload("res://sound/effects/life_shot.wav")
 const seeker_shot = preload("res://sound/effects/seeker_shot.wav")
 
+const coldcast = preload("res://sound/imported_from_old_projects/coldcast.wav")
+
 const player_hurt = preload("res://sound/imported_from_old_projects/enemydeath.wav")
 const player_hurt_2 = preload("res://sound/imported_from_old_projects/melee.wav")
 
@@ -15,6 +17,13 @@ const schwing = preload("res://sound/imported_from_old_projects/xcvb_schwing.wav
 const reject = preload("res://sound/imported_from_old_projects/reject.wav")
 
 const footstep = preload("res://sound/imported_from_old_projects/footsteps_sound_short.wav")
+const jump = preload("res://sound/effects/servicable_jump.wav")
+
+const menu_open = preload("res://sound/effects/GA_menu_open.wav")
+const menu_close = preload("res://sound/effects/GA_menu_close.wav")
+const upgrade_pickup = preload("res://sound/imported_from_old_projects/upgradePickup.wav")
+const menu_click = preload("res://sound/imported_from_old_projects/AWTRAU_menu_click_1.wav")
+const menu_accept = preload("res://sound/effects/GA_menu_accept.wav")
 
 #pool of players so rapid/overlapping shots don't cut each other off
 const pool_size = 8
@@ -35,6 +44,20 @@ func play_hurt():
 func play_revolver_open():
 	_play(revolver_open)
 
+func play_jump():
+	_play(jump, -2)
+
+func play_menu_open():
+	_play(menu_open, -4)
+func play_menu_close():
+	_play(menu_close, -4)
+func play_menu_next():
+	_play(upgrade_pickup, 4, 0, 1.5)
+func play_menu_tick():
+	_play(menu_click, 0, 0, 1.5)
+func play_menu_accept():
+	_play(menu_accept, -2)
+
 func play_reload(current_bullet: int):
 	_play(reject, -6, 0, 1.0 + current_bullet * 0.1)
 
@@ -50,7 +73,7 @@ func play_footstep():
 func play_seed_shot(seed_id: int) -> void:
 	match seed_id:
 		1:
-			_play(bullet_shot)
+			_play(coldcast)
 		2:
 			_play(blaze_shot)
 		4:
