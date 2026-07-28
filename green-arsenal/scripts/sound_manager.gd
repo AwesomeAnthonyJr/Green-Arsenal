@@ -4,6 +4,10 @@ const bullet_shot = preload("res://sound/effects/bullet_shot.wav")
 const blaze_shot = preload("res://sound/effects/blaze_shot.wav")
 const life_shot = preload("res://sound/effects/life_shot.wav")
 const seeker_shot = preload("res://sound/effects/seeker_shot.wav")
+const bounce_shot = preload("res://sound/effects/bounce_shot.wav")
+const platform_shot = preload("res://sound/effects/platform_shot.wav")
+const propeller_shot = preload("res://sound/effects/propeller_shot.wav")
+const heavy_shot = preload("res://sound/effects/heavy_shot.wav")
 
 const coldcast = preload("res://sound/imported_from_old_projects/coldcast.wav")
 
@@ -76,13 +80,20 @@ func play_seed_shot(seed_id: int) -> void:
 			_play(coldcast)
 		2:
 			_play(blaze_shot)
+		3:
+			_play(bounce_shot)
 		4:
 			_play(life_shot)
+		5:
+			_play(platform_shot)
 		6:
 			_play(seeker_shot)
+		7:
+			_play(propeller_shot)
+		8:
+			_play(heavy_shot)
 		_:
 			pass
-			#no shot sound yet for bounce(3) / platform(5) / propeller(7) / heavy(8) seeds
 
 func _play(stream: AudioStream, db_offset: float = 0, start_offset: float = 0, pitch_scale: float = 1.0) -> void:
 	var p = players[next_player]
