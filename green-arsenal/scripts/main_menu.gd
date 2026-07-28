@@ -19,6 +19,8 @@ var can_load_game: bool = true
 var supress_next_input: bool = false
 var loop_count: int = 0
 var target_rot = Vector2.ZERO
+@onready var intro_cam = $Intro/Camera3D
+@onready var intro_anim = $Intro/AnimationPlayer
 
 func _ready() -> void:
 	connect_inputs()
@@ -32,13 +34,22 @@ func menu_startup():
 		new_game = false
 		can_load_game = true
 	music.play()
-	loop_count = 1
+	if Generics.find_main(self).first_time:
+		loop_count = 0
+		intro_anim.play("intro")
+		intro_cam.current = true
+		Generics.find_main(self).first_time = false
+	else:
+		loop_count = 1
+		canvas_layer.show()
 	music.volume_db = -3.0
 	music.pitch_scale = 1.0
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 	update_visuals()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if !canvas_layer.visible:
+		return
 	if menu_position == 0:
 		if event is InputEventKey && event.pressed:
 			supress_next_input = true
@@ -99,6 +110,8 @@ func update_visuals():
 			quit_text.modulate = Color("#e2383b")
 
 func read_up():
+	if !canvas_layer.visible:
+		return
 	if supress_next_input:
 		supress_next_input = false
 		return
@@ -134,6 +147,8 @@ func read_down():
 	update_visuals()
 
 func read_left():
+	if !canvas_layer.visible:
+		return
 	if supress_next_input:
 		supress_next_input = false
 		return
@@ -150,6 +165,8 @@ func read_left():
 	update_visuals()
 
 func read_right():
+	if !canvas_layer.visible:
+		return
 	if supress_next_input:
 		supress_next_input = false
 		return
@@ -167,6 +184,8 @@ func read_right():
 	update_visuals()
 
 func read_accept():
+	if !canvas_layer.visible:
+		return
 	if supress_next_input:
 		supress_next_input = false
 		return
@@ -211,6 +230,9 @@ func connect_inputs():
 	manager.look_2.connect(read_look)
 
 func read_look(y, x):
+	if !canvas_layer.visible:
+		return
+	cam.current = true
 	target_rot.x += x * 0.1
 	target_rot.y += y * 0.1
 	target_rot.x = clampf(target_rot.x, -0.1, 0.1)
@@ -225,6 +247,7 @@ func _on_audio_stream_player_finished() -> void:
 	###this makes it get weird as it loops which i think is kind of fun :)
 	music.play()
 	loop_count += 1
-	music.pitch_scale -= 0.05
+	if loop_count > 1:
+		music.pitch_scale -= 0.05
 	if loop_count > 1:
 		music.volume_db -= 2.0
