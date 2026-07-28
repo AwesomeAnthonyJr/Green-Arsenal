@@ -34,7 +34,7 @@ operator: Any other questions?
 - Green Arsenal?
 	operator: When the need arises, Gardeners and Operators like you and me are sometimes given access to a system of burgeoning magic ---
 	operator: It accelerates the growth and exaggerates the characteristics of plant types we encounter. We call this system the Green Arsenal.
-	operator: A lily pad grows large and strong enough to support a person's weight; a sweet pea or wood sorrel's exploding seed packs a bigger punch; a sacred lotus' heat generation becomes scalding.
+	operator: A lily pad grows large and strong enough to support a person's weight; a sweet pea or wood sorrel's exploding seed packs a bigger punch; et cetera.
 	operator: We sometimes have to use these qualities creatively to navigate a forest as heavily impacted as this one.
 	jump any_questions
 - Pea Shooter?
@@ -50,7 +50,8 @@ operator: Any other questions?
 label questions_done
 operator: Alright, before I send you off, there are a couple more things we should talk about.
 operator: Chiefly, the R button on that there Pea Shooter will open up its cylinder and let you reload it with your seeds.
-operator: From my observations, when the engineered strangler fig grows as large as it has here, its structure becomes more unstable and therefore more susceptible to collapse.
+operator: From my observations, when the engineered strangler fig grows as large as it has here,
+operator: Its structure becomes more unstable and therefore more susceptible to collapse.
 operator: Look for weak points in its scaffold and give them a few shots with the Pea Shooter to proceed.
 operator: By my estimation, there should be about 3 in this area.
 operator: And finally, when I talk to you from now on, I'll ask you whether you want to record any progress in your investigation.
