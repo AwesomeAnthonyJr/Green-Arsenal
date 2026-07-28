@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="11_ueujx"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="12_7yrv2"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="13_ktpir"]
+[ext_resource type="PackedScene" uid="uid://f7elpfa50b4r" path="res://scenes/flyingEnemy_3.tscn" id="14_ueujx"]
+[ext_resource type="PackedScene" uid="uid://cd4lwde4ynq5h" path="res://scenes/flyingEnemy_2.tscn" id="15_7yrv2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1400,6 +1402,15 @@ shape = SubResource("BoxShape3D_t048l")
 [node name="Exit2" parent="." unique_id=702144204 instance=ExtResource("4_vwrge")]
 transform = Transform3D(11.815, 0, 0, 0, 14.245, 0, 0, 0, 1, 150.86264, -12.016807, 22.056438)
 new_id = 99
+
+[node name="Enemy" parent="." unique_id=553297755 instance=ExtResource("14_ueujx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 151, -14, -18)
+
+[node name="Enemy2" parent="." unique_id=1091817716 instance=ExtResource("15_7yrv2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 158, -4, -13)
+
+[node name="Enemy3" parent="." unique_id=591781947 instance=ExtResource("15_7yrv2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 158, -4, 0)
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_019" method="set_flag_true"]

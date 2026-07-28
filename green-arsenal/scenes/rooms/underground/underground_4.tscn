@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="19_23i6h"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="20_5r173"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="21_yramd"]
+[ext_resource type="PackedScene" uid="uid://f7elpfa50b4r" path="res://scenes/flyingEnemy_3.tscn" id="22_5r173"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1650,6 +1651,15 @@ surface_material_override/0 = SubResource("ShaderMaterial_c64bj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzleDoor/MeshInstance3D/StaticBody3D" unique_id=285512749]
 shape = SubResource("BoxShape3D_23i6h")
+
+[node name="Enemy" parent="." unique_id=553297755 instance=ExtResource("22_5r173")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 60, -4, -6)
+
+[node name="Enemy2" parent="." unique_id=2000255160 instance=ExtResource("22_5r173")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 60, -4, -1)
+
+[node name="Enemy3" parent="." unique_id=1969396422 instance=ExtResource("22_5r173")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 60, -4, -11)
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_017" method="set_flag_true"]

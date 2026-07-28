@@ -30,6 +30,7 @@ var target_obj: Node3D
 @onready var left_default = $FancyModel/Skeleton3D/LeftDefault
 var home_override = 0.0
 var original_speed: float = 0.0
+var activated: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -68,17 +69,16 @@ func _physics_process(delta: float) -> void:
 			move_velocity.y = direction.y * speed
 			move_velocity.z = direction.z * speed
 			home_override = 0.0
-			print(name, " actively searching: ", target_pos, "; speed: ", speed)
+			#print(name, " actively searching: ", target_pos, "; speed: ", speed)
 		else:
 			var home_dist = global_position.distance_to(home)
-			if home_dist < 16.0 and (home_override > randf_range(5.0, 10.0) or home_override == 0.0):
+			if home_dist < 40.0 or home_override < randf_range(5.0, 10.0):
 				look_at(target_pos, Vector3.UP)
 				var direction = (target_pos - global_position).normalized()
 				move_velocity.x = direction.x * speed
 				move_velocity.y = direction.y * speed
 				move_velocity.z = direction.z * speed
-				home_override = 0.0
-				print(name, " still near home")
+				#print(name, " still near home")
 			else:
 				if !home.is_equal_approx(global_position):
 					look_at(home, Vector3.UP)
@@ -87,7 +87,7 @@ func _physics_process(delta: float) -> void:
 				move_velocity.y = direction.y * speed * 0.75
 				move_velocity.z = direction.z * speed * 0.75
 				home_override += delta
-				print(name, " going home ", home_override)
+				#print(name, " going home ", home_override)
 	else:
 		move_velocity.x = 0
 		move_velocity.z = 0

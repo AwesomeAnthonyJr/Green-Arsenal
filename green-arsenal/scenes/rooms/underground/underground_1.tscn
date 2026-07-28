@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="3_3us0w"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="4_uj84s"]
 [ext_resource type="Material" uid="uid://eh2x6l7fmwys" path="res://materials/gray_soil.tres" id="6_gtk21"]
-[ext_resource type="PackedScene" uid="uid://2qu2xc4rf2hd" path="res://scenes/enemySpawner.tscn" id="6_otkpc"]
 [ext_resource type="Texture2D" uid="uid://c1hvqdoeaahjp" path="res://misc/Screenshot 2025-09-19 142504.png" id="7_h7j6q"]
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="7_srdg7"]
 [ext_resource type="PackedScene" uid="uid://ddexbsd7e36p3" path="res://scenes/level_parts/strangler_c.tscn" id="10_h7j6q"]
@@ -21,6 +20,7 @@
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="19_s4c6c"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="20_q0q13"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="21_0ojy5"]
+[ext_resource type="PackedScene" uid="uid://cnys260vhf7u2" path="res://scenes/flyingEnemy.tscn" id="22_0ojy5"]
 [ext_resource type="Script" uid="uid://dh80vb7h4kma2" path="res://scripts/save_flag_button_responder.gd" id="22_q0q13"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
@@ -2908,12 +2908,6 @@ transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -8.9
 [node name="Tree_B2" parent="." unique_id=588647895 instance=ExtResource("3_3us0w")]
 transform = Transform3D(0.74503946, -3.683823e-09, -0.6670203, 8.311749e-08, 1, 8.73167e-08, 0.6670203, -1.2049546e-07, 0.74503946, -22.958565, 11.401079, 73.0621)
 
-[node name="enemySpawner" parent="." unique_id=553297755 instance=ExtResource("6_otkpc")]
-transform = Transform3D(-2.1650634, 0, -1.2499998, 0, 2.5, 0, 1.2499998, 0, -2.1650634, -23, -6, 62)
-
-[node name="enemySpawner2" parent="." unique_id=1819161031 instance=ExtResource("6_otkpc")]
-transform = Transform3D(-1.7677667, 0, 1.767767, 0, 2.5, 0, -1.767767, 0, -1.7677667, -6, -6, 62)
-
 [node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("10_ka2ef")]
 transform = Transform3D(-0.95116216, 0, 0.30869162, 0, 1, 0, -0.30869162, 0, -0.95116216, -5.8609734, -5.977991, -8.890905)
 operator_scenes = Array[ExtResource("11_0gfbk")]([ExtResource("12_y7emq")])
@@ -3070,5 +3064,23 @@ shape = SubResource("BoxShape3D_4oj74")
 [node name="SaveFlagButtonResponder" type="Node" parent="." unique_id=1071224606]
 script = ExtResource("22_q0q13")
 flag_indices = Array[int]([10, 13])
+
+[node name="Enemy" parent="." unique_id=553297755 instance=ExtResource("22_0ojy5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -18, -4, 51)
+
+[node name="Enemy2" parent="." unique_id=234411440 instance=ExtResource("22_0ojy5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -14, -4, 54)
+
+[node name="Enemy3" parent="." unique_id=667750767 instance=ExtResource("22_0ojy5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10, -4, 50)
+
+[node name="Enemy4" parent="." unique_id=655159915 instance=ExtResource("22_0ojy5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8, -4, 59)
+
+[node name="Enemy5" parent="." unique_id=1919689506 instance=ExtResource("22_0ojy5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3, -4, 46)
+
+[node name="Enemy6" parent="." unique_id=359538768 instance=ExtResource("22_0ojy5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -20, -4, 60)
 
 [connection signal="flags_true" from="SaveFlagButtonResponder" to="PuzzleDoor" method="open_door"]
