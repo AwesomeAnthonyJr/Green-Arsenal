@@ -36,6 +36,7 @@ directories/dch_directory={
 "operator": "res://misc/dialogic/operator.dch"
 }
 directories/dtl_directory={
+"final_mentor": "res://misc/dialogic/final_mentor.dtl",
 "fire_seed_operator": "res://misc/dialogic/fire_seed_operator.dtl",
 "fire_seed_operator2": "res://misc/dialogic/fire_seed_operator2.dtl",
 "forest3_mentor": "res://misc/dialogic/forest3_mentor.dtl",
@@ -43,7 +44,8 @@ directories/dtl_directory={
 "intro": "res://misc/dialogic/intro.dtl",
 "intro2_operator": "res://misc/dialogic/intro2_operator.dtl",
 "intro_operator": "res://misc/dialogic/intro_operator.dtl",
-"underground_entrance_mentor": "res://misc/dialogic/underground_entrance_mentor.dtl"
+"underground_entrance_mentor": "res://misc/dialogic/underground_entrance_mentor.dtl",
+"underground_operator": "res://misc/dialogic/underground_operator.dtl"
 }
 layout/style_directory={
 "": "res://misc/dialogic/speaker_box.tres",

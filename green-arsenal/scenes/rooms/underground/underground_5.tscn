@@ -10,10 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://cnwa7fcr5qsd7" path="res://scenes/torch.tscn" id="7_t048l"]
 [ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="9_t048l"]
 [ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="10_miu5m"]
+[ext_resource type="Script" uid="uid://232wxb1vai8x" path="res://scripts/document_reader.gd" id="11_8o7ns"]
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="11_ueujx"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="12_7yrv2"]
+[ext_resource type="Texture2D" uid="uid://dao7lyi2os6qj" path="res://sound/paper4.png" id="12_xolhk"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="13_ktpir"]
+[ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="13_wl3ql"]
 [ext_resource type="PackedScene" uid="uid://f7elpfa50b4r" path="res://scenes/flyingEnemy_3.tscn" id="14_ueujx"]
+[ext_resource type="FontFile" uid="uid://buc1bdvmej58m" path="res://fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" id="14_w1eiu"]
 [ext_resource type="PackedScene" uid="uid://cd4lwde4ynq5h" path="res://scenes/flyingEnemy_2.tscn" id="15_7yrv2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
@@ -25,6 +29,17 @@ left_to_right = -0.5
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b8q16"]
 data = PackedVector3Array(-1, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -1, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -1, 0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_opn75"]
+radius = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ydrnc"]
+font = ExtResource("13_wl3ql")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7tg6d"]
+font = ExtResource("14_w1eiu")
+font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_ybq8s"]
 length = 0.001
@@ -1382,6 +1397,84 @@ script = ExtResource("10_miu5m")
 flag_index = 20
 torch = NodePath("../TorchBoss/Torch2")
 
+[node name="Document_Reader" type="Area3D" parent="." unique_id=1945544951]
+transform = Transform3D(-0.862011, 0, -0.5068895, 0, 1, 0, 0.5068895, 0, -0.862011, 156.21805, -15.264829, 2.0034332)
+script = ExtResource("11_8o7ns")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Document_Reader" unique_id=266928672]
+shape = SubResource("SphereShape3D_opn75")
+
+[node name="Sprite3D" type="Sprite3D" parent="Document_Reader" unique_id=1666045107]
+transform = Transform3D(1.2, -1.1920929e-07, -2.9802322e-08, 1.2402265e-07, 0.8748484, 0.8213649, -5.9604645e-08, -0.821365, 0.8748484, 0, -0.7558546, 0)
+texture = ExtResource("12_xolhk")
+
+[node name="TextureRect" type="TextureRect" parent="Document_Reader" unique_id=927197106]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -291.0
+offset_right = 212.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_xolhk")
+
+[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1148171375]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -243.5
+offset_right = 216.5
+offset_bottom = 278.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MEMO TO ALL STAFF:
+
+VACATE PREMISES IMMEDIATELY. LOCKDOWN
+IMMINENT. AUTOMATED SECURITY WILL BE
+ACTIVATED AND ALL CREDENTIALS REMOVED
+WITHIN 24 HOURS. 
+
+ANY PERSONNEL FOUND WITHIN 10 MILES OF 
+FACILITY WILL HAVE CONTRACT TERMINATED,
+POLICY EFFECTIVE UPON LOCKDOWN AND 
+IN PERPETUITY. 
+
+ALL DEVELOPMENT OF STRANGLER FIG PAPER
+FARM TO HALT IMMEDIATELY --- TEAM 
+MEMBERS TO BE REASSIGNED.
+
+AND PLEASE RECALL, YOUR NDAS STILL APPLY.
+
+"
+label_settings = SubResource("LabelSettings_ydrnc")
+
+[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=1755413975]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = 234.49994
+offset_right = 197.5
+offset_bottom = 391.49994
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.048727535
+text = "They're kicking us out? But we can
+still fix this!"
+label_settings = SubResource("LabelSettings_7tg6d")
+
 [node name="PuzzleDoor" type="Node3D" parent="." unique_id=1105372589]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 150.61838, -11, 5.359829)
 script = ExtResource("11_ueujx")
@@ -1415,3 +1508,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 158,
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_019" method="set_flag_true"]
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_020" method="set_flag_true"]
+[connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
+[connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]

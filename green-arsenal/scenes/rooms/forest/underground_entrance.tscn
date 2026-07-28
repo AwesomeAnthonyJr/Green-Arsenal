@@ -94,7 +94,7 @@ shader_parameter/uv1_offset = Vector2(0, 0)
 size = Vector3(1, 12, 14)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brsy2"]
-size = Vector3(50, 10, 5)
+size = Vector3(50, 14.177734, 5)
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_rgmwo")
@@ -1040,13 +1040,13 @@ flag_index = 7
 torch = NodePath("../TorchBoss/Torch2")
 
 [node name="DialogTrigger" parent="." unique_id=451490337 instance=ExtResource("18_2rric")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.10597, 4.0677466, -8.27335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.10597, -0.63214254, -22.957834)
 dialogic_scene = ExtResource("19_brsy2")
 flag_or_seed = 0
 fs_index = 7
 
 [node name="CollisionShape3D" parent="DialogTrigger" index="0" unique_id=1604652831]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1073761, -0.69039583, 2.6890945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1073761, -3.810617, 2.6890945)
 shape = SubResource("BoxShape3D_brsy2")
 
 [node name="Enemy" parent="." unique_id=553297755 instance=ExtResource("20_vyxr3")]
