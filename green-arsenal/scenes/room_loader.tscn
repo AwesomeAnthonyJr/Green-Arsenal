@@ -3,31 +3,35 @@
 [ext_resource type="Script" uid="uid://cr7ch745a207w" path="res://scripts/room_loader.gd" id="1_k6vgy"]
 [ext_resource type="AudioStream" uid="uid://cj6cy8k6rfrf1" path="res://sound/music/gameplay.wav" id="2_pr88g"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8ln24"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i2l1n"]
 sky_top_color = Color(0.24313726, 0.654902, 0.92156863, 1)
 sky_horizon_color = Color(0.42745098, 0.84705883, 1, 1)
 ground_bottom_color = Color(0.42745098, 0.84705883, 1, 1)
 ground_horizon_color = Color(0.42745098, 0.84705883, 1, 1)
 
 [sub_resource type="Sky" id="Sky_yaehf"]
-sky_material = SubResource("ProceduralSkyMaterial_8ln24")
+sky_material = SubResource("ProceduralSkyMaterial_i2l1n")
 
-[sub_resource type="Environment" id="Environment_rtw2f"]
+[sub_resource type="Environment" id="Environment_pr88g"]
 background_mode = 2
 sky = SubResource("Sky_yaehf")
 ambient_light_source = 1
-glow_enabled = true
+adjustment_enabled = true
+adjustment_brightness = 0.75
+adjustment_saturation = 1.8
 
 [node name="RoomLoader" type="Node3D" unique_id=527607939]
 script = ExtResource("1_k6vgy")
 test_position = Vector3(-100, 0, -138)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=156207753]
-environment = SubResource("Environment_rtw2f")
+environment = SubResource("Environment_pr88g")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1842072114]
 transform = Transform3D(0.8660253, 0.43301287, -0.25000006, 0, 0.49999997, 0.86602545, 0.5000002, -0.75, 0.43301263, 0, 0, 0)
+light_indirect_energy = 0.0
 shadow_enabled = true
+sky_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=17242721]
 process_mode = 3

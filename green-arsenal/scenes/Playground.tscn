@@ -23,7 +23,12 @@ sky_material = SubResource("ProceduralSkyMaterial_3invt")
 background_mode = 2
 sky = SubResource("Sky_80c3a")
 ambient_light_source = 1
+reflected_light_source = 1
 glow_enabled = true
+adjustment_enabled = true
+adjustment_brightness = 0.8
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h45xw"]
 
