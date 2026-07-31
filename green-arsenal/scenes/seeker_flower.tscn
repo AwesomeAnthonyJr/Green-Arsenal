@@ -2586,6 +2586,7 @@ shape = SubResource("SphereShape3D_h45xw")
 
 [node name="SeekerUI" type="CanvasLayer" parent="." unique_id=456580925]
 layer = 2
+visible = false
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="SeekerUI" unique_id=82351285]
 anchors_preset = 8
@@ -2604,7 +2605,7 @@ mouse_filter = 2
 [node name="SubViewport" type="SubViewport" parent="SeekerUI/SubViewportContainer" unique_id=1508121494]
 handle_input_locally = false
 size = Vector2i(400, 400)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Node3D" type="Node3D" parent="SeekerUI/SubViewportContainer/SubViewport" unique_id=1424832843 node_paths=PackedStringArray("other")]
 script = ExtResource("5_4nox7")
