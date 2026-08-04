@@ -54,6 +54,7 @@ const room_dict = {
 	21: "res://scenes/rooms/flooded/flooded_2.tscn",
 	22: "res://scenes/rooms/flooded/flooded_3.tscn",
 	23: "res://scenes/rooms/flooded/flooded_4.tscn",
+	24: "res://scenes/rooms/flooded/flooded_5.tscn",
 	99: "res://scenes/rooms/underground/ending_for_sprint3.tscn",
 }
 #must be the inverse of the first!!!
@@ -82,6 +83,7 @@ const reverse_dict = {
 	"res://scenes/rooms/flooded/flooded_2.tscn": 21,
 	"res://scenes/rooms/flooded/flooded_3.tscn": 22,
 	"res://scenes/rooms/flooded/flooded_4.tscn": 23,
+	"res://scenes/rooms/flooded/flooded_5.tscn": 24,
 	"res://scenes/rooms/underground/ending_for_sprint3.tscn": 99,
 }
 
