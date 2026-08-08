@@ -6,7 +6,7 @@ class_name SaveFile
 	false, #life
 	false, #bounce
 	false, #seeker
-	false, #platform
+	true, #platform
 	false, #propeller
 	false #heavy
 ]

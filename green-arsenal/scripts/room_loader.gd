@@ -51,6 +51,11 @@ const room_dict = {
 	18: "res://scenes/rooms/underground/underground_5.tscn",
 	19: "res://scenes/rooms/underground/flooded_entrance.tscn",
 	20: "res://scenes/rooms/flooded/flooded_1.tscn",
+	21: "res://scenes/rooms/flooded/flooded_2.tscn",
+	22: "res://scenes/rooms/flooded/flooded_3.tscn",
+	23: "res://scenes/rooms/flooded/flooded_4.tscn",
+	24: "res://scenes/rooms/flooded/flooded_5.tscn",
+	25: "res://scenes/rooms/flooded/flooded_6.tscn",
 	99: "res://scenes/rooms/underground/ending_for_sprint3.tscn",
 }
 #must be the inverse of the first!!!
@@ -76,6 +81,11 @@ const reverse_dict = {
 	"res://scenes/rooms/underground/underground_5.tscn": 18,
 	"res://scenes/rooms/underground/flooded_entrance.tscn": 19,
 	"res://scenes/rooms/flooded/flooded_1.tscn": 20,
+	"res://scenes/rooms/flooded/flooded_2.tscn": 21,
+	"res://scenes/rooms/flooded/flooded_3.tscn": 22,
+	"res://scenes/rooms/flooded/flooded_4.tscn": 23,
+	"res://scenes/rooms/flooded/flooded_5.tscn": 24,
+	"res://scenes/rooms/flooded/flooded_6.tscn": 25,
 	"res://scenes/rooms/underground/ending_for_sprint3.tscn": 99,
 }
 
