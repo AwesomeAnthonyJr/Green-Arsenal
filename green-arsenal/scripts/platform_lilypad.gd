@@ -23,6 +23,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var s = skeleton.get_bone_pose_scale(0).x
 	platform.global_transform.origin = global_position + Vector3.ZERO.lerp(pos_offset, s)
+	#platform.global_rotation = Vector3.ZERO
 	avoidance_area.scale = Vector3(1, 1, 1) * 1.0/s
 	if do_push:
 		push_away_from_others(delta)
@@ -63,6 +64,7 @@ func default_height():
 	else:
 		pos_offset = Vector3(0, 0.5, 0)
 	
+	global_rotation = Vector3.ZERO
 	await get_tree().physics_frame
 	do_push = true
 	await get_tree().physics_frame
@@ -78,6 +80,7 @@ func seek_surface():
 			#print(raycast.get_collision_point().distance_to(global_position))
 			pos_offset = raycast.get_collision_point() - global_position
 	
+	global_rotation = Vector3.ZERO
 	await get_tree().physics_frame
 	do_push = true
 	await get_tree().physics_frame
