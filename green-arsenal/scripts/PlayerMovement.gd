@@ -342,9 +342,6 @@ func physics_movement(delta:float) -> void:
 		#Sprint mechanic 
 	if in_water:
 		currentSpeed *= 0.8
-		print("I AM IN WATER!")
-	else:
-		print("I AM NOT IN WATER!")
 	var current_speed_in_dir = linear_velocity.dot((look_pivot.basis * input).normalized())
 	var max_speed = max_speed_factor * currentSpeed
 	var force = look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult
