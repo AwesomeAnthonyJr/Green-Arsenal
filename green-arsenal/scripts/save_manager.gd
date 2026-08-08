@@ -51,6 +51,18 @@ func read_save():
 func write_save():
 	ResourceSaver.save(player_save, save_file_path + save_file_name)
 
+func test_save():
+	player_save = SaveFile.new()
+	###this is where you put anything you want to change for testing!
+	player_save.load_point = -1
+	player_save.seed_types[0] = true
+	player_save.seed_types[1] = true
+	player_save.seed_types[2] = true
+	player_save.seed_types[3] = true
+	player_save.max_hp = 4
+	player_save.growth_charges = 2
+	save_read.emit()
+
 func read_settings():
 	player_settings = Settings.new()
 	if (ResourceLoader.exists(save_file_path + save_settings_name)):

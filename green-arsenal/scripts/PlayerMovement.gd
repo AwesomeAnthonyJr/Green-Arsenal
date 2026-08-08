@@ -54,7 +54,10 @@ var currently_stepping = false
 
 var paused = false
 
+var in_water = false
+
 @onready var unstuck_area: Area3D = $UnstuckArea
+@onready var water_area: Area3D = $WaterArea
 
 #Default speeds for walking vs. sprinting
 # Called when the node enters the scene tree for the first time.
@@ -264,6 +267,7 @@ func _physics_process(delta: float) -> void:
 		physics_looking()
 		gun_rotation()
 		unstuck_routine(delta)
+		water_check(delta)
 	if !is_grounded:
 		apply_air_drift(delta)
 		#apply_central_force(Vector3.DOWN * 10 * gravity_scale)
@@ -297,6 +301,13 @@ func unstuck_routine(delta: float):
 			if avg != Vector3.ZERO:
 				position += avg.normalized() * delta
 
+func water_check(delta: float):
+	var report_water = false
+	for area in water_area.get_overlapping_areas():
+		if area.is_in_group("fresh_water"):
+			report_water = true
+	in_water = report_water
+
 func gun_rotation():
 	var targetPoint = Vector3()
 	if aimRayCast.is_colliding():
@@ -329,6 +340,11 @@ func physics_movement(delta:float) -> void:
 	else:
 		currentSpeed = walkSpeed;
 		#Sprint mechanic 
+	if in_water:
+		currentSpeed *= 0.8
+		print("I AM IN WATER!")
+	else:
+		print("I AM NOT IN WATER!")
 	var current_speed_in_dir = linear_velocity.dot((look_pivot.basis * input).normalized())
 	var max_speed = max_speed_factor * currentSpeed
 	var force = look_pivot.basis * input.normalized() * 1200.0 * delta * currentSpeed * ground_mult
@@ -368,6 +384,8 @@ func apply_air_drift(delta) -> void:
 		#apply_central_force(delta * Vector3.UP * jumpForce * 30.0)
 	else:
 		gravity_scale = heavy_grav
+	if in_water:
+		gravity_scale *= 0.5
 
 #jump has been improved a bit
 func playerJump() -> void:

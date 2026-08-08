@@ -21,7 +21,7 @@ const positions = [
 
 #this tells it which room to start in basically; -1 for testing!
 const load_point_keys = {
-	-1: 12,
+	-1: 20,
 	0: 4,
 	1: 4,
 	2: 8,

@@ -20,7 +20,7 @@ glow_enabled = true
 
 [node name="RoomLoader" type="Node3D" unique_id=527607939]
 script = ExtResource("1_k6vgy")
-test_position = Vector3(-100, 0, -138)
+test_position = Vector3(70.5, -90, -266)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=156207753]
 environment = SubResource("Environment_rtw2f")

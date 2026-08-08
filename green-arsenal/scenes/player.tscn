@@ -778,7 +778,7 @@ settings/0/joints/2/limitation/right_axis = 0
 settings/0/joints/2/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Pivot/Pivot2/Model/Armature_001/Skeleton3D" unique_id=2081248552]
-transform = Transform3D(-0.92251813, -0.18252625, 0.34006432, 0.32807806, 0.09322411, 0.9400393, -0.20328395, 0.97877127, -0.026118055, -0.7742136, 1.6343235, 1.5806255)
+transform = Transform3D(-0.9224102, -0.18247752, 0.34038287, 0.32834446, 0.09351042, 0.9399176, -0.20334305, 0.9787531, -0.026339471, -0.774207, 1.6348635, 1.5806478)
 bone_name = "Palm R"
 bone_idx = 19
 
@@ -897,4 +897,11 @@ target_position = Vector3(0, -0.5, 0)
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UnstuckArea" unique_id=613166046]
+shape = SubResource("CapsuleShape3D_i20g8")
+
+[node name="WaterArea" type="Area3D" parent="." unique_id=1920593960]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterArea" unique_id=48098825]
 shape = SubResource("CapsuleShape3D_i20g8")
