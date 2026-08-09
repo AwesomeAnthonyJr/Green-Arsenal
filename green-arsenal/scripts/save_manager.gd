@@ -59,6 +59,7 @@ func test_save():
 	player_save.seed_types[1] = true
 	player_save.seed_types[2] = true
 	player_save.seed_types[3] = true
+	player_save.seed_types[4] = true
 	player_save.max_hp = 4
 	player_save.growth_charges = 2
 	save_read.emit()

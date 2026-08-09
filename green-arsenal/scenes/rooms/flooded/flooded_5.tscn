@@ -6,7 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="4_rx6t3"]
 [ext_resource type="PackedScene" uid="uid://cnwa7fcr5qsd7" path="res://scenes/torch.tscn" id="6_s2tds"]
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="6_x51e5"]
+[ext_resource type="Script" uid="uid://1yv3vtnelsid" path="res://scripts/torch_boss.gd" id="7_rx6t3"]
 [ext_resource type="Material" uid="uid://doiuat84x0eiv" path="res://materials/fresh_water.tres" id="7_vh336"]
+[ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="9_ie27y"]
+[ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="10_x51e5"]
+[ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="11_5so42"]
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="12_ar6ko"]
+[ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="13_nh3us"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -18,6 +24,87 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3v4bg"]
 size = Vector3(1, 0.01, 1)
+
+[sub_resource type="Animation" id="Animation_ybq8s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cm066"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 4.5, 0), Vector3(0, -18.837, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ihe3"]
+_data = {
+&"RESET": SubResource("Animation_ybq8s"),
+&"open": SubResource("Animation_cm066")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_dyco7"]
+size = Vector3(1, 11, 10.3927)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hkkpk"]
+render_priority = 0
+shader = ExtResource("12_ar6ko")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("13_nh3us")
+shader_parameter/albedo_in_shadow = Color(0.46008006, 0.30960003, 0.72, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("13_nh3us")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.1999999955296
+shader_parameter/uv1_scale = Vector2(5, 5)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5ric"]
+size = Vector3(1, 11, 10.3927)
 
 [node name="Room2" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_3v4bg")
@@ -676,7 +763,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_px1j1")
 
 [node name="NonSoilFloor51" type="StaticBody3D" parent="." unique_id=851374656]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 14, -4)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 12, -4)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor51" unique_id=45456505]
@@ -684,6 +771,19 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_otkpc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor51" unique_id=2104480582]
+material_override = ExtResource("2_jk64v")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("3_px1j1")
+
+[node name="NonSoilFloor103" type="StaticBody3D" parent="." unique_id=406434220]
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 22, -4)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor103" unique_id=1280881210]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor103" unique_id=530636574]
 material_override = ExtResource("2_jk64v")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_px1j1")
@@ -1328,9 +1428,6 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 25.4
 [node name="SoilPatch10x16" parent="." unique_id=1932649711 instance=ExtResource("6_x51e5")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 25.49317, -5.956664, -14)
 
-[node name="Torch" parent="." unique_id=2026293210 instance=ExtResource("6_s2tds")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 9, -14)
-
 [node name="SoilPatch10x12" parent="." unique_id=452809233 instance=ExtResource("6_x51e5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, -11, 11)
 
@@ -1339,9 +1436,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -11, 11)
 
 [node name="SoilPatch10x13" parent="." unique_id=720753060 instance=ExtResource("6_x51e5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.5, -1, 11)
-
-[node name="Torch2" parent="." unique_id=1789802608 instance=ExtResource("6_s2tds")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, -1, 11)
 
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("4_rx6t3")]
 transform = Transform3D(-4.371139e-08, 0, 18, 0, 13, 0, -1.0000001, 0, -7.8680506e-07, -0.18284607, 2.5, 6.675499)
@@ -1390,3 +1484,51 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBody2/WaterSurface" unique_id=1974123828]
 shape = SubResource("BoxShape3D_3v4bg")
+
+[node name="TorchBoss" type="Node3D" parent="." unique_id=1176559250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, 9, -14)
+script = ExtResource("7_rx6t3")
+
+[node name="Torch" parent="TorchBoss" unique_id=2026293210 instance=ExtResource("6_s2tds")]
+
+[node name="Torch2" parent="TorchBoss" unique_id=1789802608 instance=ExtResource("6_s2tds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.5, -10, 25)
+
+[node name="SaveFlagSetter_024" type="Node" parent="." unique_id=1882328469]
+script = ExtResource("9_ie27y")
+flag_index = 24
+
+[node name="SaveFlagSetter_025" type="Node" parent="." unique_id=760502458]
+script = ExtResource("9_ie27y")
+flag_index = 25
+
+[node name="SaveFlagReaderLighter_024" type="Node" parent="." unique_id=1757970064 node_paths=PackedStringArray("torch")]
+script = ExtResource("10_x51e5")
+flag_index = 24
+torch = NodePath("../TorchBoss/Torch")
+
+[node name="SaveFlagReaderLighter_025" type="Node" parent="." unique_id=523888051 node_paths=PackedStringArray("torch")]
+script = ExtResource("10_x51e5")
+flag_index = 25
+torch = NodePath("../TorchBoss/Torch2")
+
+[node name="PuzzleDoor" type="Node3D" parent="." unique_id=1027294299]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.6183777, -3, -8.058857)
+script = ExtResource("11_5so42")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PuzzleDoor" unique_id=1566639805]
+libraries/ = SubResource("AnimationLibrary_8ihe3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PuzzleDoor" unique_id=1155736231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+mesh = SubResource("BoxMesh_dyco7")
+surface_material_override/0 = SubResource("ShaderMaterial_hkkpk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PuzzleDoor/MeshInstance3D" unique_id=1093645070]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzleDoor/MeshInstance3D/StaticBody3D" unique_id=2000220060]
+shape = SubResource("BoxShape3D_f5ric")
+
+[connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
+[connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_024" method="set_flag_true"]
+[connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_025" method="set_flag_true"]

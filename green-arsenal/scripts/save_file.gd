@@ -6,7 +6,7 @@ class_name SaveFile
 	false, #life
 	false, #bounce
 	false, #seeker
-	true, #platform
+	false, #platform
 	false, #propeller
 	false #heavy
 ]
@@ -39,6 +39,14 @@ class_name SaveFile
 	false, #flooded_2 - torch 1
 	false, #flooded_2 - torch 2
 	false, #flooded_4 - strangler gate
+	false, #flooded_5 - torch 1
+	false, #flooded_5 - torch 2 | 25
+	false, #flooded_6 - torch 1
+	false, #flooded_6 - torch 1
+	false, #flooded_6 - strangler gate
+	false, #flooded_7 - torch 1
+	false, #flooded_7 - torch 2 | 30
+	false, #flooded_7 - torch 3
 ]
 ###this is mostly for the map screen to hide certain layers until its time
 @export var farthest_floor: int = 2
