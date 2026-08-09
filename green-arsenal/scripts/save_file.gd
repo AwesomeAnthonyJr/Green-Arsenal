@@ -44,3 +44,7 @@ class_name SaveFile
 @export var farthest_floor: int = 2
 ###this is to set the player to load in different positions depending on their last save
 @export var load_point: int = 0
+
+
+###this is an easter egg its not too important, not too unimportant
+@export var egg: bool = false

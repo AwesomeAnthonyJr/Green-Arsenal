@@ -530,7 +530,7 @@ mesh = SubResource("PlaneMesh_njq4l")
 surface_material_override/0 = ExtResource("4_hj33f")
 
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("2_3c3sf")]
-transform = Transform3D(1, 0, 0, 0, 10.45, 0, 0, 0, 10.235, 17.517136, 4.8544827, 5.025158)
+transform = Transform3D(1, 0, 0, 0, 10.45, 0, 0, 0, 10.235, 14.517136, 4.8544827, 5.025158)
 new_id = 9
 
 [node name="SoilPatch10x10" parent="." unique_id=361187496 instance=ExtResource("5_me4gj")]

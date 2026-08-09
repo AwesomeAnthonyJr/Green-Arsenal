@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://blb2n6mrncuv"]
+
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="1_eqefp"]
+[ext_resource type="Texture2D" uid="uid://dggskctfylmgh" path="res://textures/bark_texture_dark.png" id="2_5yg1v"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_eqefp")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_5yg1v")
+shader_parameter/albedo_in_shadow = Color(0.22286898, 0.044738285, 0.18684587, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(1, 0.5)
+shader_parameter/uv1_offset = Vector2(0, 0)
