@@ -407,19 +407,6 @@ material_override = ExtResource("2_b5ah6")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_bkl8i")
 
-[node name="NonSoilFloor25" type="StaticBody3D" parent="." unique_id=1852446969]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 7, 14)
-collision_layer = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor25" unique_id=646993010]
-transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
-shape = SubResource("BoxShape3D_otkpc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor25" unique_id=1367775790]
-material_override = ExtResource("2_b5ah6")
-mesh = SubResource("BoxMesh_dimcy")
-surface_material_override/0 = ExtResource("3_bkl8i")
-
 [node name="NonSoilFloor26" type="StaticBody3D" parent="." unique_id=1288032062]
 transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 7, 14)
 collision_layer = 3
@@ -512,7 +499,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_bkl8i")
 
 [node name="NonSoilFloor33" type="StaticBody3D" parent="." unique_id=844428135]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -1.5, 12, 24)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -1.5, 15, 24)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor33" unique_id=1425840435]
@@ -520,6 +507,19 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_otkpc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor33" unique_id=1446990718]
+material_override = ExtResource("2_b5ah6")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("3_bkl8i")
+
+[node name="NonSoilFloor69" type="StaticBody3D" parent="." unique_id=2060870277]
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 17, 18)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor69" unique_id=157749644]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor69" unique_id=1547234390]
 material_override = ExtResource("2_b5ah6")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_bkl8i")
@@ -784,6 +784,19 @@ material_override = ExtResource("2_b5ah6")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_bkl8i")
 
+[node name="NonSoilFloor68" type="StaticBody3D" parent="." unique_id=2102619969]
+transform = Transform3D(-1, 0, -1.509958e-06, 0, 10, 0, 1.509958e-07, 0, -10, -4, 17, -16)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor68" unique_id=976811089]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor68" unique_id=257569857]
+material_override = ExtResource("2_b5ah6")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("3_bkl8i")
+
 [node name="NonSoilFloor48" type="StaticBody3D" parent="." unique_id=928217963]
 transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, -3, -21)
 collision_layer = 3
@@ -972,6 +985,9 @@ new_id = 20
 
 [node name="SoilPatch10x10" parent="." unique_id=361187496 instance=ExtResource("6_ah50x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -8.5, -1)
+
+[node name="SoilPatch10x15" parent="." unique_id=1952179005 instance=ExtResource("6_ah50x")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.5, -3.5, -1)
 
 [node name="SoilPatch10x11" parent="." unique_id=1345588424 instance=ExtResource("6_ah50x")]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0.5, 12.5, -1)
