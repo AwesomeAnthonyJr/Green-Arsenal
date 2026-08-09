@@ -47,6 +47,7 @@ class_name SaveFile
 	false, #flooded_7 - torch 1
 	false, #flooded_7 - torch 2 | 30
 	false, #flooded_7 - torch 3
+	false, #flooded_4 - health pickup
 ]
 ###this is mostly for the map screen to hide certain layers until its time
 @export var farthest_floor: int = 2

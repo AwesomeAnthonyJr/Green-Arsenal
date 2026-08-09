@@ -25,8 +25,8 @@ func _ready() -> void:
 	for c in get_children():
 		if c is AnimatableBody3D:
 			bodies.append(c)
-			body_starts.append(c.global_position)
-			body_ends.append(c.global_position + direction_diff)
+			body_starts.append(c.position)
+			body_ends.append(c.position + direction_diff)
 
 func calc_influence(vect):
 	return direction_diff.normalized().dot(vect)
@@ -47,7 +47,7 @@ func _physics_process(delta):
 	if lift_progress < 0:
 		lift_progress = 0
 	for i in bodies.size():
-		bodies[i].global_position = body_starts[i].lerp(body_ends[i], lift_progress)
+		bodies[i].position = body_starts[i].lerp(body_ends[i], lift_progress)
 
 func calc_propel_percentage():
 	return propellers.size() / float(propellers_needed)

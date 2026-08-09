@@ -12,6 +12,11 @@
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="9_43op1"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="10_32iv3"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="11_cl7k8"]
+[ext_resource type="Script" uid="uid://h1irw11mld5" path="res://scripts/propellable_platform.gd" id="13_tyr43"]
+[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_1.tres" id="14_04l6j"]
+[ext_resource type="Texture2D" uid="uid://c1sm0y8xop0pw" path="res://textures/brick_texture.png" id="15_tmn8c"]
+[ext_resource type="Texture2D" uid="uid://d20rc1nasaa2i" path="res://textures/brick_texture_dark.png" id="16_6ehpb"]
+[ext_resource type="Material" uid="uid://crccc5ki7otll" path="res://materials/blue_material.tres" id="17_04l6j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -97,6 +102,41 @@ shader_parameter/uv1_offset = Vector2(0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ehpb"]
 size = Vector3(1, 11, 10.3927)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8tnp"]
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7c00d"]
+size = Vector2(5, 5)
+subdivide_width = 30
+subdivide_depth = 30
+
+[sub_resource type="BoxMesh" id="BoxMesh_0o143"]
+size = Vector3(5, 10, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xewp"]
+render_priority = 0
+shader = ExtResource("10_32iv3")
+shader_parameter/albedo = Color(0.7404847, 0.5357474, 0.46885675, 1)
+shader_parameter/texture_albedo = ExtResource("15_tmn8c")
+shader_parameter/albedo_in_shadow = Color(0.66781205, 0.5231641, 0.9207462, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("16_6ehpb")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.96999997831856
+shader_parameter/specular_strength = 0.70000001043084
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.0
+shader_parameter/uv1_scale = Vector2(2, 4)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ofxws"]
+size = Vector3(5, 13, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tmn8c"]
+size = Vector3(0.1, 0.2, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ehpb"]
+size = Vector3(5, 0.2, 0.1)
 
 [node name="Room2" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_bkt1a")
@@ -233,9 +273,6 @@ shape = SubResource("BoxShape3D_otkpc")
 material_override = ExtResource("2_jjpci")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_se0fp")
-
-[node name="SoilPatch10x10" parent="NonSoilFloor10" unique_id=361187496 instance=ExtResource("6_q28wb")]
-transform = Transform3D(-0.1, 0, 1.509958e-08, 0, 0.1, 0, -1.509958e-08, 0, -0.1, 0, 0.5, 0)
 
 [node name="NonSoilFloor11" type="StaticBody3D" parent="." unique_id=279720902]
 transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 2, -29)
@@ -1214,7 +1251,64 @@ surface_material_override/0 = SubResource("ShaderMaterial_tmn8c")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PuzzleDoor/MeshInstance3D/StaticBody3D" unique_id=946256248]
 shape = SubResource("BoxShape3D_6ehpb")
 
+[node name="PropellablePlatform" type="Node3D" parent="." unique_id=1820640409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -15, -29)
+script = ExtResource("13_tyr43")
+end_position = Vector3(-9.5, -5.7, -29)
+start_position = Vector3(-9.5, -15, -29)
+
+[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="PropellablePlatform" unique_id=912742059 groups=["propellable", "soil"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform/AnimatableBody3D2" unique_id=739839337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0)
+shape = SubResource("BoxShape3D_h8tnp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PropellablePlatform/AnimatableBody3D2/CollisionShape3D" unique_id=60007716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07294893, 0)
+mesh = SubResource("PlaneMesh_7c00d")
+surface_material_override/0 = ExtResource("14_04l6j")
+
+[node name="WeightReader" type="Area3D" parent="PropellablePlatform/AnimatableBody3D2" unique_id=1532231924]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform/AnimatableBody3D2/WeightReader" unique_id=70893345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0)
+shape = SubResource("BoxShape3D_h8tnp")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="PropellablePlatform" unique_id=2078099778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="NotSoilPart" type="MeshInstance3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=1661086838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5500002, 0)
+mesh = SubResource("BoxMesh_0o143")
+surface_material_override/0 = SubResource("ShaderMaterial_7xewp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=448624560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.05, 0)
+shape = SubResource("BoxShape3D_ofxws")
+
+[node name="NotSoilPart2" type="MeshInstance3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=950319229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45, 2.5, 0)
+mesh = SubResource("BoxMesh_tmn8c")
+surface_material_override/0 = ExtResource("17_04l6j")
+
+[node name="NotSoilPart3" type="MeshInstance3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=1710425035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 2.5, 0)
+mesh = SubResource("BoxMesh_tmn8c")
+surface_material_override/0 = ExtResource("17_04l6j")
+
+[node name="NotSoilPart4" type="MeshInstance3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=212452261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.45)
+mesh = SubResource("BoxMesh_6ehpb")
+surface_material_override/0 = ExtResource("17_04l6j")
+
+[node name="NotSoilPart5" type="MeshInstance3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=1438630915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.45)
+mesh = SubResource("BoxMesh_6ehpb")
+surface_material_override/0 = ExtResource("17_04l6j")
+
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_029" method="set_flag_true"]
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_030" method="set_flag_true"]
 [connection signal="torch_lit" from="TorchBoss/Torch3" to="SaveFlagSetter_031" method="set_flag_true"]
+[connection signal="body_entered" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_enter"]
+[connection signal="body_exited" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_exit"]

@@ -31,7 +31,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_dimcy"]
 
-[sub_resource type="Shader" id="Shader_3x08v"]
+[sub_resource type="Shader" id="Shader_c64bj"]
 code = "//shader by Anthony D. Salsbury; looks best without any ambient lighting!
 
 shader_type spatial;
@@ -105,7 +105,7 @@ void light() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8iwpr"]
 render_priority = 0
-shader = SubResource("Shader_3x08v")
+shader = SubResource("Shader_c64bj")
 shader_parameter/albedo = Color(0.735357, 1, 0.54004896, 1)
 shader_parameter/texture_albedo = ExtResource("13_yfrlc")
 shader_parameter/albedo_in_shadow = Color(0.7372549, 1, 0.5411765, 1)
@@ -1642,6 +1642,7 @@ destroy_if_true = [NodePath("../HealthPickup")]
 
 [node name="HealthPickup" parent="." unique_id=2051017904 instance=ExtResource("11_jvhfb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.22851, -5.6689587, 23.239994)
+flag_index = 16
 
 [node name="FullyGrownLifeFruit" type="Node3D" parent="." unique_id=640691200]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 52, -7, 28)

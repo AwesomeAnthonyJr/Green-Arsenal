@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://cy5fvcba6qqcy" path="res://scripts/root_system.gd" id="16_e1fna"]
 [ext_resource type="Material" uid="uid://dcpyv6dn0ogl2" path="res://materials/strangler_bark.tres" id="17_q2knj"]
 [ext_resource type="Script" uid="uid://hf8wah0rtjxk" path="res://scripts/root_point.gd" id="18_dgoh6"]
+[ext_resource type="PackedScene" uid="uid://cdsogcfs0ty84" path="res://scenes/level_parts/propellable_platform.tscn" id="19_q2knj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1471,12 +1472,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, -12.5, -9)
 [node name="SoilPatch10x16" parent="." unique_id=888542731 instance=ExtResource("6_a1yjp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, -12, 21)
 
-[node name="SoilPatch10x17" parent="." unique_id=623071544 instance=ExtResource("6_a1yjp")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 10.5, 5, 21)
-
-[node name="SoilPatch10x18" parent="." unique_id=1016248807 instance=ExtResource("6_a1yjp")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 10.5, 5, 11)
-
 [node name="SoilPatch10x14" parent="." unique_id=569818592 instance=ExtResource("6_a1yjp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, -12.5, -9)
 
@@ -1501,7 +1496,7 @@ transform = Transform3D(0.090909086, 0, 0, 0, 0.090909086, 0, 0, 0, 0.99999994, 
 
 [node name="SeedVault" parent="." unique_id=538589429 instance=ExtResource("8_a1yjp")]
 transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -17.692383, -2.1807823, 10.789688)
-seed_index = 5
+seed_index = 6
 
 [node name="Exit2" parent="." unique_id=988658648 instance=ExtResource("4_6danl")]
 transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 1, -9.5, 1.5, 24.5)
@@ -1782,6 +1777,11 @@ radius = 0.05
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1438046, -0.89154243, -4.2010546)
 script = ExtResource("18_dgoh6")
 radius = 0.335
+
+[node name="PropellablePlatform" parent="." unique_id=1820640409 instance=ExtResource("19_q2knj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, -14, 21)
+end_position = Vector3(10.5, -5, 21)
+start_position = Vector3(10.5, -14, 21)
 
 [connection signal="target_destroyed" from="StranglerTarget" to="StranglerGate/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/StranglerRootTarget" method="destroy"]
 [connection signal="target_destroyed" from="StranglerTarget2" to="StranglerGate/RootPoint2/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/RootPoint/StranglerRootTarget2" method="destroy"]

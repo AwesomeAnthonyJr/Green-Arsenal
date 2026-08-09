@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cnwa7fcr5qsd7" path="res://scenes/torch.tscn" id="5_gv6bp"]
 [ext_resource type="Material" uid="uid://doiuat84x0eiv" path="res://materials/fresh_water.tres" id="6_070rk"]
 [ext_resource type="Material" uid="uid://oc5kpu32ennv" path="res://materials/salt_water.tres" id="7_070rk"]
-[ext_resource type="Script" uid="uid://h1irw11mld5" path="res://scripts/propellable_platform.gd" id="8_h8tnp"]
+[ext_resource type="PackedScene" uid="uid://cdsogcfs0ty84" path="res://scenes/level_parts/propellable_platform.tscn" id="8_qeo6q"]
 [ext_resource type="PackedScene" uid="uid://cnys260vhf7u2" path="res://scenes/flyingEnemy.tscn" id="9_8luvy"]
 [ext_resource type="PackedScene" uid="uid://2qu2xc4rf2hd" path="res://scenes/enemySpawner.tscn" id="10_ak4i2"]
 [ext_resource type="PackedScene" uid="uid://cd4lwde4ynq5h" path="res://scenes/flyingEnemy_2.tscn" id="11_qeo6q"]
@@ -40,18 +40,6 @@ size = Vector3(48, 24, 32)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pewrh"]
 size = Vector3(48, 1, 32)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_h8tnp"]
-size = Vector3(5, 0.1, 5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_h8tnp"]
-size = Vector3(5, 0.1, 5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0o143"]
-size = Vector3(5, 4.9, 5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_070rk"]
-size = Vector3(5, 4.9, 5)
 
 [node name="Playground" type="Node3D" unique_id=798919202]
 
@@ -166,39 +154,8 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.0199881, 8.5)
 shape = SubResource("BoxShape3D_pewrh")
 
-[node name="PropellablePlatform" type="Node3D" parent="." unique_id=1138087675]
+[node name="PropellablePlatform" parent="." unique_id=1820640409 instance=ExtResource("8_qeo6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -2, 0)
-script = ExtResource("8_h8tnp")
-end_position = Vector3(8, 2.9, 0)
-start_position = Vector3(8, -2, 0)
-propellers_needed = 2
-
-[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="PropellablePlatform" unique_id=1079990722 groups=["propellable", "soil"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform/AnimatableBody3D2" unique_id=2003525441]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0)
-shape = SubResource("BoxShape3D_h8tnp")
-
-[node name="SoilPart" type="MeshInstance3D" parent="PropellablePlatform/AnimatableBody3D2" unique_id=1263528491]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0)
-mesh = SubResource("BoxMesh_h8tnp")
-surface_material_override/0 = ExtResource("1_d17em")
-
-[node name="WeightReader" type="Area3D" parent="PropellablePlatform/AnimatableBody3D2" unique_id=1073652475]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform/AnimatableBody3D2/WeightReader" unique_id=354978694]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0)
-shape = SubResource("BoxShape3D_h8tnp")
-
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="PropellablePlatform" unique_id=256485114]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-
-[node name="NotSoilPart" type="MeshInstance3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=44901504]
-mesh = SubResource("BoxMesh_0o143")
-surface_material_override/0 = ExtResource("3_8tsvv")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=1089507573]
-shape = SubResource("BoxShape3D_070rk")
 
 [node name="FlyingEnemy" parent="." unique_id=677690380 instance=ExtResource("9_8luvy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67125225, 4.183667, -9.863661)
@@ -208,8 +165,5 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 6.8088865, 2.8408837, 0
 
 [node name="Enemy3" parent="." unique_id=918724871 instance=ExtResource("11_qeo6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6296978, 3.0973518, -9.745601)
-
-[connection signal="body_entered" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_enter"]
-[connection signal="body_exited" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_exit"]
 
 [editable path="PlayerPackage"]
