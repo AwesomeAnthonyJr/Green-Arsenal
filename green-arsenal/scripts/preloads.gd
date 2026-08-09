@@ -27,4 +27,4 @@ const fireball = preload("res://scenes/fireball.tscn")
 
 const gameplay_music_01 = preload("res://sound/music/gameplay.wav")
 const gameplay_music_02 = preload("res://sound/music/gameplay_02.wav")
-const easter_egg_music = preload("res://sound/music/easter_egg.wav")
+const easter_egg_music = preload("res://sound/music/easter_egg_2.wav")

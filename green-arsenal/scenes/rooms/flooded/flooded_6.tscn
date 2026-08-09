@@ -16,11 +16,11 @@
 [node name="Room2" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_0c4o8")
 adjacent_rooms = Array[int]([24])
-room_pos = Vector3(-80, 0, -280)
+room_pos = Vector3(160, -90, -190)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
 [node name="NonSoilFloor" type="StaticBody3D" parent="." unique_id=1161159108]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -86, 56)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 4, -34)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor" unique_id=793083822]
@@ -33,7 +33,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor2" type="StaticBody3D" parent="." unique_id=1621540832]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -96, 61)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, -6, -29)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor2" unique_id=1415400233]
@@ -46,7 +46,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor3" type="StaticBody3D" parent="." unique_id=88627802]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -86, 66)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 4, -24)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor3" unique_id=1132755764]
@@ -59,7 +59,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor4" type="StaticBody3D" parent="." unique_id=1052823531]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -98, 54)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, -8, -36)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor4" unique_id=800827540]
@@ -72,7 +72,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor5" type="StaticBody3D" parent="." unique_id=804321033]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -96, 54)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, -6, -36)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor5" unique_id=901396338]
@@ -85,7 +85,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor6" type="StaticBody3D" parent="." unique_id=1028243810]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -96, 54)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, -6, -36)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor6" unique_id=243644687]
@@ -98,7 +98,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor7" type="StaticBody3D" parent="." unique_id=305279159]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -86, 56)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 4, -34)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor7" unique_id=1920438415]
@@ -111,7 +111,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor8" type="StaticBody3D" parent="." unique_id=655498684]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -76, 56)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, 14, -34)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor8" unique_id=868968098]
@@ -124,7 +124,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor9" type="StaticBody3D" parent="." unique_id=1965594465]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -76, 66)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, 14, -24)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor9" unique_id=1024555961]
@@ -137,7 +137,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor10" type="StaticBody3D" parent="." unique_id=182855041]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -86, 66)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 4, -24)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor10" unique_id=1392508159]
@@ -150,7 +150,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor11" type="StaticBody3D" parent="." unique_id=1362383694]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -96, 64)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, -6, -26)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor11" unique_id=1160883007]
@@ -163,7 +163,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor12" type="StaticBody3D" parent="." unique_id=808137054]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -98, 64)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, -8, -26)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor12" unique_id=1918225834]
@@ -176,7 +176,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor13" type="StaticBody3D" parent="." unique_id=1345663196]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -96, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, -6, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor13" unique_id=938969889]
@@ -189,7 +189,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor14" type="StaticBody3D" parent="." unique_id=736697481]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -86, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 4, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor14" unique_id=1362237230]
@@ -202,7 +202,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor15" type="StaticBody3D" parent="." unique_id=130794320]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -98, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, -8, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor15" unique_id=1849394196]
@@ -215,7 +215,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor16" type="StaticBody3D" parent="." unique_id=2118894599]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -96, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, -6, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor16" unique_id=455783653]
@@ -228,7 +228,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor17" type="StaticBody3D" parent="." unique_id=1240195062]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -86, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 4, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor17" unique_id=709346757]
@@ -241,7 +241,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor18" type="StaticBody3D" parent="." unique_id=1148682804]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -76, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, 14, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor18" unique_id=2047067870]
@@ -254,7 +254,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor19" type="StaticBody3D" parent="." unique_id=1493239628]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -98, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, -8, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor19" unique_id=1226316264]
@@ -267,7 +267,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor20" type="StaticBody3D" parent="." unique_id=1888103651]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -98, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, -8, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor20" unique_id=1448234572]
@@ -280,7 +280,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor21" type="StaticBody3D" parent="." unique_id=2027583476]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -98, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, -8, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor21" unique_id=1615388402]
@@ -293,7 +293,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor22" type="StaticBody3D" parent="." unique_id=690225829]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -88, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 2, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor22" unique_id=549705866]
@@ -306,7 +306,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor23" type="StaticBody3D" parent="." unique_id=202651129]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -76, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 14, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor23" unique_id=1191823642]
@@ -319,7 +319,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor24" type="StaticBody3D" parent="." unique_id=650261194]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -68, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 22, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor24" unique_id=754354242]
@@ -332,7 +332,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor25" type="StaticBody3D" parent="." unique_id=1748332712]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -78, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 12, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor25" unique_id=1235446386]
@@ -345,7 +345,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor26" type="StaticBody3D" parent="." unique_id=392414023]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -88, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 2, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor26" unique_id=1252071556]
@@ -358,7 +358,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor27" type="StaticBody3D" parent="." unique_id=1767081284]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 210.5, -88, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -29.5, 2, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor27" unique_id=1452559332]
@@ -371,7 +371,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor28" type="StaticBody3D" parent="." unique_id=1770430158]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 210.5, -78, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -29.5, 12, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor28" unique_id=1432842835]
@@ -384,7 +384,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor29" type="StaticBody3D" parent="." unique_id=292181249]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 210.5, -68, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -29.5, 22, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor29" unique_id=1395649521]
@@ -397,7 +397,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor30" type="StaticBody3D" parent="." unique_id=319029492]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 210.5, -68, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -29.5, 22, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor30" unique_id=1852038774]
@@ -410,7 +410,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor31" type="StaticBody3D" parent="." unique_id=483682169]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 210.5, -78, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -29.5, 12, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor31" unique_id=1343169036]
@@ -423,7 +423,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor32" type="StaticBody3D" parent="." unique_id=1838671357]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 200.5, -81, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -39.5, 9, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor32" unique_id=1237924892]
@@ -436,7 +436,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor33" type="StaticBody3D" parent="." unique_id=418173179]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 200.5, -71, 89)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -39.5, 19, -1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor33" unique_id=873626930]
@@ -449,7 +449,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor34" type="StaticBody3D" parent="." unique_id=1303557440]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 200.5, -71, 73)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -39.5, 19, -17)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor34" unique_id=1826737434]
@@ -462,7 +462,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor35" type="StaticBody3D" parent="." unique_id=612871766]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 200.5, -68, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -39.5, 22, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor35" unique_id=876003363]
@@ -475,7 +475,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor36" type="StaticBody3D" parent="." unique_id=968197185]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 190.5, -75, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -49.5, 15, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor36" unique_id=1505813849]
@@ -488,7 +488,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor37" type="StaticBody3D" parent="." unique_id=76202723]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -98, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, -8, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor37" unique_id=1079025770]
@@ -501,7 +501,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor38" type="StaticBody3D" parent="." unique_id=2126665044]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -98, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, -8, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor38" unique_id=1389727220]
@@ -514,7 +514,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor39" type="StaticBody3D" parent="." unique_id=363882855]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -88, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, 2, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor39" unique_id=263468643]
@@ -527,7 +527,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor40" type="StaticBody3D" parent="." unique_id=715110319]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -88, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 2, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor40" unique_id=912422521]
@@ -540,7 +540,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor41" type="StaticBody3D" parent="." unique_id=698303893]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -88, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, 2, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor41" unique_id=1748400797]
@@ -553,7 +553,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor42" type="StaticBody3D" parent="." unique_id=677393446]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -98, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, -8, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor42" unique_id=374031493]
@@ -566,7 +566,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor43" type="StaticBody3D" parent="." unique_id=1981408264]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 270.5, -98, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 30.5, -8, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor43" unique_id=775974087]
@@ -579,7 +579,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor44" type="StaticBody3D" parent="." unique_id=694784106]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -107, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, -17, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor44" unique_id=463385486]
@@ -592,7 +592,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor45" type="StaticBody3D" parent="." unique_id=301019889]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -78, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, 12, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor45" unique_id=712112409]
@@ -605,7 +605,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor46" type="StaticBody3D" parent="." unique_id=980457292]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -78, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, 12, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor46" unique_id=148879064]
@@ -618,7 +618,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor47" type="StaticBody3D" parent="." unique_id=1826303983]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -76, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 14, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor47" unique_id=1516052482]
@@ -631,7 +631,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor48" type="StaticBody3D" parent="." unique_id=1212521291]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -78, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 12, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor48" unique_id=522830050]
@@ -644,7 +644,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor49" type="StaticBody3D" parent="." unique_id=722914220]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -88, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, 2, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor49" unique_id=1218513516]
@@ -657,7 +657,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor50" type="StaticBody3D" parent="." unique_id=1405423272]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -78, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, 12, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor50" unique_id=932065331]
@@ -670,7 +670,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor51" type="StaticBody3D" parent="." unique_id=1419552797]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 270.5, -98, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 30.5, -8, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor51" unique_id=1775288564]
@@ -683,7 +683,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor52" type="StaticBody3D" parent="." unique_id=1361776802]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 253.5, -88, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 13.5, 2, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor52" unique_id=247457510]
@@ -696,7 +696,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor53" type="StaticBody3D" parent="." unique_id=480147220]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -98, 61)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, -8, -29)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor53" unique_id=1223076581]
@@ -709,7 +709,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor54" type="StaticBody3D" parent="." unique_id=645663583]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -88, 61)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, 2, -29)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor54" unique_id=656767971]
@@ -722,7 +722,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor55" type="StaticBody3D" parent="." unique_id=791437501]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 270.5, -88, 52)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 30.5, 2, -38)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor55" unique_id=1482813892]
@@ -735,7 +735,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor57" type="StaticBody3D" parent="." unique_id=720758795]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 270.5, -88, 65)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 30.5, 2, -25)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor57" unique_id=1084330467]
@@ -748,7 +748,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor58" type="StaticBody3D" parent="." unique_id=1942264395]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 270.5, -95, 58)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 30.5, -5, -32)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor58" unique_id=1838349840]
@@ -761,7 +761,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor59" type="StaticBody3D" parent="." unique_id=1544633109]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 270.5, -82, 58)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 30.5, 8, -32)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor59" unique_id=263872605]
@@ -774,7 +774,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor56" type="StaticBody3D" parent="." unique_id=203460087]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -78, 61)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, 12, -29)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor56" unique_id=1602514192]
@@ -787,7 +787,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor60" type="StaticBody3D" parent="." unique_id=907746168]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 267.5, -88, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 27.5, 2, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor60" unique_id=1406509527]
@@ -800,7 +800,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor61" type="StaticBody3D" parent="." unique_id=739061057]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -81, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, 9, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor61" unique_id=1678496071]
@@ -813,7 +813,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor62" type="StaticBody3D" parent="." unique_id=1032929057]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -95, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, -5, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor62" unique_id=230552416]
@@ -826,7 +826,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor63" type="StaticBody3D" parent="." unique_id=2038415693]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 280.5, -91, 56)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 40.5, -1, -34)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor63" unique_id=1913213747]
@@ -839,7 +839,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor64" type="StaticBody3D" parent="." unique_id=544173663]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 280.5, -98, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 40.5, -8, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor64" unique_id=746084954]
@@ -852,7 +852,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor65" type="StaticBody3D" parent="." unique_id=1084018959]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 270.5, -88, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 30.5, 2, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor65" unique_id=222157493]
@@ -865,7 +865,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor66" type="StaticBody3D" parent="." unique_id=363610167]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 270.5, -78, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 30.5, 12, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor66" unique_id=2011728366]
@@ -878,7 +878,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor67" type="StaticBody3D" parent="." unique_id=1416172503]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 277.5, -88, 71)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 37.5, 2, -19)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor67" unique_id=836769999]
@@ -891,7 +891,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor68" type="StaticBody3D" parent="." unique_id=1172383187]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 277.5, -88, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 37.5, 2, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor68" unique_id=1462148462]
@@ -904,7 +904,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor69" type="StaticBody3D" parent="." unique_id=1767128590]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 287.5, -88, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 47.5, 2, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor69" unique_id=218818920]
@@ -917,7 +917,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor70" type="StaticBody3D" parent="." unique_id=1771315263]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 280.5, -78, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 40.5, 12, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor70" unique_id=1428769466]
@@ -930,7 +930,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor71" type="StaticBody3D" parent="." unique_id=1746411802]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -107, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, -17, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor71" unique_id=977374498]
@@ -946,7 +946,7 @@ surface_material_override/0 = ExtResource("3_a1yjp")
 transform = Transform3D(-0.1, 0, 1.509958e-08, 0, 0.1, 0, -1.509958e-08, 0, -0.1, 1, 1.5, 0)
 
 [node name="NonSoilFloor72" type="StaticBody3D" parent="." unique_id=625379140]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -97, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, -7, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor72" unique_id=1152605860]
@@ -959,7 +959,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor73" type="StaticBody3D" parent="." unique_id=578540406]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 270.5, -97, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 30.5, -7, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor73" unique_id=1108911986]
@@ -972,7 +972,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor74" type="StaticBody3D" parent="." unique_id=55282968]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -87, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, 3, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor74" unique_id=721175935]
@@ -985,7 +985,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor75" type="StaticBody3D" parent="." unique_id=162443787]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -107, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, -17, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor75" unique_id=310038034]
@@ -998,7 +998,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor79" type="StaticBody3D" parent="." unique_id=1914540226]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -107, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, -17, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor79" unique_id=498557982]
@@ -1011,7 +1011,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor80" type="StaticBody3D" parent="." unique_id=1774967946]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -97, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, -7, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor80" unique_id=1393019510]
@@ -1024,7 +1024,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor81" type="StaticBody3D" parent="." unique_id=485724919]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -107, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, -17, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor81" unique_id=148638548]
@@ -1037,7 +1037,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor82" type="StaticBody3D" parent="." unique_id=1548642704]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 270.5, -97, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 30.5, -7, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor82" unique_id=1328541201]
@@ -1050,7 +1050,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor83" type="StaticBody3D" parent="." unique_id=1195290579]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -97, 121)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, -7, 31)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor83" unique_id=2100268541]
@@ -1063,7 +1063,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor84" type="StaticBody3D" parent="." unique_id=1076290368]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 260.5, -87, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, 3, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor84" unique_id=1019324961]
@@ -1076,7 +1076,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor85" type="StaticBody3D" parent="." unique_id=768488296]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -97, 121)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, -7, 31)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor85" unique_id=991258870]
@@ -1089,7 +1089,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor86" type="StaticBody3D" parent="." unique_id=803030872]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -87, 121)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, 3, 31)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor86" unique_id=847341320]
@@ -1102,7 +1102,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor87" type="StaticBody3D" parent="." unique_id=1888221414]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -77, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, 13, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor87" unique_id=1859927142]
@@ -1115,7 +1115,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor76" type="StaticBody3D" parent="." unique_id=889928716]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -87, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 3, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor76" unique_id=1541244947]
@@ -1128,7 +1128,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor77" type="StaticBody3D" parent="." unique_id=1865278848]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -87, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, 3, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor77" unique_id=1314554670]
@@ -1141,7 +1141,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor78" type="StaticBody3D" parent="." unique_id=1557776143]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -77, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, 13, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor78" unique_id=686039397]
@@ -1154,7 +1154,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor88" type="StaticBody3D" parent="." unique_id=1431552790]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 250.5, -78, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 10.5, 12, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor88" unique_id=1391114934]
@@ -1167,7 +1167,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor89" type="StaticBody3D" parent="." unique_id=1041062636]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -78, 91)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, 12, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor89" unique_id=704657912]
@@ -1180,7 +1180,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor90" type="StaticBody3D" parent="." unique_id=140253323]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -68, 81)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, 22, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor90" unique_id=954222703]
@@ -1193,7 +1193,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor91" type="StaticBody3D" parent="." unique_id=10691904]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -98, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, -8, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor91" unique_id=2019457945]
@@ -1206,7 +1206,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor92" type="StaticBody3D" parent="." unique_id=957154685]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 214.5, -88, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -25.5, 2, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor92" unique_id=1712234956]
@@ -1219,7 +1219,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor93" type="StaticBody3D" parent="." unique_id=171409597]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 240.5, -97, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 0.5, -7, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor93" unique_id=1875460776]
@@ -1232,7 +1232,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor94" type="StaticBody3D" parent="." unique_id=771395743]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -78, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, 12, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor94" unique_id=859554779]
@@ -1245,7 +1245,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor95" type="StaticBody3D" parent="." unique_id=386642375]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -78, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 12, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor95" unique_id=24254653]
@@ -1258,7 +1258,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor96" type="StaticBody3D" parent="." unique_id=2048667509]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -98, 101)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, -8, 11)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor96" unique_id=701391611]
@@ -1271,7 +1271,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor97" type="StaticBody3D" parent="." unique_id=243100564]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 220.5, -88, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -19.5, 2, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor97" unique_id=1280772550]
@@ -1284,7 +1284,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor98" type="StaticBody3D" parent="." unique_id=1455318670]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -78, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, 12, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor98" unique_id=692891068]
@@ -1297,7 +1297,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="NonSoilFloor99" type="StaticBody3D" parent="." unique_id=1286548670]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 230.5, -98, 111)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -9.5, -8, 21)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor99" unique_id=818100562]
@@ -1310,41 +1310,41 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_a1yjp")
 
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("4_6danl")]
-transform = Transform3D(-4.371139e-08, 0, 18, 0, 13, 0, -1.0000001, 0, -7.8680506e-07, 229.81715, -87.5, 53.6755)
+transform = Transform3D(-4.371139e-08, 0, 18, 0, 13, 0, -1.0000001, 0, -7.8680506e-07, -10.182846, 2.5, -36.3245)
 new_id = 24
 
 [node name="SoilPatch10x10" parent="." unique_id=361187496 instance=ExtResource("6_a1yjp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.5, -93.5, 81)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -3.5, -9)
 
 [node name="SoilPatch10x12" parent="." unique_id=1897589254 instance=ExtResource("6_a1yjp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250.5, -102.5, 81)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, -12.5, -9)
 
 [node name="SoilPatch10x15" parent="." unique_id=1027735939 instance=ExtResource("6_a1yjp")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 260.5, -88, 56.5)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 20.5, 2, -33.5)
 
 [node name="SoilPatch10x13" parent="." unique_id=1636895600 instance=ExtResource("6_a1yjp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 260.5, -102.5, 81)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, -12.5, -9)
 
 [node name="SoilPatch10x16" parent="." unique_id=888542731 instance=ExtResource("6_a1yjp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250.5, -102, 111)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, -12, 21)
 
 [node name="SoilPatch10x14" parent="." unique_id=569818592 instance=ExtResource("6_a1yjp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 270.5, -102.5, 81)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5, -12.5, -9)
 
 [node name="SoilPatch10x11" parent="." unique_id=588087940 instance=ExtResource("6_a1yjp")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 210.5, -72.5, 81)
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -29.5, 17.5, -9)
 
 [node name="StranglerTarget" parent="." unique_id=1911808834 instance=ExtResource("7_6danl")]
-transform = Transform3D(0, 1.0000001, 0, -1.0000001, 0, 0, 0, 0, 1, 197, -74.44225, 81.17076)
+transform = Transform3D(0, 1.0000001, 0, -1.0000001, 0, 0, 0, 0, 1, -43, 15.557747, -8.829239)
 
 [node name="StranglerTarget2" parent="." unique_id=1275175222 instance=ExtResource("7_6danl")]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 275, -88.46294, 58.54579)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 35, 1.5370636, -31.454208)
 
 [node name="Torch" parent="." unique_id=913019489 instance=ExtResource("4_gw7xw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 278.5, -93, 81)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5, -3, -9)
 
 [node name="SeedVault" parent="." unique_id=538589429 instance=ExtResource("8_a1yjp")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 222.30762, -92.5, 100.78969)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.692383, -2.5, 10.789688)
 
 [node name="Exit2" parent="." unique_id=988658648 instance=ExtResource("4_6danl")]
-transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 1, 230.5, -88.5, 114.5)
+transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 1, -9.5, 1.5, 24.5)
