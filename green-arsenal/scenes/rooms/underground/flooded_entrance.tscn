@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="4_qhwcv"]
 [ext_resource type="PackedScene" uid="uid://cj3xvugwergwm" path="res://scenes/level_parts/tree_c.tscn" id="6_tx3s2"]
 [ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="7_tx3s2"]
+[ext_resource type="PackedScene" uid="uid://yql0lf7vacmm" path="res://scenes/decorative_torch.tscn" id="8_f3thk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1135,3 +1136,9 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 150.
 
 [node name="FacilityLight3" parent="." unique_id=904707886 instance=ExtResource("7_tx3s2")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 150.5, -7, 30)
+
+[node name="TorchLit" parent="." unique_id=2026293210 instance=ExtResource("8_f3thk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142, -87, 39)
+
+[node name="TorchLit2" parent="." unique_id=402778999 instance=ExtResource("8_f3thk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159, -87, 39)
