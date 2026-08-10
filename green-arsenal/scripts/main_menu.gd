@@ -241,6 +241,11 @@ func read_look(y, x):
 func _process(delta: float) -> void:
 	cam.rotation.x = lerpf(cam.rotation.x, target_rot.x, 0.5)
 	cam.rotation.y = lerpf(cam.rotation.y, target_rot.y + deg_to_rad(-180.0), 0.5)
+	if Input.is_action_just_pressed("skip_for_testing"):
+		SaveManager.test_save()
+		SoundManager.play_menu_accept()
+		await get_tree().create_timer(0.1).timeout
+		start_game()
 
 func _on_audio_stream_player_finished() -> void:
 	#print(loop_count)

@@ -2003,7 +2003,7 @@ settings/0/joints/2/limitation/right_axis = 0
 settings/0/joints/2/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature_001/Skeleton3D" unique_id=1146164239]
-transform = Transform3D(-0.98714316, 0.14875832, -0.05846793, -0.1501324, -0.9884669, 0.01983287, -0.054843303, 0.028355751, 0.99809176, -0.41722697, 0.06049362, -0.010679654)
+transform = Transform3D(-0.98711777, 0.14875966, -0.058893744, -0.15020522, -0.9884337, 0.020905655, -0.055102635, 0.029482443, 0.99804485, -0.41722786, 0.060513414, -0.010108081)
 bone_name = "Palm R"
 bone_idx = 19
 
@@ -2785,7 +2785,7 @@ visible = false
 render_priority = 1
 outline_render_priority = 1
 modulate = Color(0.21960784, 0.85490197, 0.8666667, 1)
-text = "Jack Schaeffer"
+text = "Jack Schaefer"
 font = ExtResource("6_rtw2f")
 font_size = 240
 outline_size = 20

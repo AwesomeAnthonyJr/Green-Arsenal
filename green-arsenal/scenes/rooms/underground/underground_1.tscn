@@ -2004,6 +2004,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_otkpc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor**" unique_id=98306149]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_5tfqg")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("1_pirkp")

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://wd72ljddrt3r"]
 
 [ext_resource type="Script" uid="uid://cr7ch745a207w" path="res://scripts/room_loader.gd" id="1_k6vgy"]
-[ext_resource type="AudioStream" uid="uid://cj6cy8k6rfrf1" path="res://sound/music/gameplay.wav" id="2_pr88g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8ln24"]
 sky_top_color = Color(0.24313726, 0.654902, 0.92156863, 1)
@@ -18,9 +17,61 @@ sky = SubResource("Sky_yaehf")
 ambient_light_source = 1
 glow_enabled = true
 
+[sub_resource type="Animation" id="Animation_pr88g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.0]
+}
+
+[sub_resource type="Animation" id="Animation_b77ga"]
+resource_name = "fade_vol_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -3.0]
+}
+
+[sub_resource type="Animation" id="Animation_ggob1"]
+resource_name = "fade_vol_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-3.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b77ga"]
+_data = {
+&"RESET": SubResource("Animation_pr88g"),
+&"fade_vol_in": SubResource("Animation_b77ga"),
+&"fade_vol_out": SubResource("Animation_ggob1")
+}
+
 [node name="RoomLoader" type="Node3D" unique_id=527607939]
 script = ExtResource("1_k6vgy")
-test_position = Vector3(-100, 0, -138)
+test_position = Vector3(70.5, -90, -266)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=156207753]
 environment = SubResource("Environment_rtw2f")
@@ -31,7 +82,9 @@ shadow_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=17242721]
 process_mode = 3
-stream = ExtResource("2_pr88g")
 volume_db = -3.0
 autoplay = true
 bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1308083459]
+libraries/ = SubResource("AnimationLibrary_b77ga")

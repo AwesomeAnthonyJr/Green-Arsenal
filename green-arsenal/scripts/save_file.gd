@@ -36,8 +36,24 @@ class_name SaveFile
 	false, #underground_4 - torch 2
 	false, #underground_5 - torch 1
 	false, #underground_5 - torch 2 | 20
+	false, #flooded_2 - torch 1
+	false, #flooded_2 - torch 2
+	false, #flooded_4 - strangler gate
+	false, #flooded_5 - torch 1
+	false, #flooded_5 - torch 2 | 25
+	false, #flooded_6 - torch 1
+	false, #flooded_6 - torch 1
+	false, #flooded_6 - strangler gate
+	false, #flooded_7 - torch 1
+	false, #flooded_7 - torch 2 | 30
+	false, #flooded_7 - torch 3
+	false, #flooded_4 - health pickup
 ]
 ###this is mostly for the map screen to hide certain layers until its time
 @export var farthest_floor: int = 2
 ###this is to set the player to load in different positions depending on their last save
 @export var load_point: int = 0
+
+
+###this is an easter egg its not too important, not too unimportant
+@export var egg: bool = false

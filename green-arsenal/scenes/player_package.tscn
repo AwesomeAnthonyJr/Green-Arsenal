@@ -2,7 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dmvvi6bp6n0yo" path="res://scenes/player.tscn" id="1_aaihd"]
 [ext_resource type="Script" uid="uid://ctioco30i1jxg" path="res://scripts/camera_rig.gd" id="2_221em"]
+[ext_resource type="Material" uid="uid://doiuat84x0eiv" path="res://materials/fresh_water.tres" id="3_hhq6g"]
 [ext_resource type="PackedScene" uid="uid://b1te36p3nyvr4" path="res://scenes/in_game_hud.tscn" id="3_q2s2p"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_h45xw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h45xw"]
 radius = 0.05
@@ -34,6 +37,18 @@ cull_mask = 262143
 transform = Transform3D(1, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, -0.1)
 target_position = Vector3(0, 0, -50)
 collision_mask = 5
+
+[node name="WaterRayCast" type="RayCast3D" parent="CameraRig/TwistPivot/PitchPivot/Camera3D" unique_id=392114415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="WaterMesh" type="MeshInstance3D" parent="CameraRig/TwistPivot/PitchPivot/Camera3D" unique_id=1699689979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -0.099999905)
+mesh = SubResource("QuadMesh_h45xw")
+surface_material_override/0 = ExtResource("3_hhq6g")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="CameraRig/TwistPivot/PitchPivot" unique_id=988462735]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.8, 0, 0)

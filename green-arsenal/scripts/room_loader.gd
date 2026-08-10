@@ -10,6 +10,9 @@ var main: Main
 #@export var positions = PackedVector3Array()
 @export var test_position = Vector3()
 
+@onready var song_player = $AudioStreamPlayer
+@onready var song_anim = $AnimationPlayer
+
 #for the load points
 const positions = [
 	Vector3(10.0, 1.2, 5.0),
@@ -21,7 +24,7 @@ const positions = [
 
 #this tells it which room to start in basically; -1 for testing!
 const load_point_keys = {
-	-1: 12,
+	-1: 20,
 	0: 4,
 	1: 4,
 	2: 8,
@@ -40,8 +43,10 @@ const room_dict = {
 	7: "res://scenes/rooms/forest/forest_4_NEWER.tscn",
 	8: "res://scenes/rooms/forest/forest_6.tscn",
 	9: "res://scenes/rooms/forest/forest_5_NEWER.tscn",
+	-10: "res://scenes/rooms/forest/easter_egg_room.tscn",
 	10: "res://scenes/rooms/forest/life_seed.tscn",
 	11: "res://scenes/rooms/forest/underground_entrance.tscn",
+	
 	12: "res://scenes/rooms/underground/underground_1.tscn",
 	13: "res://scenes/rooms/underground/underground_2.tscn",
 	14: "res://scenes/rooms/underground/bounce_seed.tscn",
@@ -50,7 +55,14 @@ const room_dict = {
 	17: "res://scenes/rooms/underground/underground_4.tscn",
 	18: "res://scenes/rooms/underground/underground_5.tscn",
 	19: "res://scenes/rooms/underground/flooded_entrance.tscn",
+	
 	20: "res://scenes/rooms/flooded/flooded_1.tscn",
+	21: "res://scenes/rooms/flooded/flooded_2.tscn",
+	22: "res://scenes/rooms/flooded/flooded_3.tscn",
+	23: "res://scenes/rooms/flooded/flooded_4.tscn",
+	24: "res://scenes/rooms/flooded/flooded_5.tscn",
+	25: "res://scenes/rooms/flooded/flooded_6.tscn",
+	
 	99: "res://scenes/rooms/underground/ending_for_sprint3.tscn",
 }
 #must be the inverse of the first!!!
@@ -65,8 +77,10 @@ const reverse_dict = {
 	"res://scenes/rooms/forest/forest_4_NEWER.tscn" : 7,
 	"res://scenes/rooms/forest/forest_6.tscn" : 8,
 	"res://scenes/rooms/forest/forest_5_NEWER.tscn" : 9,
+	"res://scenes/rooms/forest/easter_egg_room.tscn" : -10,
 	"res://scenes/rooms/forest/life_seed.tscn" : 10,
 	"res://scenes/rooms/forest/underground_entrance.tscn" : 11,
+	
 	"res://scenes/rooms/underground/underground_1.tscn": 12,
 	"res://scenes/rooms/underground/underground_2.tscn": 13,
 	"res://scenes/rooms/underground/bounce_seed.tscn": 14,
@@ -75,7 +89,14 @@ const reverse_dict = {
 	"res://scenes/rooms/underground/underground_4.tscn": 17,
 	"res://scenes/rooms/underground/underground_5.tscn": 18,
 	"res://scenes/rooms/underground/flooded_entrance.tscn": 19,
+	
 	"res://scenes/rooms/flooded/flooded_1.tscn": 20,
+	"res://scenes/rooms/flooded/flooded_2.tscn": 21,
+	"res://scenes/rooms/flooded/flooded_3.tscn": 22,
+	"res://scenes/rooms/flooded/flooded_4.tscn": 23,
+	"res://scenes/rooms/flooded/flooded_5.tscn": 24,
+	"res://scenes/rooms/flooded/flooded_6.tscn": 25,
+	
 	"res://scenes/rooms/underground/ending_for_sprint3.tscn": 99,
 }
 
@@ -95,6 +116,10 @@ func get_floor():
 	#underground
 	elif active_key > 11 and active_key < 999:
 		return 2
+	
+	#special
+	if active_key == -10:
+		return 1
 	return 0
 
 func initialize():
@@ -141,7 +166,7 @@ func _process(delta):
 			var k = loaded_objects_keys[i]
 			var o = loaded_objects[i]
 			if is_instance_valid(o):
-				if !(k in active_room.adjacent_rooms) and !(k == active_key):
+				if !(k in active_room.adjacent_rooms and k > 0) and !(k == active_key):
 					print("ROOM: ", k, " IS BEING REMOVED!!!")
 					#print(active_key)
 					o.queue_free()
@@ -151,11 +176,11 @@ func _process(delta):
 	else:
 		print("yo why is active room null?")
 	if erase_arr.size() > 0:
-		for i in erase_arr:
-			if i < loaded_objects_keys.size():
-				loaded_objects_keys.remove_at(i)
-			if i < loaded_objects.size():
-				loaded_objects.remove_at(i)
+		var i = erase_arr[0]
+		if i < loaded_objects_keys.size():
+			loaded_objects_keys.remove_at(i)
+		if i < loaded_objects.size():
+			loaded_objects.remove_at(i)
 			#print("ERASED OBJECT ", i, " FROM ARRAYS.")
 			#var k = loaded_objects_keys[i]
 			#var o = loaded_objects[i]
@@ -207,6 +232,7 @@ func setup_active_room(key: int):
 			active_room = o
 			active_key = k
 			already_loaded = true
+			song_check(key)
 			break
 	if !already_loaded:
 		var path = room_dict[key]
@@ -219,13 +245,33 @@ func setup_active_room(key: int):
 		active_room = inst
 		active_key = key
 		load_room_extra(key)
+		song_check(key, false)
 		print("RARE FIRST TIME LOAD HAS OCCURED! ", key)
 	
 	#its a different room now
 	active_room.active = true
 	
 	for k in active_room.adjacent_rooms:
-		if !(k in loaded_objects_keys):
+		if !(k in loaded_objects_keys) and k > 0:
 			load_room(k)
 		else:
 			print("ROOM: ", k, " IS ALREADY LOADED!")
+
+func song_change(new, smooth: bool = true):
+	if new != song_player.stream:
+		if smooth:
+			song_anim.play("fade_vol_out")
+			await get_tree().create_timer(1.0).timeout
+		song_player.stream = new
+		song_player.play()
+		if smooth:
+			song_anim.play("fade_vol_in")
+
+func song_check(key: int, smooth: bool = true):
+	match key:
+		4, 8, 10, 11, 9:
+			song_change(Preloads.gameplay_music_01, smooth)
+		12, 19, 20:
+			song_change(Preloads.gameplay_music_02, smooth)
+		-10:
+			song_change(Preloads.easter_egg_music, false)

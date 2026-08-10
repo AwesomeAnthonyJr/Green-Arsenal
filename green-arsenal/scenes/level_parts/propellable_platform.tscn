@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cdsogcfs0ty84"]
+
+[ext_resource type="Script" uid="uid://h1irw11mld5" path="res://scripts/propellable_platform.gd" id="1_ucct8"]
+[ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_1.tres" id="2_ucct8"]
+[ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="3_8r2tb"]
+[ext_resource type="Texture2D" uid="uid://c1sm0y8xop0pw" path="res://textures/brick_texture.png" id="4_h6ht3"]
+[ext_resource type="Texture2D" uid="uid://d20rc1nasaa2i" path="res://textures/brick_texture_dark.png" id="5_rehpr"]
+[ext_resource type="Material" uid="uid://crccc5ki7otll" path="res://materials/blue_material.tres" id="6_h6ht3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8tnp"]
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7c00d"]
+size = Vector2(5, 5)
+subdivide_width = 30
+subdivide_depth = 30
+
+[sub_resource type="BoxMesh" id="BoxMesh_0o143"]
+size = Vector3(5, 10, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4uxi"]
+render_priority = 0
+shader = ExtResource("3_8r2tb")
+shader_parameter/albedo = Color(0.7404847, 0.5357474, 0.46885675, 1)
+shader_parameter/texture_albedo = ExtResource("4_h6ht3")
+shader_parameter/albedo_in_shadow = Color(0.66781205, 0.5231641, 0.9207462, 1)
+shader_parameter/texture_albedo_in_shadow = ExtResource("5_rehpr")
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.96999997831856
+shader_parameter/specular_strength = 0.70000001043084
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.0
+shader_parameter/uv1_scale = Vector2(2, 2)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rehpr"]
+size = Vector3(0.1, 0.2, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t4uxi"]
+size = Vector3(5, 0.2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_070rk"]
+size = Vector3(5, 10, 5)
+
+[node name="PropellablePlatform" type="Node3D" unique_id=1820640409]
+script = ExtResource("1_ucct8")
+end_position = Vector3(8, 2.9, 0)
+start_position = Vector3(8, -2, 0)
+
+[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="." unique_id=912742059 groups=["propellable", "soil"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D2" unique_id=739839337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0)
+shape = SubResource("BoxShape3D_h8tnp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D2/CollisionShape3D" unique_id=60007716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07294893, 0)
+mesh = SubResource("PlaneMesh_7c00d")
+surface_material_override/0 = ExtResource("2_ucct8")
+
+[node name="WeightReader" type="Area3D" parent="AnimatableBody3D2" unique_id=1532231924]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D2/WeightReader" unique_id=70893345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0)
+shape = SubResource("BoxShape3D_h8tnp")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=2078099778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="NotSoilPart" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=1661086838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6, 0)
+mesh = SubResource("BoxMesh_0o143")
+surface_material_override/0 = SubResource("ShaderMaterial_t4uxi")
+
+[node name="NotSoilPart2" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=187709295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45, 2.5, 0)
+mesh = SubResource("BoxMesh_rehpr")
+surface_material_override/0 = ExtResource("6_h6ht3")
+
+[node name="NotSoilPart3" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=205932010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 2.5, 0)
+mesh = SubResource("BoxMesh_rehpr")
+surface_material_override/0 = ExtResource("6_h6ht3")
+
+[node name="NotSoilPart4" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=53631906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.45)
+mesh = SubResource("BoxMesh_t4uxi")
+surface_material_override/0 = ExtResource("6_h6ht3")
+
+[node name="NotSoilPart5" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=799877926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.45)
+mesh = SubResource("BoxMesh_t4uxi")
+surface_material_override/0 = ExtResource("6_h6ht3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=448624560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5500002, 0)
+shape = SubResource("BoxShape3D_070rk")
+
+[connection signal="body_entered" from="AnimatableBody3D2/WeightReader" to="." method="read_weight_enter"]
+[connection signal="body_exited" from="AnimatableBody3D2/WeightReader" to="." method="read_weight_exit"]

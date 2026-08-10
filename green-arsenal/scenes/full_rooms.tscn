@@ -60,6 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -50)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80)
 
 [node name="Underground" type="Node3D" parent="." unique_id=218315889]
+visible = false
 
 [node name="Underground1" parent="Underground" unique_id=1608318388 instance=ExtResource("12_m0xu6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -210)

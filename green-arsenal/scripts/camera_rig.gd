@@ -15,6 +15,8 @@ extends Node3D
 @onready var camcast = $TwistPivot/PitchPivot/ShapeCast3D
 
 @onready var aimRayCast = $TwistPivot/PitchPivot/Camera3D/AimRayCast
+@onready var water_cast = $TwistPivot/PitchPivot/Camera3D/WaterRayCast
+@onready var water_quad = $TwistPivot/PitchPivot/Camera3D/WaterMesh
 
 const MAX_DIST = 3.0
 const PITCH_OFFSET = Vector3(0, 0.6, 0)
@@ -47,6 +49,10 @@ func _physics_process(delta: float) -> void:
 	if camcast.get_collision_count() > 0:
 		dist = camcast.get_closest_collision_safe_fraction() * MAX_DIST
 	actual_camera.position.z = lerpf(actual_camera.position.z, dist, 0.5)
+	if water_cast.is_colliding():
+		if water_cast.get_collider().is_in_group("fresh_water"):
+			var water_dist = water_cast.get_collision_point().distance_to(water_cast.global_position)
+			water_quad.position.y = -water_dist
 
 
 func _process(delta: float) -> void:
