@@ -611,7 +611,7 @@ states/reloading/position = Vector2(536, 73)
 "states/reloading 2/node" = SubResource("AnimationNodeAnimation_cawb2")
 "states/reloading 2/position" = Vector2(760, -198)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_qnwhp"), "RESET", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_cawb2"), "on_bullet_5", "on_bullet_5 2", SubResource("AnimationNodeStateMachineTransition_3lubi"), "on_bullet_0", "on_bullet_0 2", SubResource("AnimationNodeStateMachineTransition_hpryw"), "on_bullet_1", "on_bullet_1 2", SubResource("AnimationNodeStateMachineTransition_by6v6"), "on_bullet_2", "on_bullet_2 2", SubResource("AnimationNodeStateMachineTransition_rcaw0"), "on_bullet_3", "on_bullet_3 2", SubResource("AnimationNodeStateMachineTransition_yhpat"), "on_bullet_4", "on_bullet_4 2", SubResource("AnimationNodeStateMachineTransition_rk5t0"), "on_bullet_0 2", "on_bullet_1", SubResource("AnimationNodeStateMachineTransition_2urha"), "on_bullet_1 2", "on_bullet_2", SubResource("AnimationNodeStateMachineTransition_3xuwr"), "on_bullet_2 2", "on_bullet_3", SubResource("AnimationNodeStateMachineTransition_xof42"), "on_bullet_3 2", "on_bullet_4", SubResource("AnimationNodeStateMachineTransition_8jm0m"), "on_bullet_4 2", "on_bullet_5", SubResource("AnimationNodeStateMachineTransition_oll3d"), "on_bullet_5 2", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_wgbt3"), "on_bullet_0", "reloading", SubResource("AnimationNodeStateMachineTransition_umgpx"), "reloading", "reloading 2", SubResource("AnimationNodeStateMachineTransition_10wg2"), "reloading 2", "on_bullet_0", SubResource("AnimationNodeStateMachineTransition_8x3mc"), "on_bullet_1", "reloading", SubResource("AnimationNodeStateMachineTransition_sbl5u"), "on_bullet_2", "reloading", SubResource("AnimationNodeStateMachineTransition_edenc"), "on_bullet_3", "reloading", SubResource("AnimationNodeStateMachineTransition_156o1"), "on_bullet_4", "reloading", SubResource("AnimationNodeStateMachineTransition_wkm38"), "on_bullet_5", "reloading", SubResource("AnimationNodeStateMachineTransition_2k0n8")]
-graph_offset = Vector2(-69, 26)
+graph_offset = Vector2(-55, 9)
 
 [sub_resource type="Animation" id="Animation_156o1"]
 length = 0.001
@@ -922,6 +922,17 @@ theme_override_fonts/normal_font = ExtResource("14_cawb2")
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[bgcolor=black][color=white]W[/color][/bgcolor]"
+
+[node name="CTRLLabel" type="RichTextLabel" parent="Revolver/InteractMenu" unique_id=1996397640]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 125.0
+offset_right = 394.0
+offset_bottom = 267.0
+theme_override_fonts/normal_font = ExtResource("14_cawb2")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[bgcolor=black][color=white]CTRL[/color][/bgcolor]"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Revolver" unique_id=2035205259]
 libraries/ = SubResource("AnimationLibrary_4f0tj")
