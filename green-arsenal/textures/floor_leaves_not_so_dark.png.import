@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ej228cdvy424"
 path.s3tc="res://.godot/imported/floor_leaves_not_so_dark.png-7ff50964005a10649d3bd6f29990f569.s3tc.ctex"
+path.etc2="res://.godot/imported/floor_leaves_not_so_dark.png-7ff50964005a10649d3bd6f29990f569.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/floor_leaves_not_so_dark.png"
-dest_files=["res://.godot/imported/floor_leaves_not_so_dark.png-7ff50964005a10649d3bd6f29990f569.s3tc.ctex"]
+dest_files=["res://.godot/imported/floor_leaves_not_so_dark.png-7ff50964005a10649d3bd6f29990f569.s3tc.ctex", "res://.godot/imported/floor_leaves_not_so_dark.png-7ff50964005a10649d3bd6f29990f569.etc2.ctex"]
 
 [params]
 

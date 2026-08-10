@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ciqmqq8dq8tpa"
 path.s3tc="res://.godot/imported/Moonsanto Logo.png-752defebc28176b7b1971bc18066f821.s3tc.ctex"
+path.etc2="res://.godot/imported/Moonsanto Logo.png-752defebc28176b7b1971bc18066f821.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://ui/Moonsanto Logo.png"
-dest_files=["res://.godot/imported/Moonsanto Logo.png-752defebc28176b7b1971bc18066f821.s3tc.ctex"]
+dest_files=["res://.godot/imported/Moonsanto Logo.png-752defebc28176b7b1971bc18066f821.s3tc.ctex", "res://.godot/imported/Moonsanto Logo.png-752defebc28176b7b1971bc18066f821.etc2.ctex"]
 
 [params]
 

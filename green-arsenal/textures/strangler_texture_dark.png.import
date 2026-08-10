@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckm34p736g0pr"
 path.s3tc="res://.godot/imported/strangler_texture_dark.png-65773d262c6e07bca7d59d99444eb1ab.s3tc.ctex"
+path.etc2="res://.godot/imported/strangler_texture_dark.png-65773d262c6e07bca7d59d99444eb1ab.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/strangler_texture_dark.png"
-dest_files=["res://.godot/imported/strangler_texture_dark.png-65773d262c6e07bca7d59d99444eb1ab.s3tc.ctex"]
+dest_files=["res://.godot/imported/strangler_texture_dark.png-65773d262c6e07bca7d59d99444eb1ab.s3tc.ctex", "res://.godot/imported/strangler_texture_dark.png-65773d262c6e07bca7d59d99444eb1ab.etc2.ctex"]
 
 [params]
 
