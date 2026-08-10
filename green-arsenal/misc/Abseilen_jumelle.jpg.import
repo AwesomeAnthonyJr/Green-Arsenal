@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bajtrea7i0r3x"
 path.s3tc="res://.godot/imported/Abseilen_jumelle.jpg-0148b4c62ceb0ea99af8db8c889fe719.s3tc.ctex"
+path.etc2="res://.godot/imported/Abseilen_jumelle.jpg-0148b4c62ceb0ea99af8db8c889fe719.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://misc/Abseilen_jumelle.jpg"
-dest_files=["res://.godot/imported/Abseilen_jumelle.jpg-0148b4c62ceb0ea99af8db8c889fe719.s3tc.ctex"]
+dest_files=["res://.godot/imported/Abseilen_jumelle.jpg-0148b4c62ceb0ea99af8db8c889fe719.s3tc.ctex", "res://.godot/imported/Abseilen_jumelle.jpg-0148b4c62ceb0ea99af8db8c889fe719.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cear34xokv5g"
 path.s3tc="res://.godot/imported/rocky_soil_gray_dark.png-89dce2bcce21bbf5690a80ee1ce30005.s3tc.ctex"
+path.etc2="res://.godot/imported/rocky_soil_gray_dark.png-89dce2bcce21bbf5690a80ee1ce30005.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/rocky_soil_gray_dark.png"
-dest_files=["res://.godot/imported/rocky_soil_gray_dark.png-89dce2bcce21bbf5690a80ee1ce30005.s3tc.ctex"]
+dest_files=["res://.godot/imported/rocky_soil_gray_dark.png-89dce2bcce21bbf5690a80ee1ce30005.s3tc.ctex", "res://.godot/imported/rocky_soil_gray_dark.png-89dce2bcce21bbf5690a80ee1ce30005.etc2.ctex"]
 
 [params]
 
