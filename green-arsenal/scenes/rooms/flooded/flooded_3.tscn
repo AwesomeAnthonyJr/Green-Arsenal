@@ -1953,7 +1953,7 @@ shape = SubResource("BoxShape3D_d811s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -8, -5)
 
 [node name="Document_Reader" type="Area3D" parent="." unique_id=191170231]
-transform = Transform3D(-0.862011, 0, -0.5068895, 0, 1, 0, 0.5068895, 0, -0.862011, 2.5823162, -15.733675, 16.986153)
+transform = Transform3D(-0.862011, 0, -0.5068895, 0, 1, 0, 0.5068895, 0, -0.862011, -38.422066, -17.233099, -1.0530138)
 script = ExtResource("11_vpplj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Document_Reader" unique_id=1486271292]
