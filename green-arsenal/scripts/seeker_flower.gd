@@ -9,6 +9,7 @@ var has_bullet = false
 var stored = null
 @onready var model_attatchment = $FancyModel/Skeleton3D/BoneAttachment3D
 @onready var anim = $AnimationPlayer
+var just_caught = null
 
 func _ready() -> void:
 	connect_inputs()
@@ -35,16 +36,19 @@ func read_shoot():
 		get_parent().add_child(stored)
 		stored.global_position = shooter.global_position
 		stored.global_rotation = shooter.global_rotation
+		just_caught = true
 		has_bullet = false
 		stored = null
 		anim.play("catch")
-		#await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.1).timeout
+		just_caught = false
 		#anim.play("standard")
 
 func store(obj):
 	stored = obj
 	has_bullet = true
-	#print("STORED", obj.name)
+	just_caught = false
+	print("STORED", obj.name)
 
 func grow():
 	model_attatchment.override_pose = false
