@@ -64,6 +64,7 @@ const room_dict = {
 	25: "res://scenes/rooms/flooded/flooded_6.tscn",
 	26: "res://scenes/rooms/flooded/flooded_7.tscn",
 	27: "res://scenes/rooms/flooded/flooded_8.tscn",
+	28: "res://scenes/rooms/flooded/flooded_9.tscn",
 	
 	99: "res://scenes/rooms/underground/ending_for_sprint3.tscn",
 }
@@ -100,6 +101,7 @@ const reverse_dict = {
 	"res://scenes/rooms/flooded/flooded_6.tscn": 25,
 	"res://scenes/rooms/flooded/flooded_7.tscn": 26,
 	"res://scenes/rooms/flooded/flooded_8.tscn": 27,
+	"res://scenes/rooms/flooded/flooded_9.tscn": 28,
 	
 	"res://scenes/rooms/underground/ending_for_sprint3.tscn": 99,
 }

@@ -55,7 +55,7 @@ size = Vector3(5, 0.2, 0.1)
 
 [node name="Room2" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_vdqk0")
-adjacent_rooms = Array[int]([26])
+adjacent_rooms = Array[int]([26, 28])
 room_pos = Vector3(160, -90, -120)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
 
@@ -1661,6 +1661,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, -13, 111)
 
 [node name="Exit2" parent="." unique_id=978514825 instance=ExtResource("5_w0x47")]
 transform = Transform3D(-6.556708e-07, 0, -1, 0, 15, 0, 15, 0, -4.371139e-08, -53.19554, -9.5, 92.108505)
+new_id = 28
 
 [connection signal="body_entered" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_enter"]
 [connection signal="body_exited" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_exit"]
