@@ -1840,118 +1840,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.45)
 mesh = SubResource("BoxMesh_6ehpb")
 surface_material_override/0 = ExtResource("17_04l6j")
 
-[node name="PropellablePlatform4" type="Node3D" parent="." unique_id=1976211690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -24, 22)
-script = ExtResource("13_tyr43")
-end_position = Vector3(-9.5, -5.7, -29)
-start_position = Vector3(-9.5, -15, -29)
-
-[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="PropellablePlatform4" unique_id=1683548601 groups=["propellable", "soil"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform4/AnimatableBody3D2" unique_id=391945067]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0)
-shape = SubResource("BoxShape3D_h8tnp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PropellablePlatform4/AnimatableBody3D2/CollisionShape3D" unique_id=1966066076]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07294893, 0)
-mesh = SubResource("PlaneMesh_7c00d")
-surface_material_override/0 = ExtResource("14_04l6j")
-
-[node name="WeightReader" type="Area3D" parent="PropellablePlatform4/AnimatableBody3D2" unique_id=509332815]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform4/AnimatableBody3D2/WeightReader" unique_id=268555950]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0)
-shape = SubResource("BoxShape3D_h8tnp")
-
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="PropellablePlatform4" unique_id=703414674]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-
-[node name="NotSoilPart" type="MeshInstance3D" parent="PropellablePlatform4/AnimatableBody3D" unique_id=1222486251]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5500002, 0)
-mesh = SubResource("BoxMesh_0o143")
-surface_material_override/0 = SubResource("ShaderMaterial_7xewp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform4/AnimatableBody3D" unique_id=521272164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.05, 0)
-shape = SubResource("BoxShape3D_ofxws")
-
-[node name="NotSoilPart2" type="MeshInstance3D" parent="PropellablePlatform4/AnimatableBody3D" unique_id=1065739131]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45, 2.5, 0)
-mesh = SubResource("BoxMesh_tmn8c")
-surface_material_override/0 = ExtResource("17_04l6j")
-
-[node name="NotSoilPart3" type="MeshInstance3D" parent="PropellablePlatform4/AnimatableBody3D" unique_id=1097141679]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 2.5, 0)
-mesh = SubResource("BoxMesh_tmn8c")
-surface_material_override/0 = ExtResource("17_04l6j")
-
-[node name="NotSoilPart4" type="MeshInstance3D" parent="PropellablePlatform4/AnimatableBody3D" unique_id=1547091770]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.45)
-mesh = SubResource("BoxMesh_6ehpb")
-surface_material_override/0 = ExtResource("17_04l6j")
-
-[node name="NotSoilPart5" type="MeshInstance3D" parent="PropellablePlatform4/AnimatableBody3D" unique_id=1851199033]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.45)
-mesh = SubResource("BoxMesh_6ehpb")
-surface_material_override/0 = ExtResource("17_04l6j")
-
-[node name="PropellablePlatform5" type="Node3D" parent="." unique_id=484937655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -24, 32)
-script = ExtResource("13_tyr43")
-end_position = Vector3(-9.5, -5.7, -29)
-start_position = Vector3(-9.5, -15, -29)
-
-[node name="AnimatableBody3D2" type="AnimatableBody3D" parent="PropellablePlatform5" unique_id=1786268901 groups=["propellable", "soil"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform5/AnimatableBody3D2" unique_id=1702056602]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0)
-shape = SubResource("BoxShape3D_h8tnp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PropellablePlatform5/AnimatableBody3D2/CollisionShape3D" unique_id=1509166671]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07294893, 0)
-mesh = SubResource("PlaneMesh_7c00d")
-surface_material_override/0 = ExtResource("14_04l6j")
-
-[node name="WeightReader" type="Area3D" parent="PropellablePlatform5/AnimatableBody3D2" unique_id=1328535930]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform5/AnimatableBody3D2/WeightReader" unique_id=29336438]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0)
-shape = SubResource("BoxShape3D_h8tnp")
-
-[node name="AnimatableBody3D" type="AnimatableBody3D" parent="PropellablePlatform5" unique_id=944557885]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-
-[node name="NotSoilPart" type="MeshInstance3D" parent="PropellablePlatform5/AnimatableBody3D" unique_id=964039520]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5500002, 0)
-mesh = SubResource("BoxMesh_0o143")
-surface_material_override/0 = SubResource("ShaderMaterial_7xewp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform5/AnimatableBody3D" unique_id=449016876]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.05, 0)
-shape = SubResource("BoxShape3D_ofxws")
-
-[node name="NotSoilPart2" type="MeshInstance3D" parent="PropellablePlatform5/AnimatableBody3D" unique_id=299819648]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45, 2.5, 0)
-mesh = SubResource("BoxMesh_tmn8c")
-surface_material_override/0 = ExtResource("17_04l6j")
-
-[node name="NotSoilPart3" type="MeshInstance3D" parent="PropellablePlatform5/AnimatableBody3D" unique_id=1069356630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 2.5, 0)
-mesh = SubResource("BoxMesh_tmn8c")
-surface_material_override/0 = ExtResource("17_04l6j")
-
-[node name="NotSoilPart4" type="MeshInstance3D" parent="PropellablePlatform5/AnimatableBody3D" unique_id=1657124752]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 2.45)
-mesh = SubResource("BoxMesh_6ehpb")
-surface_material_override/0 = ExtResource("17_04l6j")
-
-[node name="NotSoilPart5" type="MeshInstance3D" parent="PropellablePlatform5/AnimatableBody3D" unique_id=1772578119]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.45)
-mesh = SubResource("BoxMesh_6ehpb")
-surface_material_override/0 = ExtResource("17_04l6j")
-
 [node name="PropellablePlatform6" type="Node3D" parent="." unique_id=1945616716]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -24, 42)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -9.5, -18, 48)
 script = ExtResource("13_tyr43")
 end_position = Vector3(-9.5, -5.7, -29)
 start_position = Vector3(-9.5, -15, -29)
@@ -2019,9 +1909,5 @@ new_id = 27
 [connection signal="body_exited" from="PropellablePlatform2/AnimatableBody3D2/WeightReader" to="PropellablePlatform2" method="read_weight_exit"]
 [connection signal="body_entered" from="PropellablePlatform3/AnimatableBody3D2/WeightReader" to="PropellablePlatform3" method="read_weight_enter"]
 [connection signal="body_exited" from="PropellablePlatform3/AnimatableBody3D2/WeightReader" to="PropellablePlatform3" method="read_weight_exit"]
-[connection signal="body_entered" from="PropellablePlatform4/AnimatableBody3D2/WeightReader" to="PropellablePlatform4" method="read_weight_enter"]
-[connection signal="body_exited" from="PropellablePlatform4/AnimatableBody3D2/WeightReader" to="PropellablePlatform4" method="read_weight_exit"]
-[connection signal="body_entered" from="PropellablePlatform5/AnimatableBody3D2/WeightReader" to="PropellablePlatform5" method="read_weight_enter"]
-[connection signal="body_exited" from="PropellablePlatform5/AnimatableBody3D2/WeightReader" to="PropellablePlatform5" method="read_weight_exit"]
 [connection signal="body_entered" from="PropellablePlatform6/AnimatableBody3D2/WeightReader" to="PropellablePlatform6" method="read_weight_enter"]
 [connection signal="body_exited" from="PropellablePlatform6/AnimatableBody3D2/WeightReader" to="PropellablePlatform6" method="read_weight_exit"]
