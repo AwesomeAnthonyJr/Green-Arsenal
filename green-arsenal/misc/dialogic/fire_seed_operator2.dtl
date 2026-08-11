@@ -1,11 +1,13 @@
 operator: Lemme see that new seed a moment.
 operator: Huh...
-operator: Sacred lotus.
+operator: Gas plant.
 operator: These things tend to run warm.
 operator: But with the Green Arsenal active, I'll bet they're downright *incandescent*.
 operator: Shooting a seed through its flower oughta make it *burning* hot.
 operator: And I suppose it could also be used for illumination in a pinch?
 operator: Hopefully that helps you on your way, Gardener.
+operator: Just remember that your plants can only grow in comparatively fertile soil,
+operator: So aim for that deep, dark colored earth when you pull the trigger.
 operator: Would you like to record any progress in your investigation?
 - Yes
 	operator: Saving progress...
@@ -17,6 +19,6 @@ operator: Would you like to record any progress in your investigation?
 	jump save_done
 label save_done
 operator: At that, I wish you the best of luck, Gardener.
-And don't forget to keep an eye out for weak points!
+operator: And don't forget to keep an eye out for weak points!
 [signal arg="scene_end_op"]
 [end_timeline]

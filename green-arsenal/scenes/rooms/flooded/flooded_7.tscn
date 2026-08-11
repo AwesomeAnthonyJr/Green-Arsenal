@@ -6,10 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://cnwa7fcr5qsd7" path="res://scenes/torch.tscn" id="4_ie3tc"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="5_vcai3"]
 [ext_resource type="Script" uid="uid://1yv3vtnelsid" path="res://scripts/torch_boss.gd" id="6_43op1"]
+[ext_resource type="Script" uid="uid://232wxb1vai8x" path="res://scripts/document_reader.gd" id="6_ofxws"]
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="6_q28wb"]
 [ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="7_vcai3"]
+[ext_resource type="Texture2D" uid="uid://dao7lyi2os6qj" path="res://sound/paper4.png" id="7_xsp5q"]
 [ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="8_q28wb"]
+[ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="8_u2vnn"]
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="9_43op1"]
+[ext_resource type="FontFile" uid="uid://buc1bdvmej58m" path="res://fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" id="9_oq4qj"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="10_32iv3"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="11_cl7k8"]
 [ext_resource type="Script" uid="uid://h1irw11mld5" path="res://scripts/propellable_platform.gd" id="13_tyr43"]
@@ -21,6 +25,17 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dimcy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_il0kl"]
+radius = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wuxxj"]
+font = ExtResource("8_u2vnn")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_md58x"]
+font = ExtResource("9_oq4qj")
+font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_ybq8s"]
 length = 0.001
@@ -1195,6 +1210,122 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 30.5
 [node name="SoilPatch10x14" parent="." unique_id=1175962909 instance=ExtResource("6_q28wb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, -13.5, -9)
 
+[node name="Document_Reader" type="Area3D" parent="." unique_id=1921016428]
+transform = Transform3D(0.7909167, 0, 0.6119238, 0, 1, 0, -0.6119238, 0, 0.7909167, -12.489903, -1.8281798, -36.205963)
+script = ExtResource("6_ofxws")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Document_Reader" unique_id=1533951360]
+shape = SubResource("SphereShape3D_il0kl")
+
+[node name="Sprite3D" type="Sprite3D" parent="Document_Reader" unique_id=849849636]
+transform = Transform3D(1.2, -1.1920929e-07, -2.9802322e-08, 1.2402265e-07, 0.8748484, 0.8213649, -5.9604645e-08, -0.821365, 0.8748484, 0, -0.7558546, 0)
+texture = ExtResource("7_xsp5q")
+
+[node name="TextureRect" type="TextureRect" parent="Document_Reader" unique_id=22176928]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -291.0
+offset_right = 212.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_xsp5q")
+
+[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1747437948]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -243.5
+offset_right = 216.5
+offset_bottom = 278.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MEMO TO ALL STAFF:
+
+LOWER FLOORS MUST BE TEMPORARILY EVACUATED
+DUE TO CRITICAL DAMAGE IN OUR DRIP 
+IRRIGATION SYSTEMS. 
+
+THIS IS NOT A CAUSE FOR CONCERN. HOWEVER,
+PLEASE TAKE ANY CRITICAL RESEARCH MATERIAL
+WITH YOU, AS SOME LIGHT FLOODING IS
+EXPECTED. YOU WILL BE NOTIFIED WHEN 
+REPAIRS ARE COMPLETE, AND WHEN IT IS THUS
+SAFE TO RETURN TO THE PAPER LABS.
+
+TO ENSURE REPAIRS ARE COMPLETE AS QUICKLY
+AS POSSIBLE, PLEASE DO NOT INTERFERE WITH
+ANY UNIFORMED PERSONNEL ENTERING
+OR EXITING THE AFFECTED LOWER FLOORS, OR
+WHO ARE COLLECTING RELEVANT MATERIAL FROM
+YOUR OFFICES OR YOUR PERSONS.
+
+YOUR UNDERSTANDING AND COMPLIANCE ARE
+APPRECIATED. "
+label_settings = SubResource("LabelSettings_wuxxj")
+
+[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=564470396]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = 234.49994
+offset_right = 197.5
+offset_bottom = 391.49994
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.048727535
+text = "They're kicking us out? But we can
+still fix this!"
+label_settings = SubResource("LabelSettings_md58x")
+
+[node name="Label3" type="Label" parent="Document_Reader/TextureRect" unique_id=13652708]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -243.5
+offset_right = 216.5
+offset_bottom = 278.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MEMO TO ALL STAFF:
+
+VACATE PREMISES IMMEDIATELY. LOCKDOWN
+IMMINENT. AUTOMATED SECURITY WILL BE
+ACTIVATED AND ALL CREDENTIALS REMOVED
+WITHIN 24 HOURS. 
+
+ANY PERSONNEL FOUND WITHIN 10 MILES OF 
+FACILITY WILL HAVE CONTRACT TERMINATED,
+POLICY EFFECTIVE UPON LOCKDOWN AND 
+IN PERPETUITY. 
+
+ALL DEVELOPMENT OF STRANGLER FIG PAPER
+FARM TO HALT IMMEDIATELY --- TEAM 
+MEMBERS TO BE REASSIGNED.
+
+AND PLEASE RECALL, YOUR NDAS STILL APPLY.
+
+"
+label_settings = SubResource("LabelSettings_wuxxj")
+
 [node name="TorchBoss" type="Node3D" parent="." unique_id=998791055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -23, 1.5)
 script = ExtResource("6_43op1")
@@ -1306,6 +1437,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.45)
 mesh = SubResource("BoxMesh_6ehpb")
 surface_material_override/0 = ExtResource("17_04l6j")
 
+[connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
+[connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_029" method="set_flag_true"]
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_030" method="set_flag_true"]

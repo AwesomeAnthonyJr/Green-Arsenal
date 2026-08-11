@@ -1,0 +1,21 @@
+operator: Hmmm... looks like an Alophia drummondii seed.
+operator: Better known as a propeller flower.
+operator: This is a little outside their native range...
+operator: But once again, curiously unmodified.
+operator: Through both their shape and their use in perfumes, I think the Green Arsenal will probably emphasize its relationship with wind.
+operator: I'd guess that planting these will create a propeller that generates *considerable* thrust.
+operator: Maybe it'll be helpful if you ever need to move something heavy?
+operator: In any case, would you like to record any progress in your investigation?
+- Yes
+	operator: Saving progress...
+	[signal arg="save_signal"]
+	operator: Save complete.
+	jump save_done
+- No
+	operator: Roger dodger! I'll be here if you need to save progress in the future.
+	jump save_done
+label save_done
+operator: At that, I wish you the best of luck, Gardener.
+operator: See you on the flip side!
+[signal arg="scene_end_op"]
+[end_timeline]

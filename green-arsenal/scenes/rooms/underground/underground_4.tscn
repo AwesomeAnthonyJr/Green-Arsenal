@@ -26,6 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://dao7lyi2os6qj" path="res://sound/paper4.png" id="24_pn525"]
 [ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="25_t6sny"]
 [ext_resource type="FontFile" uid="uid://buc1bdvmej58m" path="res://fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" id="26_cfee7"]
+[ext_resource type="PackedScene" uid="uid://c3xcgxgalv1wm" path="res://scenes/save_operator.tscn" id="27_cfee7"]
+[ext_resource type="Script" uid="uid://c6erc5wr3cs8" path="res://scripts/upgrade_room_save_operator.gd" id="28_khx12"]
+[ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="28_pi4ip"]
+[ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="29_khx12"]
+[ext_resource type="Resource" uid="uid://86vmwag7h1ms" path="res://misc/dialogic/upgrade_room_op.dtl" id="29_pi4ip"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1781,6 +1786,12 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.048727535
 label_settings = SubResource("LabelSettings_yd8ou")
+
+[node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("27_cfee7")]
+transform = Transform3D(0.08324285, 0, -0.9965293, 0, 1, 0, 0.9965293, 0, 0.08324285, 62.006584, -6.657259, -13.367964)
+script = ExtResource("28_khx12")
+operator_scenes = Array[ExtResource("28_pi4ip")]([ExtResource("29_pi4ip"), ExtResource("29_khx12")])
+load_point = 5
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_017" method="set_flag_true"]

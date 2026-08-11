@@ -99,6 +99,8 @@ func read_move_stop():
 func read_sprint(b):
 	is_sprinting = b
 func read_jump():
+	if paused:
+		return
 	playerJump()
 func read_end_jump():
 	is_jump_drifting = false

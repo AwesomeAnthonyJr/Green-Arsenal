@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 			going_up = true
 	
 	if player_is_colliding and Input.is_action_just_pressed("interact") and Dialogic.current_timeline == null and animation_player.is_playing() == false and !player_reference.is_reloading:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		extra_stuff_in_physics_process()
 		abseleine.visible = true
 		animation_player.play("drop")
@@ -71,6 +72,7 @@ func _on_body_exited(body: Node3D) -> void:
 func _on_dialogic_signal(arg):
 	extra_stuff_in_signal_func(arg)
 	if arg == "scene_end_op":
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		animation_player.play_backwards("drop")
 		player_reference.paused = false
 		await animation_player.animation_finished

@@ -1423,7 +1423,64 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_xolhk")
 
-[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1148171375]
+[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1479798480]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -243.5
+offset_right = 216.5
+offset_bottom = 278.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MEMO TO ALL STAFF:
+
+LOWER FLOORS MUST BE TEMPORARILY EVACUATED
+DUE TO CRITICAL DAMAGE IN OUR DRIP 
+IRRIGATION SYSTEMS. 
+
+THIS IS NOT A CAUSE FOR CONCERN. HOWEVER,
+PLEASE TAKE ANY CRITICAL RESEARCH MATERIAL
+WITH YOU, AS SOME LIGHT FLOODING IS
+EXPECTED. YOU WILL BE NOTIFIED WHEN 
+REPAIRS ARE COMPLETE, AND WHEN IT IS THUS
+SAFE TO RETURN TO THE PAPER LABS.
+
+TO ENSURE REPAIRS ARE COMPLETE AS QUICKLY
+AS POSSIBLE, PLEASE DO NOT INTERFERE WITH
+ANY UNIFORMED PERSONNEL ENTERING
+OR EXITING THE AFFECTED LOWER FLOORS, OR
+WHO ARE COLLECTING RELEVANT MATERIAL FROM
+YOUR OFFICES OR YOUR PERSONS.
+
+YOUR UNDERSTANDING AND COMPLIANCE ARE
+APPRECIATED. "
+label_settings = SubResource("LabelSettings_ydrnc")
+
+[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=1755413975]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = 234.49994
+offset_right = 197.5
+offset_bottom = 391.49994
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.048727535
+text = "They're kicking us out? But we can
+still fix this!"
+label_settings = SubResource("LabelSettings_7tg6d")
+
+[node name="Label3" type="Label" parent="Document_Reader/TextureRect" unique_id=194475338]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1456,24 +1513,6 @@ AND PLEASE RECALL, YOUR NDAS STILL APPLY.
 
 "
 label_settings = SubResource("LabelSettings_ydrnc")
-
-[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=1755413975]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -122.5
-offset_top = 234.49994
-offset_right = 197.5
-offset_bottom = 391.49994
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.048727535
-text = "They're kicking us out? But we can
-still fix this!"
-label_settings = SubResource("LabelSettings_7tg6d")
 
 [node name="PuzzleDoor" type="Node3D" parent="." unique_id=1105372589]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 150.61838, -11, 5.359829)
