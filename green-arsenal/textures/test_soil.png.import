@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://rb4ycvw6vqkm"
 path.s3tc="res://.godot/imported/test_soil.png-ed16ac5cc5dc97f3e3b6f5af86ef44c0.s3tc.ctex"
+path.etc2="res://.godot/imported/test_soil.png-ed16ac5cc5dc97f3e3b6f5af86ef44c0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/test_soil.png"
-dest_files=["res://.godot/imported/test_soil.png-ed16ac5cc5dc97f3e3b6f5af86ef44c0.s3tc.ctex"]
+dest_files=["res://.godot/imported/test_soil.png-ed16ac5cc5dc97f3e3b6f5af86ef44c0.s3tc.ctex", "res://.godot/imported/test_soil.png-ed16ac5cc5dc97f3e3b6f5af86ef44c0.etc2.ctex"]
 
 [params]
 
