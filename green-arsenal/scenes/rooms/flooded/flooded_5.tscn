@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="6_x51e5"]
 [ext_resource type="Script" uid="uid://1yv3vtnelsid" path="res://scripts/torch_boss.gd" id="7_rx6t3"]
 [ext_resource type="Material" uid="uid://doiuat84x0eiv" path="res://materials/fresh_water.tres" id="7_vh336"]
+[ext_resource type="Script" uid="uid://bh80bns07b57v" path="res://scripts/water_surface.gd" id="7_x51e5"]
 [ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="9_ie27y"]
 [ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="10_x51e5"]
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="11_5so42"]
@@ -1512,6 +1513,7 @@ surface_material_override/0 = ExtResource("3_px1j1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.53568107, 0)
 collision_layer = 8
 collision_mask = 0
+script = ExtResource("7_x51e5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBody/WaterSurface" unique_id=1415579374]
 shape = SubResource("BoxShape3D_3v4bg")
@@ -1534,6 +1536,7 @@ surface_material_override/0 = ExtResource("3_px1j1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.53568107, 0)
 collision_layer = 8
 collision_mask = 0
+script = ExtResource("7_x51e5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBody2/WaterSurface" unique_id=1974123828]
 shape = SubResource("BoxShape3D_3v4bg")
@@ -1585,6 +1588,8 @@ shape = SubResource("BoxShape3D_f5ric")
 [node name="TorchLit" parent="." unique_id=695791119 instance=ExtResource("14_ie27y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -3, -14)
 
+[connection signal="body_exited" from="WaterBody/WaterSurface" to="WaterBody/WaterSurface" method="_on_body_exited"]
+[connection signal="body_exited" from="WaterBody2/WaterSurface" to="WaterBody2/WaterSurface" method="_on_body_exited"]
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_024" method="set_flag_true"]
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_025" method="set_flag_true"]

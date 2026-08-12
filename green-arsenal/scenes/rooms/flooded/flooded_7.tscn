@@ -24,6 +24,7 @@
 [ext_resource type="Material" uid="uid://crccc5ki7otll" path="res://materials/blue_material.tres" id="17_04l6j"]
 [ext_resource type="Material" uid="uid://doiuat84x0eiv" path="res://materials/fresh_water.tres" id="18_tmn8c"]
 [ext_resource type="PackedScene" uid="uid://yql0lf7vacmm" path="res://scenes/decorative_torch.tscn" id="19_6ehpb"]
+[ext_resource type="Script" uid="uid://bh80bns07b57v" path="res://scripts/water_surface.gd" id="24_il0kl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -2123,6 +2124,7 @@ surface_material_override/0 = ExtResource("3_se0fp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.53568107, 0)
 collision_layer = 8
 collision_mask = 0
+script = ExtResource("24_il0kl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBody/WaterSurface" unique_id=1325704922]
 shape = SubResource("BoxShape3D_iubts")
@@ -2145,6 +2147,7 @@ surface_material_override/0 = ExtResource("3_se0fp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.53568107, 0)
 collision_layer = 8
 collision_mask = 0
+script = ExtResource("24_il0kl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBody2/WaterSurface" unique_id=44008718]
 shape = SubResource("BoxShape3D_iubts")
@@ -2175,5 +2178,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, -13, -5)
 [connection signal="body_exited" from="PropellablePlatform3/AnimatableBody3D2/WeightReader" to="PropellablePlatform3" method="read_weight_exit"]
 [connection signal="body_entered" from="PropellablePlatform6/AnimatableBody3D2/WeightReader" to="PropellablePlatform6" method="read_weight_enter"]
 [connection signal="body_exited" from="PropellablePlatform6/AnimatableBody3D2/WeightReader" to="PropellablePlatform6" method="read_weight_exit"]
+[connection signal="body_exited" from="WaterBody/WaterSurface" to="WaterBody/WaterSurface" method="_on_body_exited"]
+[connection signal="body_exited" from="WaterBody2/WaterSurface" to="WaterBody2/WaterSurface" method="_on_body_exited"]
 
 [editable path="Document_Reader/InteractAreaDocReader"]

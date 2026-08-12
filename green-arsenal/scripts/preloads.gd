@@ -25,6 +25,9 @@ const boulder_fruit = preload("res://scenes/boulder_fruit.tscn")
 
 const fireball = preload("res://scenes/fireball.tscn")
 
+const splash_particles = preload("res://scenes/splash_particles.tscn")
+const small_splash_particles = preload("res://scenes/small_splash_particles.tscn")
+
 const gameplay_music_01 = preload("res://sound/music/gameplay.wav")
 const gameplay_music_02 = preload("res://sound/music/gameplay_02.wav")
 const gameplay_music_03 = preload("res://sound/music/gameplay_03.ogg")

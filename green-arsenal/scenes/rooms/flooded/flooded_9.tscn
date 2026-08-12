@@ -16,6 +16,7 @@
 [ext_resource type="Material" uid="uid://doiuat84x0eiv" path="res://materials/fresh_water.tres" id="13_yu0ok"]
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="14_q5mak"]
 [ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="15_5jegy"]
+[ext_resource type="Script" uid="uid://bh80bns07b57v" path="res://scripts/water_surface.gd" id="15_24mon"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="15_7233r"]
 [ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="16_c2hvs"]
 
@@ -1452,6 +1453,7 @@ surface_material_override/0 = ExtResource("3_q5mak")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.53568107, 0)
 collision_layer = 8
 collision_mask = 0
+script = ExtResource("15_24mon")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBody/WaterSurface" unique_id=1259445239]
 shape = SubResource("BoxShape3D_5jegy")
@@ -1538,3 +1540,4 @@ surface_material_override/0 = SubResource("ShaderMaterial_1ykjn")
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_037" method="set_flag_true"]
 [connection signal="torch_lit" from="TorchBoss/Torch3" to="SaveFlagSetter_038" method="set_flag_true"]
 [connection signal="torch_lit" from="TorchBoss/Torch4" to="SaveFlagSetter_039" method="set_flag_true"]
+[connection signal="body_exited" from="WaterBody/WaterSurface" to="WaterBody/WaterSurface" method="_on_body_exited"]
