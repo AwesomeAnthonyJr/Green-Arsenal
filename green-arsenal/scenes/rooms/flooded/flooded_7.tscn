@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://c1sm0y8xop0pw" path="res://textures/brick_texture.png" id="15_tmn8c"]
 [ext_resource type="Texture2D" uid="uid://d20rc1nasaa2i" path="res://textures/brick_texture_dark.png" id="16_6ehpb"]
 [ext_resource type="Material" uid="uid://crccc5ki7otll" path="res://materials/blue_material.tres" id="17_04l6j"]
+[ext_resource type="Material" uid="uid://doiuat84x0eiv" path="res://materials/fresh_water.tres" id="18_tmn8c"]
+[ext_resource type="PackedScene" uid="uid://yql0lf7vacmm" path="res://scenes/decorative_torch.tscn" id="19_6ehpb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -137,6 +139,13 @@ size = Vector3(0.1, 0.2, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6ehpb"]
 size = Vector3(5, 0.2, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oyfsm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_20pws"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iubts"]
+size = Vector3(1, 0.01, 1)
 
 [node name="Room2" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_bkt1a")
@@ -452,6 +461,58 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("BoxShape3D_otkpc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor22" unique_id=1221818186]
+material_override = ExtResource("2_jjpci")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("3_se0fp")
+
+[node name="NonSoilFloor113" type="StaticBody3D" parent="." unique_id=1761129890]
+transform = Transform3D(-2.5, 0, -1.509958e-06, 0, 1, 0, 3.774895e-07, 0, -10, -25.5, -13.5, -9)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor113" unique_id=807406709]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor113" unique_id=157056656]
+material_override = ExtResource("2_jjpci")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("3_se0fp")
+
+[node name="NonSoilFloor114" type="StaticBody3D" parent="." unique_id=1483992136]
+transform = Transform3D(-2.5, 0, -1.509958e-06, 0, 1, 0, 3.774895e-07, 0, -10, -33.5, -13.5, -9)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor114" unique_id=419446708]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor114" unique_id=1749503326]
+material_override = ExtResource("2_jjpci")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("3_se0fp")
+
+[node name="NonSoilFloor115" type="StaticBody3D" parent="." unique_id=437373800]
+transform = Transform3D(4.8676793e-07, 0, -10, 0, 1, 0, 2.5, 0, 1.9470717e-06, -29.5, -13.5, -5)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor115" unique_id=1476185649]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor115" unique_id=1492512360]
+material_override = ExtResource("2_jjpci")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("3_se0fp")
+
+[node name="NonSoilFloor116" type="StaticBody3D" parent="." unique_id=652410536]
+transform = Transform3D(4.8676793e-07, 0, -10, 0, 1, 0, 2.5, 0, 1.9470717e-06, -29.5, -13.5, -13)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor116" unique_id=298780650]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor116" unique_id=1039111935]
 material_override = ExtResource("2_jjpci")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_se0fp")
@@ -1659,7 +1720,7 @@ flag_index = 31
 torch = NodePath("../TorchBoss/Torch3")
 
 [node name="PuzzleDoor" type="Node3D" parent="." unique_id=1083520228]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.613082, -2.7085276, -43.058857)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.613082, -12.708528, 50.941143)
 script = ExtResource("9_43op1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PuzzleDoor" unique_id=1346711061]
@@ -1788,8 +1849,8 @@ surface_material_override/0 = ExtResource("17_04l6j")
 [node name="PropellablePlatform3" type="Node3D" parent="." unique_id=1733499276]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -16, -9)
 script = ExtResource("13_tyr43")
-end_position = Vector3(-9.5, -5.7, -29)
-start_position = Vector3(-9.5, -15, -29)
+end_position = Vector3(-29.5, -24, -9)
+start_position = Vector3(-29.5, -16, -9)
 
 [node name="AnimatableBody3D2" type="AnimatableBody3D" parent="PropellablePlatform3" unique_id=355321816 groups=["propellable", "soil"]]
 
@@ -1898,6 +1959,62 @@ surface_material_override/0 = ExtResource("17_04l6j")
 [node name="Exit" parent="." unique_id=702144204 instance=ExtResource("5_vcai3")]
 transform = Transform3D(1, 0, 0, 0, 15, 0, 0, 0, 15, -22.5, -9.5, 51)
 new_id = 27
+
+[node name="WaterBody" type="Area3D" parent="." unique_id=253929455 groups=["fresh_water"]]
+transform = Transform3D(35, 0, 0, 0, 12, 0, 0, 0, 15, 17.722532, -25, -10)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBody" unique_id=2077215201]
+shape = SubResource("BoxShape3D_oyfsm")
+debug_color = Color(0.54999995, 0.39999998, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WaterBody" unique_id=833290262]
+material_override = ExtResource("18_tmn8c")
+mesh = SubResource("BoxMesh_20pws")
+surface_material_override/0 = ExtResource("3_se0fp")
+
+[node name="WaterSurface" type="Area3D" parent="WaterBody" unique_id=1236293930 groups=["fresh_water"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.53568107, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBody/WaterSurface" unique_id=1325704922]
+shape = SubResource("BoxShape3D_iubts")
+
+[node name="WaterBody2" type="Area3D" parent="." unique_id=1792824258 groups=["fresh_water"]]
+transform = Transform3D(15, 0, 0, 0, 12, 0, 0, 0, 35, -9.277468, -25, 32)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBody2" unique_id=556883883]
+shape = SubResource("BoxShape3D_oyfsm")
+debug_color = Color(0.54999995, 0.39999998, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WaterBody2" unique_id=524039958]
+material_override = ExtResource("18_tmn8c")
+mesh = SubResource("BoxMesh_20pws")
+surface_material_override/0 = ExtResource("3_se0fp")
+
+[node name="WaterSurface" type="Area3D" parent="WaterBody2" unique_id=1610406720 groups=["fresh_water"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0.53568107, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterBody2/WaterSurface" unique_id=44008718]
+shape = SubResource("BoxShape3D_iubts")
+
+[node name="TorchLit" parent="." unique_id=1449534760 instance=ExtResource("19_6ehpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -13, 51)
+
+[node name="TorchLit2" parent="." unique_id=2070768216 instance=ExtResource("19_6ehpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, -13, -9)
+
+[node name="TorchLit3" parent="." unique_id=465198473 instance=ExtResource("19_6ehpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -13, -13)
+
+[node name="TorchLit4" parent="." unique_id=1869622857 instance=ExtResource("19_6ehpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -13, -5)
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_029" method="set_flag_true"]
