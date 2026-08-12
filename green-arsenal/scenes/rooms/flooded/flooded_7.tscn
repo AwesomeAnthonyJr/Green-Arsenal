@@ -1925,8 +1925,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -2.45)
 mesh = SubResource("BoxMesh_6ehpb")
 surface_material_override/0 = ExtResource("17_04l6j")
 
-[connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
-[connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]
 [node name="PropellablePlatform2" type="Node3D" parent="." unique_id=1796256594]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, -21, 2)
 script = ExtResource("13_tyr43")
@@ -2262,6 +2260,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -13, -13)
 [node name="TorchLit4" parent="." unique_id=1869622857 instance=ExtResource("19_6ehpb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -13, -5)
 
+[connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
+[connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_029" method="set_flag_true"]
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_030" method="set_flag_true"]
