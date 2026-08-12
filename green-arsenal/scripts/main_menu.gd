@@ -1,4 +1,5 @@
 extends Node3D
+class_name MainMenu
 
 @onready var new_text = $CanvasLayer/OtherMenu/New
 @onready var load_text = $CanvasLayer/OtherMenu/Load
@@ -8,6 +9,7 @@ extends Node3D
 @onready var anim = $AnimationTree
 @onready var music = $AudioStreamPlayer
 @onready var cam = $Camera3D
+@onready var hint_anim = $CanvasLayer/OtherMenu/Hint/AnimationPlayer
 var menu_position = 0
 #0 - starting
 #1 - box
@@ -54,10 +56,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventKey && event.pressed:
 			supress_next_input = true
 			menu_position = 1
+			hint_anim.play("fade_in_real_slow")
 			SoundManager.play_menu_tick()
 		elif event is InputEventMouseButton && event.pressed:
 			supress_next_input = true
 			menu_position = 1
+			hint_anim.play("fade_in_real_slow")
 			SoundManager.play_menu_tick()
 	update_visuals()
 	
@@ -223,7 +227,7 @@ func connect_inputs():
 	manager.left.connect(read_left)
 	manager.right.connect(read_right)
 	manager.sprint_burst.connect(read_back)
-	manager.jump.connect(read_accept)
+	#manager.jump.connect(read_accept)
 	manager.pause.connect(read_back)
 	manager.reload.connect(read_back)
 	manager.interact.connect(read_accept)

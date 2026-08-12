@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://b5wiv7bym1arx" path="res://scenes/controls_text.tscn" id="12_dg77c"]
 [ext_resource type="FontFile" uid="uid://i3l17i8ifdhk" path="res://fonts/Roboto_Mono/static/RobotoMono-SemiBold.ttf" id="12_yaehf"]
 [ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="17_yaehf"]
+[ext_resource type="Script" uid="uid://spkx6iphy35q" path="res://scenes/menu_button.gd" id="18_074og"]
+[ext_resource type="Theme" uid="uid://dej420jqdw2rq" path="res://misc/menu_button_theme.tres" id="19_cegan"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_h45xw"]
 size = Vector2(1280, 720)
@@ -1017,7 +1019,7 @@ states/status>controls/position = Vector2(317, 5)
 states/status>map/node = SubResource("AnimationNodeAnimation_1u8w0")
 states/status>map/position = Vector2(317, 192)
 transitions = ["on_status", "status>controls", SubResource("AnimationNodeStateMachineTransition_0odxb"), "on_status", "status>map", SubResource("AnimationNodeStateMachineTransition_lswn8"), "on_controls", "controls>status", SubResource("AnimationNodeStateMachineTransition_a6jrf"), "on_controls", "controls>config", SubResource("AnimationNodeStateMachineTransition_xuqvo"), "on_config", "config>controls", SubResource("AnimationNodeStateMachineTransition_qsp4k"), "on_config", "config>map", SubResource("AnimationNodeStateMachineTransition_kq58d"), "on_map", "map>status", SubResource("AnimationNodeStateMachineTransition_seu75"), "on_map", "map>config", SubResource("AnimationNodeStateMachineTransition_htxhm"), "controls>status", "on_status", SubResource("AnimationNodeStateMachineTransition_4k2k6"), "controls>config", "on_config", SubResource("AnimationNodeStateMachineTransition_0rl1p"), "status>controls", "on_controls", SubResource("AnimationNodeStateMachineTransition_ok6jj"), "config>controls", "on_controls", SubResource("AnimationNodeStateMachineTransition_facbu"), "map>config", "on_config", SubResource("AnimationNodeStateMachineTransition_b1qrp"), "map>status", "on_status", SubResource("AnimationNodeStateMachineTransition_come4"), "status>map", "on_map", SubResource("AnimationNodeStateMachineTransition_h8e4i"), "config>map", "on_map", SubResource("AnimationNodeStateMachineTransition_4lmeg"), "open_menu", "on_status", SubResource("AnimationNodeStateMachineTransition_0cbny"), "on_config", "close_menu_config", SubResource("AnimationNodeStateMachineTransition_hrvbo"), "on_status", "close_menu_status", SubResource("AnimationNodeStateMachineTransition_uypp3"), "on_controls", "close_menu_controls", SubResource("AnimationNodeStateMachineTransition_blkrb"), "on_map", "close_menu_map", SubResource("AnimationNodeStateMachineTransition_abqjc"), "Start", "closed", SubResource("AnimationNodeStateMachineTransition_vke2r"), "closed", "open_menu", SubResource("AnimationNodeStateMachineTransition_uit24"), "close_menu_status", "closed", SubResource("AnimationNodeStateMachineTransition_074og"), "close_menu_config", "closed", SubResource("AnimationNodeStateMachineTransition_82xsv"), "close_menu_map", "closed", SubResource("AnimationNodeStateMachineTransition_getpj"), "close_menu_controls", "closed", SubResource("AnimationNodeStateMachineTransition_ryguw")]
-graph_offset = Vector2(-265, -1)
+graph_offset = Vector2(114, 61)
 
 [sub_resource type="Animation" id="Animation_lswn8"]
 length = 0.001
@@ -1284,7 +1286,7 @@ states/select_big_left/position = Vector2(613, -29)
 states/select_big_right/node = SubResource("AnimationNodeAnimation_qsp4k")
 states/select_big_right/position = Vector2(613, 242)
 transitions = ["Start", "hide_selector", SubResource("AnimationNodeStateMachineTransition_0cp0l"), "hide_on_left", "select_big_left", SubResource("AnimationNodeStateMachineTransition_d2t1y"), "select_big_left", "hide_on_left", SubResource("AnimationNodeStateMachineTransition_gngh3"), "hide_selector", "hide_on_left", SubResource("AnimationNodeStateMachineTransition_cegan"), "hide_on_left", "hide_selector", SubResource("AnimationNodeStateMachineTransition_yaehf"), "select_big_right", "hide_on_right", SubResource("AnimationNodeStateMachineTransition_0n3wm"), "hide_on_right", "select_big_right", SubResource("AnimationNodeStateMachineTransition_qnost"), "hide_on_right", "hide_selector", SubResource("AnimationNodeStateMachineTransition_wnkbs"), "hide_selector", "hide_on_right", SubResource("AnimationNodeStateMachineTransition_f6a44")]
-graph_offset = Vector2(60, -17)
+graph_offset = Vector2(188, -60)
 
 [node name="Main" type="Node" unique_id=383612433 node_paths=PackedStringArray("input_manager")]
 script = ExtResource("1_h2yge")
@@ -1311,6 +1313,7 @@ script = ExtResource("5_ycdy4")
 [node name="SubViewportContainer" type="SubViewportContainer" parent="PauseMenu/CanvasLayer" unique_id=1372523622]
 offset_right = 1280.0
 offset_bottom = 720.0
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="PauseMenu/CanvasLayer/SubViewportContainer" unique_id=1073011167]
@@ -1481,11 +1484,603 @@ modulate = Color(0.98039216, 0.8156863, 0.09803922, 1)
 [node name="BottomRight" parent="PauseMenu/CanvasLayer/Selector" index="3" unique_id=770489196]
 modulate = Color(0.98039216, 0.8156863, 0.09803922, 1)
 
+[node name="StatusButtons" type="Control" parent="PauseMenu/CanvasLayer" unique_id=682458700]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButton" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=1796405634]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 273.0
+offset_right = 171.0
+offset_bottom = 448.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+
+[node name="MenuButton2" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=1397314305]
+layout_mode = 0
+offset_left = 1109.0
+offset_top = 273.0
+offset_right = 1254.0
+offset_bottom = 448.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 1
+
+[node name="MenuButton3" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=2063813984]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 258.0
+offset_right = 256.0
+offset_bottom = 317.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 2
+
+[node name="MenuButton4" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=552823723]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 198.0
+offset_right = 312.0
+offset_bottom = 257.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 3
+
+[node name="MenuButton5" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=2058878103]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 258.0
+offset_right = 367.0
+offset_bottom = 317.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 4
+
+[node name="MenuButton6" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=1254055277]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 198.0
+offset_right = 423.0
+offset_bottom = 257.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 5
+
+[node name="MenuButton7" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=296431883]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 258.0
+offset_right = 479.0
+offset_bottom = 317.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 6
+
+[node name="MenuButton8" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=569173059]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 198.0
+offset_right = 535.0
+offset_bottom = 257.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 7
+
+[node name="MenuButton9" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=1255015402]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 258.0
+offset_right = 589.0
+offset_bottom = 317.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 8
+
+[node name="MenuButton10" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=2010859221]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 360.0
+offset_right = 335.0
+offset_bottom = 485.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 9
+
+[node name="MenuButton11" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=1084467054]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 367.0
+offset_right = 419.0
+offset_bottom = 415.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 10
+
+[node name="MenuButton12" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=1147393370]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 397.0
+offset_right = 475.0
+offset_bottom = 445.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 11
+
+[node name="MenuButton13" type="Button" parent="PauseMenu/CanvasLayer/StatusButtons" unique_id=1449233225]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 427.0
+offset_right = 530.0
+offset_bottom = 475.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu_2 = 12
+
+[node name="ControlsButtons" type="Control" parent="PauseMenu/CanvasLayer" unique_id=1979962691]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButton" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=1200661539]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 273.0
+offset_right = 171.0
+offset_bottom = 448.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+
+[node name="MenuButton2" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=577767881]
+layout_mode = 0
+offset_left = 1109.0
+offset_top = 273.0
+offset_right = 1254.0
+offset_bottom = 448.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 1
+
+[node name="MenuButton3" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=100402142]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 198.0
+offset_right = 392.0
+offset_bottom = 275.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 2
+
+[node name="MenuButton4" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=347164266]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 369.0
+offset_right = 392.0
+offset_bottom = 446.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 3
+
+[node name="MenuButton5" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=593066262]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 283.0
+offset_right = 307.0
+offset_bottom = 360.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 4
+
+[node name="MenuButton6" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=1172834764]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 283.0
+offset_right = 477.0
+offset_bottom = 360.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 5
+
+[node name="MenuButton7" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=445511460]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 427.0
+offset_right = 307.0
+offset_bottom = 504.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 6
+
+[node name="MenuButton8" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=622865617]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 427.0
+offset_right = 477.0
+offset_bottom = 504.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 7
+
+[node name="MenuButton9" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=404289711]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 427.0
+offset_right = 679.0
+offset_bottom = 504.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 8
+
+[node name="MenuButton10" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=383997517]
+layout_mode = 0
+offset_left = 803.0
+offset_top = 240.0
+offset_right = 879.0
+offset_bottom = 317.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 9
+
+[node name="MenuButton11" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=2027609093]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 240.0
+offset_right = 1007.0
+offset_bottom = 317.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 10
+
+[node name="MenuButton12" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=442986380]
+layout_mode = 0
+offset_left = 772.0
+offset_top = 380.0
+offset_right = 848.0
+offset_bottom = 457.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 11
+
+[node name="MenuButton13" type="Button" parent="PauseMenu/CanvasLayer/ControlsButtons" unique_id=709725413]
+layout_mode = 0
+offset_left = 865.0
+offset_top = 360.0
+offset_right = 941.0
+offset_bottom = 437.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 1
+current_menu_2 = 12
+
+[node name="ConfigButtons" type="Control" parent="PauseMenu/CanvasLayer" unique_id=1786708614]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButton" type="Button" parent="PauseMenu/CanvasLayer/ConfigButtons" unique_id=974070984]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 273.0
+offset_right = 171.0
+offset_bottom = 448.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 2
+
+[node name="MenuButton2" type="Button" parent="PauseMenu/CanvasLayer/ConfigButtons" unique_id=1838483656]
+layout_mode = 0
+offset_left = 1109.0
+offset_top = 273.0
+offset_right = 1254.0
+offset_bottom = 448.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 2
+current_menu_2 = 1
+
+[node name="MenuButton3" type="Button" parent="PauseMenu/CanvasLayer/ConfigButtons" unique_id=1432387532]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 205.0
+offset_right = 248.0
+offset_bottom = 250.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 2
+current_menu_2 = 2
+
+[node name="MenuButton4" type="Button" parent="PauseMenu/CanvasLayer/ConfigButtons" unique_id=883787211]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 307.0
+offset_right = 248.0
+offset_bottom = 352.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 2
+current_menu_2 = 4
+
+[node name="MenuButton5" type="Button" parent="PauseMenu/CanvasLayer/ConfigButtons" unique_id=76598678]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 409.0
+offset_right = 248.0
+offset_bottom = 454.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 2
+current_menu_2 = 6
+
+[node name="MenuButton6" type="Button" parent="PauseMenu/CanvasLayer/ConfigButtons" unique_id=1396050106]
+layout_mode = 0
+offset_left = 1033.0
+offset_top = 205.0
+offset_right = 1095.0
+offset_bottom = 250.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 2
+current_menu_2 = 8
+
+[node name="MenuButton7" type="Button" parent="PauseMenu/CanvasLayer/ConfigButtons" unique_id=19218443]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 300.0
+offset_right = 938.0
+offset_bottom = 342.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 2
+current_menu_2 = 10
+
+[node name="ToTitleButtons" type="Control" parent="PauseMenu/CanvasLayer/ConfigButtons" unique_id=341194344]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButton7" type="Button" parent="PauseMenu/CanvasLayer/ConfigButtons/ToTitleButtons" unique_id=2118876541]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 373.0
+offset_right = 554.0
+offset_bottom = 415.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 2
+current_menu_2 = 11
+
+[node name="MenuButton8" type="Button" parent="PauseMenu/CanvasLayer/ConfigButtons/ToTitleButtons" unique_id=759794132]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 373.0
+offset_right = 895.0
+offset_bottom = 415.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 2
+current_menu_2 = 12
+
+[node name="MapButtons" type="Control" parent="PauseMenu/CanvasLayer" unique_id=347519960]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButton" type="Button" parent="PauseMenu/CanvasLayer/MapButtons" unique_id=2018154273]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 273.0
+offset_right = 171.0
+offset_bottom = 448.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 3
+
+[node name="MenuButton2" type="Button" parent="PauseMenu/CanvasLayer/MapButtons" unique_id=1517674461]
+layout_mode = 0
+offset_left = 1109.0
+offset_top = 273.0
+offset_right = 1254.0
+offset_bottom = 448.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 3
+current_menu_2 = 1
+
+[node name="MenuButton3" type="Button" parent="PauseMenu/CanvasLayer/MapButtons" unique_id=572810149]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 185.0
+offset_right = 382.0
+offset_bottom = 227.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 3
+current_menu_2 = 2
+
+[node name="MenuButton4" type="Button" parent="PauseMenu/CanvasLayer/MapButtons" unique_id=320198353]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 228.0
+offset_right = 382.0
+offset_bottom = 270.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 3
+current_menu_2 = 3
+
+[node name="MenuButton5" type="Button" parent="PauseMenu/CanvasLayer/MapButtons" unique_id=1530851489]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 271.0
+offset_right = 382.0
+offset_bottom = 313.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 3
+current_menu_2 = 4
+
+[node name="MenuButton6" type="Button" parent="PauseMenu/CanvasLayer/MapButtons" unique_id=1548031919]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 313.0
+offset_right = 382.0
+offset_bottom = 355.0
+theme = ExtResource("19_cegan")
+flat = true
+script = ExtResource("18_074og")
+current_menu = 3
+current_menu_2 = 5
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PauseMenu" unique_id=1854141212]
 libraries/ = SubResource("AnimationLibrary_xuqvo")
 
 [node name="AnimationTree" type="AnimationTree" parent="PauseMenu" unique_id=1706502955]
 tree_root = SubResource("AnimationNodeStateMachine_kq58d")
 anim_player = NodePath("../AnimationPlayer")
+
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton2" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton2" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton2" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton2" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton3" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton3" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton3" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton3" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton4" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton4" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton4" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton4" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton5" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton5" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton5" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton5" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton6" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton6" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton6" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton6" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton7" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton7" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton7" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton7" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton8" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton8" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton8" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton8" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton9" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton9" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton9" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton9" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton10" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton10" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton10" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton10" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton11" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton11" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton11" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton11" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton12" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton12" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton12" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton12" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton13" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton13" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/StatusButtons/MenuButton13" to="PauseMenu/CanvasLayer/StatusButtons/MenuButton13" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton2" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton2" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton2" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton2" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton3" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton3" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton3" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton3" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton4" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton4" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton4" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton4" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton5" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton5" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton5" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton5" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton6" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton6" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton6" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton6" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton7" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton7" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton7" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton7" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton8" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton8" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton8" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton8" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton9" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton9" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton9" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton9" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton10" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton10" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton10" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton10" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton11" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton11" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton11" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton11" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton12" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton12" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton12" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton12" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton13" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton13" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ControlsButtons/MenuButton13" to="PauseMenu/CanvasLayer/ControlsButtons/MenuButton13" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton2" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton2" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton2" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton2" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton3" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton3" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton3" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton3" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton4" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton4" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton4" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton4" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton5" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton5" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton5" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton5" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton6" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton6" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton6" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton6" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton7" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton7" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ConfigButtons/MenuButton7" to="PauseMenu/CanvasLayer/ConfigButtons/MenuButton7" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ConfigButtons/ToTitleButtons/MenuButton7" to="PauseMenu/CanvasLayer/ConfigButtons/ToTitleButtons/MenuButton7" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ConfigButtons/ToTitleButtons/MenuButton7" to="PauseMenu/CanvasLayer/ConfigButtons/ToTitleButtons/MenuButton7" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/ConfigButtons/ToTitleButtons/MenuButton8" to="PauseMenu/CanvasLayer/ConfigButtons/ToTitleButtons/MenuButton8" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/ConfigButtons/ToTitleButtons/MenuButton8" to="PauseMenu/CanvasLayer/ConfigButtons/ToTitleButtons/MenuButton8" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/MapButtons/MenuButton" to="PauseMenu/CanvasLayer/MapButtons/MenuButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/MapButtons/MenuButton" to="PauseMenu/CanvasLayer/MapButtons/MenuButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/MapButtons/MenuButton2" to="PauseMenu/CanvasLayer/MapButtons/MenuButton2" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/MapButtons/MenuButton2" to="PauseMenu/CanvasLayer/MapButtons/MenuButton2" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/MapButtons/MenuButton3" to="PauseMenu/CanvasLayer/MapButtons/MenuButton3" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/MapButtons/MenuButton3" to="PauseMenu/CanvasLayer/MapButtons/MenuButton3" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/MapButtons/MenuButton4" to="PauseMenu/CanvasLayer/MapButtons/MenuButton4" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/MapButtons/MenuButton4" to="PauseMenu/CanvasLayer/MapButtons/MenuButton4" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/MapButtons/MenuButton5" to="PauseMenu/CanvasLayer/MapButtons/MenuButton5" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/MapButtons/MenuButton5" to="PauseMenu/CanvasLayer/MapButtons/MenuButton5" method="_on_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/CanvasLayer/MapButtons/MenuButton6" to="PauseMenu/CanvasLayer/MapButtons/MenuButton6" method="_on_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/CanvasLayer/MapButtons/MenuButton6" to="PauseMenu/CanvasLayer/MapButtons/MenuButton6" method="_on_pressed"]
 
 [editable path="PauseMenu/CanvasLayer/Selector"]

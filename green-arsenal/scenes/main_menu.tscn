@@ -15,6 +15,9 @@
 [ext_resource type="Script" uid="uid://d3e7tcoai48st" path="res://scripts/load_game_box.gd" id="12_flqon"]
 [ext_resource type="AudioStream" uid="uid://b14voe73kk2v6" path="res://sound/music/theme.mp3" id="14_1ajci"]
 [ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="14_7b55j"]
+[ext_resource type="Script" uid="uid://b6a5tb4hbvnyb" path="res://scripts/description_text.gd" id="14_8egab"]
+[ext_resource type="Script" uid="uid://duckdlhi2028h" path="res://scripts/main_menu_button.gd" id="14_a8gd2"]
+[ext_resource type="Theme" uid="uid://dej420jqdw2rq" path="res://misc/menu_button_theme.tres" id="14_hstxw"]
 [ext_resource type="Material" uid="uid://cgsnt031fmwnp" path="res://materials/white_material.tres" id="16_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="17_a8gd2"]
 
@@ -290,6 +293,67 @@ albedo_color = Color(0.03529412, 0.45490196, 0.7294118, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oa1go"]
 shader = ExtResource("5_oa1go")
+
+[sub_resource type="Animation" id="Animation_8egab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hint:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gw5y6"]
+resource_name = "fade_in_real_slow"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.0333333, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hint:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.508333, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svtp6"]
+_data = {
+&"RESET": SubResource("Animation_8egab"),
+&"fade_in_real_slow": SubResource("Animation_gw5y6")
+}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7b55j"]
 animation = &"on_box_loadgame"
@@ -2003,7 +2067,7 @@ settings/0/joints/2/limitation/right_axis = 0
 settings/0/joints/2/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature_001/Skeleton3D" unique_id=1146164239]
-transform = Transform3D(-0.98711777, 0.14875966, -0.058893744, -0.15020522, -0.9884337, 0.020905655, -0.055102635, 0.029482443, 0.99804485, -0.41722786, 0.060513414, -0.010108081)
+transform = Transform3D(-0.987114, 0.1487584, -0.058960576, -0.15020971, -0.98843163, 0.020972637, -0.055158637, 0.029558778, 0.9980394, -0.41722888, 0.060513258, -0.010099169)
 bone_name = "Palm R"
 bone_idx = 19
 
@@ -2670,6 +2734,35 @@ theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "NEW"
 
+[node name="Hint" type="RichTextLabel" parent="CanvasLayer/OtherMenu" unique_id=453854981]
+modulate = Color(0, 0, 0, 0)
+z_index = 1
+layout_mode = 0
+offset_top = 164.0
+offset_right = 506.0
+offset_bottom = 244.0
+theme_override_fonts/normal_font = ExtResource("6_rtw2f")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center](press {interact} to select)[/center]"
+script = ExtResource("14_8egab")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/OtherMenu/Hint" unique_id=188750901]
+libraries/ = SubResource("AnimationLibrary_svtp6")
+
+[node name="Hint" type="RichTextLabel" parent="CanvasLayer/OtherMenu/Hint" unique_id=1046247528]
+modulate = Color(0, 0, 0, 0)
+z_index = 1
+layout_mode = 0
+offset_top = 25.0
+offset_right = 506.0
+offset_bottom = 105.0
+theme_override_fonts/normal_font = ExtResource("6_rtw2f")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center](and {move_forward} {move_left} {move_back} {move_right} to change selection)[/center]"
+script = ExtResource("14_8egab")
+
 [node name="Load" type="RichTextLabel" parent="CanvasLayer/OtherMenu" unique_id=1687729316]
 modulate = Color(0, 0, 0, 1)
 z_index = 1
@@ -2695,6 +2788,52 @@ theme_override_fonts/normal_font = ExtResource("6_rtw2f")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "QUIT"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/OtherMenu" unique_id=8791742 node_paths=PackedStringArray("main_menu")]
+z_index = 1
+layout_mode = 0
+offset_right = 506.0
+offset_bottom = 146.0
+theme = ExtResource("14_hstxw")
+flat = true
+script = ExtResource("14_a8gd2")
+menu_position = 1
+main_menu = NodePath("../../..")
+
+[node name="MainMenuButton2" type="Button" parent="CanvasLayer/OtherMenu" unique_id=1092003446 node_paths=PackedStringArray("main_menu")]
+z_index = 1
+layout_mode = 0
+offset_top = -53.0
+offset_right = 88.0
+theme = ExtResource("14_hstxw")
+flat = true
+script = ExtResource("14_a8gd2")
+menu_position = 2
+main_menu = NodePath("../../..")
+
+[node name="MainMenuButton3" type="Button" parent="CanvasLayer/OtherMenu" unique_id=1798926604 node_paths=PackedStringArray("main_menu")]
+z_index = 1
+layout_mode = 0
+offset_left = 197.0
+offset_top = -53.0
+offset_right = 289.0
+theme = ExtResource("14_hstxw")
+flat = true
+script = ExtResource("14_a8gd2")
+menu_position = 3
+main_menu = NodePath("../../..")
+
+[node name="MainMenuButton4" type="Button" parent="CanvasLayer/OtherMenu" unique_id=1277031578 node_paths=PackedStringArray("main_menu")]
+z_index = 1
+layout_mode = 0
+offset_top = 151.0
+offset_right = 110.0
+offset_bottom = 204.0
+theme = ExtResource("14_hstxw")
+flat = true
+script = ExtResource("14_a8gd2")
+menu_position = 4
+main_menu = NodePath("../../..")
 
 [node name="Selector" parent="CanvasLayer" unique_id=894841875 instance=ExtResource("14_7b55j")]
 position = Vector2(1654, 421)
@@ -2873,6 +3012,14 @@ material = SubResource("ShaderMaterial_h45xw")
 offset_right = 1280.0
 offset_bottom = 720.0
 
+[connection signal="mouse_entered" from="CanvasLayer/OtherMenu/MainMenuButton" to="CanvasLayer/OtherMenu/MainMenuButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/OtherMenu/MainMenuButton" to="CanvasLayer/OtherMenu/MainMenuButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/OtherMenu/MainMenuButton2" to="CanvasLayer/OtherMenu/MainMenuButton2" method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/OtherMenu/MainMenuButton2" to="CanvasLayer/OtherMenu/MainMenuButton2" method="_on_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/OtherMenu/MainMenuButton3" to="CanvasLayer/OtherMenu/MainMenuButton3" method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/OtherMenu/MainMenuButton3" to="CanvasLayer/OtherMenu/MainMenuButton3" method="_on_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/OtherMenu/MainMenuButton4" to="CanvasLayer/OtherMenu/MainMenuButton4" method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/OtherMenu/MainMenuButton4" to="CanvasLayer/OtherMenu/MainMenuButton4" method="_on_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 
 [editable path="CanvasLayer/Selector"]

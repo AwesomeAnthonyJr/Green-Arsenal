@@ -58,7 +58,7 @@ class_name SaveFile
 	false, #flooded_3 - growth pickup | 40
 ]
 ###this is mostly for the map screen to hide certain layers until its time
-@export var farthest_floor: int = 2
+@export var farthest_floor: int = 1
 ###this is to set the player to load in different positions depending on their last save
 @export var load_point: int = 0
 

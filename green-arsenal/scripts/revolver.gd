@@ -16,6 +16,7 @@ extends Control
 @onready var label_up = $InteractMenu/SeedCircleW/Label2
 @onready var label_down = $InteractMenu/SeedCircleS/Label3
 @onready var label_reload = $InteractMenu/SeedCircle2/Label4
+@onready var label_putback = $InteractMenu/CTRLLabel
 
 #TODO: read from save data instead! just assume we have all of them for now.
 var seeds = [2, 4, 3, 6, 5, 7, 8]
@@ -32,6 +33,7 @@ func update_all_labels():
 	label_up.text = "[bgcolor=black][color=white] " + SaveManager.player_settings.get_text("move_forward").to_upper() + " [/color][/bgcolor]"
 	label_down.text = "[bgcolor=black][color=white] " + SaveManager.player_settings.get_text("move_back").to_upper() + " [/color][/bgcolor]"
 	label_reload.text = "[right][bgcolor=black][color=white] " + SaveManager.player_settings.get_text("reload").to_upper() + " [/color][/bgcolor][/right]"
+	label_putback.text = "[bgcolor=black][color=white] " + SaveManager.player_settings.get_text("close_reload").to_upper() + " [/color][/bgcolor]"
 
 func setup_seeds():
 	var temp = []
