@@ -4,6 +4,8 @@
 [ext_resource type="Material" uid="uid://eh2x6l7fmwys" path="res://materials/gray_soil.tres" id="2_vpplj"]
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="3_07bq8"]
 [ext_resource type="Material" uid="uid://doiuat84x0eiv" path="res://materials/fresh_water.tres" id="4_81xmf"]
+[ext_resource type="Material" uid="uid://cyl2yl81jvuka" path="res://materials/bricks.tres" id="4_d811s"]
+[ext_resource type="PackedScene" uid="uid://dfs3yqx8dhbl" path="res://scenes/growth_pickup.tscn" id="4_fxpjb"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="5_wnrx0"]
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="6_crywm"]
 [ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="7_qm0tj"]
@@ -1317,7 +1319,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_07bq8")
 
 [node name="NonSoilFloor95" type="StaticBody3D" parent="." unique_id=1237259760]
-transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 20.5, -3, 8)
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 26.5, -3, 8)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor95" unique_id=1683882539]
@@ -1326,6 +1328,19 @@ shape = SubResource("BoxShape3D_otkpc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor95" unique_id=1324563664]
 material_override = ExtResource("2_vpplj")
+mesh = SubResource("BoxMesh_dimcy")
+surface_material_override/0 = ExtResource("3_07bq8")
+
+[node name="NonSoilFloor148" type="StaticBody3D" parent="." unique_id=800810798]
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, 17.5, -12.5, 8)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor148" unique_id=1196816406]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0)
+shape = SubResource("BoxShape3D_otkpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NonSoilFloor148" unique_id=370414418]
+material_override = ExtResource("4_d811s")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_07bq8")
 
@@ -1849,6 +1864,10 @@ material_override = ExtResource("2_vpplj")
 mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_07bq8")
 
+[node name="GrowthPickup" parent="." unique_id=255482846 instance=ExtResource("4_fxpjb")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 17.50003, -6.993562, 8.000092)
+flag_index = 15
+
 [node name="Exit2" parent="." unique_id=702144204 instance=ExtResource("5_wnrx0")]
 transform = Transform3D(1, 0, 0, 0, 11, 0, 0, 0, 9.82, -51.459137, -3.5, 5.1919117)
 new_id = 20
@@ -1942,3 +1961,12 @@ shape = SubResource("BoxShape3D_d811s")
 
 [node name="TorchLit" parent="." unique_id=2026293210 instance=ExtResource("10_wlxnf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -8, -5)
+
+[node name="TorchLit2" parent="." unique_id=180951703 instance=ExtResource("10_wlxnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -7.5, 5)
+
+[node name="TorchLit3" parent="." unique_id=1797895160 instance=ExtResource("10_wlxnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -7.5, 11)
+
+[node name="TorchLit4" parent="." unique_id=1198962337 instance=ExtResource("10_wlxnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -7.5, 8)
