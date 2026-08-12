@@ -1,0 +1,15 @@
+[gd_resource type="Theme" format=3 uid="uid://dej420jqdw2rq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_074og"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cegan"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_82xsv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_getpj"]
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_074og")
+Button/styles/hover = SubResource("StyleBoxEmpty_cegan")
+Button/styles/normal = SubResource("StyleBoxEmpty_82xsv")
+Button/styles/pressed = SubResource("StyleBoxEmpty_getpj")

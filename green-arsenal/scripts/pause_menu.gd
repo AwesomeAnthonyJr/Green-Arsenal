@@ -1,4 +1,5 @@
 extends Node
+class_name PauseMenu
 
 var main: Main
 
@@ -84,6 +85,12 @@ var current_menu_2 = StatusSelection.SEED_1
 @onready var config_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Audio/MeshInstance3D/SubViewport/Audio
 @onready var map_menu = $CanvasLayer/SubViewportContainer/SubViewport/Camera3D/Pivot/Map/MeshInstance3D/SubViewport/Map
 
+@onready var status_buttons = $CanvasLayer/StatusButtons
+@onready var controls_buttons = $CanvasLayer/ControlsButtons
+@onready var config_buttons = $CanvasLayer/ConfigButtons
+@onready var config_title_buttons = $CanvasLayer/ConfigButtons/ToTitleButtons
+@onready var map_buttons = $CanvasLayer/MapButtons
+
 #status stuff
 var inspecting = false
 
@@ -117,6 +124,8 @@ func _process(delta: float) -> void:
 #this is where the game handles pausing.
 func read_pause():
 	if main.not_gameplay:
+		return
+	if remapping:
 		return
 	var p = get_tree().paused
 	if !p:
@@ -317,6 +326,11 @@ func update_visually():
 			playback.travel("on_status")
 			status_menu.update_status_seeds()
 			status_menu.update_status_health()
+			status_buttons.show()
+			controls_buttons.hide()
+			config_buttons.hide()
+			config_title_buttons.hide()
+			map_buttons.hide()
 			playback = status_menu.anim_tree["parameters/playback"]
 			match current_menu_2:
 				StatusSelection.BIG_LEFT:
@@ -372,6 +386,11 @@ func update_visually():
 					status_menu.handle_status_description(inspecting, 0)
 		MenuSelection.CONTROLS:
 			playback.travel("on_controls")
+			status_buttons.hide()
+			controls_buttons.show()
+			config_buttons.hide()
+			config_title_buttons.hide()
+			map_buttons.hide()
 			playback = controls_menu.anim_tree["parameters/playback"]
 			match current_menu_2:
 				ControlsSelection.BIG_LEFT:
@@ -402,36 +421,58 @@ func update_visually():
 					playback.travel("on_PUT_AWAY")
 		MenuSelection.CONFIG:
 			playback.travel("on_config")
+			status_buttons.hide()
+			controls_buttons.hide()
+			config_buttons.show()
+			map_buttons.hide()
 			playback = config_menu.anim_tree["parameters/playback"]
 			match current_menu_2:
 				ConfigSelection.BIG_LEFT:
 					playback.travel("on_BIG_LEFT")
+					config_title_buttons.hide()
 				ConfigSelection.BIG_RIGHT:
 					playback.travel("on_BIG_RIGHT")
+					config_title_buttons.hide()
 				ConfigSelection.MASTER_HOVER:
 					playback.travel("on_MASTER_HOVER")
+					config_title_buttons.hide()
 				ConfigSelection.MASTER_SLIDER:
 					playback.travel("on_MASTER_SLIDER")
+					config_title_buttons.hide()
 				ConfigSelection.MUSIC_HOVER:
 					playback.travel("on_MUSIC_HOVER")
+					config_title_buttons.hide()
 				ConfigSelection.MUSIC_SLIDER:
 					playback.travel("on_MUSIC_SLIDER")
+					config_title_buttons.hide()
 				ConfigSelection.SOUND_HOVER:
 					playback.travel("on_SOUND_HOVER")
+					config_title_buttons.hide()
 				ConfigSelection.SOUND_SLIDER:
 					playback.travel("on_SOUND_SLIDER")
+					config_title_buttons.hide()
 				ConfigSelection.MOUSE_HOVER:
 					playback.travel("on_MOUSE_HOVER")
+					config_title_buttons.hide()
 				ConfigSelection.MOUSE_SLIDER:
 					playback.travel("on_MOUSE_SLIDER")
+					config_title_buttons.hide()
 				ConfigSelection.TO_TITLE_1:
 					playback.travel("on_TO_TITLE_1")
+					config_title_buttons.hide()
 				ConfigSelection.TO_TITLE_2:
 					playback.travel("on_TO_TITLE_2")
+					config_title_buttons.show()
 				ConfigSelection.TO_TITLE_3:
 					playback.travel("on_TO_TITLE_3")
+					config_title_buttons.show()
 		MenuSelection.MAP:
 			playback.travel("on_map")
+			status_buttons.hide()
+			controls_buttons.hide()
+			config_buttons.hide()
+			config_title_buttons.hide()
+			map_buttons.show()
 			playback = map_menu.anim_tree["parameters/playback"]
 			#map_menu.match_map_buttons(find_current_floor() - 2)
 			match current_menu_2:
@@ -479,6 +520,8 @@ func limit_map_selection(n: int):
 	
 
 func read_up():
+	if remapping:
+		return
 	if suppress_next_input:
 		return
 	if !in_menu:
@@ -629,6 +672,8 @@ func read_up():
 	update_visually()
 
 func read_down():
+	if remapping:
+		return
 	if suppress_next_input:
 		return
 	if !in_menu:
@@ -792,6 +837,8 @@ func read_down():
 	update_visually()
 
 func read_left():
+	if remapping:
+		return
 	if suppress_next_input:
 		return
 	if !in_menu:
@@ -993,6 +1040,8 @@ func read_left():
 	update_visually()
 
 func read_right():
+	if remapping:
+		return
 	if suppress_next_input:
 		return
 	if !in_menu:
@@ -1194,6 +1243,8 @@ func read_right():
 	update_visually()
 
 func read_accept():
+	if remapping:
+		return
 	if suppress_next_input:
 		return
 	if !in_menu:
@@ -1432,6 +1483,8 @@ func read_back():
 			pass
 
 func read_big_left():
+	if remapping:
+		return
 	if suppress_next_input:
 		return
 	if !in_menu:
@@ -1452,6 +1505,8 @@ func read_big_left():
 			current_menu_2 = ConfigSelection.BIG_LEFT
 	update_visually()
 func read_big_right():
+	if remapping:
+		return
 	if suppress_next_input:
 		return
 	if !in_menu:
