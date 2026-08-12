@@ -44,9 +44,9 @@ class_name SaveFile
 	false, #flooded_6 - torch 1
 	false, #flooded_6 - torch 1
 	false, #flooded_6 - strangler gate
-	true, #flooded_7 - torch 1
-	true, #flooded_7 - torch 2 | 30
-	true, #flooded_7 - torch 3
+	false, #flooded_7 - torch 1
+	false, #flooded_7 - torch 2 | 30
+	false, #flooded_7 - torch 3
 	false, #flooded_4 - health pickup
 	false, #flooded_8 - torch 1
 	false, #flooded_8 - torch 2

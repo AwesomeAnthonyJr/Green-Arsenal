@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://64y1uvyj5p0t" path="res://ui/Moonsanto Logo(1).png" id="16_e8baq"]
 [ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="17_7h2ag"]
 [ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="18_ld7xf"]
+[ext_resource type="PackedScene" uid="uid://f7elpfa50b4r" path="res://scenes/flyingEnemy_3.tscn" id="19_o1qqe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1862,6 +1863,33 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 1
 
 [node name="FacilityLight40" parent="." unique_id=679091291 instance=ExtResource("18_ld7xf")]
 transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 0, 146.5, -35)
+
+[node name="Enemy" parent="." unique_id=553297755 instance=ExtResource("19_o1qqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, -15)
+
+[node name="Enemy2" parent="." unique_id=312044406 instance=ExtResource("19_o1qqe")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 23, -33)
+
+[node name="Enemy3" parent="." unique_id=216574843 instance=ExtResource("19_o1qqe")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 35, -25)
+
+[node name="Enemy4" parent="." unique_id=10255152 instance=ExtResource("19_o1qqe")]
+transform = Transform3D(-0.5, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.5, 9, 49, -32)
+
+[node name="Enemy5" parent="." unique_id=1619330995 instance=ExtResource("19_o1qqe")]
+transform = Transform3D(0.8660254, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, 0.8660254, 4, 61, -15)
+
+[node name="Enemy6" parent="." unique_id=708476050 instance=ExtResource("19_o1qqe")]
+transform = Transform3D(-2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, -2.9802322e-08, 10, 69, -23)
+
+[node name="Enemy7" parent="." unique_id=709096185 instance=ExtResource("19_o1qqe")]
+transform = Transform3D(-5.7620454e-08, 0, -1, 0, 1, 0, 1, 0, -5.7620454e-08, -9.228033, 74, -23)
+
+[node name="Enemy8" parent="." unique_id=1749536691 instance=ExtResource("19_o1qqe")]
+transform = Transform3D(-0.9644201, 0, 0.26437467, 0, 1, 0, -0.26437467, 0, -0.9644201, -0.53927374, 79.9368, -32.950718)
+
+[node name="Enemy9" parent="." unique_id=1079755118 instance=ExtResource("19_o1qqe")]
+transform = Transform3D(0.9893326, 0, -0.1456739, 0, 1, 0, 0.1456739, 0, 0.9893326, 1.0396128, 87.94282, -14.516673)
 
 [connection signal="body_entered" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_enter"]
 [connection signal="body_exited" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_exit"]

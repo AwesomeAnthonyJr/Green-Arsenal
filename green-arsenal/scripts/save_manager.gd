@@ -54,7 +54,7 @@ func write_save():
 func test_save():
 	player_save = SaveFile.new()
 	###this is where you put anything you want to change for testing!
-	player_save.load_point = -1
+	player_save.load_point = 6
 	player_save.seed_types[0] = true
 	player_save.seed_types[1] = true
 	player_save.seed_types[2] = true
