@@ -41,11 +41,15 @@ directories/dtl_directory={
 "fire_seed_operator2": "res://misc/dialogic/fire_seed_operator2.dtl",
 "forest3_mentor": "res://misc/dialogic/forest3_mentor.dtl",
 "generic_operator": "res://misc/dialogic/generic_operator.dtl",
+"generic_prevault_op": "res://misc/dialogic/generic_prevault_op.dtl",
 "intro": "res://misc/dialogic/intro.dtl",
 "intro2_operator": "res://misc/dialogic/intro2_operator.dtl",
 "intro_operator": "res://misc/dialogic/intro_operator.dtl",
+"platform_vault_op": "res://misc/dialogic/platform_vault_op.dtl",
+"propeller_op": "res://misc/dialogic/propeller_op.dtl",
 "underground_entrance_mentor": "res://misc/dialogic/underground_entrance_mentor.dtl",
-"underground_operator": "res://misc/dialogic/underground_operator.dtl"
+"underground_operator": "res://misc/dialogic/underground_operator.dtl",
+"upgrade_room_op": "res://misc/dialogic/upgrade_room_op.dtl"
 }
 layout/style_directory={
 "": "res://misc/dialogic/speaker_box.tres",
@@ -97,6 +101,10 @@ audio/channel_defaults={
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/colle/OneDrive/Documents/GA_recordings/.avi"
 
 [editor_plugins]
 

@@ -1,0 +1,62 @@
+operator: Hey again, Gardener.
+operator: ...
+- You know, I've been meaning to ask...
+	- How are you here?
+		- Like...
+			- There isn't even a gap to drop down from.
+				- Plus, what's above us?
+					- This just seems logically incoherent.
+						operator: Well, Gardener.
+						operator: You were asked to put your faith in me.
+						operator: Who would I be if I didn't offer you a moment's respite in light of that?
+						operator: Should I be held back by what I'm told is rational?
+						operator: There will be people who tell you it's irrational to even do what we're doing.
+						operator: That it represents a risk to ourselves that far outweighs any potential impact we might have.
+						operator: That the powers we're up against are monolithic.
+						operator: Impenetrable.
+						operator: That their defenses offer no gaps to exploit.
+						operator: But that doesn't mean I shouldn't try to find them.
+						operator: Just because someone else doesn't see a way through doesn't mean that I won't.
+						operator: All of us see all things from our own angles.
+						operator: And from mine, there is a wide open gap here for me to drop down through.
+						operator: One I can use to be there to support you.
+						operator: Just like all these defenses they've put up before you are, from your perspective, just puzzles to solve.
+						operator: ...
+						- Okay, Operator.
+							- Thank you.
+								- For being here.
+									- For seeing the things I can't
+										jump after_lampshade
+						- That doesn't totally answer my question.
+							- But thank you, Operator.
+								- For being here.
+									- For seeing the things I can't
+										jump after_lampshade
+label after_lampshade
+operator: You're welcome, Gardener.
+operator: Thank you, for seeing the things I can't.
+operator: And hey!
+operator: Between the two of us, what a view, right?
+operator: Anyway, that lampshading out of the way now, let's talk about the items in this room.
+operator: On one side, there's a mature version of that little plant of yours that reinvigorates your health.
+operator: This big one packs a big punch, though --- going up to it and interacting will *permanently* increase your vitality.
+operator: Just another thing Moonsanto was monopolizing, hey?
+operator: The other side of the room has an upgrade to the Green Arsenal as a whole.
+operator: It'll increase the magic flowing through the system enough to support two plants at the same time.
+operator: So now you'll get to work with pairs of plants and further bring out their potential!
+operator: Have fun and don't be afraid to experiment.
+operator: Just having two plants out at once is enough to really increase the complexity of the options available to you.
+operator: That said, would you like to record any progress in your investigation?
+- Yes
+	operator: Saving progress...
+	[signal arg="save_signal"]
+	operator: Save complete.
+	jump save_done
+- No
+	operator: Roger dodger! I'll be here if you need to save progress in the future.
+	jump save_done
+label save_done
+operator: At that, I wish you the best of luck, Gardener.
+operator: See you on the flip side!
+[signal arg="scene_end_op"]
+[end_timeline]

@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://f7elpfa50b4r" path="res://scenes/flyingEnemy_3.tscn" id="14_ueujx"]
 [ext_resource type="FontFile" uid="uid://buc1bdvmej58m" path="res://fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" id="14_w1eiu"]
 [ext_resource type="PackedScene" uid="uid://cd4lwde4ynq5h" path="res://scenes/flyingEnemy_2.tscn" id="15_7yrv2"]
+[ext_resource type="PackedScene" uid="uid://c23cpjr70vnif" path="res://scenes/interact_area.tscn" id="15_xolhk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -31,7 +32,7 @@ left_to_right = -0.5
 data = PackedVector3Array(-1, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -1, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -1, 0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -1, 0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, -0.5, -1, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_opn75"]
-radius = 3.0
+radius = 2.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ydrnc"]
 font = ExtResource("13_wl3ql")
@@ -40,6 +41,9 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_7tg6d"]
 font = ExtResource("14_w1eiu")
 font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wl3ql"]
+radius = 2.0
 
 [sub_resource type="Animation" id="Animation_ybq8s"]
 length = 0.001
@@ -1423,7 +1427,64 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_xolhk")
 
-[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1148171375]
+[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1479798480]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -243.5
+offset_right = 216.5
+offset_bottom = 278.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MEMO TO ALL STAFF:
+
+LOWER FLOORS MUST BE TEMPORARILY EVACUATED
+DUE TO CRITICAL DAMAGE IN OUR DRIP 
+IRRIGATION SYSTEMS. 
+
+THIS IS NOT A CAUSE FOR CONCERN. HOWEVER,
+PLEASE TAKE ANY CRITICAL RESEARCH MATERIAL
+WITH YOU, AS SOME LIGHT FLOODING IS
+EXPECTED. YOU WILL BE NOTIFIED WHEN 
+REPAIRS ARE COMPLETE, AND WHEN IT IS THUS
+SAFE TO RETURN TO THE PAPER LABS.
+
+TO ENSURE REPAIRS ARE COMPLETE AS QUICKLY
+AS POSSIBLE, PLEASE DO NOT INTERFERE WITH
+ANY UNIFORMED PERSONNEL ENTERING
+OR EXITING THE AFFECTED LOWER FLOORS, OR
+WHO ARE COLLECTING RELEVANT MATERIAL FROM
+YOUR OFFICES OR YOUR PERSONS.
+
+YOUR UNDERSTANDING AND COMPLIANCE ARE
+APPRECIATED. "
+label_settings = SubResource("LabelSettings_ydrnc")
+
+[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=1755413975]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = 234.49994
+offset_right = 197.5
+offset_bottom = 391.49994
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.048727535
+text = "They're kicking us out? But we can
+still fix this!"
+label_settings = SubResource("LabelSettings_7tg6d")
+
+[node name="Label3" type="Label" parent="Document_Reader/TextureRect" unique_id=194475338]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1457,23 +1518,12 @@ AND PLEASE RECALL, YOUR NDAS STILL APPLY.
 "
 label_settings = SubResource("LabelSettings_ydrnc")
 
-[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=1755413975]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -122.5
-offset_top = 234.49994
-offset_right = 197.5
-offset_bottom = 391.49994
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.048727535
-text = "They're kicking us out? But we can
-still fix this!"
-label_settings = SubResource("LabelSettings_7tg6d")
+[node name="InteractAreaDocReader" parent="Document_Reader" unique_id=530012375 instance=ExtResource("15_xolhk")]
+one_time = false
+interaction_name = "read document"
+
+[node name="CollisionShape3D" parent="Document_Reader/InteractAreaDocReader" index="0" unique_id=1289814683]
+shape = SubResource("SphereShape3D_wl3ql")
 
 [node name="PuzzleDoor" type="Node3D" parent="." unique_id=1105372589]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 150.61838, -11, 5.359829)
@@ -1510,3 +1560,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 158,
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_020" method="set_flag_true"]
 [connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
 [connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]
+
+[editable path="Document_Reader/InteractAreaDocReader"]

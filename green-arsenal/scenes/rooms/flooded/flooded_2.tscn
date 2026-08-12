@@ -15,8 +15,14 @@
 [ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="13_h7p1y"]
 [ext_resource type="PackedScene" uid="uid://yql0lf7vacmm" path="res://scenes/decorative_torch.tscn" id="17_udd8k"]
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="18_2f8yy"]
+[ext_resource type="PackedScene" uid="uid://c3xcgxgalv1wm" path="res://scenes/save_operator.tscn" id="18_3ukox"]
+[ext_resource type="Script" uid="uid://dfypwg4n7eoul" path="res://scripts/platform_save_operator.gd" id="19_6b71u"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="19_nqorx"]
+[ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="20_3you0"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="20_vv766"]
+[ext_resource type="Resource" uid="uid://cb7uof53bwjfl" path="res://misc/dialogic/generic_prevault_op.dtl" id="21_h7p1y"]
+[ext_resource type="Resource" uid="uid://c2g44myl2ne7b" path="res://misc/dialogic/platform_vault_op.dtl" id="22_3ukox"]
+[ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="23_nqorx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -103,7 +109,7 @@ shader_parameter/uv1_offset = Vector2(0, 0)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vlfq7"]
 size = Vector3(1, 11, 10.3927)
 
-[node name="Room2" type="Node3D" unique_id=2108924292]
+[node name="Room3" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_1ftrc")
 adjacent_rooms = Array[int]([20])
 room_pos = Vector3(30, -80, -305)
@@ -1064,6 +1070,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -9)
 
 [node name="TorchLit2" parent="." unique_id=1558353832 instance=ExtResource("17_udd8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 6)
+
+[node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("18_3ukox")]
+transform = Transform3D(-0.08324294, 0, 0.9965293, 0, 1, 0, -0.9965293, 0, -0.08324294, -11.765563, 5.061298, 9.4308605)
+script = ExtResource("19_6b71u")
+operator_scenes = Array[ExtResource("20_3you0")]([ExtResource("21_h7p1y"), ExtResource("22_3ukox"), ExtResource("23_nqorx")])
+load_point = 6
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_021" method="set_flag_true"]
