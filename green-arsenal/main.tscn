@@ -1307,7 +1307,6 @@ process_mode = 3
 script = ExtResource("5_ycdy4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PauseMenu" unique_id=296886685]
-layer = 10
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="PauseMenu/CanvasLayer" unique_id=1372523622]
 offset_right = 1280.0

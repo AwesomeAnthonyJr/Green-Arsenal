@@ -106,6 +106,8 @@ func read_end_jump():
 	is_jump_drifting = false
 ###read_pause(): has moved to the pause menu script!
 func read_shoot():
+	if paused:
+		return
 	if get_tree().paused:
 		return
 	if supress_shooting:
@@ -125,6 +127,8 @@ func read_shoot():
 			current_bullet += 1
 			hud.update_revolver(loaded_in_gun)
 func read_reload():
+	if paused:
+		return
 	if get_tree().paused:
 		return
 	if supress_shooting:
