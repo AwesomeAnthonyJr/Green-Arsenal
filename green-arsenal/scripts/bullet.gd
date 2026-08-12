@@ -39,10 +39,17 @@ func _physics_process(delta: float) -> void:
 		if enemy_cast.get_collider(0).is_in_group("blaze_flower"):
 			become_a_fireball()
 		elif enemy_cast.get_collider(0).is_in_group("fresh_water"):
+			if !in_water:
+				SoundManager.play_splash_small()
+				var inst = Preloads.small_splash_particles.instantiate()
+				enemy_cast.get_collider(0).add_child(inst)
+				inst.global_position = enemy_cast.get_collision_point(0)
 			in_water = true
 		elif enemy_cast.get_collider(0).is_in_group("seeker_flower"):
-			get_parent().remove_child(self)
-			enemy_cast.get_collider(0).get_parent().store(self)
+			var temp = enemy_cast.get_collider(0).get_parent()
+			if temp.just_caught != true:
+				get_parent().remove_child(self)
+				temp.store(self)
 		elif enemy_cast.get_collider(0).is_in_group("roller"):
 			hit_roller(enemy_cast.get_collider(0))
 		elif enemy_cast.get_collider(0).is_in_group("target"):

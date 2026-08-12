@@ -4,6 +4,7 @@ class_name PropellablePlatform
 @export var end_position: Vector3
 @export var start_position: Vector3
 @export var propellers_needed: int = 1
+@export var speed_limit: float = 1.0
 
 var propellers = []
 var propeller_values = []
@@ -37,11 +38,17 @@ func _physics_process(delta):
 		diff += p * delta
 	for w in weight_values:
 		diff += w * delta
-	diff += grav_influence * delta
+	if calc_propel_percentage() > 0:
+		diff += grav_influence * delta
 	diff = min(diff, 2.5 * delta)
 	diff = max(diff, -1.5 * delta)
+	diff = min(diff, speed_limit)
+	diff = max(diff, -speed_limit)
+	#print(diff)
 	lift_progress += diff
-	var max = min(calc_propel_percentage(), 1.0)
+	var max = 1.0
+	if direction_diff.normalized().y >= 0:
+		max = min(calc_propel_percentage(), 1.0)
 	if lift_progress > max:
 		lift_progress = max
 	if lift_progress < 0:
@@ -72,9 +79,6 @@ func check_propellers():
 	for w in weights:
 		temp_vals.append(calc_influence(Vector3.DOWN))
 	weight_values = temp_vals
-	
-	#print(propeller_values)
-	#print(weight_values)
 
 func read_weight_enter(obj: Node3D):
 	if obj.is_in_group("roller") and !obj.freeze:

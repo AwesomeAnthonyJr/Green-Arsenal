@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dknbbonr6d6nd"]
+
+[ext_resource type="Script" uid="uid://di0vvhqgevm45" path="res://scripts/splash_particles.gd" id="1_xq5r2"]
+
+[sub_resource type="Curve" id="Curve_lu28w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.3574468, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lu28w"]
+curve = SubResource("Curve_lu28w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h45xw"]
+direction = Vector3(0, 1, 0)
+spread = 3.0
+initial_velocity_min = 0.5
+initial_velocity_max = 0.79999995
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_lu28w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqq25"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_0o143"]
+material = SubResource("StandardMaterial3D_oqq25")
+radius = 0.1
+height = 0.2
+
+[node name="SplashParticles" type="GPUParticles3D" unique_id=1322345729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+amount = 12
+explosiveness = 1.0
+trail_lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_h45xw")
+draw_pass_1 = SubResource("SphereMesh_0o143")
+script = ExtResource("1_xq5r2")

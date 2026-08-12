@@ -71,7 +71,13 @@ func play_revolver_close(include_schwing: bool = true):
 		_play(schwing, 5)
 
 func play_footstep():
-	_play(footstep, -6, 0, randf_range(0.6, 0.8))
+	_play(footstep, -9, 0, randf_range(0.6, 0.8))
+
+func play_splash():
+	_play(platform_shot, -6, 0, randf_range(0.9, 1.1))
+
+func play_splash_small():
+	_play(platform_shot, -9, 0, randf_range(1.2, 1.4))
 
 #seed_id matches Player.loaded_in_gun's ammo ids (see Constants.seed_order / Player.shoot())
 func play_seed_shot(seed_id: int) -> void:

@@ -22,11 +22,13 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and scene_played == false:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		player_ref = body
 		player_ref.paused = true
 		Dialogic.start(dialogic_scene)
 
 func _on_dialogic_signal(arg):
 	if arg == "scene_end":
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		player_ref.paused = false
 		scene_played = true

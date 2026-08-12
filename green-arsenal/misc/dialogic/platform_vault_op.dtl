@@ -1,0 +1,23 @@
+operator: Oooh, what an interesting find!
+operator: This looks like a water lily.
+operator: I would've expected more of those modified plants down here, but this is just a normal part of the native flora.
+operator: And it's also precisely what you'll need to navigate these flooded floors.
+operator: If I didn't know better, I'd guess someone placed this here specifically to assist someone like you...
+operator: Regardless, these things can grow big enough to support a person's weight even without the Green Arsenal.
+operator: With the Green Arsenal, they should be an extremely solid and stalwart platform.
+operator: And if planted in soil beneath the water, they'll float straight to the top!
+operator: Mighty convenient for exploring your new environs.
+operator: In any case, would you like to record any progress in your investigation?
+- Yes
+	operator: Saving progress...
+	[signal arg="save_signal"]
+	operator: Save complete.
+	jump save_done
+- No
+	operator: Roger dodger! I'll be here if you need to save progress in the future.
+	jump save_done
+label save_done
+operator: At that, I wish you the best of luck, Gardener.
+operator: See you on the flip side!
+[signal arg="scene_end_op"]
+[end_timeline]

@@ -668,6 +668,7 @@ _data = {
 }
 
 [node name="InGameHUD" type="CanvasLayer" unique_id=521452179]
+layer = 0
 script = ExtResource("1_26122")
 
 [node name="Crosshair" type="Control" parent="." unique_id=1978330618]
