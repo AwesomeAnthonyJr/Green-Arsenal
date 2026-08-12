@@ -139,7 +139,7 @@ func play_seed_shot(seed_id: int) -> void:
 		4:
 			_play(life_shot)
 		5:
-			_play(platform_shot)
+			_play(grow, 1.5, 0, 0.5)
 		6:
 			_play(seeker_shot)
 		7:

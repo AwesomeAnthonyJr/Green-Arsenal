@@ -44,8 +44,14 @@ func read_save():
 	print("WE ARE READING A SAVE!!!")
 	print_stack()
 	player_save = SaveFile.new()
+	var initial_flag_length = player_save.game_flags.size()
 	if (ResourceLoader.exists(save_file_path + save_file_name)):
 		player_save = ResourceLoader.load(save_file_path + save_file_name)
+		var flag_diff = initial_flag_length - player_save.game_flags.size()
+		if flag_diff > 0:
+			print("UPDATING OLD SAVE!")
+			for i in flag_diff:
+				player_save.game_flags.append(false)
 	save_read.emit()
 
 func write_save():

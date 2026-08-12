@@ -5,6 +5,8 @@ extends TextureRect
 @onready var growth_charges = [$GrowthCharges/Charge1, $GrowthCharges/Charge2, $GrowthCharges/Charge3]
 @onready var seeds = [$Seeds/Seed2, $Seeds/Seed4, $Seeds/Seed3, $Seeds/Seed6, $Seeds/Seed5, $Seeds/Seed7, $Seeds/Seed8]
 
+@onready var egg = $Seeds/Egg
+
 const location_dict = {
 	-1: "testing",
 	0: "forest entrance",
@@ -29,3 +31,5 @@ func update_sprites():
 		seeds[i].visible = file.seed_types[i]
 	
 	loc_text.text = "[right]" + location_dict[file.load_point] + "[/right]"
+	
+	egg.visible = file.egg
