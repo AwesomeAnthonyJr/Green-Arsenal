@@ -71,7 +71,7 @@ size = Vector3(0.1, 0.2, 5)
 size = Vector3(5, 0.2, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_070rk"]
-size = Vector3(5, 10, 5)
+size = Vector3(5, 9, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nwuta"]
 size = Vector3(21, 8, 21)
@@ -1701,7 +1701,7 @@ mesh = SubResource("BoxMesh_t4uxi")
 surface_material_override/0 = ExtResource("11_vr2x8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=448624560]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5500002, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.0500002, 0)
 shape = SubResource("BoxShape3D_070rk")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PropellablePlatform/AnimatableBody3D" unique_id=1720583933]
