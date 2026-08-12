@@ -19,5 +19,5 @@ func plant_seed(point, norm, obj):
 func hit_enemy(obj):
 	###TODO: make this unique for the heavy seed!!!
 	if obj.has_method("take_damage"):
-		obj.take_damage(1)
+		obj.take_damage(3)
 	#destroy_bullet()

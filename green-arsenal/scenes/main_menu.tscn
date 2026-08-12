@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://5y5qyk5av2dv" path="res://scenes/selector.tscn" id="14_7b55j"]
 [ext_resource type="Script" uid="uid://b6a5tb4hbvnyb" path="res://scripts/description_text.gd" id="14_8egab"]
 [ext_resource type="Script" uid="uid://duckdlhi2028h" path="res://scripts/main_menu_button.gd" id="14_a8gd2"]
+[ext_resource type="Texture2D" uid="uid://bmffqkvl6kalo" path="res://ui/egg_ui.png" id="14_gw5y6"]
 [ext_resource type="Theme" uid="uid://dej420jqdw2rq" path="res://misc/menu_button_theme.tres" id="14_hstxw"]
 [ext_resource type="Material" uid="uid://cgsnt031fmwnp" path="res://materials/white_material.tres" id="16_j7ex8"]
 [ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="17_a8gd2"]
@@ -2067,7 +2068,7 @@ settings/0/joints/2/limitation/right_axis = 0
 settings/0/joints/2/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature_001/Skeleton3D" unique_id=1146164239]
-transform = Transform3D(-0.98707014, 0.14875533, -0.059696697, -0.15026969, -0.9884066, 0.021710582, -0.05577504, 0.030400421, 0.9979799, -0.4172352, 0.060516328, -0.010000707)
+transform = Transform3D(-0.9870834, 0.14875875, -0.05946891, -0.15025343, -0.98841405, 0.0214823, -0.055584222, 0.030140188, 0.9979985, -0.41723123, 0.0605157, -0.010031058)
 bone_name = "Palm R"
 bone_idx = 19
 
@@ -2679,6 +2680,18 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("10_5dd4i")
 hframes = 11
 frame = 8
+
+[node name="Egg" type="Sprite2D" parent="CanvasLayer/OtherMenu/LoadGameBox/Seeds" unique_id=2126774034]
+z_index = 1
+position = Vector2(465, 106)
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("14_gw5y6")
+
+[node name="Egg2" type="Sprite2D" parent="CanvasLayer/OtherMenu/LoadGameBox/Seeds/Egg" unique_id=330443849]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("14_gw5y6")
 
 [node name="GrowthCharges" type="Control" parent="CanvasLayer/OtherMenu/LoadGameBox" unique_id=1252410338]
 anchors_preset = 0
