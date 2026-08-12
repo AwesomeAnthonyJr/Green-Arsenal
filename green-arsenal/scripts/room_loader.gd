@@ -128,10 +128,10 @@ func get_floor():
 	if active_key > -1 and active_key < 12:
 		return 1
 	#underground
-	elif active_key > 11 and active_key < 21:
+	elif active_key > 11 and active_key < 20:
 		return 2
 	#flooded
-	elif active_key > 20 and active_key < 30:
+	elif active_key > 19 and active_key < 30:
 		return 3
 	#farm
 	elif active_key > 29 and active_key < 999:
@@ -241,6 +241,7 @@ func load_room_extra(key: int):
 
 func setup_active_room(key: int):
 	#some stuff will need to go here
+	map_check(key)
 	if is_instance_valid(active_room):
 		active_room.active = false
 	print("ON ROOM: ", key)
@@ -301,3 +302,8 @@ func song_check(key: int, smooth: bool = true):
 			song_change(Preloads.gameplay_music_01, smooth)
 		-10:
 			song_change(Preloads.easter_egg_music, false)
+
+func map_check(key: int):
+	var temp = get_floor()
+	if temp > SaveManager.player_save.farthest_floor:
+		SaveManager.player_save.farthest_floor = temp

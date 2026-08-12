@@ -588,10 +588,36 @@ position = Vector2(239, 280)
 texture = ExtResource("3_0cso3")
 hframes = 2
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MenuButton3" unique_id=1988561824]
+offset_left = -91.0
+offset_top = -20.0
+offset_right = 91.0
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("4_2klcf")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Flooded[/center]"
+
 [node name="MenuButton4" type="Sprite2D" parent="Control" unique_id=1156602883]
 position = Vector2(239, 330)
 texture = ExtResource("3_0cso3")
 hframes = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MenuButton4" unique_id=580718750]
+offset_left = -91.0
+offset_top = -20.0
+offset_right = 91.0
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.39215687)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("4_2klcf")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Farm[/center]"
 
 [node name="MenuButton5" type="Sprite2D" parent="Control" unique_id=1298656719]
 position = Vector2(239, 380)
