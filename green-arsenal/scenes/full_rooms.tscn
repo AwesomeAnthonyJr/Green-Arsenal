@@ -19,6 +19,17 @@
 [ext_resource type="PackedScene" uid="uid://becoiienuhhxq" path="res://scenes/rooms/underground/underground_4.tscn" id="17_0leoc"]
 [ext_resource type="PackedScene" uid="uid://5svgg8ybpah8" path="res://scenes/rooms/underground/underground_5.tscn" id="18_0leoc"]
 [ext_resource type="PackedScene" uid="uid://5utfgxuuqvei" path="res://scenes/rooms/underground/ending_for_sprint3.tscn" id="19_pkr76"]
+[ext_resource type="PackedScene" uid="uid://cr0mqk4laosnq" path="res://scenes/rooms/underground/flooded_entrance.tscn" id="20_fbsn2"]
+[ext_resource type="PackedScene" uid="uid://cujiqr3ylbmd2" path="res://scenes/rooms/flooded/flooded_1.tscn" id="21_riqy4"]
+[ext_resource type="PackedScene" uid="uid://db4jflsac20nb" path="res://scenes/rooms/flooded/flooded_2.tscn" id="22_e7lqg"]
+[ext_resource type="PackedScene" uid="uid://bs2rdac4jg7ih" path="res://scenes/rooms/flooded/flooded_3.tscn" id="23_22upn"]
+[ext_resource type="PackedScene" uid="uid://dgqm3w63lkt8u" path="res://scenes/rooms/flooded/flooded_4.tscn" id="24_najfe"]
+[ext_resource type="PackedScene" uid="uid://gjeo26v8h0fc" path="res://scenes/rooms/flooded/flooded_5.tscn" id="25_oopqw"]
+[ext_resource type="PackedScene" uid="uid://b1f26djoqqu08" path="res://scenes/rooms/flooded/flooded_6.tscn" id="26_5si26"]
+[ext_resource type="PackedScene" uid="uid://djlqitwfauegy" path="res://scenes/rooms/flooded/flooded_7.tscn" id="27_hex47"]
+[ext_resource type="PackedScene" uid="uid://dvva1qwojsde5" path="res://scenes/rooms/flooded/flooded_8.tscn" id="28_oai41"]
+[ext_resource type="PackedScene" uid="uid://c81iu0i5biq3c" path="res://scenes/rooms/flooded/flooded_9.tscn" id="29_jvonk"]
+[ext_resource type="PackedScene" uid="uid://dcu7vorqubelx" path="res://scenes/rooms/flooded/grand_elevator.tscn" id="30_tfjh6"]
 
 [node name="FullRooms" type="Node3D" unique_id=1444283235]
 
@@ -85,3 +96,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
 
 [node name="Room2" parent="Underground" unique_id=447011960 instance=ExtResource("19_pkr76")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
+visible = false
+
+[node name="Room3" parent="Underground" unique_id=1130156639 instance=ExtResource("20_fbsn2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -280)
+
+[node name="Flooded" type="Node3D" parent="." unique_id=1284765631]
+
+[node name="Room2" parent="Flooded" unique_id=1367083971 instance=ExtResource("21_riqy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -90, -280)
+
+[node name="Room3" parent="Flooded" unique_id=2025403187 instance=ExtResource("22_e7lqg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, -80, -305)
+
+[node name="Room4" parent="Flooded" unique_id=68662033 instance=ExtResource("23_22upn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, -80, -310)
+
+[node name="Room5" parent="Flooded" unique_id=1125657512 instance=ExtResource("24_najfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, -80, -380)
+
+[node name="Room6" parent="Flooded" unique_id=1354826960 instance=ExtResource("25_oopqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, -90, -230)
+
+[node name="Room7" parent="Flooded" unique_id=1265055057 instance=ExtResource("26_5si26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, -90, -190)
+
+[node name="Room8" parent="Flooded" unique_id=2023152892 instance=ExtResource("27_hex47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, -90, -120)
+
+[node name="Room9" parent="Flooded" unique_id=594482869 instance=ExtResource("28_oai41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, -90, -120)
+
+[node name="Room10" parent="Flooded" unique_id=147952268 instance=ExtResource("29_jvonk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, -90, -120)
+
+[node name="Room11" parent="Flooded" unique_id=1494951604 instance=ExtResource("30_tfjh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, -90, -30)
