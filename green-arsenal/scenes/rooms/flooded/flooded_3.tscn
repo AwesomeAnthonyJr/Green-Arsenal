@@ -1884,10 +1884,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -18.5, 4.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, -18.5, 4.5)
 
 [node name="SoilPatch10x23" parent="." unique_id=952960704 instance=ExtResource("6_crywm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -18.5, 14.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -18.5, 15.5)
+
+[node name="SoilPatch10x30" parent="." unique_id=734291768 instance=ExtResource("6_crywm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -18.5, 5.5)
+
+[node name="SoilPatch10x32" parent="." unique_id=1297702008 instance=ExtResource("6_crywm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, -18.5, 5.5)
 
 [node name="SoilPatch10x24" parent="." unique_id=1142276488 instance=ExtResource("6_crywm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, -18.5, 14.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5, -18.5, 15.5)
 
 [node name="SoilPatch10x25" parent="." unique_id=1921318599 instance=ExtResource("6_crywm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -18.5, 14.5)
