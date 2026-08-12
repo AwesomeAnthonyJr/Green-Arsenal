@@ -50,7 +50,9 @@ func _physics_process(delta):
 	if direction_diff.normalized().y >= 0:
 		max = min(calc_propel_percentage(), 1.0)
 	if lift_progress > max:
-		lift_progress = max
+		lift_progress = lerpf(lift_progress, max, 0.01)
+		if lift_progress > 1.0:
+			lift_progress = 1.0
 	if lift_progress < 0:
 		lift_progress = 0
 	for i in bodies.size():
