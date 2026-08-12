@@ -9,6 +9,7 @@ class_name MainMenu
 @onready var anim = $AnimationTree
 @onready var music = $AudioStreamPlayer
 @onready var cam = $Camera3D
+@onready var hint_anim = $CanvasLayer/OtherMenu/Hint/AnimationPlayer
 var menu_position = 0
 #0 - starting
 #1 - box
@@ -55,10 +56,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventKey && event.pressed:
 			supress_next_input = true
 			menu_position = 1
+			hint_anim.play("fade_in_real_slow")
 			SoundManager.play_menu_tick()
 		elif event is InputEventMouseButton && event.pressed:
 			supress_next_input = true
 			menu_position = 1
+			hint_anim.play("fade_in_real_slow")
 			SoundManager.play_menu_tick()
 	update_visuals()
 	

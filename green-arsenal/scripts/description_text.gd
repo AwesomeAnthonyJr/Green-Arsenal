@@ -1,5 +1,8 @@
 extends RichTextLabel
 
+func _ready() -> void:
+	display(text)
+
 func display(message: String):
 	#format any "controls-based" text, using "{}" notation (see godot docs on string formatting)
 	message = message.format({"move_forward": SaveManager.player_settings.get_text("move_forward").to_upper()})
