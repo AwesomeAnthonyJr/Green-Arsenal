@@ -14,9 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://yql0lf7vacmm" path="res://scenes/decorative_torch.tscn" id="10_wlxnf"]
 [ext_resource type="Script" uid="uid://232wxb1vai8x" path="res://scripts/document_reader.gd" id="11_vpplj"]
 [ext_resource type="Texture2D" uid="uid://dao7lyi2os6qj" path="res://sound/paper4.png" id="12_07bq8"]
+[ext_resource type="Script" uid="uid://chgbgevootvag" path="res://scripts/save_flag_reader_destroyer.gd" id="13_0ex2v"]
 [ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="13_81xmf"]
 [ext_resource type="FontFile" uid="uid://buc1bdvmej58m" path="res://fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" id="14_wnrx0"]
-[ext_resource type="Script" uid="uid://chgbgevootvag" path="res://scripts/save_flag_reader_destroyer.gd" id="13_0ex2v"]
+[ext_resource type="PackedScene" uid="uid://c23cpjr70vnif" path="res://scenes/interact_area.tscn" id="17_crywm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -30,7 +31,7 @@
 size = Vector3(1, 0.01, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_crywm"]
-radius = 3.0
+radius = 2.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_3juhj"]
 font = ExtResource("13_81xmf")
@@ -40,7 +41,10 @@ font_color = Color(0, 0, 0, 1)
 font = ExtResource("14_wnrx0")
 font_color = Color(1, 0, 0, 1)
 
-[node name="Room2" type="Node3D" unique_id=2108924292]
+[sub_resource type="SphereShape3D" id="SphereShape3D_3juhj"]
+radius = 2.0
+
+[node name="Room3" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_0ex2v")
 adjacent_rooms = Array[int]([20, 23, 24])
 room_pos = Vector3(140, -80, -310)
@@ -2094,8 +2098,13 @@ AND PLEASE RECALL, YOUR NDAS STILL APPLY.
 "
 label_settings = SubResource("LabelSettings_3juhj")
 
-[connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
-[connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]
+[node name="InteractAreaDocReader" parent="Document_Reader" unique_id=530012375 instance=ExtResource("17_crywm")]
+one_time = false
+interaction_name = "read document"
+
+[node name="CollisionShape3D" parent="Document_Reader/InteractAreaDocReader" index="0" unique_id=1289814683]
+shape = SubResource("SphereShape3D_3juhj")
+
 [node name="TorchLit2" parent="." unique_id=180951703 instance=ExtResource("10_wlxnf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -7.5, 5)
 
@@ -2109,3 +2118,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -7.5, 8)
 script = ExtResource("13_0ex2v")
 flag_index = 40
 destroy_if_true = [NodePath("../GrowthPickup")]
+
+[connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
+[connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]
+
+[editable path="Document_Reader/InteractAreaDocReader"]

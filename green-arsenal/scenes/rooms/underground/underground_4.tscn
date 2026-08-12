@@ -27,6 +27,7 @@
 [ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="25_t6sny"]
 [ext_resource type="FontFile" uid="uid://buc1bdvmej58m" path="res://fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" id="26_cfee7"]
 [ext_resource type="PackedScene" uid="uid://c3xcgxgalv1wm" path="res://scenes/save_operator.tscn" id="27_cfee7"]
+[ext_resource type="PackedScene" uid="uid://c23cpjr70vnif" path="res://scenes/interact_area.tscn" id="27_yd8ou"]
 [ext_resource type="Script" uid="uid://c6erc5wr3cs8" path="res://scripts/upgrade_room_save_operator.gd" id="28_khx12"]
 [ext_resource type="Script" uid="uid://cm0lw40qto3sd" path="res://addons/dialogic/Resources/timeline.gd" id="28_pi4ip"]
 [ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="29_khx12"]
@@ -181,7 +182,7 @@ shader_parameter/uv1_offset = Vector2(0, 0)
 size = Vector3(1, 13, 14)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pi4ip"]
-radius = 3.0
+radius = 2.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_khx12"]
 font = ExtResource("25_t6sny")
@@ -190,6 +191,9 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_yd8ou"]
 font = ExtResource("26_cfee7")
 font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_td7jk"]
+radius = 2.0
 
 [node name="Room" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_oxlpk")
@@ -1787,6 +1791,13 @@ grow_vertical = 2
 rotation = -0.048727535
 label_settings = SubResource("LabelSettings_yd8ou")
 
+[node name="InteractAreaDocReader" parent="Document_Reader" unique_id=530012375 instance=ExtResource("27_yd8ou")]
+one_time = false
+interaction_name = "read document"
+
+[node name="CollisionShape3D" parent="Document_Reader/InteractAreaDocReader" index="0" unique_id=1289814683]
+shape = SubResource("SphereShape3D_td7jk")
+
 [node name="SaveOperator" parent="." unique_id=137866287 instance=ExtResource("27_cfee7")]
 transform = Transform3D(0.08324285, 0, -0.9965293, 0, 1, 0, 0.9965293, 0, 0.08324285, 62.006584, -6.657259, -13.367964)
 script = ExtResource("28_khx12")
@@ -1798,3 +1809,5 @@ load_point = 5
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_018" method="set_flag_true"]
 [connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
 [connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]
+
+[editable path="Document_Reader/InteractAreaDocReader"]

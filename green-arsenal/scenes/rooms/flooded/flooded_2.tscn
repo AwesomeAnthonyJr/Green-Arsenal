@@ -109,7 +109,7 @@ shader_parameter/uv1_offset = Vector2(0, 0)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vlfq7"]
 size = Vector3(1, 11, 10.3927)
 
-[node name="Room2" type="Node3D" unique_id=2108924292]
+[node name="Room3" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_1ftrc")
 adjacent_rooms = Array[int]([20])
 room_pos = Vector3(30, -80, -305)

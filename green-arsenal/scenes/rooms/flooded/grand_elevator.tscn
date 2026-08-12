@@ -79,7 +79,7 @@ size = Vector3(5, 9, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nwuta"]
 size = Vector3(21, 8, 21)
 
-[node name="Room2" type="Node3D" unique_id=2108924292]
+[node name="Room3" type="Node3D" unique_id=2108924292]
 script = ExtResource("1_ld7xf")
 adjacent_rooms = Array[int]([28, 30])
 room_pos = Vector3(40, -90, -30)

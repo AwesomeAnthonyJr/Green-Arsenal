@@ -291,9 +291,9 @@ func song_check(key: int, smooth: bool = true):
 	match key:
 		4, 8, 10, 11, 9:
 			song_change(Preloads.gameplay_music_01, smooth)
-		12, 19:
+		12, 17, 19:
 			song_change(Preloads.gameplay_music_02, smooth)
-		19, 28:
+		20, 21, 28:
 			song_change(Preloads.gameplay_music_03, smooth)
 		29:
 			song_change(Preloads.silence, smooth)

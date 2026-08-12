@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="9_43op1"]
 [ext_resource type="FontFile" uid="uid://buc1bdvmej58m" path="res://fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" id="9_oq4qj"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="10_32iv3"]
+[ext_resource type="PackedScene" uid="uid://c23cpjr70vnif" path="res://scenes/interact_area.tscn" id="10_oq4qj"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="11_cl7k8"]
 [ext_resource type="Script" uid="uid://h1irw11mld5" path="res://scripts/propellable_platform.gd" id="13_tyr43"]
 [ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_1.tres" id="14_04l6j"]
@@ -29,7 +30,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_dimcy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_il0kl"]
-radius = 3.0
+radius = 2.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_wuxxj"]
 font = ExtResource("8_u2vnn")
@@ -38,6 +39,9 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_md58x"]
 font = ExtResource("9_oq4qj")
 font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wuxxj"]
+radius = 2.0
 
 [sub_resource type="Animation" id="Animation_ybq8s"]
 length = 0.001
@@ -1814,6 +1818,13 @@ AND PLEASE RECALL, YOUR NDAS STILL APPLY.
 "
 label_settings = SubResource("LabelSettings_wuxxj")
 
+[node name="InteractAreaDocReader" parent="Document_Reader" unique_id=530012375 instance=ExtResource("10_oq4qj")]
+one_time = false
+interaction_name = "read document"
+
+[node name="CollisionShape3D" parent="Document_Reader/InteractAreaDocReader" index="0" unique_id=1289814683]
+shape = SubResource("SphereShape3D_wuxxj")
+
 [node name="TorchBoss" type="Node3D" parent="." unique_id=998791055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -23, 1.5)
 script = ExtResource("6_43op1")
@@ -2164,3 +2175,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, -13, -5)
 [connection signal="body_exited" from="PropellablePlatform3/AnimatableBody3D2/WeightReader" to="PropellablePlatform3" method="read_weight_exit"]
 [connection signal="body_entered" from="PropellablePlatform6/AnimatableBody3D2/WeightReader" to="PropellablePlatform6" method="read_weight_enter"]
 [connection signal="body_exited" from="PropellablePlatform6/AnimatableBody3D2/WeightReader" to="PropellablePlatform6" method="read_weight_exit"]
+
+[editable path="Document_Reader/InteractAreaDocReader"]
