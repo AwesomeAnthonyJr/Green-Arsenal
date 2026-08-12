@@ -101,9 +101,9 @@ func _physics_process(delta: float) -> void:
 		target_routine += delta * attack_speed
 		if target_routine < 3.0:
 			speed = lerpf(speed, 0.0, 0.8)
-		elif target_routine < 4.0:
+		elif target_routine < 5.0:
 			speed = lerpf(speed, original_speed + 6.0, 0.5)
-		elif target_routine < 5.5:
+		elif target_routine < 6.5:
 			speed = original_speed
 			targeting = false
 	else:

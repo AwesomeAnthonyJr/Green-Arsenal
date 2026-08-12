@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://yql0lf7vacmm"]
 
-[ext_resource type="Material" uid="uid://261r71cbnjxf" path="res://materials/player_glasses.tres" id="2_f0goi"]
+[ext_resource type="Shader" uid="uid://bue2b34h86uxe" path="res://shaders/cel_shaded_two_sides.gdshader" id="1_ehieq"]
 [ext_resource type="Texture2D" uid="uid://cl53yw3obrmyp" path="res://ui/vector_circle.png" id="3_c3drt"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r3k50"]
@@ -16,14 +16,92 @@ radius = 0.99
 [sub_resource type="CylinderMesh" id="CylinderMesh_h45xw"]
 height = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7gwpb"]
+render_priority = 0
+shader = ExtResource("1_ehieq")
+shader_parameter/albedo = Color(0.28009015, 0.28688654, 0.18325686, 1)
+shader_parameter/albedo_in_shadow = Color(0.022687055, 0.24887076, 0.13362762, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_my26j"]
 top_radius = 1.0
 height = 0.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lestc"]
+render_priority = 0
+shader = ExtResource("1_ehieq")
+shader_parameter/albedo = Color(0.28009015, 0.28688654, 0.18325686, 1)
+shader_parameter/albedo_in_shadow = Color(0.022687055, 0.24887076, 0.13362762, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_o2tjn"]
 top_radius = 0.01
 bottom_radius = 0.1
 height = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f0goi"]
+render_priority = 0
+shader = ExtResource("1_ehieq")
+shader_parameter/albedo = Color(0.28009015, 0.28688654, 0.18325686, 1)
+shader_parameter/albedo_in_shadow = Color(0.022687055, 0.24887076, 0.13362762, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3drt"]
+render_priority = 0
+shader = ExtResource("1_ehieq")
+shader_parameter/albedo = Color(0.28009015, 0.28688654, 0.18325686, 1)
+shader_parameter/albedo_in_shadow = Color(0.022687055, 0.24887076, 0.13362762, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gyrcr"]
+render_priority = 0
+shader = ExtResource("1_ehieq")
+shader_parameter/albedo = Color(0.28009015, 0.28688654, 0.18325686, 1)
+shader_parameter/albedo_in_shadow = Color(0.022687055, 0.24887076, 0.13362762, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dcw21"]
+render_priority = 0
+shader = ExtResource("1_ehieq")
+shader_parameter/albedo = Color(0.28009015, 0.28688654, 0.18325686, 1)
+shader_parameter/albedo_in_shadow = Color(0.022687055, 0.24887076, 0.13362762, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.8
+shader_parameter/specular_strength = 1.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.05999999865888
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
 
 [node name="TorchLit" type="Node3D" unique_id=2026293210]
 
@@ -51,19 +129,12 @@ shape = SubResource("CylinderShape3D_ndh0a")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1583428369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CylinderMesh_h45xw")
-surface_material_override/0 = ExtResource("2_f0goi")
+surface_material_override/0 = SubResource("ShaderMaterial_7gwpb")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=248284720]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1068844, 0)
 mesh = SubResource("CylinderMesh_my26j")
-surface_material_override/0 = ExtResource("2_f0goi")
-
-[node name="Node3D" type="Node3D" parent="." unique_id=1285048407]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1044575409]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
-mesh = SubResource("CylinderMesh_o2tjn")
-surface_material_override/0 = ExtResource("2_f0goi")
+surface_material_override/0 = SubResource("ShaderMaterial_lestc")
 
 [node name="Node3D2" type="Node3D" parent="." unique_id=965516036]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
@@ -71,15 +142,7 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2" unique_id=840483822]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
 mesh = SubResource("CylinderMesh_o2tjn")
-surface_material_override/0 = ExtResource("2_f0goi")
-
-[node name="Node3D3" type="Node3D" parent="." unique_id=1065190370]
-transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D3" unique_id=1312118538]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
-mesh = SubResource("CylinderMesh_o2tjn")
-surface_material_override/0 = ExtResource("2_f0goi")
+surface_material_override/0 = SubResource("ShaderMaterial_f0goi")
 
 [node name="Node3D4" type="Node3D" parent="." unique_id=561308369]
 transform = Transform3D(-0.70710665, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.70710665, 0, 0, 0)
@@ -87,15 +150,7 @@ transform = Transform3D(-0.70710665, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D4" unique_id=492977480]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
 mesh = SubResource("CylinderMesh_o2tjn")
-surface_material_override/0 = ExtResource("2_f0goi")
-
-[node name="Node3D5" type="Node3D" parent="." unique_id=504441724]
-transform = Transform3D(-0.9999997, 0, 0, 0, 1, 0, 0, 0, -0.9999997, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D5" unique_id=596727064]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
-mesh = SubResource("CylinderMesh_o2tjn")
-surface_material_override/0 = ExtResource("2_f0goi")
+surface_material_override/0 = SubResource("ShaderMaterial_c3drt")
 
 [node name="Node3D6" type="Node3D" parent="." unique_id=1185676132]
 transform = Transform3D(-0.7071068, -0.003971378, -0.70709497, -0.0045901616, 0.9999889, -0.0010261658, 0.7070913, 0.0025200732, -0.7071172, 0, 0, 0)
@@ -103,15 +158,7 @@ transform = Transform3D(-0.7071068, -0.003971378, -0.70709497, -0.0045901616, 0.
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D6" unique_id=1600812469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
 mesh = SubResource("CylinderMesh_o2tjn")
-surface_material_override/0 = ExtResource("2_f0goi")
-
-[node name="Node3D7" type="Node3D" parent="." unique_id=1249630039]
-transform = Transform3D(-1.1622906e-06, -0.0049975924, -0.999987, -0.007110253, 0.99996215, -0.004997456, 0.9999743, 0.0071101617, -3.6656857e-05, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D7" unique_id=1528840331]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
-mesh = SubResource("CylinderMesh_o2tjn")
-surface_material_override/0 = ExtResource("2_f0goi")
+surface_material_override/0 = SubResource("ShaderMaterial_gyrcr")
 
 [node name="Node3D8" type="Node3D" parent="." unique_id=957888350]
 transform = Transform3D(0.7070878, 0.0014938121, -0.7071236, -0.0071102534, 0.9999623, -0.004997456, 0.7070895, 0.008561475, 0.7070717, 0, 0, 0)
@@ -119,7 +166,7 @@ transform = Transform3D(0.7070878, 0.0014938121, -0.7071236, -0.0071102534, 0.99
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D8" unique_id=1932705568]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 1.75, 0)
 mesh = SubResource("CylinderMesh_o2tjn")
-surface_material_override/0 = ExtResource("2_f0goi")
+surface_material_override/0 = SubResource("ShaderMaterial_dcw21")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1107837933]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1.7778337, 0)

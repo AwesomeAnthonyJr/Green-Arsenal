@@ -26,7 +26,7 @@ const positions = [
 
 #this tells it which room to start in basically; -1 for testing!
 const load_point_keys = {
-	-1: 20,
+	-1: 29,
 	0: 4,
 	1: 4,
 	2: 8,
@@ -66,6 +66,10 @@ const room_dict = {
 	23: "res://scenes/rooms/flooded/flooded_4.tscn",
 	24: "res://scenes/rooms/flooded/flooded_5.tscn",
 	25: "res://scenes/rooms/flooded/flooded_6.tscn",
+	26: "res://scenes/rooms/flooded/flooded_7.tscn",
+	27: "res://scenes/rooms/flooded/flooded_8.tscn",
+	28: "res://scenes/rooms/flooded/flooded_9.tscn",
+	29: "res://scenes/rooms/flooded/grand_elevator.tscn",
 	
 	99: "res://scenes/rooms/underground/ending_for_sprint3.tscn",
 }
@@ -100,6 +104,10 @@ const reverse_dict = {
 	"res://scenes/rooms/flooded/flooded_4.tscn": 23,
 	"res://scenes/rooms/flooded/flooded_5.tscn": 24,
 	"res://scenes/rooms/flooded/flooded_6.tscn": 25,
+	"res://scenes/rooms/flooded/flooded_7.tscn": 26,
+	"res://scenes/rooms/flooded/flooded_8.tscn": 27,
+	"res://scenes/rooms/flooded/flooded_9.tscn": 28,
+	"res://scenes/rooms/flooded/grand_elevator.tscn": 29,
 	
 	"res://scenes/rooms/underground/ending_for_sprint3.tscn": 99,
 }

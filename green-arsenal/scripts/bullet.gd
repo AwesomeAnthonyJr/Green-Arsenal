@@ -41,8 +41,10 @@ func _physics_process(delta: float) -> void:
 		elif enemy_cast.get_collider(0).is_in_group("fresh_water"):
 			in_water = true
 		elif enemy_cast.get_collider(0).is_in_group("seeker_flower"):
-			get_parent().remove_child(self)
-			enemy_cast.get_collider(0).get_parent().store(self)
+			var temp = enemy_cast.get_collider(0).get_parent()
+			if temp.just_caught != true:
+				get_parent().remove_child(self)
+				temp.store(self)
 		elif enemy_cast.get_collider(0).is_in_group("roller"):
 			hit_roller(enemy_cast.get_collider(0))
 		elif enemy_cast.get_collider(0).is_in_group("target"):
