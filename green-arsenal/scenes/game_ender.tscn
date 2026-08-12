@@ -12,7 +12,7 @@ script = ExtResource("1_8vh84")
 
 [node name="InteractArea" type="Area3D" parent="." unique_id=530012375]
 script = ExtResource("1_0rf2p")
-interaction_name = "end the game"
+interaction_name = "plant a seed"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea" unique_id=1289814683]
 shape = SubResource("SphereShape3D_h45xw")

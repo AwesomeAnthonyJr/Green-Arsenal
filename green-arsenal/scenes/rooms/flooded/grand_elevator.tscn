@@ -15,6 +15,9 @@
 [ext_resource type="Material" uid="uid://dcpyv6dn0ogl2" path="res://materials/strangler_bark.tres" id="13_yydo2"]
 [ext_resource type="Shape3D" uid="uid://b3sywhw2o6cbf" path="res://scenes/level_parts/baked_meshes/strangler_elevator_col1.res" id="14_7h2ag"]
 [ext_resource type="Shape3D" uid="uid://yhinpdkdryn5" path="res://scenes/level_parts/baked_meshes/strangler_elevator_col2.res" id="15_ld7xf"]
+[ext_resource type="Texture2D" uid="uid://64y1uvyj5p0t" path="res://ui/Moonsanto Logo(1).png" id="16_e8baq"]
+[ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="17_7h2ag"]
+[ext_resource type="PackedScene" uid="uid://brwrex0uwtmra" path="res://scenes/level_parts/facility_light.tscn" id="18_ld7xf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1728,6 +1731,137 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Strangler/StaticBody3D_L2" unique_id=394734890]
 shape = ExtResource("15_ld7xf")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=393173714]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.112976074, 123.14366, -34.971886)
+texture = ExtResource("16_e8baq")
+
+[node name="Label3D" type="Label3D" parent="Sprite3D" unique_id=1337307517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1934717, -1.2574997, 0.008084297)
+render_priority = 1
+modulate = Color(0.98039216, 0.8156863, 0.09803922, 1)
+outline_modulate = Color(0, 0.09803922, 0.80784315, 1)
+text = "Fig Farm"
+font = ExtResource("17_7h2ag")
+font_size = 96
+horizontal_alignment = 0
+
+[node name="FacilityLight" parent="." unique_id=846988860 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 10.5, 12.6, -24.5)
+
+[node name="FacilityLight2" parent="." unique_id=1834874189 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -10.5, 12.5, -24.5)
+
+[node name="FacilityLight3" parent="." unique_id=691395126 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 12.5, -14)
+
+[node name="FacilityLight4" parent="." unique_id=1086180780 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 0, 12.5, -35)
+
+[node name="FacilityLight5" parent="." unique_id=231622280 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 10.5, 27.6, -24.5)
+
+[node name="FacilityLight6" parent="." unique_id=2040088059 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -10.5, 27.5, -24.5)
+
+[node name="FacilityLight7" parent="." unique_id=1379554487 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 27.5, -14)
+
+[node name="FacilityLight8" parent="." unique_id=1786462943 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 0, 27.5, -35)
+
+[node name="FacilityLight9" parent="." unique_id=1419592305 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 10.5, 42.6, -24.5)
+
+[node name="FacilityLight10" parent="." unique_id=562976958 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -10.5, 42.5, -24.5)
+
+[node name="FacilityLight11" parent="." unique_id=1922232798 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 42.5, -14)
+
+[node name="FacilityLight12" parent="." unique_id=1167720460 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 0, 42.5, -35)
+
+[node name="FacilityLight13" parent="." unique_id=520198087 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 10.5, 57.6, -24.5)
+
+[node name="FacilityLight14" parent="." unique_id=1530355979 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -10.5, 57.5, -24.5)
+
+[node name="FacilityLight15" parent="." unique_id=1472911006 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 57.5, -14)
+
+[node name="FacilityLight16" parent="." unique_id=1495382691 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 0, 57.5, -35)
+
+[node name="FacilityLight17" parent="." unique_id=368368313 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 10.5, 72.6, -24.5)
+
+[node name="FacilityLight18" parent="." unique_id=1297073751 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -10.5, 72.5, -24.5)
+
+[node name="FacilityLight19" parent="." unique_id=746427042 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 72.5, -14)
+
+[node name="FacilityLight20" parent="." unique_id=1662419656 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 0, 72.5, -35)
+
+[node name="FacilityLight21" parent="." unique_id=675566048 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 10.5, 87.6, -24.5)
+
+[node name="FacilityLight22" parent="." unique_id=977273001 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -10.5, 87.5, -24.5)
+
+[node name="FacilityLight23" parent="." unique_id=1722344963 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 87.5, -14)
+
+[node name="FacilityLight24" parent="." unique_id=956579745 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 0, 87.5, -35)
+
+[node name="FacilityLight25" parent="." unique_id=1856484339 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 10.5, 102.6, -24.5)
+
+[node name="FacilityLight26" parent="." unique_id=1489706617 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -10.5, 102.5, -24.5)
+
+[node name="FacilityLight27" parent="." unique_id=2045618118 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 102.5, -14)
+
+[node name="FacilityLight28" parent="." unique_id=249712256 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 0, 102.5, -35)
+
+[node name="FacilityLight29" parent="." unique_id=506101274 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 10.5, 117.6, -24.5)
+
+[node name="FacilityLight30" parent="." unique_id=198382678 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -10.5, 117.5, -24.5)
+
+[node name="FacilityLight31" parent="." unique_id=1639335163 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 117.5, -14)
+
+[node name="FacilityLight33" parent="." unique_id=207716882 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 10.5, 131.6, -24.5)
+
+[node name="FacilityLight34" parent="." unique_id=1470048032 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -10.5, 131.5, -24.5)
+
+[node name="FacilityLight35" parent="." unique_id=1442910751 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 131.5, -14)
+
+[node name="FacilityLight36" parent="." unique_id=1010548479 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 0, 131.5, -35)
+
+[node name="FacilityLight37" parent="." unique_id=1975055541 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, -4.371139e-08, 1, -1, 1.9106855e-15, -4.371139e-08, 0, -1, -4.371139e-08, 10.5, 146.6, -24.5)
+
+[node name="FacilityLight38" parent="." unique_id=473259360 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -10.5, 146.5, -24.5)
+
+[node name="FacilityLight39" parent="." unique_id=197982738 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 146.5, -14)
+
+[node name="FacilityLight40" parent="." unique_id=679091291 instance=ExtResource("18_ld7xf")]
+transform = Transform3D(4.371139e-08, -1, 8.742278e-08, -1, -4.371139e-08, 0, 3.821371e-15, -8.742278e-08, -1, 0, 146.5, -35)
 
 [connection signal="body_entered" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_enter"]
 [connection signal="body_exited" from="PropellablePlatform/AnimatableBody3D2/WeightReader" to="PropellablePlatform" method="read_weight_exit"]
