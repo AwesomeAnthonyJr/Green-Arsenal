@@ -23,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://cb7uof53bwjfl" path="res://misc/dialogic/generic_prevault_op.dtl" id="21_h7p1y"]
 [ext_resource type="Resource" uid="uid://c2g44myl2ne7b" path="res://misc/dialogic/platform_vault_op.dtl" id="22_3ukox"]
 [ext_resource type="Resource" uid="uid://bbrrji02venh4" path="res://misc/dialogic/generic_operator.dtl" id="23_nqorx"]
+[ext_resource type="PackedScene" uid="uid://cd4lwde4ynq5h" path="res://scenes/flyingEnemy_2.tscn" id="24_nyjvi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1076,6 +1077,12 @@ transform = Transform3D(-0.08324294, 0, 0.9965293, 0, 1, 0, -0.9965293, 0, -0.08
 script = ExtResource("19_6b71u")
 operator_scenes = Array[ExtResource("20_3you0")]([ExtResource("21_h7p1y"), ExtResource("22_3ukox"), ExtResource("23_nqorx")])
 load_point = 6
+
+[node name="Enemy" parent="." unique_id=553297755 instance=ExtResource("24_nyjvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.433465, 5.250886, 24.443619)
+
+[node name="Enemy2" parent="." unique_id=1611351175 instance=ExtResource("24_nyjvi")]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, -4.566535, 5.250886, 24.443619)
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_021" method="set_flag_true"]

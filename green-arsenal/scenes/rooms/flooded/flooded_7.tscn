@@ -17,6 +17,7 @@
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="10_32iv3"]
 [ext_resource type="PackedScene" uid="uid://c23cpjr70vnif" path="res://scenes/interact_area.tscn" id="10_oq4qj"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="11_cl7k8"]
+[ext_resource type="PackedScene" uid="uid://cd4lwde4ynq5h" path="res://scenes/flyingEnemy_2.tscn" id="11_md58x"]
 [ext_resource type="Script" uid="uid://h1irw11mld5" path="res://scripts/propellable_platform.gd" id="13_tyr43"]
 [ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_1.tres" id="14_04l6j"]
 [ext_resource type="Texture2D" uid="uid://c1sm0y8xop0pw" path="res://textures/brick_texture.png" id="15_tmn8c"]
@@ -25,6 +26,7 @@
 [ext_resource type="Material" uid="uid://doiuat84x0eiv" path="res://materials/fresh_water.tres" id="18_tmn8c"]
 [ext_resource type="PackedScene" uid="uid://yql0lf7vacmm" path="res://scenes/decorative_torch.tscn" id="19_6ehpb"]
 [ext_resource type="Script" uid="uid://bh80bns07b57v" path="res://scripts/water_surface.gd" id="24_il0kl"]
+[ext_resource type="PackedScene" uid="uid://f7elpfa50b4r" path="res://scenes/flyingEnemy_3.tscn" id="27_mo56w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -931,7 +933,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_se0fp")
 
 [node name="NonSoilFloor82" type="StaticBody3D" parent="." unique_id=1745475156]
-transform = Transform3D(-1.25, 0, -1.509958e-06, 0, 10, 0, 1.8874475e-07, 0, -10, 35, -18, 1)
+transform = Transform3D(-1, 0, -1.509958e-06, 0, 10, 0, 1.509958e-07, 0, -10, 35, -18, 1)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor82" unique_id=1517600776]
@@ -1830,6 +1832,15 @@ AND PLEASE RECALL, YOUR NDAS STILL APPLY.
 "
 label_settings = SubResource("LabelSettings_wuxxj")
 
+[node name="Enemy" parent="Document_Reader" unique_id=553297755 instance=ExtResource("11_md58x")]
+transform = Transform3D(-0.6055895, 0, 0.7957776, 0, 1, 0, -0.7957776, 0, -0.6055895, -21.393097, -17.17182, 3.9384956)
+
+[node name="Enemy2" parent="Document_Reader" unique_id=2071925758 instance=ExtResource("11_md58x")]
+transform = Transform3D(-0.9223449, 0, 0.38636887, 0, 1, 0, -0.38636887, 0, -0.9223449, -25.347683, -17.17182, 0.87887955)
+
+[node name="Enemy3" parent="Document_Reader" unique_id=474114844 instance=ExtResource("11_md58x")]
+transform = Transform3D(0.79091746, 0, -0.6119242, 0, 1, 0, 0.6119242, 0, 0.79091746, -35.39241, -17.17182, 17.130157)
+
 [node name="TorchBoss" type="Node3D" parent="." unique_id=998791055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -23, 1.5)
 script = ExtResource("6_43op1")
@@ -1942,7 +1953,7 @@ mesh = SubResource("BoxMesh_6ehpb")
 surface_material_override/0 = ExtResource("17_04l6j")
 
 [node name="PropellablePlatform2" type="Node3D" parent="." unique_id=1796256594]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, -21, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, -21, 1)
 script = ExtResource("13_tyr43")
 end_position = Vector3(-9.5, -5.7, -29)
 start_position = Vector3(-9.5, -15, -29)
@@ -2167,6 +2178,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, -13, -13)
 
 [node name="TorchLit4" parent="." unique_id=1869622857 instance=ExtResource("19_6ehpb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, -13, -5)
+
+[node name="Enemy" parent="." unique_id=1202883313 instance=ExtResource("27_mo56w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.759293, -10.492523, 3)
 
 [connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
 [connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]

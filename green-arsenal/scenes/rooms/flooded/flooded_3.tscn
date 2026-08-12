@@ -19,6 +19,7 @@
 [ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="13_81xmf"]
 [ext_resource type="FontFile" uid="uid://buc1bdvmej58m" path="res://fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" id="14_wnrx0"]
 [ext_resource type="PackedScene" uid="uid://c23cpjr70vnif" path="res://scenes/interact_area.tscn" id="17_crywm"]
+[ext_resource type="PackedScene" uid="uid://f7elpfa50b4r" path="res://scenes/flyingEnemy_3.tscn" id="19_7bga6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -2110,6 +2111,12 @@ interaction_name = "read document"
 
 [node name="CollisionShape3D" parent="Document_Reader/InteractAreaDocReader" index="0" unique_id=1289814683]
 shape = SubResource("SphereShape3D_3juhj")
+
+[node name="Enemy" parent="Document_Reader" unique_id=553297755 instance=ExtResource("19_7bga6")]
+transform = Transform3D(-0.5068895, 0, -0.862011, 0, 1, 0, 0.862011, 0, -0.5068895, -32.73825, 12.233099, -18.152538)
+
+[node name="Enemy2" parent="Document_Reader" unique_id=1064169250 instance=ExtResource("19_7bga6")]
+transform = Transform3D(-0.5068895, 0, -0.862011, 0, 1, 0, 0.862011, 0, -0.5068895, -31.163446, 12.233099, -34.64035)
 
 [node name="TorchLit2" parent="." unique_id=180951703 instance=ExtResource("10_wlxnf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -7.5, 5)

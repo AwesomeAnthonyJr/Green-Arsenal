@@ -34,6 +34,7 @@ const grow = preload("res://sound/effects/green_arsenal_grow.wav")
 const heal = preload("res://sound/effects/green_arsenal_heal.wav")
 const heal_2 = preload("res://sound/effects/green_arsenal_warp_away.wav")
 const explosion_1 = preload("res://sound/imported_from_old_projects/explosion1.wav")
+const orb = preload("res://sound/imported_from_old_projects/xcvb_orb.wav")
 
 #pool of players so rapid/overlapping shots don't cut each other off
 const pool_size = 8
@@ -121,6 +122,10 @@ func play_max_heal():
 
 func play_enemy_destroy():
 	_play(explosion_1, -5, 0, randf_range(1.0, 1.3))
+
+func play_orb():
+	_play(orb)
+	_play(heal_2)
 
 #seed_id matches Player.loaded_in_gun's ammo ids (see Constants.seed_order / Player.shoot())
 func play_seed_shot(seed_id: int) -> void:

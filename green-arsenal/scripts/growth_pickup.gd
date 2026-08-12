@@ -8,4 +8,5 @@ func interact_pickup(obj):
 		#print(SaveManager.player_save.growth_charges)
 		SaveManager.player_save.game_flags[flag_index] = true
 		obj.check_special_plants()
+		SoundManager.play_orb()
 		queue_free()

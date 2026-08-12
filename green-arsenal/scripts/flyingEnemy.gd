@@ -121,18 +121,23 @@ func _physics_process(delta: float) -> void:
 			speed = original_speed
 			attack_detection()
 func take_damage(amount: int) -> void:
+	SoundManager.play_root_destroy()
 	currHealth -= amount
 	print("Remaining health: ", currHealth)
 	if currHealth <= 0:
 		die()
+	else:
+		smoke_particles.one_shot = true
+		smoke_particles.emitting = true
 
 func take_knockback(amount: Vector3) -> void:
 	target_velocity += amount
+	SoundManager.play_root_destroy()
 
 func die() -> void:
 	#print("Enemy dead")
-	SoundManager.play_root_destroy()
 	dead = true
+	smoke_particles.one_shot = false
 	smoke_particles.emitting = true
 	mesh.set_surface_override_material(1, Preloads.pure_black_mat)
 	#queue_free() 
