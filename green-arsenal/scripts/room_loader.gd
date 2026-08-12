@@ -122,8 +122,14 @@ func get_floor():
 	if active_key > -1 and active_key < 12:
 		return 1
 	#underground
-	elif active_key > 11 and active_key < 999:
+	elif active_key > 11 and active_key < 21:
 		return 2
+	#flooded
+	elif active_key > 20 and active_key < 30:
+		return 3
+	#farm
+	elif active_key > 29 and active_key < 999:
+		return 4
 	
 	#special
 	if active_key == -10:

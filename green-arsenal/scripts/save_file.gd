@@ -55,6 +55,7 @@ class_name SaveFile
 	false, #flooded_9 - torch 2
 	false, #flooded_9 - torch 3
 	false, #flooded_9 - torch 4
+	false, #flooded_3 - growth pickup | 40
 ]
 ###this is mostly for the map screen to hide certain layers until its time
 @export var farthest_floor: int = 2

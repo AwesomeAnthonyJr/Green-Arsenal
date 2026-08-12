@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cj3xvugwergwm" path="res://scenes/level_parts/tree_c.tscn" id="8_wlxnf"]
 [ext_resource type="PackedScene" uid="uid://cr186n5f34odd" path="res://scenes/level_parts/tree_e.tscn" id="9_fxpjb"]
 [ext_resource type="PackedScene" uid="uid://yql0lf7vacmm" path="res://scenes/decorative_torch.tscn" id="10_wlxnf"]
+[ext_resource type="Script" uid="uid://chgbgevootvag" path="res://scripts/save_flag_reader_destroyer.gd" id="13_0ex2v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1866,7 +1867,7 @@ surface_material_override/0 = ExtResource("3_07bq8")
 
 [node name="GrowthPickup" parent="." unique_id=255482846 instance=ExtResource("4_fxpjb")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 17.50003, -6.993562, 8.000092)
-flag_index = 15
+flag_index = 40
 
 [node name="Exit2" parent="." unique_id=702144204 instance=ExtResource("5_wnrx0")]
 transform = Transform3D(1, 0, 0, 0, 11, 0, 0, 0, 9.82, -51.459137, -3.5, 5.1919117)
@@ -1970,3 +1971,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -7.5, 11)
 
 [node name="TorchLit4" parent="." unique_id=1198962337 instance=ExtResource("10_wlxnf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -7.5, 8)
+
+[node name="SaveFlagReaderDestroyer_040" type="Node" parent="." unique_id=788654430 node_paths=PackedStringArray("destroy_if_true")]
+script = ExtResource("13_0ex2v")
+flag_index = 40
+destroy_if_true = [NodePath("../GrowthPickup")]
