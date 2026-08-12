@@ -1,4 +1,5 @@
 extends Node3D
+class_name MainMenu
 
 @onready var new_text = $CanvasLayer/OtherMenu/New
 @onready var load_text = $CanvasLayer/OtherMenu/Load
@@ -223,7 +224,7 @@ func connect_inputs():
 	manager.left.connect(read_left)
 	manager.right.connect(read_right)
 	manager.sprint_burst.connect(read_back)
-	manager.jump.connect(read_accept)
+	#manager.jump.connect(read_accept)
 	manager.pause.connect(read_back)
 	manager.reload.connect(read_back)
 	manager.interact.connect(read_accept)

@@ -105,6 +105,12 @@ var in_menu = false
 func _ready() -> void:
 	main = Generics.find_main(self)
 	connect_inputs()
+	status_buttons.hide()
+	controls_buttons.hide()
+	config_buttons.hide()
+	config_title_buttons.hide()
+	map_buttons.hide()
+	
 func connect_inputs():
 	var manager = main.input_manager
 	manager.up.connect(read_up)
@@ -146,6 +152,11 @@ func read_pause():
 func close_pause_menu():
 	get_tree().paused = false
 	in_menu = false
+	status_buttons.hide()
+	controls_buttons.hide()
+	config_buttons.hide()
+	config_title_buttons.hide()
+	map_buttons.hide()
 	var playback = main_anim_tree["parameters/playback"]
 	match current_menu:
 		MenuSelection.STATUS:
