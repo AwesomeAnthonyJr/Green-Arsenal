@@ -466,7 +466,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_se0fp")
 
 [node name="NonSoilFloor113" type="StaticBody3D" parent="." unique_id=1761129890]
-transform = Transform3D(-2.5, 0, -1.509958e-06, 0, 1, 0, 3.774895e-07, 0, -10, -25.5, -13.5, -9)
+transform = Transform3D(-2.5, 0, -1.509958e-06, 0, 1, 0, 3.774895e-07, 0, -10, -22.5, -13.5, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor113" unique_id=807406709]
@@ -479,7 +479,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_se0fp")
 
 [node name="NonSoilFloor114" type="StaticBody3D" parent="." unique_id=1483992136]
-transform = Transform3D(-2.5, 0, -1.509958e-06, 0, 1, 0, 3.774895e-07, 0, -10, -33.5, -13.5, -9)
+transform = Transform3D(-2.5, 0, -1.509958e-06, 0, 1, 0, 3.774895e-07, 0, -10, -34.5, -13.5, -9)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor114" unique_id=419446708]
@@ -492,7 +492,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_se0fp")
 
 [node name="NonSoilFloor115" type="StaticBody3D" parent="." unique_id=437373800]
-transform = Transform3D(4.8676793e-07, 0, -10, 0, 1, 0, 2.5, 0, 1.9470717e-06, -29.5, -13.5, -5)
+transform = Transform3D(4.8676793e-07, 0, -10, 0, 1, 0, 2.5, 0, 1.9470717e-06, -29.5, -13.5, -4)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor115" unique_id=1476185649]
@@ -505,7 +505,7 @@ mesh = SubResource("BoxMesh_dimcy")
 surface_material_override/0 = ExtResource("3_se0fp")
 
 [node name="NonSoilFloor116" type="StaticBody3D" parent="." unique_id=652410536]
-transform = Transform3D(4.8676793e-07, 0, -10, 0, 1, 0, 2.5, 0, 1.9470717e-06, -29.5, -13.5, -13)
+transform = Transform3D(4.8676793e-07, 0, -10, 0, 1, 0, 2.5, 0, 1.9470717e-06, -29.5, -13.5, -14)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NonSoilFloor116" unique_id=298780650]
@@ -2011,10 +2011,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -13, 51)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5, -13, -9)
 
 [node name="TorchLit3" parent="." unique_id=465198473 instance=ExtResource("19_6ehpb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -13, -13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, -13, -13)
 
 [node name="TorchLit4" parent="." unique_id=1869622857 instance=ExtResource("19_6ehpb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -13, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, -13, -5)
 
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch" to="SaveFlagSetter_029" method="set_flag_true"]
