@@ -70,6 +70,7 @@ const room_dict = {
 	27: "res://scenes/rooms/flooded/flooded_8.tscn",
 	28: "res://scenes/rooms/flooded/flooded_9.tscn",
 	29: "res://scenes/rooms/flooded/grand_elevator.tscn",
+	30: "res://scenes/rooms/farm/farm_1.tscn",
 	
 	99: "res://scenes/rooms/underground/ending_for_sprint3.tscn",
 }
@@ -108,6 +109,7 @@ const reverse_dict = {
 	"res://scenes/rooms/flooded/flooded_8.tscn": 27,
 	"res://scenes/rooms/flooded/flooded_9.tscn": 28,
 	"res://scenes/rooms/flooded/grand_elevator.tscn": 29,
+	"res://scenes/rooms/farm/farm_1.tscn": 30,
 	
 	"res://scenes/rooms/underground/ending_for_sprint3.tscn": 99,
 }
@@ -126,8 +128,14 @@ func get_floor():
 	if active_key > -1 and active_key < 12:
 		return 1
 	#underground
-	elif active_key > 11 and active_key < 999:
+	elif active_key > 11 and active_key < 21:
 		return 2
+	#flooded
+	elif active_key > 20 and active_key < 30:
+		return 3
+	#farm
+	elif active_key > 29 and active_key < 999:
+		return 4
 	
 	#special
 	if active_key == -10:
@@ -283,7 +291,13 @@ func song_check(key: int, smooth: bool = true):
 	match key:
 		4, 8, 10, 11, 9:
 			song_change(Preloads.gameplay_music_01, smooth)
-		12, 19, 20:
+		12, 19:
 			song_change(Preloads.gameplay_music_02, smooth)
+		19, 28:
+			song_change(Preloads.gameplay_music_03, smooth)
+		29:
+			song_change(Preloads.silence, smooth)
+		30:
+			song_change(Preloads.gameplay_music_01, smooth)
 		-10:
 			song_change(Preloads.easter_egg_music, false)

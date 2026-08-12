@@ -53,6 +53,8 @@ func _physics_process(delta: float) -> void:
 		if water_cast.get_collider().is_in_group("fresh_water"):
 			var water_dist = water_cast.get_collision_point().distance_to(water_cast.global_position)
 			water_quad.position.y = -water_dist
+	else:
+		water_quad.position.y = lerpf(water_quad.position.y, -1.0, 0.1)
 
 
 func _process(delta: float) -> void:
