@@ -1723,8 +1723,11 @@ shape = SubResource("SphereShape3D_pi4ip")
 transform = Transform3D(1.2000002, -1.4901161e-07, -5.9604645e-08, 1.2402265e-07, 0.8748484, 0.8213649, -1.1920929e-07, -0.821365, 0.8748485, 0, -1.2478633, 0)
 texture = ExtResource("24_pn525")
 
-[node name="TextureRect" type="TextureRect" parent="Document_Reader" unique_id=1533010174]
+[node name="CanvasLayer" type="CanvasLayer" parent="Document_Reader" unique_id=2139341065]
+layer = 2
 visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Document_Reader/CanvasLayer" unique_id=1533010174]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1738,7 +1741,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("24_pn525")
 
-[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1625869553]
+[node name="Label" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=1625869553]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1775,7 +1778,7 @@ Doctor Eugene Laurel
 "
 label_settings = SubResource("LabelSettings_khx12")
 
-[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=408911502]
+[node name="Label2" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=408911502]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -33,6 +33,9 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_il0kl"]
 radius = 2.0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_wuxxj"]
+radius = 2.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_wuxxj"]
 font = ExtResource("8_u2vnn")
 font_color = Color(0, 0, 0, 1)
@@ -40,9 +43,6 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_md58x"]
 font = ExtResource("9_oq4qj")
 font_color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_wuxxj"]
-radius = 2.0
 
 [sub_resource type="Animation" id="Animation_ybq8s"]
 length = 0.001
@@ -1714,8 +1714,19 @@ shape = SubResource("SphereShape3D_il0kl")
 transform = Transform3D(1.2, -1.1920929e-07, -2.9802322e-08, 1.2402265e-07, 0.8748484, 0.8213649, -5.9604645e-08, -0.821365, 0.8748484, 0, -0.7558546, 0)
 texture = ExtResource("7_xsp5q")
 
-[node name="TextureRect" type="TextureRect" parent="Document_Reader" unique_id=22176928]
+[node name="InteractAreaDocReader" parent="Document_Reader" unique_id=530012375 instance=ExtResource("10_oq4qj")]
+one_time = false
+interaction_name = "read document"
+
+[node name="CollisionShape3D" parent="Document_Reader/InteractAreaDocReader" index="0" unique_id=1289814683]
+shape = SubResource("SphereShape3D_wuxxj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Document_Reader" unique_id=57645510]
+layer = 2
 visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Document_Reader/CanvasLayer" unique_id=22176928]
+z_index = 10
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1729,7 +1740,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_xsp5q")
 
-[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1747437948]
+[node name="Label" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=1747437948]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1767,7 +1778,7 @@ YOUR UNDERSTANDING AND COMPLIANCE ARE
 APPRECIATED. "
 label_settings = SubResource("LabelSettings_wuxxj")
 
-[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=564470396]
+[node name="Label2" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=564470396]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1785,7 +1796,7 @@ text = "They're kicking us out? But we can
 still fix this!"
 label_settings = SubResource("LabelSettings_md58x")
 
-[node name="Label3" type="Label" parent="Document_Reader/TextureRect" unique_id=13652708]
+[node name="Label3" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=13652708]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1818,13 +1829,6 @@ AND PLEASE RECALL, YOUR NDAS STILL APPLY.
 
 "
 label_settings = SubResource("LabelSettings_wuxxj")
-
-[node name="InteractAreaDocReader" parent="Document_Reader" unique_id=530012375 instance=ExtResource("10_oq4qj")]
-one_time = false
-interaction_name = "read document"
-
-[node name="CollisionShape3D" parent="Document_Reader/InteractAreaDocReader" index="0" unique_id=1289814683]
-shape = SubResource("SphereShape3D_wuxxj")
 
 [node name="TorchBoss" type="Node3D" parent="." unique_id=998791055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.5, -23, 1.5)

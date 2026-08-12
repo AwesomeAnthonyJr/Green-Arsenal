@@ -1843,8 +1843,11 @@ shape = SubResource("SphereShape3D_v3gj1")
 transform = Transform3D(1.2, -1.2402266e-07, -4.9096528e-08, 1.2402265e-07, 0.8748484, 0.8213649, -4.9096528e-08, -0.8213649, 0.8748484, 0, -0.9008112, 0)
 texture = ExtResource("8_yifs2")
 
-[node name="TextureRect" type="TextureRect" parent="Document_Reader" unique_id=841540695]
+[node name="CanvasLayer" type="CanvasLayer" parent="Document_Reader" unique_id=1408057868]
+layer = 2
 visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Document_Reader/CanvasLayer" unique_id=841540695]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1858,7 +1861,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_yifs2")
 
-[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1661932307]
+[node name="Label" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=1661932307]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1889,7 +1892,7 @@ our wood-pulp farms, it is in your best
 interest to listen."
 label_settings = SubResource("LabelSettings_v3gj1")
 
-[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=863048450]
+[node name="Label2" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=863048450]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

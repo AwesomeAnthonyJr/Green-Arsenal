@@ -1412,8 +1412,11 @@ shape = SubResource("SphereShape3D_opn75")
 transform = Transform3D(1.2, -1.1920929e-07, -2.9802322e-08, 1.2402265e-07, 0.8748484, 0.8213649, -5.9604645e-08, -0.821365, 0.8748484, 0, -0.7558546, 0)
 texture = ExtResource("12_xolhk")
 
-[node name="TextureRect" type="TextureRect" parent="Document_Reader" unique_id=927197106]
+[node name="CanvasLayer" type="CanvasLayer" parent="Document_Reader" unique_id=1103296490]
+layer = 2
 visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Document_Reader/CanvasLayer" unique_id=927197106]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1427,7 +1430,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_xolhk")
 
-[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1479798480]
+[node name="Label" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=1479798480]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1464,7 +1467,7 @@ YOUR UNDERSTANDING AND COMPLIANCE ARE
 APPRECIATED. "
 label_settings = SubResource("LabelSettings_ydrnc")
 
-[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=1755413975]
+[node name="Label2" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=1755413975]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1483,7 +1486,7 @@ text = "They're kicking us out? But we can
 still fix this!"
 label_settings = SubResource("LabelSettings_7tg6d")
 
-[node name="Label3" type="Label" parent="Document_Reader/TextureRect" unique_id=194475338]
+[node name="Label3" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=194475338]
 visible = false
 layout_mode = 1
 anchors_preset = 8

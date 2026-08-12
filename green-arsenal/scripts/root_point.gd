@@ -23,5 +23,6 @@ func destroy():
 	
 	if p is RootPoint:
 		p.destroy()
+	SoundManager.play_root_destroy()
 	queue_free()
 	

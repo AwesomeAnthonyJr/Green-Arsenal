@@ -29,10 +29,15 @@ const upgrade_pickup = preload("res://sound/imported_from_old_projects/upgradePi
 const menu_click = preload("res://sound/imported_from_old_projects/AWTRAU_menu_click_1.wav")
 const menu_accept = preload("res://sound/effects/GA_menu_accept.wav")
 
+const root_destroy = preload("res://sound/imported_from_old_projects/green_arsenal_root_destroy.wav")
+
 #pool of players so rapid/overlapping shots don't cut each other off
 const pool_size = 8
 var players: Array[AudioStreamPlayer] = []
 var next_player = 0
+
+var current_jump_player: AudioStreamPlayer
+var jump_holder: Player
 
 func _ready() -> void:
 	for i in pool_size:
@@ -45,11 +50,29 @@ func play_hurt():
 	_play(player_hurt, -2)
 	_play(player_hurt_2)
 
+func play_landing():
+	#_play(root_destroy, -14, 0, randf_range(1.0, 1.2))
+	_play(footstep, -4, 0, randf_range(0.6, 0.8))
+	await get_tree().create_timer(0.1).timeout
+	_play(footstep, -4, 0, randf_range(0.6, 0.8))
+
 func play_revolver_open():
 	_play(revolver_open)
 
-func play_jump():
-	_play(jump, -8, 0, randf_range(0.9, 1.1))
+func play_jump(obj = null):
+	current_jump_player = players[next_player]
+	jump_holder = obj
+	_play(jump, -12, 0, randf_range(1.4, 1.6))
+
+func _process(delta: float) -> void:
+	if jump_holder != null and current_jump_player != null:
+		if jump_holder.is_jump_drifting:
+			current_jump_player.pitch_scale += -0.2 * delta
+	else:
+		if current_jump_player != null:
+			current_jump_player = null
+		if jump_holder != null:
+			jump_holder = null
 
 func play_menu_open():
 	_play(menu_open, -4)
@@ -79,6 +102,9 @@ func play_splash():
 func play_splash_small():
 	_play(platform_shot, -9, 0, randf_range(1.2, 1.4))
 
+func play_root_destroy():
+	_play(root_destroy, -16, 0, randf_range(1.2, 1.4))
+
 #seed_id matches Player.loaded_in_gun's ammo ids (see Constants.seed_order / Player.shoot())
 func play_seed_shot(seed_id: int) -> void:
 	match seed_id:
@@ -95,7 +121,7 @@ func play_seed_shot(seed_id: int) -> void:
 		6:
 			_play(seeker_shot)
 		7:
-			_play(propeller_shot)
+			_play(coldcast)
 		8:
 			_play(heavy_shot)
 		_:

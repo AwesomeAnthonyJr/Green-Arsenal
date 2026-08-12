@@ -1194,8 +1194,11 @@ shape = SubResource("SphereShape3D_v50f8")
 transform = Transform3D(1.2, -1.4901161e-07, -2.9802322e-08, 1.2402265e-07, 0.8748484, 0.8213649, -5.9604645e-08, -0.821365, 0.8748484, 0, -0.62861633, 0)
 texture = ExtResource("10_nv41s")
 
-[node name="TextureRect" type="TextureRect" parent="Document_Reader" unique_id=7671136]
+[node name="CanvasLayer" type="CanvasLayer" parent="Document_Reader" unique_id=407376285]
+layer = 2
 visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Document_Reader/CanvasLayer" unique_id=7671136]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1209,7 +1212,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("10_nv41s")
 
-[node name="Label" type="Label" parent="Document_Reader/TextureRect" unique_id=1338871836]
+[node name="Label" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=1338871836]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1245,7 +1248,7 @@ Dr. Aurea.
 "
 label_settings = SubResource("LabelSettings_ddqt7")
 
-[node name="Label2" type="Label" parent="Document_Reader/TextureRect" unique_id=2079822579]
+[node name="Label2" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=2079822579]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -299,7 +299,7 @@ func song_check(key: int, smooth: bool = true):
 		29:
 			song_change(Preloads.silence, smooth)
 		30:
-			song_change(Preloads.gameplay_music_01, smooth)
+			song_change(Preloads.gameplay_music_04, smooth)
 		-10:
 			song_change(Preloads.easter_egg_music, false)
 

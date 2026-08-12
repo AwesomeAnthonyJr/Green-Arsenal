@@ -259,7 +259,9 @@ func _physics_process(delta: float) -> void:
 				if o.is_in_group("springvine_ground") and linear_velocity.y < 0.1:
 					how_groundy = 0
 				if how_groundy > 0.45:
-					is_grounded = true
+					if !is_grounded:
+						is_grounded = true
+						SoundManager.play_landing()
 	else:
 		is_grounded = false
 		g_norm = Vector3.UP
@@ -400,7 +402,7 @@ func playerJump() -> void:
 		#print(speed_mult)
 		apply_central_impulse(Vector3.UP * jumpForce * speed_mult);
 		is_jump_drifting = true
-		SoundManager.play_jump()
+		SoundManager.play_jump(self)
 	#Applies jump force 
 
 func shoot():
