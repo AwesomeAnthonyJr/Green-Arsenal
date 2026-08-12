@@ -34,6 +34,7 @@ func read_shoot():
 		return
 	if has_bullet:
 		get_parent().add_child(stored)
+		SoundManager.play_seed_shot(1)
 		stored.global_position = shooter.global_position
 		stored.global_rotation = shooter.global_rotation
 		just_caught = true

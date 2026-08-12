@@ -449,6 +449,7 @@ func heal_1():
 	if current_health > max_health:
 		current_health = max_health
 	hud.update_health_display(max_health, current_health)
+	SoundManager.play_heal()
 
 func max_1():
 	max_health = SaveManager.player_save.max_hp
@@ -456,6 +457,7 @@ func max_1():
 	if current_health > max_health:
 		current_health = max_health
 	hud.update_health_display(max_health, current_health)
+	SoundManager.play_max_heal()
 
 func take_damage(n):
 	if !paused:

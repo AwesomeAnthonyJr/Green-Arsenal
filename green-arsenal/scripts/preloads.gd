@@ -27,6 +27,7 @@ const fireball = preload("res://scenes/fireball.tscn")
 
 const splash_particles = preload("res://scenes/splash_particles.tscn")
 const small_splash_particles = preload("res://scenes/small_splash_particles.tscn")
+const explosion_particles = preload("res://scenes/particle_explosion.tscn")
 
 const gameplay_music_01 = preload("res://sound/music/gameplay.wav")
 const gameplay_music_02 = preload("res://sound/music/gameplay_02.wav")
@@ -35,3 +36,5 @@ const gameplay_music_04 = preload("res://sound/music/gameplay_reversed.wav")
 const silence = preload("res://sound/music/genuinely_silence.wav")
 const main_theme = preload("res://sound/music/theme.mp3")
 const easter_egg_music = preload("res://sound/music/easter_egg_2.wav")
+
+const pure_black_mat = preload("res://materials/pure_black.tres")

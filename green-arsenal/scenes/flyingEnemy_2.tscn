@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://crccc5ki7otll" path="res://materials/blue_material.tres" id="4_vcpln"]
 [ext_resource type="Material" uid="uid://261r71cbnjxf" path="res://materials/player_glasses.tres" id="5_8crh0"]
 [ext_resource type="AudioStream" uid="uid://bia1o1pmnp443" path="res://sound/imported_from_old_projects/xcvb_stars.wav" id="6_8crh0"]
+[ext_resource type="PackedScene" uid="uid://b65a3wrcrigig" path="res://scenes/smoke_particles.tscn" id="7_yf7mo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0o143"]
 
@@ -227,12 +228,14 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_80iay"]
 radius = 1.0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_yf7mo"]
+
 [node name="Enemy" type="CharacterBody3D" unique_id=553297755]
 collision_layer = 4
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_vcpln")
-speed = 1.5
+speed = 3.5
 hunts_plants = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=429253756]
@@ -464,6 +467,15 @@ stream = ExtResource("6_8crh0")
 attenuation_model = 1
 max_db = -1.0
 bus = &"Sound"
+
+[node name="SmokeParticles" parent="." unique_id=1322345729 instance=ExtResource("7_yf7mo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0.20934445, -0.10615265)
+emitting = false
+amount = 16
+
+[node name="ShapeCast3D2" type="ShapeCast3D" parent="." unique_id=1247519183]
+shape = SubResource("SphereShape3D_yf7mo")
+target_position = Vector3(0, -0.1, 0)
 
 [connection signal="body_entered" from="FancyModel/Skeleton3D/LeftArm/Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="FancyModel/Skeleton3D/RightArm/Hurtbox" to="." method="_on_hurtbox_body_entered"]

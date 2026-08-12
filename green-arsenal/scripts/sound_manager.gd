@@ -30,6 +30,10 @@ const menu_click = preload("res://sound/imported_from_old_projects/AWTRAU_menu_c
 const menu_accept = preload("res://sound/effects/GA_menu_accept.wav")
 
 const root_destroy = preload("res://sound/imported_from_old_projects/green_arsenal_root_destroy.wav")
+const grow = preload("res://sound/effects/green_arsenal_grow.wav")
+const heal = preload("res://sound/effects/green_arsenal_heal.wav")
+const heal_2 = preload("res://sound/effects/green_arsenal_warp_away.wav")
+const explosion_1 = preload("res://sound/imported_from_old_projects/explosion1.wav")
 
 #pool of players so rapid/overlapping shots don't cut each other off
 const pool_size = 8
@@ -104,6 +108,19 @@ func play_splash_small():
 
 func play_root_destroy():
 	_play(root_destroy, -16, 0, randf_range(1.2, 1.4))
+
+func play_grow():
+	_play(grow, 0, 0, randf_range(0.8, 1.0))
+
+func play_heal():
+	_play(heal)
+
+func play_max_heal():
+	_play(heal)
+	_play(heal_2)
+
+func play_enemy_destroy():
+	_play(explosion_1, -5, 0, randf_range(1.0, 1.3))
 
 #seed_id matches Player.loaded_in_gun's ammo ids (see Constants.seed_order / Player.shoot())
 func play_seed_shot(seed_id: int) -> void:

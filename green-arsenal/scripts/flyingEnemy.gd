@@ -33,6 +33,11 @@ var original_speed: float = 0.0
 var activated: bool = false
 @onready var hunting_audio = $AudioStreamPlayer3D
 
+var dead: bool = false
+@onready var smoke_particles = $SmokeParticles
+@onready var deathcast = $ShapeCast3D2
+@onready var mesh = $FancyModel/Skeleton3D/Sphere
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if player == null:
@@ -52,63 +57,69 @@ func find_player():
 				player = c.get_child(0)
 
 func _physics_process(delta: float) -> void:
-	if player != null:
-		var target_pos = player.global_position
-		var dist = global_position.distance_to(target_pos)
-		if hunts_plants:
-			for p in player.active_plants:
-				if is_instance_valid(p) and !p.dead:
-					var temp_pos = p.global_position
-					var temp_dist = global_position.distance_to(temp_pos)
-					if temp_dist < dist:
-						dist = temp_dist
-						target_pos = temp_pos
-		if dist > 0.1 and dist < 10.0:
-			look_at(target_pos, Vector3.UP)
-			var direction = (target_pos - global_position).normalized()
-			move_velocity.x = direction.x * speed
-			move_velocity.y = direction.y * speed
-			move_velocity.z = direction.z * speed
-			home_override = 0.0
-			#print(name, " actively searching: ", target_pos, "; speed: ", speed)
-		else:
-			var home_dist = global_position.distance_to(home)
-			if home_dist < 40.0 or home_override < randf_range(5.0, 10.0):
+	if dead:
+		velocity.y -= 9.8 * delta
+		move_and_slide()
+		if deathcast.is_colliding():
+			really_die()
+	else:
+		if player != null:
+			var target_pos = player.global_position
+			var dist = global_position.distance_to(target_pos)
+			if hunts_plants:
+				for p in player.active_plants:
+					if is_instance_valid(p) and !p.dead:
+						var temp_pos = p.global_position
+						var temp_dist = global_position.distance_to(temp_pos)
+						if temp_dist < dist:
+							dist = temp_dist
+							target_pos = temp_pos
+			if dist > 0.1 and dist < 10.0:
 				look_at(target_pos, Vector3.UP)
 				var direction = (target_pos - global_position).normalized()
 				move_velocity.x = direction.x * speed
 				move_velocity.y = direction.y * speed
 				move_velocity.z = direction.z * speed
-				#print(name, " still near home")
+				home_override = 0.0
+				#print(name, " actively searching: ", target_pos, "; speed: ", speed)
 			else:
-				if !home.is_equal_approx(global_position):
-					look_at(home, Vector3.UP)
-				var direction = (home - global_position).normalized()
-				move_velocity.x = direction.x * speed * 0.75
-				move_velocity.y = direction.y * speed * 0.75
-				move_velocity.z = direction.z * speed * 0.75
-				home_override += delta
-				#print(name, " going home ", home_override)
-	else:
-		move_velocity.x = 0
-		move_velocity.z = 0
-	velocity = target_velocity + move_velocity
-	move_and_slide()
-	target_velocity = target_velocity.lerp(Vector3.ZERO, delta)
-	
-	if targeting and is_instance_valid(target_obj):
-		left_arm_position = target_obj.global_position
-		target_routine += delta * attack_speed
-		if target_routine < 3.0:
-			speed = lerpf(speed, 0.0, 0.8)
-		elif target_routine < 5.0:
-			speed = lerpf(speed, original_speed + 6.0, 0.5)
-		elif target_routine < 6.5:
+				var home_dist = global_position.distance_to(home)
+				if home_dist < 40.0 or home_override < randf_range(5.0, 10.0):
+					look_at(target_pos, Vector3.UP)
+					var direction = (target_pos - global_position).normalized()
+					move_velocity.x = direction.x * speed
+					move_velocity.y = direction.y * speed
+					move_velocity.z = direction.z * speed
+					#print(name, " still near home")
+				else:
+					if !home.is_equal_approx(global_position):
+						look_at(home, Vector3.UP)
+					var direction = (home - global_position).normalized()
+					move_velocity.x = direction.x * speed * 0.75
+					move_velocity.y = direction.y * speed * 0.75
+					move_velocity.z = direction.z * speed * 0.75
+					home_override += delta
+					#print(name, " going home ", home_override)
+		else:
+			move_velocity.x = 0
+			move_velocity.z = 0
+		velocity = target_velocity + move_velocity
+		move_and_slide()
+		target_velocity = target_velocity.lerp(Vector3.ZERO, delta)
+		
+		if targeting and is_instance_valid(target_obj):
+			left_arm_position = target_obj.global_position
+			target_routine += delta * attack_speed
+			if target_routine < 3.0:
+				speed = lerpf(speed, 0.0, 0.8)
+			elif target_routine < 5.0:
+				speed = lerpf(speed, original_speed + 6.0, 0.5)
+			elif target_routine < 6.5:
+				speed = original_speed
+				targeting = false
+		else:
 			speed = original_speed
-			targeting = false
-	else:
-		speed = original_speed
-		attack_detection()
+			attack_detection()
 func take_damage(amount: int) -> void:
 	currHealth -= amount
 	print("Remaining health: ", currHealth)
@@ -119,8 +130,19 @@ func take_knockback(amount: Vector3) -> void:
 	target_velocity += amount
 
 func die() -> void:
-	print("Enemy dead")
-	queue_free() 
+	#print("Enemy dead")
+	SoundManager.play_root_destroy()
+	dead = true
+	smoke_particles.emitting = true
+	mesh.set_surface_override_material(1, Preloads.pure_black_mat)
+	#queue_free() 
+
+func really_die():
+	SoundManager.play_enemy_destroy()
+	var inst = Preloads.explosion_particles.instantiate()
+	get_parent().add_child(inst)
+	inst.global_position = global_position
+	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

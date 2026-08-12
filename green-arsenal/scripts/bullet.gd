@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 			return
 	if puzzle_cast.is_colliding():
 		if puzzle_cast.get_collider().is_in_group("soil"):
+			SoundManager.play_grow()
 			plant_seed(puzzle_cast.get_collision_point(), puzzle_cast.get_collision_normal(), puzzle_cast.get_collider())
 		elif puzzle_cast.get_collider().is_in_group("target"):
 			var n = puzzle_cast.get_collision_normal()

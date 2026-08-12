@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://w2dwcxfs4ymw" path="res://scenes/level_parts/tree_f.tscn" id="13_6bpeq"]
 [ext_resource type="PackedScene" uid="uid://yql0lf7vacmm" path="res://scenes/decorative_torch.tscn" id="14_3tf8a"]
 [ext_resource type="Script" uid="uid://bh80bns07b57v" path="res://scripts/water_surface.gd" id="14_lu28w"]
+[ext_resource type="PackedScene" uid="uid://cd4lwde4ynq5h" path="res://scenes/flyingEnemy_2.tscn" id="16_2mhq7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
@@ -1339,5 +1340,8 @@ shape = SubResource("BoxShape3D_3tf8a")
 
 [node name="TorchLit" parent="." unique_id=2026293210 instance=ExtResource("14_3tf8a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, -25)
+
+[node name="Enemy" parent="." unique_id=553297755 instance=ExtResource("16_2mhq7")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1, 4, -8)
 
 [connection signal="body_exited" from="WaterBody/WaterSurface" to="WaterBody/WaterSurface" method="_on_body_exited"]

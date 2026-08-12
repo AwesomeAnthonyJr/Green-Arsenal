@@ -6,6 +6,7 @@ class_name SpringVine
 @onready var shapecast = $ShapeCast3D
 @onready var skeleton = $Armature/Skeleton3D
 @onready var timer = $Timer
+@onready var audio = $AudioStreamPlayer3D
 var target_y = 0.0
 var holding_jump = false
 var just_bounced = []
@@ -29,12 +30,14 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is RigidBody3D:
 		if !body in just_bounced:
 			var imp = bounce_strength * global_transform.basis.y * body.mass
-			
+			audio.play()
 			if body is Player:
 				if holding_jump:
 					imp *= 1.25
+					audio.pitch_scale = 0.75
 				else:
 					imp *= 0.75
+					audio.pitch_scale = 1.15
 				#body.is_jump_drifting = true
 			just_bounced.append(body)
 			timer.start()

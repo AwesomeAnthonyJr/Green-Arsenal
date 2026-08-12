@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://b65a3wrcrigig"]
+
+[ext_resource type="Shader" uid="uid://bue2b34h86uxe" path="res://shaders/cel_shaded_two_sides.gdshader" id="1_28vnp"]
+
+[sub_resource type="Curve" id="Curve_lu28w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.81276596, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lu28w"]
+curve = SubResource("Curve_lu28w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h45xw"]
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_lu28w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mh5o"]
+render_priority = 0
+shader = ExtResource("1_28vnp")
+shader_parameter/albedo = Color(0.4611004, 0.39066112, 0.3716536, 1)
+shader_parameter/albedo_in_shadow = Color(0.24823195, 0.24448335, 0.33623752, 1)
+shader_parameter/shadow_threshold = 0.5
+shader_parameter/specular_threshold = 0.999999977648
+shader_parameter/specular_strength = 0.0
+shader_parameter/fresnel_amount = 2.0
+shader_parameter/fresnel_strength = 0.0
+shader_parameter/uv1_scale = Vector2(0, 0)
+shader_parameter/uv1_offset = Vector2(0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0o143"]
+material = SubResource("ShaderMaterial_3mh5o")
+radius = 0.1
+height = 0.2
+
+[node name="SmokeParticles" type="GPUParticles3D" unique_id=1322345729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+amount = 32
+trail_lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_h45xw")
+draw_pass_1 = SubResource("SphereMesh_0o143")

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dwu34mcwdbx5y" path="res://scripts/spring_vine.gd" id="1_7n0vc"]
 [ext_resource type="Material" uid="uid://oo177hw72h6" path="res://materials/player_skin.tres" id="2_7rpim"]
 [ext_resource type="Shader" uid="uid://bue2b34h86uxe" path="res://shaders/cel_shaded_two_sides.gdshader" id="3_byumu"]
+[ext_resource type="AudioStream" uid="uid://d3m7g0m7xqvk4" path="res://sound/effects/bounce_shot.wav" id="4_7rpim"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t321d"]
 resource_name = "Material.001"
@@ -4696,6 +4697,11 @@ wait_time = 0.1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1696808316]
 libraries/ = SubResource("AnimationLibrary_ri4h5")
 speed_scale = 2.5
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1925604445]
+stream = ExtResource("4_7rpim")
+volume_db = -2.0
+max_db = 1.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
