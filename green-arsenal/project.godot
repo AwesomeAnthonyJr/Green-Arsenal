@@ -37,11 +37,13 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "final_mentor": "res://misc/dialogic/final_mentor.dtl",
+"final_operator": "res://misc/dialogic/final_operator.dtl",
 "fire_seed_operator": "res://misc/dialogic/fire_seed_operator.dtl",
 "fire_seed_operator2": "res://misc/dialogic/fire_seed_operator2.dtl",
 "forest3_mentor": "res://misc/dialogic/forest3_mentor.dtl",
 "generic_operator": "res://misc/dialogic/generic_operator.dtl",
 "generic_prevault_op": "res://misc/dialogic/generic_prevault_op.dtl",
+"heavy_op": "res://misc/dialogic/heavy_op.dtl",
 "intro": "res://misc/dialogic/intro.dtl",
 "intro2_operator": "res://misc/dialogic/intro2_operator.dtl",
 "intro_operator": "res://misc/dialogic/intro_operator.dtl",

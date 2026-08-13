@@ -1,0 +1,39 @@
+operator: Hi-ho, Gardener.
+operator: This one looks as simple as they come.
+operator: A heavy gourd of some kind, made heavier by the Green Arsenal.
+operator: If you place it down on a movable platform, it'll sink it right down.
+operator: You might even think of it as the opposite of the propeller seed in a way!
+operator: Which, once again, seems mighty convenient for the obstacles I scouted ahead...
+operator: Hey Gardener?
+operator: ...
+- Operator?
+	operator: Do you have a sense of who's putting these seeds here?
+	operator: ...
+	- I think it's someone named Dr. Aurea.
+		- A couple documents mentioned her switching seeds out as "pranks"
+			- And I think maybe she hoped someone like us would swing through.
+				operator: Well then.
+				operator: We do this for her sake too.
+				operator: Let's not waste the seeds she sowed.
+				jump after_choice
+	- Not really.
+		- Maybe someone out there is looking out for us, though.
+			operator: Maybe...
+			operator: Maybe someone else knew that things could not stand as they are.
+			operator: And this is their way of sowing the seeds of a better future.
+			jump after_choice
+label after_choice
+operator: In any case, would you like to record any progress in your investigation?
+- Yes
+	operator: Saving progress...
+	[signal arg="save_signal"]
+	operator: Save complete.
+	jump save_done
+- No
+	operator: Roger dodger! I'll be here if you need to save progress in the future.
+	jump save_done
+label save_done
+operator: At that, I wish you the best of luck, Gardener.
+operator: See you on the flip side!
+[signal arg="scene_end_op"]
+[end_timeline]

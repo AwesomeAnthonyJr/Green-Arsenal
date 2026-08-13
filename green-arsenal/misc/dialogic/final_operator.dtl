@@ -1,0 +1,31 @@
+operator: You know, Gardener, the further we go in here...
+operator: The less sure I feel about what their goal was in making this strangler fig, or in abandoning it.
+operator: Feels less like a clever plot and more like some kind of obscene negligence.
+operator: A mistake, left to rot.
+operator: ...
+- I think I know what you mean...
+	- But on some level, what difference does it make?
+		- A clever plot is just a lack of care that's directed towards specific ends.
+			- Negligence is just a lack of care informed by a history of not being held accountable.
+				- Either way, they didn't care.
+					- And either way, here we are.
+						operator: ...yeah.
+						operator: Either way, here we are.
+						operator: Caring.
+						jump after_jump
+label after_jump
+operator: ...
+operator: Well, would you like to record any progress in your investigation?
+- Yes
+	operator: Saving progress...
+	[signal arg="save_signal"]
+	operator: Save complete.
+	jump save_done
+- No
+	operator: Roger dodger! I'll be here if you need to save progress in the future.
+	jump save_done
+label save_done
+operator: At that, I wish you the best of luck, Gardener.
+operator: See you on the flip side!
+[signal arg="scene_end_op"]
+[end_timeline]

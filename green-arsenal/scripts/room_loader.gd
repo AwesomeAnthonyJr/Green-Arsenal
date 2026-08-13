@@ -22,6 +22,8 @@ const positions = [
 	Vector3(-86.0, -6.5, -219.0),
 	Vector3(-18.0, -6.5 , -293),
 	Vector3(19.0, -75.0, -296.0),
+	Vector3(149.0, -92.0, -173.0),
+	Vector3(128.0, -101.0, -59.0)
 ]
 
 #this tells it which room to start in basically; -1 for testing!
@@ -34,6 +36,8 @@ const load_point_keys = {
 	4: 12,
 	5: 17,
 	6: 21,
+	7: 25,
+	8: 27,
 }
 
 const room_dict = {

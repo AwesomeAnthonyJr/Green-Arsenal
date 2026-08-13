@@ -15,7 +15,9 @@ const location_dict = {
 	3: "life seed shrine",
 	4: "underground facility",
 	5: "upgrade room",
-	6: "platform seed storage"
+	6: "flooded platform seed storage",
+	7: "flooded heavy seed storage",
+	8: "flooded puzzle room",
 }
 
 func _ready() -> void:

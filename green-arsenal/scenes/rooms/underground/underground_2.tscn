@@ -10,11 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://b73yjfqguqfmn" path="res://scenes/level_parts/tree_b.tscn" id="5_ni0qs"]
 [ext_resource type="PackedScene" uid="uid://dtrumgcxpsxr5" path="res://scenes/level_parts/tree_a.tscn" id="7_276he"]
 [ext_resource type="PackedScene" uid="uid://cj3xvugwergwm" path="res://scenes/level_parts/tree_c.tscn" id="8_wegms"]
+[ext_resource type="Script" uid="uid://232wxb1vai8x" path="res://scripts/document_reader.gd" id="10_3n5dw"]
 [ext_resource type="Script" uid="uid://1yv3vtnelsid" path="res://scripts/torch_boss.gd" id="11_dec3r"]
 [ext_resource type="PackedScene" uid="uid://d2xix6crf4q8" path="res://scenes/seed_vault.tscn" id="11_ni0qs"]
+[ext_resource type="Texture2D" uid="uid://dao7lyi2os6qj" path="res://sound/paper4.png" id="11_ux6vv"]
 [ext_resource type="Script" uid="uid://bddlffkpfjcb2" path="res://scripts/puzzle_door.gd" id="12_6v38u"]
+[ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="12_16sqf"]
+[ext_resource type="FontFile" uid="uid://buc1bdvmej58m" path="res://fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" id="13_d4qmu"]
 [ext_resource type="Shader" uid="uid://01pyh482nds7" path="res://shaders/cel_shaded_basic.gdshader" id="13_dec3r"]
 [ext_resource type="Texture2D" uid="uid://nnukcy804wjc" path="res://textures/test_checker1.png" id="14_0jhpw"]
+[ext_resource type="PackedScene" uid="uid://c23cpjr70vnif" path="res://scenes/interact_area.tscn" id="14_gs3yv"]
 [ext_resource type="Script" uid="uid://02dk84ca3s55" path="res://scripts/save_flag_setter.gd" id="15_b11qw"]
 [ext_resource type="Script" uid="uid://clig6tt3fp2q1" path="res://scripts/save_flag_reader_lighter.gd" id="16_mok8q"]
 [ext_resource type="FontFile" uid="uid://cyicff47rkwgf" path="res://fonts/Roboto_Mono/static/RobotoMono-Medium.ttf" id="18_0jhpw"]
@@ -23,6 +28,20 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_otkpc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dimcy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v6k57"]
+radius = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_slk77"]
+font = ExtResource("12_16sqf")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_64oty"]
+font = ExtResource("13_d4qmu")
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_usqpf"]
+radius = 2.0
 
 [sub_resource type="Animation" id="Animation_ybq8s"]
 length = 0.001
@@ -842,6 +861,94 @@ transform = Transform3D(-1, 8.7422706e-08, -1.1435144e-10, -8.742278e-08, -0.999
 [node name="Tree_C" parent="." unique_id=251064813 instance=ExtResource("8_wegms")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0.042898655, 16.190868, -10.538415)
 
+[node name="Document_Reader" type="Area3D" parent="." unique_id=1610971825]
+transform = Transform3D(0.8999182, 0, 0.4360588, 0, 1, 0, -0.4360588, 0, 0.8999182, -3.5577903, -5.7989736, -22.51671)
+script = ExtResource("10_3n5dw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Document_Reader" unique_id=1434147887]
+shape = SubResource("SphereShape3D_v6k57")
+
+[node name="Sprite3D" type="Sprite3D" parent="Document_Reader" unique_id=439237326]
+transform = Transform3D(1.2, -1.2402266e-07, -4.9096528e-08, 1.2402265e-07, 0.8748484, 0.8213649, -4.9096528e-08, -0.8213649, 0.8748484, 0, -0.9008112, 0)
+texture = ExtResource("11_ux6vv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Document_Reader" unique_id=2102768061]
+layer = 2
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Document_Reader/CanvasLayer" unique_id=96323775]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -291.0
+offset_right = 212.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_ux6vv")
+
+[node name="Label" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=2047435653]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -256.5
+offset_right = 216.5
+offset_bottom = 140.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dr. Aurea's Notes:
+
+I've taken to calling these modified 
+rubber plants \"bounce plants\" for their 
+fun-factor. 
+
+They seem to somehow respond to the 
+*intent* of the person interacting with
+them. For example: if you HOLD your intent
+to JUMP while on top of one, you soar much
+higher than if you land on one casually.
+
+Perhaps this is a side effect of their 
+interaction with the seeker plant's 
+mycorrhizal network? "
+label_settings = SubResource("LabelSettings_slk77")
+
+[node name="Label2" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=1393591156]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.5
+offset_top = 149.50006
+offset_right = 165.5
+offset_bottom = 306.50006
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.16249791
+text = "As with the strangler fig, this is
+NOT READY for production. I fear 
+their new properties would make them
+altogether too resilient to damage,
+and thus make it too difficult to
+contain them if they break containment."
+label_settings = SubResource("LabelSettings_64oty")
+
+[node name="InteractAreaDocReader" parent="Document_Reader" unique_id=530012375 instance=ExtResource("14_gs3yv")]
+one_time = false
+interaction_name = "read document"
+
+[node name="CollisionShape3D" parent="Document_Reader/InteractAreaDocReader" index="0" unique_id=1289814683]
+shape = SubResource("SphereShape3D_usqpf")
+
 [node name="SeedVault" parent="." unique_id=538589429 instance=ExtResource("11_ni0qs")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2, -6.75, -20)
 seed_index = 2
@@ -936,6 +1043,10 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.92
 [node name="FacilityLight4" parent="." unique_id=1894704431 instance=ExtResource("19_b11qw")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -12.528241, 0.5012903, 2.5587716)
 
+[connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
+[connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]
 [connection signal="puzzle_done" from="TorchBoss" to="PuzzleDoor" method="open_door"]
 [connection signal="torch_lit" from="TorchBoss/Torch2" to="SaveFlagSetter_008" method="set_flag_true"]
 [connection signal="torch_lit" from="TorchBoss/Torch3" to="SaveFlagSetter_009" method="set_flag_true"]
+
+[editable path="Document_Reader/InteractAreaDocReader"]

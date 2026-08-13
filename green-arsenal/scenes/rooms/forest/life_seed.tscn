@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dngy88aglx0tr" path="res://scripts/room.gd" id="1_g5ghc"]
 [ext_resource type="PackedScene" uid="uid://cfg4rrfxkcgli" path="res://scenes/level_parts/exit.tscn" id="2_3c3sf"]
+[ext_resource type="Script" uid="uid://232wxb1vai8x" path="res://scripts/document_reader.gd" id="2_cnhgo"]
 [ext_resource type="Material" uid="uid://eh2x6l7fmwys" path="res://materials/gray_soil.tres" id="2_datp6"]
 [ext_resource type="PackedScene" uid="uid://d2xix6crf4q8" path="res://scenes/seed_vault.tscn" id="2_df1yb"]
+[ext_resource type="Texture2D" uid="uid://dao7lyi2os6qj" path="res://sound/paper4.png" id="3_6tqsv"]
 [ext_resource type="Material" uid="uid://5n6ng444mg3t" path="res://materials/placeholder_notsoil.tres" id="3_df1yb"]
+[ext_resource type="FontFile" uid="uid://b6kh1gquotv1f" path="res://fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" id="4_1ae5p"]
 [ext_resource type="Material" uid="uid://cgc4sewduvcvk" path="res://materials/soil_1.tres" id="4_hj33f"]
 [ext_resource type="PackedScene" uid="uid://ce5xh3yj4v2vs" path="res://scenes/level_parts/soil_patch_10x_10.tscn" id="5_me4gj"]
+[ext_resource type="FontFile" uid="uid://buc1bdvmej58m" path="res://fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.ttf" id="5_xi34o"]
+[ext_resource type="PackedScene" uid="uid://c23cpjr70vnif" path="res://scenes/interact_area.tscn" id="6_4bueg"]
 [ext_resource type="PackedScene" uid="uid://ly8d8rmkdyfw" path="res://scenes/level_parts/tree_d.tscn" id="6_l3tdk"]
 [ext_resource type="PackedScene" uid="uid://bfy3in2vvoxva" path="res://scenes/level_parts/tree_d_light.tscn" id="8_aebqk"]
 [ext_resource type="PackedScene" uid="uid://cj3xvugwergwm" path="res://scenes/level_parts/tree_c.tscn" id="9_jf5a3"]
@@ -22,6 +27,20 @@
 [ext_resource type="Material" uid="uid://dvt47ul4pjcvl" path="res://materials/leaves_nearest.tres" id="20_jf5a3"]
 [ext_resource type="Material" uid="uid://cqwygovsi155y" path="res://materials/leaves_between.tres" id="21_1s4sp"]
 [ext_resource type="Material" uid="uid://b8f5nhjo3v8ex" path="res://materials/leaves_top.tres" id="22_uaju2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iuqqj"]
+radius = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_x2i5a"]
+font = ExtResource("4_1ae5p")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ji0th"]
+font = ExtResource("5_xi34o")
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p6rvd"]
+radius = 2.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1euve"]
 
@@ -53,6 +72,91 @@ script = ExtResource("1_g5ghc")
 adjacent_rooms = Array[int]([9, 11])
 room_pos = Vector3(-100, 0, -50)
 metadata/_custom_type_script = "uid://dngy88aglx0tr"
+
+[node name="Document_Reader" type="Area3D" parent="." unique_id=535662481]
+transform = Transform3D(-0.65408826, 0, 1.3498774, 0, 1.5, 0, -1.3498774, 0, -0.65408826, -4.456977, 1.9915631, 15.446744)
+script = ExtResource("2_cnhgo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Document_Reader" unique_id=1556706259]
+shape = SubResource("SphereShape3D_iuqqj")
+
+[node name="Sprite3D" type="Sprite3D" parent="Document_Reader" unique_id=1041894804]
+transform = Transform3D(1.2, -1.2402266e-07, -4.9096528e-08, 1.2402265e-07, 0.8748484, 0.8213649, -4.9096528e-08, -0.8213649, 0.8748484, 0, -0.9008112, 0)
+texture = ExtResource("3_6tqsv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Document_Reader" unique_id=834806262]
+layer = 2
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Document_Reader/CanvasLayer" unique_id=1476060521]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -291.0
+offset_right = 212.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6tqsv")
+
+[node name="Label" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=234756790]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -256.5
+offset_right = 216.5
+offset_bottom = 140.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "this was all i could manage to sneak out
+before they sacked me. they should not
+be able to monopolize such an effective
+and economical curative --- if you plant
+this and cultivate it, just go up and eat
+its fruit to heal moderate injuries. 
+
+also BE WARNED: the automated security 
+around here isn't just sensitive to the 
+presence of people, it'll identify *any*
+plantlife and target it for elimination
+--- this prevents proprietary material
+from escaping and contaminants from
+infiltrating. fat lot of good it did when
+the strangler fig got out."
+label_settings = SubResource("LabelSettings_x2i5a")
+
+[node name="Label2" type="Label" parent="Document_Reader/CanvasLayer/TextureRect" unique_id=1927986660]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = 148.50006
+offset_right = 167.5
+offset_bottom = 305.50006
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.16249791
+text = "wait... why *doesn't* it target
+the strangler fig anymore? i could
+swear it used to..."
+label_settings = SubResource("LabelSettings_ji0th")
+
+[node name="InteractAreaDocReader" parent="Document_Reader" unique_id=530012375 instance=ExtResource("6_4bueg")]
+one_time = false
+interaction_name = "read document"
+
+[node name="CollisionShape3D" parent="Document_Reader/InteractAreaDocReader" index="0" unique_id=1289814683]
+shape = SubResource("SphereShape3D_p6rvd")
 
 [node name="SeedVault" parent="." unique_id=538589429 instance=ExtResource("2_df1yb")]
 transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -7.9716454, 2.2225296, 7.134876)
@@ -1144,3 +1248,8 @@ surface_material_override/0 = ExtResource("21_1s4sp")
 transform = Transform3D(1, 1.0530025e-07, 2.0811312e-15, -1.053002e-07, 0.99999994, 1.8193826e-22, -2.842171e-14, 0, 0.99999994, -143.6413, -9.839779, -167.03612)
 mesh = SubResource("PlaneMesh_cnhgo")
 surface_material_override/0 = ExtResource("22_uaju2")
+
+[connection signal="body_entered" from="Document_Reader" to="Document_Reader" method="_on_body_entered"]
+[connection signal="body_exited" from="Document_Reader" to="Document_Reader" method="_on_body_exited"]
+
+[editable path="Document_Reader/InteractAreaDocReader"]
