@@ -1,0 +1,95 @@
+# .github/workflows/build.yml
+#
+# CI pipeline for Green Arsenal (Godot 4.7).
+# On every push to main (and on PRs), this:
+#   1. Downloads the Godot 4.7 headless editor + matching export templates
+#   2. Imports the project headlessly (required before export on a fresh clone)
+#   3. Exports all three presets (Windows Desktop, macOS, Web)
+#   4. Uploads each build as a downloadable artifact
+#
+# Add this file at .github/workflows/build.yml in the repo.
+# Future graduation steps: code-sign the macOS build, deploy Web to itch.io
+# via butler, add a headless smoke-test scene, stamp versions from git tags.
+
+name: Build Green Arsenal
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "green-arsenal/**"
+      - ".github/workflows/build.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "green-arsenal/**"
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GODOT_VERSION: "4.7"
+  PROJECT_PATH: green-arsenal
+
+jobs:
+  export:
+    name: Export ${{ matrix.preset }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - preset: "Windows Desktop"
+            output: build/windows/GreenArsenal.exe
+            artifact_path: build/windows
+          - preset: "macOS"
+            output: build/macos/GreenArsenal.dmg
+            artifact_path: build/macos
+          - preset: "Web"
+            output: build/web/index.html
+            artifact_path: build/web
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download Godot editor
+        run: |
+          curl -sSL -o godot.zip \
+            "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          unzip -q godot.zip
+          chmod +x "Godot_v${GODOT_VERSION}-stable_linux.x86_64"
+          sudo mv "Godot_v${GODOT_VERSION}-stable_linux.x86_64" /usr/local/bin/godot
+          godot --version
+
+      - name: Download export templates
+        run: |
+          TEMPLATE_DIR="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          mkdir -p "$TEMPLATE_DIR"
+          curl -sSL -o templates.tpz \
+            "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+          unzip -q templates.tpz
+          mv templates/* "$TEMPLATE_DIR/"
+          ls "$TEMPLATE_DIR" | head -5
+
+      - name: Import project (headless)
+        # First run on a fresh clone must import resources before exporting.
+        run: godot --headless --path "$PROJECT_PATH" --import
+
+      - name: Export ${{ matrix.preset }}
+        run: |
+          mkdir -p "${{ matrix.artifact_path }}"
+          godot --headless --path "$PROJECT_PATH" \
+            --export-release "${{ matrix.preset }}" "${{ matrix.output }}"
+          echo "--- build output ---"
+          ls -la "${{ matrix.artifact_path }}"
+
+      - name: Upload ${{ matrix.preset }} build
+        uses: actions/upload-artifact@v4
+        with:
+          name: green-arsenal-${{ matrix.preset }}-${{ github.run_number }}
+          # Spaces in the preset name are fine in artifact names.
+          path: ${{ matrix.artifact_path }}
+          if-no-files-found: error
